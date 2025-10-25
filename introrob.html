@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>apuntes-robotica &#8212; Cinemática y dinámica de robots</title>
+    <title>Una introducción a los manipuladores seriales &#8212; Cinemática y dinámica de robots</title>
   
   
   
@@ -57,9 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introrob';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Posición, orientación y transformaciones homogéneas" href="htra.html" />
+    <link rel="prev" title="Introducción" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,8 +179,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Una introducción a los manipuladores seriales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
@@ -259,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica/issues/new?title=Issue%20on%20page%20%2Fintrorob.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/introrob.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +299,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -360,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -371,11 +373,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>apuntes-robotica</h1>
+    <h1>Una introducción a los manipuladores seriales</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">¿Qué es un robot?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,9 +395,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="apuntes-robotica">
-<h1>apuntes-robotica<a class="headerlink" href="#apuntes-robotica" title="Link to this heading">#</a></h1>
-<p>Apuntes de cinemática y dinámica de robots</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="una-introduccion-a-los-manipuladores-seriales">
+<h1>Una introducción a los manipuladores seriales<a class="headerlink" href="#una-introduccion-a-los-manipuladores-seriales" title="Link to this heading">#</a></h1>
+<section id="que-es-un-robot">
+<h2>¿Qué es un robot?<a class="headerlink" href="#que-es-un-robot" title="Link to this heading">#</a></h2>
+<p>Según la norma ISO 8373:2012, un robot es un <em>mecanismo accionado programable en dos o más ejes con cierto grado de autonomía, que se mueve dentro de su entorno para realizar las tareas previstas</em>. Los mecanismos accionados que carecen de la cantidad de ejes programables o que son completamente teleoperados (sin grado de autonomía) pero satisfacen las definiciones de robots industriales o de servicio, se denominan dispositivos robóticos.</p>
+<p>Los robots se pueden clasificar en dos grandes tipos de acuerdo con su aplicación prevista: robots industriales o robots de servicio. Los robots industriales son robots <em>para uso en aplicaciones de automatización industrial</em>, mientras que un robot de servicio <em>realiza tareas útiles para humanos o equipos, excluyendo aplicaciones de automatización industrial.</em></p>
+<p>El tipo de estructura mecánica y/o la composición cinemática de un robot es insuficiente para distinguir los robots industriales de los de servicio. Por lo tanto, según la definición de ISO, la aplicación es un criterio suficiente para distinguir los robots industriales de los de servicio, pero la cinemática no lo es.</p>
+<p>Un <strong>robot industrial</strong> es un <em>manipulador multipropósito, reprogramable y controlado automáticamente, programable en tres o más ejes, que puede ser fijo o móvil para su uso en aplicaciones de automatización industrial</em>.</p>
+<p>Es decir, los robots industriales tienen al menos tres ejes (direcciones utilizadas para especificar el movimiento del robot en modo lineal o giratorio) y satisfacen todas las características que a continuación se describen:</p>
+<ul class="simple">
+<li><p><strong>Controlado automáticamente</strong>: el sistema de control del robot funciona de acuerdo con el programa de tareas. El programa de tareas es un conjunto de instrucciones para funciones de movimiento y auxiliares que definen la tarea específica prevista. Lo opuesto a la operación controlada automáticamente es la operación manual, donde un operador humano usa dispositivos de entrada para controlar los movimientos de la máquina.</p></li>
+<li><p><strong>Reprogramable</strong>: diseñado para que los movimientos programados o las funciones auxiliares puedan cambiarse sin alteración física. Las alteraciones físicas son alteraciones del sistema mecánico. Esto no incluye medios de almacenamiento, ROM, etc.</p></li>
+<li><p><strong>Multipropósito</strong>: capaz de adaptarse a una aplicación diferente con alteración física.</p></li>
+<li><p><strong>Fijo en su lugar o móvil</strong>: el robot se puede montar en un punto estacionario pero también se puede montar en un punto no estacionario (sobre un riel, por ejemplo). En los últimos años, se popularizó la combinación de brazos robóticos y Robots Móviles Autónomos (AMR).</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -399,16 +422,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "conda-base-py"
         },
         kernelOptions: {
-            name: "python3",
+            name: "conda-base-py",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'conda-base-py'</script>
 
                 </article>
               
@@ -420,12 +443,45 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="htra.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Posición, orientación y transformaciones homogéneas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">¿Qué es un robot?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

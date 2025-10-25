@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Preliminares matemáticos &#8212; Cinemática y dinámica de robots</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'premat';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Métodos numéricos para resolver ecuaciones diferenciales" href="numed.html" />
+    <link rel="prev" title="Generación de trayectorias" href="gentra.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Cinemática y dinámica de robots - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="Cinemática y dinámica de robots - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica/issues/new?title=Issue%20on%20page%20%2Fpremat.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/premat.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Preliminares matemáticos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">Suma de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">Multiplicación por un escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">Transpuesta de una matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">Matrices antisimétricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">Producto punto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">Producto vectorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">Ángulo entre dos vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">Proyección escalar y vectorial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">Trigonometría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">Relaciones en un triángulo rectángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">Ley de senos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">Ley de cosenos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">Algunas identidades trigonométricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">Derivadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">Algunas fórmulas de derivadas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="preliminares-matematicos">
+<h1>Preliminares matemáticos<a class="headerlink" href="#preliminares-matematicos" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\vecuni}[1]{  \hat{\boldsymbol{\mathbf{#1}}} }
+\]</div>
+<p>En esta sección se hará un brevísimo repaso de algunos tópicos de matemáticas universitarias de importancia para el seguimiento del curso de Cinemática de Robots. Evidentemente, lo aquí descrito es una revisión muy rápida de dichos conceptos, si requiere información más detallada o específica al respecto, puede consultar en las referencias colocadas al pie de página. <a class="footnote-reference brackets" href="#mathbooks1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#mathbooks2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#mathbooks3" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+<section id="matrices">
+<h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
+<p>Una matriz es un arreglo rectangular bidimensional de números (o elementos) escritos entre corchetes. Cada número de la matriz se conoce como <em>elemento</em> o <em>entrada</em> de la matriz. Los elementos de una matriz están dispuestos en filas y columnas, se denota como una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span> (léase <em>m por n</em>) a aquella que se compone de <span class="math notranslate nohighlight">\(m\)</span> filas y <span class="math notranslate nohighlight">\(n\)</span> columnas. Usualmente para nombrar las matrices se utilizarán letras mayúsculas, por ejemplo sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span>, de manera general puede escribirse como:</p>
+<div class="math notranslate nohighlight" id="equation-gral-matrix">
+<span class="eqno">(3)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+A = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{bmatrix}
+\end{split}\]</div>
+<section id="suma-de-matrices">
+<h3>Suma de matrices<a class="headerlink" href="#suma-de-matrices" title="Link to this heading">#</a></h3>
+<p>La suma matricial está definida para matrices del mismo tamaño y se obtiene sumando los elementos correspondientes. Por ejemplo, sean <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> dos matrices de <span class="math notranslate nohighlight">\(2 \times 2\)</span> dadas por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \begin{bmatrix}
+a_{11} &amp; a_{12} \\
+a_{21} &amp; a_{22} 
+\end{bmatrix}
+\qquad ; \qquad
+B = \begin{bmatrix}
+b_{11} &amp; b_{12} \\
+b_{21} &amp; b_{22} 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A + B = \begin{bmatrix}
+a_{11} + b_{11} &amp; a_{12} + b_{12} \\
+a_{21} + b_{21} &amp; a_{22} + b_{22} 
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="multiplicacion-por-un-escalar">
+<h3>Multiplicación por un escalar<a class="headerlink" href="#multiplicacion-por-un-escalar" title="Link to this heading">#</a></h3>
+<p>Cuando una matriz se multiplica por un escalar, cada elemento de la matriz se múltiplica por dicho escalar. Sea <span class="math notranslate nohighlight">\(A\)</span> la matriz de <span class="math notranslate nohighlight">\(2\times 2\)</span> descrita con anterioridad y <span class="math notranslate nohighlight">\(k\)</span> un escalar, entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+k A = \begin{bmatrix}
+k a_{11} &amp; k a_{12} \\
+k a_{21} &amp; k a_{22} 
+\end{bmatrix} 
+\end{split}\]</div>
+</section>
+<section id="multiplicacion-de-matrices">
+<h3>Multiplicación de matrices<a class="headerlink" href="#multiplicacion-de-matrices" title="Link to this heading">#</a></h3>
+<p>Para que la multiplicación de matrices pueda efectuarse se debe cumplir que la matriz que premultiplica debe tener tantas columnas como filas tenga la que postmultiplica. En terminos más  \textit{amables}, sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de dimensiones <span class="math notranslate nohighlight">\(m \times n\)</span> y <span class="math notranslate nohighlight">\(B\)</span> una matriz de <span class="math notranslate nohighlight">\( p \times q \)</span>, para poder multiplicarlas necesariamente se debe cumplir que <span class="math notranslate nohighlight">\( n = p \)</span>, además, la matriz resultante tendrá un tamaño dado por <span class="math notranslate nohighlight">\( m \times q \)</span>.</p>
+<p>Sean <span class="math notranslate nohighlight">\( A \)</span> y <span class="math notranslate nohighlight">\( B \)</span> dos matrices tal que puede efectuarse el producto <span class="math notranslate nohighlight">\(AB\)</span> y sea <span class="math notranslate nohighlight">\(C\)</span> la matriz que resulta de efectuar dicho producto, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ C = AB \]</div>
+<p>Cada elemento de la matriz <span class="math notranslate nohighlight">\(C\)</span> se calcula de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ c_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \cdots + a_{in} b_{pj} \]</div>
+<p>Por ejemplo, sean <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> dos matrices de <span class="math notranslate nohighlight">\(2 \times 2\)</span> definidas como sigue:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} A = \begin{bmatrix}
+a_{11} &amp; a_{12} \\
+a_{21} &amp; a_{22} 
+\end{bmatrix}
+\qquad ; \qquad
+B = \begin{bmatrix}
+b_{11} &amp; b_{12} \\
+b_{21} &amp; b_{22} 
+\end{bmatrix}
+\end{split}\]</div>
+<p>El producto <span class="math notranslate nohighlight">\(AB\)</span> estará dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+AB = \begin{bmatrix}a_{11} b_{11} + a_{12} b_{21} &amp; a_{11} b_{12} + a_{12} b_{22}\\a_{21} b_{11} + a_{22} b_{21} &amp; a_{21} b_{12} + a_{22} b_{22}\end{bmatrix}
+\end{split}\]</div>
+<p>Puede verificarse que el producto de matrices satisface las siguientes propiedades:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( (AB)^T = B^T A^T \)</span>, para toda <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{m\times p}  \)</span> y <span class="math notranslate nohighlight">\( B \in \mathbb{R}^{p\times n} \)</span></p></li>
+<li><p>En general, <span class="math notranslate nohighlight">\(AB \neq BA\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( A(B+C) = AB + AC \)</span>, para toda <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{m\times p}  \)</span>, <span class="math notranslate nohighlight">\( B \in \mathbb{R}^{p\times n} \)</span>
+y <span class="math notranslate nohighlight">\( C \in \mathbb{R}^{p\times n} \)</span> .</p></li>
+<li><p><span class="math notranslate nohighlight">\( ABC = A(BC) = (AB)C \)</span>, para toda <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{m\times p}  \)</span>, <span class="math notranslate nohighlight">\( B \in \mathbb{R}^{p\times n} \)</span>
+y <span class="math notranslate nohighlight">\( C \in \mathbb{R}^{n\times r} \)</span> .</p></li>
+</ul>
+</section>
+<section id="transpuesta-de-una-matriz">
+<h3>Transpuesta de una matriz<a class="headerlink" href="#transpuesta-de-una-matriz" title="Link to this heading">#</a></h3>
+<p>La transpuesta de una matriz <span class="math notranslate nohighlight">\(A\)</span> de <span class="math notranslate nohighlight">\(m \times n\)</span> se denota como <span class="math notranslate nohighlight">\(A^T\)</span> y es una matriz de <span class="math notranslate nohighlight">\(n \times m\)</span> que tiene la primera fila de <span class="math notranslate nohighlight">\(A\)</span> como su primera columna, la segunda fila de <span class="math notranslate nohighlight">\(A\)</span> como su segunda columna y así de manera sucesiva. Por tanto la transpuesta de la matriz <span class="math notranslate nohighlight">\(A\)</span> dada en la ecuación <span class="xref std std-ref">gral_matrix</span> será:</p>
+<div class="math notranslate nohighlight" id="equation-transpose-matrix">
+<span class="eqno">(4)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+A^T = \begin{bmatrix}
+a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1} \\
+a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn}
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="matrices-antisimetricas">
+<h3>Matrices antisimétricas<a class="headerlink" href="#matrices-antisimetricas" title="Link to this heading">#</a></h3>
+<p>Se dice que una matriz <span class="math notranslate nohighlight">\(S\)</span> es antisimétrica si y sólo si:</p>
+<div class="math notranslate nohighlight">
+\[ S^T + S = 0 \]</div>
+<p>O en términos de sus elementos:</p>
+<div class="math notranslate nohighlight">
+\[ s_{ij} + s_{ji} =  0 \]</div>
+<p>De la ecuación anterior se puede observar que <span class="math notranslate nohighlight">\(s_{ii}=0\)</span>, es decir, que todos los elementos de la diagonal de <span class="math notranslate nohighlight">\(S\)</span> son ceros y que los elementos fuera de la diagonal: <span class="math notranslate nohighlight">\(s_{ij}\)</span> con <span class="math notranslate nohighlight">\(j \neq i\)</span>, satisfacen que <span class="math notranslate nohighlight">\(s_{ij} = -s_{ij}\)</span>. De manera particular, las matrices antisimétricas de <span class="math notranslate nohighlight">\(3 \times 3\)</span> contienen sólo tres cantidades independientes, cada matriz antisimétrica de <span class="math notranslate nohighlight">\( 3\times 3 \)</span> tiene la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} S = \begin{bmatrix}
+0    &amp; -s_3 &amp; s_2  \\
+s_3  &amp; 0    &amp; -s_1 \\
+-s_2 &amp; s_1  &amp; 0   
+\end{bmatrix} \end{split}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(\vec{a}\)</span> es un vector de tres componentes <span class="math notranslate nohighlight">\( \vec{a} = \left[a_1, a_2, a_3\right]^T\)</span>, podemos definir la matriz antisimétrica <span class="math notranslate nohighlight">\(S(\vec{a})\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} S(\vec{a}) = \begin{bmatrix}
+0    &amp; -a_3 &amp; a_2  \\
+a_3  &amp; 0    &amp; -a_1 \\
+-a_2 &amp; a_1  &amp; 0   
+\end{bmatrix} \end{split}\]</div>
+<p>Las matrices antisimétricas de <span class="math notranslate nohighlight">\(3\times 3\)</span> pueden ser utilizadas para representar el producto vectorial como un producto de matrices. Sean <span class="math notranslate nohighlight">\(\vec{a}\)</span> y <span class="math notranslate nohighlight">\( \vec{b} \)</span> dos vectores en <span class="math notranslate nohighlight">\( \mathbb{R}^3 \)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ S(\vec{a}) \vec{b} = \vec{a} \times \vec{b} \]</div>
+<p>Esto se puede verificar de forma sencilla desarrollando directamente ambos lados de la ecuación. El operador <span class="math notranslate nohighlight">\(S\)</span> es un operador lineal, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ S(\alpha \vec{a} + \beta \vec{b}) = \alpha S(\vec{a}) + \beta S(\vec{b}) \]</div>
+<p>Para cualesquiera vectores <span class="math notranslate nohighlight">\(\vec{a}\)</span> y <span class="math notranslate nohighlight">\(\vec{b}\)</span> en <span class="math notranslate nohighlight">\( \mathbb{R}^3 \)</span>, y escalares <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>Sea <span class="math notranslate nohighlight">\(R\)</span> una matriz ortogonal, y <span class="math notranslate nohighlight">\(\vec{a}\)</span> un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, se puede verificar que:</p>
+<div class="math notranslate nohighlight" id="equation-similarity-transformation-skew-symmetric-matrix">
+<span class="eqno">(5)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
+R S(\vec{a}) R^T = S(R\vec{a})
+\]</div>
+<p>El lado izquierdo de esta ecuación representa una transformación de similitud de la matriz <span class="math notranslate nohighlight">\(S(\vec{a})\)</span>. Esta ecuación establece que la representación matricial de <span class="math notranslate nohighlight">\( S(\vec{a}) \)</span> en un sistema de referencia rotado por <span class="math notranslate nohighlight">\(R\)</span> es la mismo que la matriz antisimétrica <span class="math notranslate nohighlight">\( S(R\vec{a}) \)</span> correspondiente al vector <span class="math notranslate nohighlight">\(\vec{a}\)</span> rotado por <span class="math notranslate nohighlight">\(R\)</span>.</p>
+</section>
+</section>
+<section id="vectores">
+<h2>Vectores<a class="headerlink" href="#vectores" title="Link to this heading">#</a></h2>
+<p>Un vector es una matriz que tiene una sola fila (vector fila) o columna (vector columna), en ambos casos a sus elementos se les conoce como componentes. En este texto usualmente se hará referencia a vectores columnas y de manera indistinta se denotarán como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{a} = \begin{bmatrix}
+a_1 \\ a_2 \\ \vdots \\ a_n
+\end{bmatrix}
+\qquad ; \qquad 
+\vec{a} = \begin{bmatrix}
+a_1 &amp; a_2 &amp; \cdots &amp; a_n
+\end{bmatrix}^T
+\end{split}\]</div>
+<section id="producto-punto">
+<h3>Producto punto<a class="headerlink" href="#producto-punto" title="Link to this heading">#</a></h3>
+<p>El producto punto o producto escalar está definido para dos vectores del mismo tamaño y da como resultado un escalar. Sean <span class="math notranslate nohighlight">\( \vec{u} = \left[ u_1 \, u_2 \, u_3 \right]^T \)</span> y <span class="math notranslate nohighlight">\( \vec{v} = \left[  v_1 \, v_2 \, v_3 \right]^T \)</span> dos vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, el producto escalar se calcula como:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3  \]</div>
+</section>
+<section id="producto-vectorial">
+<h3>Producto vectorial<a class="headerlink" href="#producto-vectorial" title="Link to this heading">#</a></h3>
+<p>El producto vectorial o producto cruz de dos vectores es una operación definida para vectores en un espacio tridimensional y del cual resulta un vector perpendicular a ambos involucrados. Sean <span class="math notranslate nohighlight">\( \vec{u} = \left[ u_1 \, u_2 \, u_3 \right]^T \)</span> y <span class="math notranslate nohighlight">\( \vec{v} = \left[ v_1 \, v_2 \, v_3 \right]^T \)</span> dos vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, entonces el producto vectorial está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{u} \times \vec{v} = 
+\begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix}
+\begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = 
+\begin{bmatrix} u_2 v_3 - u_3 v_2 \\ u_3 v_1 - u_1 v_3 \\ u_1 v_2 - u_2 v_1 \end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="angulo-entre-dos-vectores">
+<h3>Ángulo entre dos vectores<a class="headerlink" href="#angulo-entre-dos-vectores" title="Link to this heading">#</a></h3>
+<p>El ángulo entre dos vectores se puede calcular a partir de la definición del producto escalar. Se sabe que:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{u}\cdot\vec{v} = uv \cos \theta \]</div>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \cos^{-1} \left( \frac{ \vec{u}\cdot\vec{v} }{uv} \right) \]</div>
+</section>
+<section id="proyeccion-escalar-y-vectorial">
+<h3>Proyección escalar y vectorial<a class="headerlink" href="#proyeccion-escalar-y-vectorial" title="Link to this heading">#</a></h3>
+<p>La proyección escalar de un vector <span class="math notranslate nohighlight">\(\vec{u}\)</span> sobre un vector <span class="math notranslate nohighlight">\( \vec{v} \)</span> está dada por:</p>
+<div class="math notranslate nohighlight">
+\[ u_v = \vec{u} \cdot \vecuni{v} \]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ \vecuni{v} = \frac{\vec{v}}{v} \]</div>
+<p>La proyección vectorial de <span class="math notranslate nohighlight">\( \vec{u} \)</span> sobre <span class="math notranslate nohighlight">\( \vec{v} \)</span> se obtiene multiplicando el resultado anterior por un vector unitario en la dirección de <span class="math notranslate nohighlight">\( \vec{v} \)</span>, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{u}_v = u_v \vecuni{v} = \left( \vec{u} \cdot \vecuni{v} \right)  \vecuni{v}  \]</div>
+<p>En el caso particular de que los dos vectores involucrados sean unitarios, la proyección escalar de un vector unitario <span class="math notranslate nohighlight">\( \vecuni{u} \)</span> sobre un vector unitario <span class="math notranslate nohighlight">\( \vecuni{v} \)</span> está dada por:</p>
+<div class="math notranslate nohighlight">
+\[ u_v = \vecuni{u} \cdot \vecuni{v} \]</div>
+<p>De la definición del producto escalar se sabe que:</p>
+<div class="math notranslate nohighlight">
+\[ u_v = \vecuni{u} \cdot \vecuni{v} = uv \cos \theta \]</div>
+<p>Pero dado que <span class="math notranslate nohighlight">\( \vecuni{u} \)</span> y <span class="math notranslate nohighlight">\( \vecuni{v} \)</span> son vectores unitarios, entonces <span class="math notranslate nohighlight">\( u = v = 1 \)</span>, por lo tanto:</p>
+<div class="math notranslate nohighlight">
+\[ \vecuni{u} \cdot \vecuni{v} = \cos \theta \]</div>
+<p>Este resultado nos será útil posteriormente cuando estemos realizando descripción de orientaciones.</p>
+</section>
+</section>
+<section id="trigonometria">
+<h2>Trigonometría<a class="headerlink" href="#trigonometria" title="Link to this heading">#</a></h2>
+<section id="relaciones-en-un-triangulo-rectangulo">
+<h3>Relaciones en un triángulo rectángulo<a class="headerlink" href="#relaciones-en-un-triangulo-rectangulo" title="Link to this heading">#</a></h3>
+<p>El triángulo rectángulo es un tipo especial de triángulo que tiene un ángulo recto, es decir, un ángulo de 90°. Los otros dos ángulos agudos suman 90° también. La propiedad más distintiva de un triángulo rectángulo es que satisface el teorema de Pitágoras:</p>
+<div class="math notranslate nohighlight">
+\[ c^2 = a^2 + b^2 \]</div>
+<p>En un triángulo rectángulo, hay tres razones trigonométricas fundamentales asociadas con un ángulo agudo (<span class="math notranslate nohighlight">\(\alpha\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ \tan\alpha = \frac{b}{a} \]</div>
+<div class="math notranslate nohighlight">
+\[ \sin\alpha = \frac{b}{c} \]</div>
+<div class="math notranslate nohighlight">
+\[ \cos\alpha = \frac{a}{c} \]</div>
+<figure class="align-center" id="triangulo-rectangulo">
+<a class="reference internal image-reference" href="_images/triangulo_rectangulo.svg"><img alt="_images/triangulo_rectangulo.svg" src="_images/triangulo_rectangulo.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Triángulo rectángulo</span><a class="headerlink" href="#triangulo-rectangulo" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="relaciones-en-un-triangulo-oblicuangulo">
+<h3>Relaciones en un triángulo oblicuángulo<a class="headerlink" href="#relaciones-en-un-triangulo-oblicuangulo" title="Link to this heading">#</a></h3>
+<p>Un triángulo oblicuángulo es aquel en el cual ninguno de sus ángulos es recto. Para resolver un triángulo de este tipo, se pueden utilizar la ley de senos o la ley de cosenos, dependiendo de la información que se tenga disponible.</p>
+<section id="ley-de-senos">
+<h4>Ley de senos<a class="headerlink" href="#ley-de-senos" title="Link to this heading">#</a></h4>
+<p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 7</span></a> se cumple que:</p>
+<div class="math notranslate nohighlight" id="equation-ley-de-senos">
+<span class="eqno">(6)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
+\frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
+\]</div>
+<p>Esta expresión se conoce como la <strong>ley de senos</strong>. La ley de senos se puede enunciar de forma general como: <em>en cualquier triángulo, la razón entre el seno de un ángulo y el lado opuesto a ese ángulo es igual a la razón entre el seno de otro ángulo y el lado opuesto a ese ángulo.</em></p>
+<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(6)</a> se pueden obtener tres fórmulas:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sin\alpha}{a} = \frac{\sin\beta}{b}  \qquad ; \qquad
+\frac{\sin\alpha}{a} = \frac{\sin\gamma}{c} \qquad ; \qquad
+\frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
+\]</div>
+<p>Para aplicar cualquiera de estas fórmulas a un triángulo específico, debemos conocer los valores de tres de las cuatro variables. Si sustituimos estos tres valores en la fórmula apropiada, podemos entonces encontrar el valor de la cuarta variable. Se deduce que la ley de los senos se puede usar para hallar las partes restantes de un triángulo oblicuángulo, siempre que conozcamos cualquiera de lo siguiente:</p>
+<ul class="simple">
+<li><p>Dos lados y un ángulo opuesto a uno de ellos.</p></li>
+<li><p>Dos ángulos y cualquier lado.</p></li>
+</ul>
+<figure class="align-center" id="triangulo">
+<a class="reference internal image-reference" href="_images/triangulo.svg"><img alt="_images/triangulo.svg" src="_images/triangulo.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Triángulo oblicuángulo</span><a class="headerlink" href="#triangulo" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ley-de-cosenos">
+<h4>Ley de cosenos<a class="headerlink" href="#ley-de-cosenos" title="Link to this heading">#</a></h4>
+<p>La ley de senos no se puede utilizar para resolver un triángulo oblicuángulo en los siguientes casos:</p>
+<ul class="simple">
+<li><p>Se conocen dos lados y el ángulo entre ellos.</p></li>
+<li><p>Se conocen los tres lados.</p></li>
+</ul>
+<p>En estas situaciones podemos hacer uso de la <strong>ley de cosenos</strong>, la cual establece que para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 7</span></a> se cumplen las siguientes tres relaciones:</p>
+<div class="math notranslate nohighlight">
+\[ a^2 = b^2 + c^2 - 2bc \cos\alpha \]</div>
+<div class="math notranslate nohighlight">
+\[ b^2 = a^2 + c^2 - 2ac \cos\beta \]</div>
+<div class="math notranslate nohighlight">
+\[ c^2 = a^2 + b^2 - 2ab \cos\gamma \]</div>
+<p>La ley de cosenos se puede enunciar como <em>El cuadrado de la longitud de cualquier lado de un triángulo es igual a la suma de los cuadrados de las longitudes de los otros dos lados, menos el doble producto de las longitudes de los otros dos lados y el coseno del ángulo entre ellos.</em></p>
+</section>
+</section>
+<section id="algunas-identidades-trigonometricas">
+<h3>Algunas identidades trigonométricas<a class="headerlink" href="#algunas-identidades-trigonometricas" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ \sin(-\theta) = -\sin\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \cos(-\theta) = \cos\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \tan(-\theta) = -\tan\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \sin(\frac{\pi}{2} + \theta) = \cos\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \tan(\frac{\pi}{2} + \theta) = -\cot\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \tan(\theta - \pi) = \tan\theta \]</div>
+<div class="math notranslate nohighlight">
+\[ \sin(x \pm y) = \sin x \cos y \pm \cos x \sin y \]</div>
+<div class="math notranslate nohighlight">
+\[ \cos(x \pm y) = \cos x \cos y \mp \sin x \sin y \]</div>
+</section>
+<section id="la-funcion-arcotangente-de-dos-argumentos-text-arctan2">
+<h3>La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span><a class="headerlink" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2" title="Link to this heading">#</a></h3>
+<p>La función arcotangente (<span class="math notranslate nohighlight">\(\arctan\)</span>) nos permite calcular de forma adecuada un ángulo en el rango (-90°, 90°), es decir, aquellos que corresponden al primer y cuarto cuadrante del plano cartesiano. Sin embargo, cuando el ángulo que queremos calcular corresponde al segundo o tercer cuadrante, la función <span class="math notranslate nohighlight">\(\arctan\)</span> no puede manejarlo de forma apropiada. Por ejemplo, vamos a suponer que queremos calcular la dirección <span class="math notranslate nohighlight">\(\theta\)</span> del vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> mostrado en la Figura <a class="reference internal" href="#arctan2"><span class="std std-ref">.</span></a>, utilizando la función arctangente tendríamos que:</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \arctan\left( \frac{1}{-1} \right) = \arctan\left(-1\right) = -45° \]</div>
+<figure class="align-center" id="arctan2">
+<a class="reference internal image-reference" href="_images/arctan2.svg"><img alt="_images/arctan2.svg" src="_images/arctan2.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Es evidente que el resultado anterior nos da un ángulo ubicado en el cuarto cuadrante, lo cual no corresponde con lo observado en la figura. Como se había mencionado, la función arcotangente ordinaria no puede manejar adecuadamente resultados cuando <span class="math notranslate nohighlight">\( x &lt; 0 \)</span>, puesto que al recibir un argumento único no tiene manera de saber si el signo negativo corresponde a la componente <span class="math notranslate nohighlight">\(y\)</span> o a la de <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span> permite calcular correctamente ángulos en todos los cuadrantes, dado que preserva la información correspondiente a los signos de cada una de las componentes. De forma simple podemos definir esta función como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{arctan2} (y,x) = 
+\left\{
+\begin{matrix}
+\arctan\left( \frac{y}{x} \right) &amp; \text{para } x &gt; 0 \\
+ &amp; \\
+\arctan\left( \frac{y}{x} \right) + 180° &amp; \text{para } x &lt; 0 \\
+\end{matrix} 
+\right.
+\end{split}\]</div>
+<p>Con ayuda de esta función podríamos ahora recalcular el ángulo <span class="math notranslate nohighlight">\(\theta\)</span>, de lo cual tendríamos que:</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \text{arctan2}\left( 1, -1 \right) \]</div>
+<p>Dado que el segundo argumento es negativo (<span class="math notranslate nohighlight">\( x &lt; 0 \)</span>), entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \text{arctan2}\left( 1, -1 \right) = \arctan\left( \frac{1}{-1} \right) + 180° = \arctan\left(-1\right) + 180° = -45° + 180° = 135° \]</div>
+<p>Este resultado si que es correcto. En términos descriptivos podríamos considerar que la función arcotangente de dos argumentos hace una <em>corrección</em> a la función arcotangente en el caso de que la componente en <span class="math notranslate nohighlight">\(x\)</span> sea negativa. Esta corrección consiste en sumar 180° al resultado obtenido.</p>
+<p>Hay un par de situaciones en las que hay que tener cuidado con la función arcotangente, puesto que si procedemos de forma usual nos conducirá a un error de cálculo, observa lo que ocurre si quisiéramos calcular la dirección del vector <span class="math notranslate nohighlight">\( \vec{q} \)</span> mostrado en la Figura <a class="reference internal" href="#arctan2-2"><span class="std std-ref">.</span></a>, tendríamos que:</p>
+<div class="math notranslate nohighlight">
+\[ \theta = \arctan\left( \frac{1}{0} \right) \]</div>
+<p>Dado que la componente <span class="math notranslate nohighlight">\(x = 0\)</span>, nuestra operación implica una división por cero, lo cual nos conduce a una indefinición. Algo similar ocurre en el caso de la dirección <span class="math notranslate nohighlight">\(\beta\)</span> del vector <span class="math notranslate nohighlight">\( \vec{u} \)</span>. No podemos calcular numéricamente los ángulos, pero por inspección podemos verificar que <span class="math notranslate nohighlight">\(\theta = 90°\)</span> y <span class="math notranslate nohighlight">\(\beta = -90°\)</span>.</p>
+<figure class="align-center" id="arctan2-2">
+<a class="reference internal image-reference" href="_images/arctan2_2.svg"><img alt="_images/arctan2_2.svg" src="_images/arctan2_2.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2-2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Tomando en cuenta lo anterior, una definición un poco más completa para la función arcotangente de dos argumentos incluye estos dos casos particulares:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{arctan2} (y,x) = 
+\left\{
+\begin{matrix}
+\arctan\left( \frac{y}{x} \right) &amp; \text{para } x &gt; 0 \\
+ &amp; \\
+\arctan\left( \frac{y}{x} \right) + 180° &amp; \text{para } x &lt; 0 \\
+ &amp; \\
+90° &amp; \text{para } x = 0; \, y &gt; 0. \\
+-90° &amp; \text{para } x = 0; \,y &lt; 0. 
+\end{matrix} 
+\right.
+\end{split}\]</div>
+<p>Normalmente las calculadoras de bolsillo no nos dan la posibilidad de calcular de manera directa mediante la función <span class="math notranslate nohighlight">\(\text{arctan2}\)</span>, así que usualmente tenemos que hacer uso de <span class="math notranslate nohighlight">\(\arctan\)</span> y hacer la corrección manualmente en el caso que corresponda. Por otro lado, los lenguajes de programación y los programas de cálculo numérico, suelen incluir una función arcotangente de dos argumentos. Por ejemplo, en Python se puede utilizar la librería <code class="docutils literal notranslate"><span class="pre">math</span></code>, tal como se muestra en el siguiente bloque de código:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">atan2</span><span class="p">,</span> <span class="n">degrees</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degrees</span><span class="p">(</span><span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>135.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="derivadas">
+<h2>Derivadas<a class="headerlink" href="#derivadas" title="Link to this heading">#</a></h2>
+<p>El problema de encontrar la recta tangente a una curva y el problema de encontrar la velocidad de un objeto implican encontrar el mismo tipo de límite. Este tipo especial de límite se denomina <em>derivada</em> y se puede interpretar como una razón de cambio en muchas aplicaciones de ingeniería \cite{stewart}. En una gran parte de este texto utilizaremos derivadas para describir la cinemática de manipuladores, de manera específica para calcular las velocidades y aceleraciones a partir de la información de posición.</p>
+<p>De manera general, la derivada de una función <span class="math notranslate nohighlight">\(f\)</span> en un número <span class="math notranslate nohighlight">\(a\)</span>, denotada por <span class="math notranslate nohighlight">\(f'(a)\)</span>, es:</p>
+<div class="math notranslate nohighlight" id="equation-derivada-cte">
+<span class="eqno">(7)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
+f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} 
+\]</div>
+<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(7)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} 
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\( f'(t) \)</span> es una nueva función llamada <strong>derivada de <span class="math notranslate nohighlight">\(f\)</span></strong>, la cual geométricamente se puede interpretar como la pendiente de la recta tangente a la gráfica de <span class="math notranslate nohighlight">\(f\)</span> en el punto <span class="math notranslate nohighlight">\((t, f(t))\)</span>.</p>
+<section id="algunas-formulas-de-derivadas">
+<h3>Algunas fórmulas de derivadas<a class="headerlink" href="#algunas-formulas-de-derivadas" title="Link to this heading">#</a></h3>
+<p>A continuación, se listan algunas fórmulas de derivadas que serán utilizadas de forma recurrente a lo largo de algunos capítulos de este texto. En general, dado que estaremos trabajando con la descripción de cinemática y dinámica de cuerpos rígidos, se considerará que la variable independiente es el tiempo <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>En lo subsiguiente se utilizará la <em>notación de Newton</em> para las derivadas, de tal manera que, suponiendo que se tiene una <span class="math notranslate nohighlight">\(x(t)\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dx}{dt} = \dot{x} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2x}{dt^2} = \ddot{x} \]</div>
+<p>Sean <span class="math notranslate nohighlight">\( u = u(t) \)</span>, <span class="math notranslate nohighlight">\( v = v(t) \)</span> y <span class="math notranslate nohighlight">\( w = w(t)\)</span>, funciones escalares dependientes de <span class="math notranslate nohighlight">\(t\)</span>; y sea <span class="math notranslate nohighlight">\(a\)</span> un escalar constante.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left( a u \right) = a \dot{u} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left( u + v \right) = \dot{u} + \dot{v} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left( uv \right) = \dot{u}v + u\dot{v} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left( uvw \right) = \dot{u}vw + u\dot{v}w + uv\dot{w} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left( u^n \right) = n \dot{u} u^{n-1}  \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \sin u  = \dot{u} \cos u \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \cos u = - \dot{u} \sin u \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \sin(u + a)  = \dot{u} \cos(u+a) \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \cos(u + a) = - \dot{u} \sin(u+a) \]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\frac{d}{dt} \sin \left( u + v \right) = 
+\left( \dot{u} + \dot{v} \right) \cos \left(u+v\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\frac{d}{dt} \cos \left( u + v \right) = 
+- \left( \dot{u} + \dot{v} \right) \sin \left(u+v\right)
+\]</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="mathbooks1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Strang, G., &amp; Villagómez, H. (2007). Algebra lineal y sus aplicaciones. México: Thomson.</p>
+</aside>
+<aside class="footnote brackets" id="mathbooks2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Grossman, S. I. (1996). Algebra lineal. México: McGraw-Hill.</p>
+</aside>
+<aside class="footnote brackets" id="mathbooks3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Stewart, J. (2018). Cálculo de una variables, trascendentes tempranas. México: Cengage.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-base-py"
+        },
+        kernelOptions: {
+            name: "conda-base-py",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-base-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gentra.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Generación de trayectorias</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="numed.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Métodos numéricos para resolver ecuaciones diferenciales</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">Suma de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">Multiplicación por un escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">Transpuesta de una matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">Matrices antisimétricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">Producto punto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">Producto vectorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">Ángulo entre dos vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">Proyección escalar y vectorial</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">Trigonometría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">Relaciones en un triángulo rectángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">Ley de senos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">Ley de cosenos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">Algunas identidades trigonométricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">Derivadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">Algunas fórmulas de derivadas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pedro Jorge De Los Santos
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

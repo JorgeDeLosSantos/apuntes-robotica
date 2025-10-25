@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,12 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"TeX": {"Macros": {"RR": "\\mathbb{R}", "CC": "\\mathbb{C}", "NN": "\\mathbb{N}", "ZZ": "\\mathbb{Z}", "QQ": "\\mathbb{Q}", "EE": "\\mathbb{E}", "PP": "\\mathbb{P}", "ddx": "\\frac{d}{dx}", "ddt": "\\frac{d}{dt}", "grad": "\\nabla", "div": "\\nabla\\cdot", "curl": "\\nabla\\times", "prob": ["\\mathbb{P}\\left(#1\\right)", 1], "expect": ["\\mathbb{E}\\left[#1\\right]", 1], "var": ["\\operatorname{Var}\\left(#1\\right)", 1], "cov": ["\\operatorname{Cov}\\left(#1\\right)", 1], "bm": ["\\boldsymbol{#1}", 1], "vect": ["\\mathbf{#1}", 1], "mat": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'htra';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Introducción" href="intro.html" />
+    <link rel="next" title="Cinemática directa" href="fkin.html" />
+    <link rel="prev" title="Una introducción a los manipuladores seriales" href="introrob.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,8 +155,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Cinemática y dinámica de robots - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cinemática y dinámica de robots - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Cinemática y dinámica de robots - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="Cinemática y dinámica de robots - Home"/>`);</script>
   
   
 </a></div>
@@ -181,7 +182,14 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -378,6 +386,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">Representación de la posición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">Representación de la orientación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">Matrices de rotación</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -410,11 +422,105 @@ document.write(`
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En la Figura \ref{fig:pos_02} se muestra un punto <span class="math notranslate nohighlight">\(P\)</span> y dos sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span> y <span class="math notranslate nohighlight">\(\framei{1}\)</span>. Donde el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> se obtiene mediante operaciones de  traslación a partir de <span class="math notranslate nohighlight">\(\framei{1}\)</span>. La descripción de <span class="math notranslate nohighlight">\(P\)</span> en cada uno de los sistemas de referencia está dada por:</p>
+<p>En la Figura <a class="reference internal" href="#rep-pos-02"><span class="std std-numref">Fig. 2</span></a> se muestra un punto <span class="math notranslate nohighlight">\(P\)</span> y dos sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span> y <span class="math notranslate nohighlight">\(\framei{1}\)</span>. Donde el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> se obtiene mediante operaciones de  traslación a partir de <span class="math notranslate nohighlight">\(\framei{1}\)</span>. La descripción de <span class="math notranslate nohighlight">\(P\)</span> en cada uno de los sistemas de referencia está dada por:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{r}_P^0 = \colvec{5}{2}{0} \qquad ; \qquad \vec{r}_P^1 = \colvec{2}{-3}{0}
 \]</div>
+<p>Es más, notará que tal como se muestra en la Figura <a class="reference internal" href="#rep-pos-03"><span class="std std-numref">Fig. 3</span></a> las posiciones descritas en ambos sistemas están relacionadas mediante:</p>
+<div class="math notranslate nohighlight" id="equation-rep-pos">
+<span class="eqno">(1)<a class="headerlink" href="#equation-rep-pos" title="Link to this equation">#</a></span>\[
+\vec{r}_P^{0} = \vec{r}_{o_1}^0 + \vec{r}_P^{1}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\( \vec{r}_{o_1}^0 \)</span> describe la posición del origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span>. Se debe tener cuidado con la ecuación <a class="reference internal" href="#equation-rep-pos">(1)</a>, puesto que únicamente se cumple cuando los dos sistemas de referencia involucrados son paralelos entre sí, en cualquier otra situación una expresión como esa no será válida.</p>
+<figure class="align-center" id="rep-pos-02">
+<a class="reference internal image-reference" href="_images/rep_pos_02.svg"><img alt="_images/rep_pos_02.svg" src="_images/rep_pos_02.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="rep-pos-03">
+<a class="reference internal image-reference" href="_images/rep_pos_03.svg"><img alt="_images/rep_pos_03.svg" src="_images/rep_pos_03.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-03" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="representacion-de-la-orientacion">
+<h2>Representación de la orientación<a class="headerlink" href="#representacion-de-la-orientacion" title="Link to this heading">#</a></h2>
+<p>La orientación de un cuerpo rígido en el espacio puede definirse mediante al menos tres parámetros, de su curso de física o estática elemental recordará que habitualmente se hace uso de los cosenos directores para dicha tarea. En cinemática de robots, además de los cosenos directores (agrupados en las matrices de rotación) se hace uso de otros métodos de representación como los ángulos de Euler, los cuaterniones y los pares de rotación.</p>
+<p>Para hacer la descripción de la orientación de un sólido rígido, es necesario adherir un sistema de referencia solidario al mismo, el cual nos servirá para realizar la representación de orientación con respecto a otros sistemas de referencia. Así pues, tome en cuenta que en esta sección estudiaremos relaciones de orientación entre sistemas de referencia, pero no pierda de vista que, en última instancia, los eslabones o cuerpos rígidos subyacen a estos sistemas.</p>
+<section id="matrices-de-rotacion">
+<h3>Matrices de rotación<a class="headerlink" href="#matrices-de-rotacion" title="Link to this heading">#</a></h3>
+<p>En la Figura <a class="reference internal" href="#rep-or-01"><span class="std std-numref">Fig. 4</span></a> se muestra un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> que ha sido obtenido a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span> mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Una manera de representar dicha rotación sería simplemente con el parámetro de rotación <span class="math notranslate nohighlight">\(\theta\)</span>, pero evidentemente esto no escalaría de manera adecuada para un caso de representación tridimensional.</p>
+<figure class="align-center" id="rep-or-01">
+<a class="reference internal image-reference" href="_images/rep_or_01.svg"><img alt="_images/rep_or_01.svg" src="_images/rep_or_01.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por rotación a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#rep-or-01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Otra opción es decribir las componentes de los ejes del sistema de referencia <span class="math notranslate nohighlight">\( \{1\} \)</span> en el sistema <span class="math notranslate nohighlight">\( \{0\} \)</span>, es decir, <span class="math notranslate nohighlight">\( \vec{x}_1^0 \)</span> y <span class="math notranslate nohighlight">\( \vec{y}_1^0 \)</span>. En el caso particular del ejemplo de la figura \ref{fig:rep_or_01} se puede observar que dichos vectores estarán dados por:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{x}_1^0 = \colvec{\cos\theta}{\sin\theta}{}  \qquad ; \qquad  \vec{y}_1^0 = \colvec{-\sin\theta}{\cos\theta}{} \]</div>
+<p>Si estos vectores se acomodan de tal manera que:</p>
+<div class="math notranslate nohighlight" id="equation-rotation-matrix-2x2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-rotation-matrix-2x2" title="Link to this equation">#</a></span>\[\begin{split} 
+R_1^0 = \begin{bmatrix}
+\vec{x}_1^0 &amp; \vec{y}_1^0
+\end{bmatrix}  = 
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta \\
+\sin\theta &amp; \cos\theta
+\end{bmatrix}
+\end{split}\]</div>
+<p>Se obtiene un arreglo conocido como \textbf{matriz de rotación}, la cual presenta algunas propiedades particulares que se describirán posteriormente. La matriz <span class="math notranslate nohighlight">\( R_1^0 \)</span> contiene la información necesaria para describir la orientación del sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span>.</p>
+<p>Un resultado similar se puede obtener si la descripción del sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> en <span class="math notranslate nohighlight">\( \{0\} \)</span> se hace mediante la proyección escalar de cada uno de los ejes, por ejemplo,  <span class="math notranslate nohighlight">\( \vec{x}_1^0 \)</span> y  <span class="math notranslate nohighlight">\( \vec{y}_1^0 \)</span> se pueden expresar como:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{x}_1^0 = \colvec{ \vec{x}_1 \cdot \vec{x}_0 }{ \vec{x}_1 \cdot \vec{y}_0 }{} 
+= \colvec{\cos\theta}{\cos(90°-\theta)}{} = \colvec{\cos\theta}{\sin\theta}{}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{y}_1^0 = \colvec{ \vec{y}_1 \cdot \vec{x}_0 }{ \vec{y}_1 \cdot \vec{y}_0 }{} = 
+\colvec{\cos(90°+\theta)}{\cos\theta}{} = \colvec{-\sin\theta}{\cos\theta}{}
+\]</div>
+<p>Recordar que en el caso de vectores unitarios la proyección escalar de un vector sobre el otro resulta simplemente en el coseno del ángulo <span class="math notranslate nohighlight">\(\theta\)</span> que forman entre ellos.</p>
+<p>La descripción de los tres ejes coordenados se puede completar considerando que el eje <span class="math notranslate nohighlight">\(z_1\)</span> permanece invariable, apuntando en la misma dirección que el eje <span class="math notranslate nohighlight">\(z_0\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#basic-rot"><span class="std std-ref">Un sistema  \{1\}  obtenido por una rotación alrededor de z a partir de  \{0\} </span></a>. Así, es posible ampliar la matriz de la ecuación <a class="reference internal" href="#equation-rotation-matrix-2x2">(2)</a> considerando ahora las componentes en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, es decir:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_1^0 = \begin{bmatrix}
+\vec{x}_1^0 &amp; \vec{y}_1^0 &amp; \vec{z}_1^0
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+\vec{x}_1 \cdot \vec{x}_0 &amp; \vec{y}_1 \cdot \vec{x}_0 &amp; \vec{z}_1 \cdot \vec{x}_0 \\ 
+\vec{x}_1 \cdot \vec{y}_0 &amp; \vec{y}_1 \cdot \vec{y}_0 &amp; \vec{z}_1 \cdot \vec{y}_0 \\
+\vec{x}_1 \cdot \vec{z}_0 &amp; \vec{y}_1 \cdot \vec{z}_0 &amp; \vec{z}_1 \cdot \vec{z}_0 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\theta &amp; \cos(90°+\theta) &amp; \cos 90° \\
+\cos(90°-\theta) &amp; \cos\theta &amp; \cos 90° \\
+\cos 90° &amp; \cos 90° &amp; \cos 0°
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_1^0 = 
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta &amp; 0 \\
+\sin\theta &amp; \cos\theta &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<figure class="align-center" id="basic-rot">
+<a class="reference internal image-reference" href="_images/basic_rot.svg"><img alt="_images/basic_rot.svg" src="_images/basic_rot.svg" width="50%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#basic-rot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 </section>
 
@@ -449,13 +555,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="introrob.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introducción</p>
+        <p class="prev-next-title">Una introducción a los manipuladores seriales</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="fkin.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cinemática directa</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -474,6 +589,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">Representación de la posición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">Representación de la orientación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">Matrices de rotación</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

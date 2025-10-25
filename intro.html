@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,12 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"TeX": {"Macros": {"RR": "\\mathbb{R}", "CC": "\\mathbb{C}", "NN": "\\mathbb{N}", "ZZ": "\\mathbb{Z}", "QQ": "\\mathbb{Q}", "EE": "\\mathbb{E}", "PP": "\\mathbb{P}", "ddx": "\\frac{d}{dx}", "ddt": "\\frac{d}{dt}", "grad": "\\nabla", "div": "\\nabla\\cdot", "curl": "\\nabla\\times", "prob": ["\\mathbb{P}\\left(#1\\right)", 1], "expect": ["\\mathbb{E}\\left[#1\\right]", 1], "var": ["\\operatorname{Var}\\left(#1\\right)", 1], "cov": ["\\operatorname{Cov}\\left(#1\\right)", 1], "bm": ["\\boldsymbol{#1}", 1], "vect": ["\\mathbf{#1}", 1], "mat": ["\\mathbf{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Posición, orientación y transformaciones homogéneas" href="htra.html" />
+    <link rel="next" title="Una introducción a los manipuladores seriales" href="introrob.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,8 +156,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Cinemática y dinámica de robots - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cinemática y dinámica de robots - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Cinemática y dinámica de robots - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="Cinemática y dinámica de robots - Home"/>`);</script>
   
   
 </a></div>
@@ -183,7 +183,14 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -392,86 +399,32 @@ document.write(`
                 <article class="bd-article">
                   
   <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
+\[
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
-\renewcommand{\vecg}[1]{\boldsymbol{#1}}\\\newcommand{\atantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) }
-% \newcommand{\arctantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) }\\\newcommand{\vecuni}[1]{  \hat{\boldsymbol{\mathbf{#1}}} }\\\newcommand{\framei}[1]{ \{#1\} }\\\newcommand{\ejt}[1]{e^{j\theta_{#1}}}
-\newcommand{\rp}[1]{\dot{r}_{#1}}
-\newcommand{\rpp}[1]{\ddot{r}_{#1}}
-\newcommand{\w}[1]{\omega_{#1}}\\% Integrales y sumatorias
-\newcommand{\sint}[4]{\int_{#1}^{#2} #3 \, #4}
-\newcommand{\sintp}[4]{\int_{#1}^{#2} \left( #3 \right) \, #4}
-\newcommand{\dint}[7]{\int_{#1}^{#2} \int_{#3}^{#4} #5 \, #6 \, #7 }
-\newcommand{\dintp}[7]{\int_{#1}^{#2} \int_{#3}^{#4} \left(#5\right) \, #6 \, #7 }
-\newcommand{\sumin}{ \mathlarger{\sum}_{i=1}^n }\\% Paréntesis y llaves
+\newcommand{\framei}[1]{ \{#1\} }
+% Paréntesis y llaves
 \newcommand{\rbr}[1]{ \left( #1 \right) }
 \newcommand{\sbr}[1]{ \left[ #1 \right] }
 \newcommand{\cbr}[1]{ \left\{ #1 \right\} }
-\newcommand{\abr}[1]{ \langle #1 \rangle }\\% Paréntesis y llaves, con fracciones
-\newcommand{\frbr}[2]{ \left( \frac{#1}{#2} \right) }
-\newcommand{\fsbr}[2]{ \left[ \frac{#1}{#2} \right] }
-\newcommand{\fcbr}[2]{ \left\{ \frac{#1}{#2} \right\} }
-\newcommand{\fabr}[2]{ \langle \frac{#1}{#2} \rangle }
-\newcommand{\ffrac}[4]{ \frac{ \frac{#1}{#2} }{ \frac{#3}{#4} } }\\\begin{split}% Euler-lagrange notation
-\newcommand{\La}{\mathcal{L}} 
-\newcommand{\Ki}{\mathcal{K}} 
-\newcommand{\Po}{\mathcal{P}} 
-\newcommand{\LaEq}[1]{
-\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right) - \frac{\partial\mathcal{L}}{\partial q_{#1}} = \tau_{#1}
-}
-\newcommand{\LaEqA}[1]{\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right)}
-\newcommand{\LaEqB}[1]{\frac{\partial\mathcal{L}}{\partial q_{#1}}}
-\newcommand{\tauvec}{ \bm{\tau} } 
-\newcommand{\KiEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} +
-\frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
-\newcommand{\KiTraEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} } 
-\newcommand{\KiRotEq}[1]{ \frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
-\newcommand{\PoEq}[1]{ - m_{#1} \vec{g}^T \vec{r}_{G_#1} } 
-\newcommand{\Icm}[1]{ I_{#1}^{{#1}'} } 
-\newcommand{\Isym}[1]{ 
-\begin{bmatrix} 
-I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
-0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \\
-0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \\
-\end{bmatrix} 
-} \end{split}\\\newcommand{\rG}[1]{ \vec{r}_{G_{#1}} } 
-\newcommand{\vG}[1]{ \vec{v}_{G_{#1}} }
-\newcommand{\lc}[1]{ l_{c_{#1}} }\\\newcommand{\qp}[1]{\dot{q}_{#1}}
-\newcommand{\qpp}[1]{\ddot{q}_{#1}} \\% Christoffel symbols
-\newcommand{\cijk}[3]{
-\frac{1}{2} \left( 
-\frac{\partial m_{#1#2}}{\partial q_{#3}} + 
-\frac{\partial m_{#1#3}}{\partial q_{#2}} -
-\frac{\partial m_{#2#3}}{\partial q_{#1}}
-\right)
-} \\
-% \newcommand{\wijk}[3]{ \boldsymbol{\omega}_{#2,#3}^{#1}}
-\newcommand{\W}{\boldsymbol{\omega}}\\\renewcommand{\aa}[1]{\alpha_{#1}} % Aceleración angular
-\newcommand{\cdt}[1]{c\theta_{#1}}
-\newcommand{\sdt}[1]{s\theta_{#1}}
-\newcommand{\tdt}[1]{t\theta_{#1}}\\\newcommand{\cdq}[1]{cq_{#1}}
-\newcommand{\sdq}[1]{sq_{#1}}
-\newcommand{\tdq}[1]{tq_{#1}}\\\newcommand{\symlist}{\bullet}
-\newcommand{\cda}[1]{c\alpha_{#1}}
-\newcommand{\sda}[1]{s\alpha_{#1}}\\\begin{split}\newcommand{\cdtt}[2]{c\left(\theta_{#1} + \theta_{#2} \right)}
-\newcommand{\sdtt}[2]{s\left(\theta_{#1} + \theta_{#2} \right)}
-\newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}
-\newcommand{\rowvec}[3]{\begin{bmatrix}#1&amp;#2&amp;#3\end{bmatrix}}
-\newcommand{\colvech}[4]{\begin{bmatrix}#1\\#2\\#3 \\ #4\end{bmatrix}}\end{split}\\% transformaciones
+\newcommand{\W}{\boldsymbol{\omega}}
+% transformaciones
 \newcommand{\Tij}[2]{T_{#1}^{#2}}
 \newcommand{\Rij}[2]{R_{#1}^{#2}}
-\renewcommand{\veci}[2]{\boldsymbol{\mathbf{r}}_{#1}^{#2}}\\\DeclareMathOperator{\arctantwo}{arctan2}
-\DeclareMathOperator{\sen}{sen}\end{aligned}\end{align} \]</div>
-<p>La versión actual de este documento es un borrador incompleto e inconexo en algunas secciones, sin una revisión exhaustiva del contenido. Tome sus precauciones al respecto.</p>
+\renewcommand{\veci}[2]{\boldsymbol{\mathbf{r}}_{#1}^{#2}}
+\]</div>
 <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido que podría estar incompleto e inconexo. <strong>Fecha de última actualización: 24/10/2025</strong></p>
+</div>
 <p>Estos apuntes se han elaborado con la finalidad de servir como una referencia rápida para los alumnos de los cursos de Cinemática de Robots y Dinámica de Robots de la Universidad Politécnica de Guanajuato, para sumar a su formación conocimientos sólidos en materia del análisis de manipuladores seriales.</p>
 <p>La idea de este texto es proporcionar contenido que sea <em>digerible</em> para el alumno, incluyendo ejemplos, ejercicios, ejercicios para resolver con la computadora, videos, animaciones, entre otros recursos, que le ayuden a asimilar los temas correspondientes de una mejor manera.</p>
 <section id="sobre-la-notacion">
 <h2>Sobre la notación<a class="headerlink" href="#sobre-la-notacion" title="Link to this heading">#</a></h2>
 <p>A continuación se listan y describen una serie de convenciones y notación a utilizar en el desarrollo del texto:</p>
 <ul class="simple">
-<li><p>Las cantidades vectoriales son representadas mediante letras en negritas, por ejemplo: <span class="math notranslate nohighlight">\(\vect{u}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\( \vec{A} \)</span> y <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
+<li><p>Las cantidades vectoriales son representadas mediante letras en negritas, por ejemplo: <span class="math notranslate nohighlight">\(\vec{u}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\( \vec{A} \)</span> y <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p></li>
 <li><p>Se utilizan paréntesis para numerar las juntas o articulaciones, corchetes para los eslabones y llaves para los sistemas de referencia. Ejemplo: {\it El sistema de referencia <span class="math notranslate nohighlight">\(\{3\}\)</span> está adherido al eslabón <span class="math notranslate nohighlight">\( \sbr{3} \)</span> y su eje <span class="math notranslate nohighlight">\(z\)</span> apunta en la dirección de accionamiento de la junta <span class="math notranslate nohighlight">\(\rbr{4}\)</span> .}</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Rij{n}{m} \)</span> denota una matriz de rotación que describe la orientación del sistema <span class="math notranslate nohighlight">\(\{n\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{m\}\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\( \Tij{n}{m} \)</span> denota una matriz de transformación homogénea que describe la posición y orientación del sistema <span class="math notranslate nohighlight">\(\{n\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{m\}\)</span>.</p></li>
@@ -497,12 +450,11 @@ I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
 </ul>
 <p><em>Pedro Jorge De Los Santos</em></p>
 <p><em>Guanajuato, México.</em></p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
-</ul>
-</div>
+<!-- ```{tableofcontents}
+``` -->
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -536,11 +488,11 @@ I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="htra.html"
+       href="introrob.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Posición, orientación y transformaciones homogéneas</p>
+        <p class="prev-next-title">Una introducción a los manipuladores seriales</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -429,20 +429,21 @@ document.write(`
 <p>El método de Euler es la técnica de aproximación más elemental para resolver problemas con valores iniciales. Aunque rara vez se usa en la práctica, la simplicidad de su derivación puede usarse para ilustrar las técnicas involucradas en la construcción de algunas de las técnicas más avanzadas, sin el engorroso álgebra que acompaña a estas construcciones.</p>
 <p>El objetivo del método de Euler es obtener aproximaciones al problema de valor inicial:</p>
 <div class="math notranslate nohighlight" id="equation-ivp">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ivp" title="Link to this equation">#</a></span>\[
+<span class="eqno">(30)<a class="headerlink" href="#equation-ivp" title="Link to this equation">#</a></span>\[
 \frac{dy}{dt} = f(t,y) \,; \qquad  a\leq t \leq b \, ;
 \qquad y(t_0) = y_0
 \]</div>
-<p>El método de Euler consiste en ir trazando rectas tangentes sucesivas a partir del valor inicial. Comenzamos linealizando la solución desconocida <span class="math notranslate nohighlight">\(y(t)\)</span> de <a class="reference internal" href="#equation-ivp">(8)</a> en <span class="math notranslate nohighlight">\( t=t_0 \)</span>:</p>
+<p>El método de Euler consiste en ir trazando rectas tangentes sucesivas a partir del valor inicial. Comenzamos linealizando la solución desconocida <span class="math notranslate nohighlight">\(y(t)\)</span> de <a class="reference internal" href="#equation-ivp">(30)</a> en <span class="math notranslate nohighlight">\( t=t_0 \)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-lin">
-<span class="eqno">(9)<a class="headerlink" href="#equation-lin" title="Link to this equation">#</a></span>\[
+<span class="eqno">(31)<a class="headerlink" href="#equation-lin" title="Link to this equation">#</a></span>\[
 L(t) = y_0 + f(t_0, y_0) (t - t_0)
 \]</div>
-<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 10</span></a>:</p>
+<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 19</span></a>:</p>
 <figure class="align-center" id="euler-method">
-<a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Ahora, considerando un incremento <span class="math notranslate nohighlight">\(h\)</span> positivo en el eje <span class="math notranslate nohighlight">\(t\)</span>, al reemplazar <span class="math notranslate nohighlight">\(t\)</span> por <span class="math notranslate nohighlight">\(t_1 = t_0 + h\)</span> en \ref{eq:lin} se tiene:</p>
@@ -461,7 +462,7 @@ y(t_2) = y(t_0 + 2h) = y(t_1 + h) \approx y_2 = y_1 + h f(t_1, y_1)
 \]</div>
 <p>Si continuamos de esta manera, las sucesivas aproximaciones se pueden expresar de manera general como:</p>
 <div class="math notranslate nohighlight" id="equation-euler-method">
-<span class="eqno">(10)<a class="headerlink" href="#equation-euler-method" title="Link to this equation">#</a></span>\[
+<span class="eqno">(32)<a class="headerlink" href="#equation-euler-method" title="Link to this equation">#</a></span>\[
 y_{i+1} = y_i + h f(t_i, y_i)
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(t_i = t_0 + ih\)</span>, donde <span class="math notranslate nohighlight">\(i=0,1,2,\cdots\)</span>. Observe que cada aproximación se realiza con base en la estimación previa.</p>
@@ -487,12 +488,12 @@ y_{i+1} = y_i + h f(t_i, y_i)
 <p>Así, la aproximación buscada es <span class="math notranslate nohighlight">\( y_{aprox}(0.5) \approx y_5 \approx 6.3 \)</span>. Se puede verificar de forma sencilla que la solución exacta para este problema de valor inicial está dada por:</p>
 <div class="math notranslate nohighlight">
 \[ y(t) = \frac{3}{2} t^2 + 2t + 5 \]</div>
-<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 11</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
+<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 20</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
 <figure class="align-center" id="euler-numed-example-01">
 <a class="reference internal image-reference" href="_images/euler_numed_example_01.pdf"><img alt="_images/euler_numed_example_01.pdf" src="_images/euler_numed_example_01.pdf" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -537,11 +538,12 @@ y_{i+1} = y_{i} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
 \[ k_3 = f\left(t_i + \frac{1}{2}h, y_i + \frac{1}{2}k_2 h \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ k_4 = f\left(t_i + h, y_i + k_3 h \right) \]</div>
-<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 12</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
+<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 21</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
 <figure class="align-center" id="rk4-slopes">
-<a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -651,21 +653,21 @@ y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
 \[ y(t_0) = y_0  \, ; \quad \dot{y}(t_0) = u_0 \]</div>
 <p>Este problema se puede escribir como un conjunto de dos ecuaciones diferenciales de primer orden, haciendo la sustitución:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-a">
-<span class="eqno">(11)<a class="headerlink" href="#equation-ode-so-system-a" title="Link to this equation">#</a></span>\[
+<span class="eqno">(33)<a class="headerlink" href="#equation-ode-so-system-a" title="Link to this equation">#</a></span>\[
 \dot{y} = u 
 \]</div>
 <p>Entonces:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-b">
-<span class="eqno">(12)<a class="headerlink" href="#equation-ode-so-system-b" title="Link to this equation">#</a></span>\[
+<span class="eqno">(34)<a class="headerlink" href="#equation-ode-so-system-b" title="Link to this equation">#</a></span>\[
 \dot{u} = f(t,y,u) 
 \]</div>
-<p>Las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(11)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(12)</a> conforman un sistema de dos ecuaciones diferenciales de primer orden. Ahora el problema se centra en determinar las funciones solución <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sujetas a las condiciones iniciales:</p>
+<p>Las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(33)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(34)</a> conforman un sistema de dos ecuaciones diferenciales de primer orden. Ahora el problema se centra en determinar las funciones solución <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sujetas a las condiciones iniciales:</p>
 <div class="math notranslate nohighlight">
 \[ y(t_0) = y_0   \, ; \quad u(t_0) = u_0 \]</div>
 <p>Este sistema de ecuaciones diferenciales se puede resolver numéricamente, aplicando algún método en particular a cada una de las ecuaciones.</p>
 <section id="id1">
 <h3>Método de Euler<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Así pues, la aproximación mediante el método de Euler para un sistema de EDO de primer orden como el de las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(11)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(12)</a>, se puede escribir como:</p>
+<p>Así pues, la aproximación mediante el método de Euler para un sistema de EDO de primer orden como el de las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(33)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(34)</a>, se puede escribir como:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{matrix}
@@ -757,7 +759,7 @@ u_{i+1} = u_i + h f(t_i, y_i, u_i)
 <span id="solving-ode-system"></span><h2>Sistemas de ecuaciones diferenciales de primer orden<a class="headerlink" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden" title="Link to this heading">#</a></h2>
 <p>Considerando que se tiene un sistema de <span class="math notranslate nohighlight">\(n\)</span> ecuaciones diferenciales de primer orden de la forma:</p>
 <div class="math notranslate nohighlight" id="equation-ode-system">
-<span class="eqno">(13)<a class="headerlink" href="#equation-ode-system" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(35)<a class="headerlink" href="#equation-ode-system" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{matrix}
 \displaystyle
 \frac{dy_1}{dt} = f_1(t, y_1, y_2, \cdots, y_n) \\[2mm]
@@ -773,7 +775,7 @@ u_{i+1} = u_i + h f(t_i, y_i, u_i)
 \[ y_1(t_0)=\alpha_1\,; \quad y_2(t_0) = \alpha_2\,; \quad  \cdots \, ; \quad y_n(t_0) = \alpha_n \]</div>
 <p>El sistema de ecuaciones y las condiciones iniciales se pueden escribir en forma vectorizada como:</p>
 <div class="math notranslate nohighlight" id="equation-ode-system-vectorized">
-<span class="eqno">(14)<a class="headerlink" href="#equation-ode-system-vectorized" title="Link to this equation">#</a></span>\[
+<span class="eqno">(36)<a class="headerlink" href="#equation-ode-system-vectorized" title="Link to this equation">#</a></span>\[
 \frac{d\vec{y}}{dt} = \vec{f}(t, \vec{y}) 
 \, ; \qquad
 \vec{y}(t_0) = \vec{y}_0 
@@ -796,10 +798,10 @@ f_n(t, \vec{y})
 \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n
 \end{bmatrix} 
 \end{split}\]</div>
-<p>Observe que la ecuación vectorial <a class="reference internal" href="#equation-ode-system-vectorized">(14)</a> es análoga a la ecuación escalar <a class="reference internal" href="#equation-ivp">(8)</a>. Las expresiones de las secciones previas se pueden utilizar para resolver el sistema de ecuaciones en forma vectorizada, haciendo los ajustes correspondientes en la formulación.</p>
+<p>Observe que la ecuación vectorial <a class="reference internal" href="#equation-ode-system-vectorized">(36)</a> es análoga a la ecuación escalar <a class="reference internal" href="#equation-ivp">(30)</a>. Las expresiones de las secciones previas se pueden utilizar para resolver el sistema de ecuaciones en forma vectorizada, haciendo los ajustes correspondientes en la formulación.</p>
 <section id="id2">
 <h3>Método de Euler<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Cada aproximación, mediante el método de Euler, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(14)</a> se puede determinar como sigue:</p>
+<p>Cada aproximación, mediante el método de Euler, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(36)</a> se puede determinar como sigue:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{y}_{i+1} = \vec{y}_i + h \, \vec{f}(t_i, \vec{y}_i)
@@ -821,7 +823,7 @@ f_n(t, \vec{y})
 </section>
 <section id="id3">
 <h3>Método de Runge-Kutta de cuarto orden<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Cada aproximación, mediante el método de Runge-Kutta de cuarto orden, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(14)</a> se puede determinar como sigue:</p>
+<p>Cada aproximación, mediante el método de Runge-Kutta de cuarto orden, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(36)</a> se puede determinar como sigue:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{y}_{i+1} = \vec{y}_i + \frac{h}{6}\left( \vec{k}_1 + 2\vec{k}_2 + 2\vec{k}_3 + \vec{k}_4 \right)

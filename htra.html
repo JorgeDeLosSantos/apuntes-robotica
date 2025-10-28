@@ -845,13 +845,16 @@ R_2^0 = R_1^0 R_2^1
 \end{split}\]</div>
 <hr class="docutils" />
 <p>Todo este razonamiento previo de composición de rotaciones con respecto a un sistema móvil se puede extender a cualquier cantidad de sistemas de referencia, por ejemplo, suponga que se tienen los sistemas de referencia <span class="math notranslate nohighlight">\(\framei{0}\)</span>, <span class="math notranslate nohighlight">\(\framei{1}\)</span>, <span class="math notranslate nohighlight">\(\framei{2}\)</span>, <span class="math notranslate nohighlight">\(\cdots\)</span>, <span class="math notranslate nohighlight">\(\framei{n}\)</span>, que difieren únicamente por rotaciones, se puede verificar de forma muy simple que las siguientes expresiones son válidas:</p>
-<p>\begin{gather*}
-R_2^0 = R_1^0 R_2^1 \
-R_3^0 = R_2^0 R_3^2 \
-R_4^0 = R_3^0 R_4^3 \
-\vdots \
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+R_2^0 = R_1^0 R_2^1 \\[1mm]
+R_3^0 = R_2^0 R_3^2 \\[1mm]
+R_4^0 = R_3^0 R_4^3 \\[1mm]
+\vdots \\[1mm]
 R_n^0 = R_{n-1}^0 R_{n}^{n-1}
-\end{gather*}</p>
+\end{matrix}
+\end{split}\]</div>
 <p>O bien:</p>
 <div class="math notranslate nohighlight">
 \[ R_n^0 = R_1^0 R_2^1 R_3^2 \cdots R_{n}^{n-1} \]</div>
@@ -1272,7 +1275,7 @@ s\gamma &amp; c\gamma &amp; 0 &amp; 0 \\
 \vec{r}_{P/o_1}^1 = R_2^1 \vec{r}_{P/o_2}^2 + \vec{r}_{o_2/o_1}^1 
 \]</div>
 <figure class="align-center" id="rigid-motion-02">
-<a class="reference internal image-reference" href="_images/rigid_motion_02.svg"><img alt="_images/rigid_motion_02.svg" src="_images/rigid_motion_02.svg" style="width: 50%;" />
+<a class="reference internal image-reference" href="_images/rigid_motion_02.svg"><img alt="_images/rigid_motion_02.svg" src="_images/rigid_motion_02.svg" style="width: 65%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text">Movimiento de sólido rígido</span><a class="headerlink" href="#rigid-motion-02" title="Link to this image">#</a></p>
@@ -1376,6 +1379,150 @@ H_1^0 = \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 5\\0 &
 <p>El esquema de la figura <a class="reference internal" href="#example-mth-rot"><span class="std std-numref">Fig. 14</span></a> muestra un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> obtenido de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 30°. La matriz de transformación homogénea que describe dicha transformación es la de rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span>, sustituyendo, claro está, el valor correspondiente del ángulo, de esa manera:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} H_1^0 = R_{z,30°} = \begin{bmatrix}\frac{\sqrt{3}}{2} &amp; - \frac{1}{2} &amp; 0 &amp; 0\\\frac{1}{2} &amp; \frac{\sqrt{3}}{2} &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \end{split}\]</div>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Ejemplo.</strong> <em>Calcula la matriz de transformación homogénea <span class="math notranslate nohighlight">\(H_1^0\)</span>.</em></p>
+<figure class="align-center" id="example-mth-rot-trasl">
+<a class="reference internal image-reference" href="_images/example_mth_rot_trasl.svg"><img alt="_images/example_mth_rot_trasl.svg" src="_images/example_mth_rot_trasl.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-rot-trasl" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>En la figura <a class="reference internal" href="#example-mth-rot-trasl"><span class="std std-numref">Fig. 15</span></a> se observa un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> que puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una serie de traslaciones y rotaciones. De manera específica, utilizando los ejes móviles, se pueden trasladar 4 unidades en <span class="math notranslate nohighlight">\(x\)</span> y en <span class="math notranslate nohighlight">\(y\)</span>, y posteriormente una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 45°, estas transformaciones se pueden expresar en forma de un producto matricial como sigue:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} H_1^0 = D_{x,4} D_{y,4} R_{z,45°} = 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 4\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 4\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}0.7071 &amp; -0.7071 &amp; 0 &amp; 0\\0.7071 &amp; 0.7071 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1.0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1.0\end{bmatrix} 
+= 
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\therefore H_1^0 = \begin{bmatrix}0.7071 &amp; -0.7071 &amp; 0 &amp; 4.0\\0.7071 &amp; 0.7071 &amp; 0 &amp; 4.0\\0 &amp; 0 &amp; 1.0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1.0\end{bmatrix} 
+\end{split}\]</div>
+<hr class="docutils" />
+<p><strong>Ejemplo.</strong> En la Figura \ref{fig:example_barra_rot} se observa una barra en rotación pura, la cual tiene adherido en su extremo un sistema móvil <span class="math notranslate nohighlight">\(\{1\}\)</span> y un sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span> en su base. El sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está definido de tal manera que el eje <span class="math notranslate nohighlight">\( x_1 \)</span> apunta en la dirección de la línea que va desde el centro de rotación hasta su extremo. Calcule la matriz de transformación homogénea que describe la posición y orientación de <span class="math notranslate nohighlight">\(\framei{1}\)</span> en <span class="math notranslate nohighlight">\( \framei{0} \)</span>.</p>
+<figure class="align-center" id="example-barra-rot">
+<a class="reference internal image-reference" href="_images/example_barra_rot.svg"><img alt="_images/example_barra_rot.svg" src="_images/example_barra_rot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">.</span><a class="headerlink" href="#example-barra-rot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>Se observa que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> se puede obtener de <span class="math notranslate nohighlight">\( \{0\} \)</span> mediante una serie de traslaciones y rotaciones. Por ejemplo, si las transformaciones se hacen respecto a un sistema móvil, entonces una secuencia posible sería la siguiente:</p>
+<ul class="simple">
+<li><p>Traslación en <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(L \cos\theta\)</span></p></li>
+<li><p>Traslación en <span class="math notranslate nohighlight">\(y\)</span> de <span class="math notranslate nohighlight">\(L \sin\theta\)</span></p></li>
+<li><p>Rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> un ángulo <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+</ul>
+<p>Lo cual conduce a:</p>
+<div class="math notranslate nohighlight">
+\[
+H_1^0 = D_{x, L\cos\theta} \, D_{y, L\sin\theta} \,  R_{z, \theta} = 
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+= \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; L \cos{\left (\theta \right )}\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; L \sin{\left (\theta \right )}\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\begin{bmatrix}\cos{\left (\theta \right )} &amp; - \sin{\left (\theta \right )} &amp; 0 &amp; 0\\\sin{\left (\theta \right )} &amp; \cos{\left (\theta \right )} &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} = 
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_1^0 = \begin{bmatrix}\cos{\left (\theta \right )} &amp; - \sin{\left (\theta \right )} &amp; 0 &amp; L \cos{\left (\theta \right )}\\\sin{\left (\theta \right )} &amp; \cos{\left (\theta \right )} &amp; 0 &amp; L \sin{\left (\theta \right )}\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\end{split}\]</div>
+<p>Pero claro está que no es la única manera, si se ejecuta la siguiente secuencia alrededor de los ejes móviles:</p>
+<ul class="simple">
+<li><p>Rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> un ángulo <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p>Traslación en <span class="math notranslate nohighlight">\(x\)</span> de <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+</ul>
+<p>Se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+H_1^0 = R_{z,\theta} \, D_{x,L} = 
+\begin{bmatrix}\cos{\left (\theta \right )} &amp; - \sin{\left (\theta \right )} &amp; 0 &amp; 0\\\sin{\left (\theta \right )} &amp; \cos{\left (\theta \right )} &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; L\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+= \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_1^0 = \begin{bmatrix}\cos{\left (\theta \right )} &amp; - \sin{\left (\theta \right )} &amp; 0 &amp; L \cos{\left (\theta \right )}\\\sin{\left (\theta \right )} &amp;\cos{\left (\theta \right )} &amp; 0 &amp; L \sin{\left (\theta \right )}\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\end{split}\]</div>
+<p>Lo cual conduce en efecto a la misma descripción obtenida con anterioridad. De igual manera se pueden establecer transformaciones con respecto a los ejes fijos que produzcan el mismo resultado.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Ejemplo.</strong> En la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 17</span></a> se observa una placa plana rectangular de las dimensiones indicadas, en cuyas esquinas se colocan algunos sistemas de referencia. Calcule <span class="math notranslate nohighlight">\(H_1^0\)</span>, <span class="math notranslate nohighlight">\( H_2^1 \)</span>, <span class="math notranslate nohighlight">\( H_2^0 \)</span> y <span class="math notranslate nohighlight">\( H_3^2 \)</span>.</p>
+<figure class="align-center" id="example-mth-mult-sist">
+<a class="reference internal image-reference" href="_images/example_mth_mult_sist.svg"><img alt="_images/example_mth_mult_sist.svg" src="_images/example_mth_mult_sist.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Una placa plana con múltiples sistemas de referencia</span><a class="headerlink" href="#example-mth-mult-sist" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p><strong>Descripción de <span class="math notranslate nohighlight">\(\{1\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span></strong></p>
+<p>Como se observa en la figura \ref{fig:example_mth_mult_sist} el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está trasladado 30 mm en <span class="math notranslate nohighlight">\(x\)</span> y 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>, luego el producto matricial que proporciona la matriz de transformación total está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+H_1^0 = 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 300\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+=
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 300\\0 &amp; 1 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\end{split}\]</div>
+<p>Observe que la matriz resultante concuerda con lo esquematizado, <span class="math notranslate nohighlight">\( H_1^0 \)</span> indica que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está en las coordenadas (300,160) y en la misma orientación con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span>. \</p>
+<p>\textbf{Descripción de <span class="math notranslate nohighlight">\(\{2\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{1\}\)</span>}</p>
+<p>De acuerdo a lo mostrado en la figura \ref{fig:example_mth_mult_sist} el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse a partir de <span class="math notranslate nohighlight">\(\{1\}\)</span> mediante una traslación de 300 mm en la dirección negativa de <span class="math notranslate nohighlight">\(x\)</span> y enseguida una rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>. Con lo anterior se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_2^1 = D_{x, -300} \, R_{z, 90°} = 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 300\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+= 
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; -300\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\end{split}\]</div>
+<p>Observe que de acuerdo a <span class="math notranslate nohighlight">\( T_2^1 \)</span> el eje <span class="math notranslate nohighlight">\(X_2\)</span> apunta en la dirección positiva del eje <span class="math notranslate nohighlight">\( Y_1 \)</span>, y que el eje <span class="math notranslate nohighlight">\( Y_2 \)</span> apunta en la dirección negativa del eje <span class="math notranslate nohighlight">\( X_1 \)</span>, lo cual concuerda con el esquema de referencia. Es más, la posición del origen de <span class="math notranslate nohighlight">\(\{2\}\)</span> respecto a <span class="math notranslate nohighlight">\(\{1\}\)</span> es (-300,0), misma que puede corroborarse en la figura \ref{fig:example_mth_mult_sist}.\</p>
+<p>\textbf{Descripción de <span class="math notranslate nohighlight">\(\{2\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span>} \</p>
+<p>Como se observa en la figura \ref{fig:example_mth_mult_sist} el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una traslación de 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>, y una posterior rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+H_2^0 = D_{y,160} \, R_{z,90} = 
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+=
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\end{split}\]</div>
+<p>La matriz <span class="math notranslate nohighlight">\( H_2^0 \)</span> también puede obtenerse mediante la composición de matrices de transformación, bajo la consideración de que previamente se han calculado <span class="math notranslate nohighlight">\( H_1^0 \)</span> y <span class="math notranslate nohighlight">\( H_2^1 \)</span>, así:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} H_2^0 = T_1^0 \, T_2^1 =
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 300\\0 &amp; 1 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; -300\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+=
+\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
+\end{split}\]</div>
+<p>\textbf{Descripción de <span class="math notranslate nohighlight">\(\{3\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{2\}\)</span>} \</p>
+<p>De la figura \ref{fig:example_mth_mult_sist} se puede identificar que <span class="math notranslate nohighlight">\(\{3\}\)</span> se puede obtener de <span class="math notranslate nohighlight">\(\{2\}\)</span> mediante una rotación horaria de un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, seguida de una traslación de <span class="math notranslate nohighlight">\( d_r \)</span> en la dirección negativa de <span class="math notranslate nohighlight">\(y\)</span>, siendo <span class="math notranslate nohighlight">\( d_r \)</span> la longitud de la diagonal del rectángulo, entonces se tiene:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\alpha = \arctan\left(\frac{160}{300}\right) = 28.07°
+\qquad
+;
+\qquad
+d_r = \sqrt{160^2 + 300^2} = 340 \text{ mm}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+H_3^2 = R_{z,-\alpha} \, D_{y,-d_r} = 
+\begin{bmatrix}0.8824 &amp; 0.4706 &amp; 0 &amp; 0\\-0.4706 &amp; 0.8824 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1.0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1.0\end{bmatrix}
+\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; -340\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_3^2 =
+\begin{bmatrix}0.8824 &amp; 0.4706 &amp; 0 &amp; -160.0\\-0.4706 &amp; 0.8824 &amp; 0 &amp; -300.0\\0 &amp; 0 &amp; 1.0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1.0\end{bmatrix}
+\end{split}\]</div>
+<p>Como es de suponer, además de las series de transformaciones descritas en los puntos anteriores, existen una cantidad considerable de posibles secuencias de transformaciones. Por lo anterior, usualmente en cinemática de manipuladores se establecen ciertos criterios para el establecimiento de los sistemas de referencia así como de las transformaciones a realizar, esto es algo que se verá en el siguiente capítulo.</p>
 <hr class="docutils" />
 </section>
 </section>

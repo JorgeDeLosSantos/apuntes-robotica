@@ -387,6 +387,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
 </ul>
 </li>
 </ul>
@@ -402,8 +403,38 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dinamica-de-robots">
 <h1>Dinámica de Robots<a class="headerlink" href="#dinamica-de-robots" title="Link to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\tauvec}{ \boldsymbol{\tau} } 
-\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}\)</span></p>
+<p>$</p>
+<p>\newcommand{\rbr}[1]{ \left( #1 \right) }
+\newcommand{\sbr}[1]{ \left[ #1 \right] }
+\newcommand{\cbr}[1]{ \left{ #1 \right} }
+\newcommand{\abr}[1]{ \langle #1 \rangle }
+\newcommand{\tauvec}{ \boldsymbol{\tau} }
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\sint}[4]{\int_{#1}^{#2} #3 , #4}
+\newcommand{\sintp}[4]{\int_{#1}^{#2} \left( #3 \right) , #4}
+\newcommand{\dint}[7]{\int_{#1}^{#2} \int_{#3}^{#4} #5 , #6 , #7 }
+\newcommand{\dintp}[7]{\int_{#1}^{#2} \int_{#3}^{#4} \left(#5\right) , #6 , #7 }
+\newcommand{\sumin}{ \sum_{i=1}^n }</p>
+<p>\newcommand{\La}{\mathcal{L}}
+\newcommand{\Ki}{\mathcal{K}}
+\newcommand{\Po}{\mathcal{P}}
+\newcommand{\LaEq}[1]{
+\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}<em>{#1}} \right) - \frac{\partial\mathcal{L}}{\partial q</em>{#1}} = \tau_{#1}
+}
+\newcommand{\LaEqA}[1]{\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}<em>{#1}} \right)}
+\newcommand{\LaEqB}[1]{\frac{\partial\mathcal{L}}{\partial q</em>{#1}}}
+\newcommand{\tauvec}{ \bm{\tau} }
+\newcommand{\KiEq}[1]{ \frac{1}{2} m_{#1} \vec{v}<em>{G</em>{#1}}^T \vec{v}<em>{G</em>{#1}} +
+\frac{1}{2} \bm{\omega}<em>{#1}^T I</em>{#1} \bm{\omega}<em>{#1} }
+\newcommand{\KiTraEq}[1]{ \frac{1}{2} m</em>{#1} \vec{v}<em>{G</em>{#1}}^T \vec{v}<em>{G</em>{#1}} }
+\newcommand{\KiRotEq}[1]{ \frac{1}{2} \bm{\omega}<em>{#1}^T I</em>{#1} \bm{\omega}<em>{#1} }
+\newcommand{\PoEq}[1]{ - m</em>{#1} \vec{g}^T \vec{r}<em>{G</em>#1} }
+\newcommand{\Icm}[1]{ I_{#1}^ &amp; 0 &amp; 0 \
+0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \
+0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \
+\end{bmatrix}
+}
+$</p>
 <p>La obtención del modelo dinámico de un manipulador juega un rol importante para la simulación del movimiento, el análisis de la estructura del manipulador y el diseño de los algoritmos de control. La simulación del movimiento de un manipulador permite probar estrategias de control sin necesidad de disponer físicamente del manipulador. El cálculo de las fuerzas y torques requeridos para la ejecución de los movimientos del robot proporciona información valiosa para el diseño de las juntas, transmisiones y actuadores.</p>
 <p>El modelo dinámico de un robot consiste en una ecuación diferencial (ordinaria) vectorial en las posiciones, ya sean articulares <span class="math notranslate nohighlight">\( \vec{q} \)</span> o cartesianas <span class="math notranslate nohighlight">\( \vec{x} \)</span>, generalmente de segundo orden, pudiéndose expresar como:</p>
 <div class="math notranslate nohighlight" id="equation-joint-dyn-model">
@@ -446,6 +477,32 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 \Sigma \vec{M}_G = \dot{\vec{H}}_G
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\Sigma \vec{M}_G \)</span> es la sumatoria de los momentos alrededor de <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(\vec{H}_G\)</span> la cantidad de movimiento angular alrededor del centro de masa.</p>
+<p>Consideremos un cuerpo rígido modelado como un sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas como el que se muestra en la figura. Las ecuaciones <a class="reference internal" href="#equation-newton-linear-momentum">(27)</a> y <code class="xref eq docutils literal notranslate"><span class="pre">eq:euler_angular_momentum</span></code> son aplicables para este modelo. Si las <span class="math notranslate nohighlight">\(N\)</span> partículas son newtonianas, la cantidad de movimiento lineal y la cantidad de movimiento angular están dadas por:</p>
+<div class="math notranslate nohighlight" id="equation-linear-momentum-particles">
+<span class="eqno">(30)<a class="headerlink" href="#equation-linear-momentum-particles" title="Link to this equation">#</a></span>\[ 
+\vec{P} = \sumin m_i \vec{v}_i
+\]</div>
+<div class="math notranslate nohighlight" id="equation-angular-momentum-particles">
+<span class="eqno">(31)<a class="headerlink" href="#equation-angular-momentum-particles" title="Link to this equation">#</a></span>\[
+\vec{H}_O = \sumin \vec{R}_i \times m_i \vec{v}_i
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(m_i\)</span> es la masa, <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> la velocidad y <span class="math notranslate nohighlight">\(\vec{R}_i\)</span> la posición, de la i-ésima partícula, descritas en el sistema inercial.</p>
+</section>
+<section id="ecuaciones-de-euler-lagrange">
+<h3>Ecuaciones de Euler-Lagrange<a class="headerlink" href="#ecuaciones-de-euler-lagrange" title="Link to this heading">#</a></h3>
+<p>Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utilizar las ecuaciones de Euler-Lagrange. Dado un sistema mecánico de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad, sus ecuaciones de movimiento se pueden obtener como sigue:</p>
+<div class="math notranslate nohighlight" id="equation-euler-lagrange-rigid-body">
+<span class="eqno">(32)<a class="headerlink" href="#equation-euler-lagrange-rigid-body" title="Link to this equation">#</a></span>\[ 
+\LaEq{i} \quad ; \text{ Para } i=1,2,\cdots,n
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\La\)</span> es una función escalar llamada <em>lagrangiano</em>, y está dada por la diferencia entre la energía cinética y potencial del cuerpo rígido, es decir:</p>
+<div class="math notranslate nohighlight" id="equation-lagrangian">
+<span class="eqno">(33)<a class="headerlink" href="#equation-lagrangian" title="Link to this equation">#</a></span>\[
+\La = \Ki - \Po
+\]</div>
+<p>A <span class="math notranslate nohighlight">\(q_i\)</span> y <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> se les denomina <em>coordenada generalizada</em> y <em>velocidad generalizada</em>, de forma respectiva. Un conjunto de coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{q_1, q_2, \cdots, q_n} \)</span> es aquel que describe de manera completa la posición de un sistema de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. Las velocidades generalizadas son las derivadas de las coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{\dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n} \)</span>.</p>
+<p>La experiencia demuestra que dadas simultáneamente las coordenadas y velocidades generalizadas se determina completamente el estado del sistema y permite, en principio, predecir su movimiento futuro. Las relaciones entre las aceleraciones, las velocidades y las coordenadas se llaman <em>ecuaciones de movimiento</em>. \cite{landau}</p>
+<p>El término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a las fuerzas generalizadas aplicadas sobre el cuerpo rígido o sistema de cuerpos rígidos.</p>
 </section>
 </section>
 </section>
@@ -516,6 +573,7 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
 </ul>
 </li>
 </ul>

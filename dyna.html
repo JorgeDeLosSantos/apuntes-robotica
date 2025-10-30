@@ -388,7 +388,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-cuerpo-rigido">Energía potencial de un cuerpo rígido</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa">Centro de masa</a></li>
 </ul>
 </li>
 </ul>
@@ -436,7 +440,13 @@ I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
 0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \\
 0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \\
 \end{bmatrix} 
-} \)</span></p>
+}
+\newcommand{\frbr}[2]{ \left( \frac{#1}{#2} \right) }
+\newcommand{\fsbr}[2]{ \left[ \frac{#1}{#2} \right] }
+\newcommand{\fcbr}[2]{ \left\{ \frac{#1}{#2} \right\} }
+\newcommand{\fabr}[2]{ \langle \frac{#1}{#2} \rangle }
+\newcommand{\ffrac}[4]{ \frac{ \frac{#1}{#2} }{ \frac{#3}{#4} } }
+\)</span></p>
 <p>La obtención del modelo dinámico de un manipulador juega un rol importante para la simulación del movimiento, el análisis de la estructura del manipulador y el diseño de los algoritmos de control. La simulación del movimiento de un manipulador permite probar estrategias de control sin necesidad de disponer físicamente del manipulador. El cálculo de las fuerzas y torques requeridos para la ejecución de los movimientos del robot proporciona información valiosa para el diseño de las juntas, transmisiones y actuadores.</p>
 <p>El modelo dinámico de un robot consiste en una ecuación diferencial (ordinaria) vectorial en las posiciones, ya sean articulares <span class="math notranslate nohighlight">\( \vec{q} \)</span> o cartesianas <span class="math notranslate nohighlight">\( \vec{x} \)</span>, generalmente de segundo orden, pudiéndose expresar como:</p>
 <div class="math notranslate nohighlight" id="equation-joint-dyn-model">
@@ -665,6 +675,174 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <span class="eqno">(41)<a class="headerlink" href="#equation-kinetic-energy-rigid-body-final" title="Link to this equation">#</a></span>\[
 \Ki = \frac{1}{2} m \vec{v}_G^T \vec{v}_G + \frac{1}{2} \W^T I_G \W
 \]</div>
+<section id="energia-potencial-de-un-cuerpo-rigido">
+<h4>Energía potencial de un cuerpo rígido<a class="headerlink" href="#energia-potencial-de-un-cuerpo-rigido" title="Link to this heading">#</a></h4>
+<p>La energía potencial gravitatoria de un cuerpo rígido es una cantidad que depende de la masa, la gravedad y la posición del centro de masa. Se puede expresar como:</p>
+<div class="math notranslate nohighlight">
+\[
+\Po = - m \vec{g}^T \vec{r}_G
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(m\)</span> es la masa total del cuerpo rígido, <span class="math notranslate nohighlight">\(\vec{g}\)</span> es un vector que define la aceleración de la gravedad en el sistema inercial y <span class="math notranslate nohighlight">\(\vec{r}_G\)</span> es un vector que describe la posición del centro de masa del cuerpo rígido en el sistema inercial.</p>
+</section>
+</section>
+<section id="centro-de-masa">
+<h3>Centro de masa<a class="headerlink" href="#centro-de-masa" title="Link to this heading">#</a></h3>
+<p>El centro de masa es un punto hipotético de un sistema de partículas o de un sólido, tal que dicho sistema se comporta como si toda su masa estuviera concentrada en ese único punto. Es importante destacar que el centro de masa no siempre coincide con un punto material físico en el objeto. El centro de masa es el único punto en el centro de una distribución de masa en el espacio que tiene la propiedad de que los vectores de posición ponderados relativos a este punto suman cero.</p>
+<p>Para un sistema de <span class="math notranslate nohighlight">\(n\)</span> partículas, cada una de masa <span class="math notranslate nohighlight">\(m_i\)</span> y con una posición dada por <span class="math notranslate nohighlight">\(\vec{r}_i\)</span>, las coordenadas <span class="math notranslate nohighlight">\(\vec{R}\)</span> del centro de masa deben satisfacer la condición:</p>
+<div class="math notranslate nohighlight">
+\[
+\displaystyle \sum_{i=1}^n m_i \left( \vec{r}_i - \vec{R}\right) = \vec{0}
+\]</div>
+<p>Resolviendo para <span class="math notranslate nohighlight">\(\vec{R}\)</span> se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{R} = \frac{\displaystyle \sum_{i=1}^n m_i \vec{r}_i }{\displaystyle \sum_{i=1}^n m_i}
+\]</div>
+<p>O bien, expresado en términos de las componentes escalares:</p>
+<div class="math notranslate nohighlight" id="equation-center-of-mass-particles">
+<span class="eqno">(42)<a class="headerlink" href="#equation-center-of-mass-particles" title="Link to this equation">#</a></span>\[
+\bar{x} = \frac{\displaystyle \sum x_i m_i }{\displaystyle \sum m_i } \, ; \quad
+\bar{y} = \frac{\displaystyle \sum y_i m_i }{\displaystyle \sum m_i } \, ; \quad
+\bar{z} = \frac{\displaystyle \sum z_i m_i }{\displaystyle \sum m_i } \, ; \quad
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(x_i, y_i, z_i\)</span> son las coordenadas de la ubicación de la partícula <span class="math notranslate nohighlight">\(i\)</span> cuya masa es <span class="math notranslate nohighlight">\(m_i\)</span>.</p>
+<hr class="docutils" />
+<p><strong>Ejemplo.</strong> <em>Calcule el centro de masa del sistema de partículas que se muestran en la Figura. Cada partícula tiene una masa de 0.25 kg. Las unidades de longitud de la rejilla son metros.</em></p>
+<figure class="align-center" id="example-particles-center-of-mass">
+<a class="reference internal image-reference" href="_images/example_particles_center_of_mass.svg"><img alt="_images/example_particles_center_of_mass.svg" src="_images/example_particles_center_of_mass.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">.</span><a class="headerlink" href="#example-particles-center-of-mass" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>De acuerdo con lo que sabemos todas las masas son iguales a 0.25 kg, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ m_1 = m_2 = m_3 = m_4 = 0.25 \text{ kg} \]</div>
+<p>Las ubicaciones de las partículas son:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{x_1, y_1} = \rbr{2,0} \text{ m } ; \quad 
+\rbr{x_2, y_2} = \rbr{2,2} \text{ m } ; \quad 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{x_3, y_3} = \rbr{-2,2} \text{ m } ; \quad 
+\rbr{x_4, y_4} = \rbr{-2,0} \text{ m }
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\bar{x} = \frac{\sum x_i m_i}{\sum m_i} = \frac{ (2)(0.25)+(2)(0.25)+(-2)(0.25)+(-2)(0.25) }{0.25+0.25+0.25+0.25} = \frac{0}{1} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ \bar{x} = 0  \]</div>
+<div class="math notranslate nohighlight">
+\[
+\bar{y} = \frac{\sum x_i m_i}{\sum m_i} = \frac{ (0)(0.25)+(2)(0.25)+(2)(0.25)+(0)(0.25) }{0.25+0.25+0.25+0.25} = \frac{1}{1}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ \bar{y} = 1 \text{ m} \]</div>
+<hr class="docutils" />
+<p>Las ecuaciones <a class="reference internal" href="#equation-center-of-mass-particles">(42)</a> se pueden generalizar para un cuerpo rígido, bajo la asunción de que un cuerpo rígido se puede considerar como un conjunto infinito de partículas cuyas distancias son invariables entre sí, así la sumatoria la podemos reemplazar por una integral, es decir:</p>
+<div class="math notranslate nohighlight" id="equation-center-of-mass-rigid-body">
+<span class="eqno">(43)<a class="headerlink" href="#equation-center-of-mass-rigid-body" title="Link to this equation">#</a></span>\[
+\bar{x} = \frac{\displaystyle \int_m \tilde{x} \, dm }{\displaystyle \int_m dm } \, ; \quad
+\bar{y} = \frac{\displaystyle \int_m \tilde{y} \, dm }{\displaystyle \int_m dm } \, ; \quad
+\bar{z} = \frac{\displaystyle \int_m \tilde{z} \, dm }{\displaystyle \int_m dm } \, ; \quad
+\]</div>
+<p>En las ecuaciones anteriores los términos <span class="math notranslate nohighlight">\(\tilde{x}, \tilde{y}, \tilde{z}\)</span> denotan la ubicación del centro de masa del elemento diferencial utilizado para la integración. El diferencial de masa <span class="math notranslate nohighlight">\(dm\)</span> se puede expresar como:</p>
+<div class="math notranslate nohighlight">
+\[ dm = \rho \, dV \]</div>
+<p>En el caso general, la densidad podría no ser constante y depender de la ubicación, es decir <span class="math notranslate nohighlight">\(\rho = \rho(x,y,z)\)</span>. Para la mayoría de situaciones en ingeniería, los componentes mecánicos están fabricados con materiales homogéneos (densidad constante), lo cual implica que el centro de masa coincidará con el centroide del volumen del sólido, de tal manera que las coordenadas del centro de masa se pueden determinar mediante:</p>
+<div class="math notranslate nohighlight" id="equation-center-of-volume">
+<span class="eqno">(44)<a class="headerlink" href="#equation-center-of-volume" title="Link to this equation">#</a></span>\[
+\bar{x} = \frac{\displaystyle \int_V \tilde{x} \, dV }{\displaystyle \int_V dV } \, ; \quad
+\bar{y} = \frac{\displaystyle \int_V \tilde{y} \, dV }{\displaystyle \int_V dV } \, ; \quad
+\bar{z} = \frac{\displaystyle \int_V \tilde{z} \, dV }{\displaystyle \int_V dV } \, ; \quad
+\]</div>
+<p>Para cuerpos rígidos con forma de placas delgadas, de espesor uniforme y homogéneas, el centro de masa coincidirá con el centroide del área de la placa, así, las coordenadas del centro de masa se pueden determinar mediante:</p>
+<div class="math notranslate nohighlight" id="equation-center-of-area">
+<span class="eqno">(45)<a class="headerlink" href="#equation-center-of-area" title="Link to this equation">#</a></span>\[ 
+\bar{x} = \frac{\displaystyle \int_A \tilde{x} \, dA }{\displaystyle \int_A dA } \, ; \quad
+\bar{y} = \frac{\displaystyle \int_A \tilde{y} \, dA }{\displaystyle \int_A dA } \, ; \quad
+\bar{z} = \frac{\displaystyle \int_A \tilde{z} \, dA }{\displaystyle \int_A dA } \, ; \quad
+\]</div>
+<hr class="docutils" />
+<p><strong>Ejemplo.</strong> <em>Calcule el centro de masa de la placa triangular que se muestra en la figura.</em></p>
+<figure class="align-center" id="example-triangular-plate">
+<a class="reference internal image-reference" href="_images/example_triangular_plate.svg"><img alt="_images/example_triangular_plate.svg" src="_images/example_triangular_plate.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>Al tratarse de una placa delgada y homogénea, las coordenadas del centro de masa se pueden determinar como:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\bar{x} = \frac{\displaystyle \int_A \tilde{x} \, dA }{\displaystyle \int_A dA } \, ; \quad
+\bar{y} = \frac{\displaystyle \int_A \tilde{y} \, dA }{\displaystyle \int_A dA } \, ; \quad
+\]</div>
+<p>Estas integrales de área se pueden plantear de varias maneras, todo depende de la elección del elemento diferencial. En la siguiente figura se muestran dos posibles opciones. Del lado izquierdo se utiliza un elemento diferencial cuya área es <span class="math notranslate nohighlight">\(dA = dx\,dy\)</span>, y cuyas coordenadas centroidales son <span class="math notranslate nohighlight">\(\tilde{x} = x\)</span> y <span class="math notranslate nohighlight">\( \tilde{y} = y \)</span>. Del lado derecho se utiliza un elemento diferencial cuya área es <span class="math notranslate nohighlight">\(dA = \frac{h}{b}x \, dx \)</span>, sus coordenadas centroidales son <span class="math notranslate nohighlight">\( \tilde{x} = x \)</span> y <span class="math notranslate nohighlight">\( \tilde{y} = \frac{h}{2b}x \)</span>, observe que este es un elemento diferencial rectangular cuya base es <span class="math notranslate nohighlight">\(dx\)</span>, y siendo su altura aquella definida por la hipotenusa del triángulo, cuya función es <span class="math notranslate nohighlight">\(y(x) = \frac{h}{b}x\)</span>. Naturalmente, su coordenada centroidal <span class="math notranslate nohighlight">\(\tilde{y}\)</span> está dada por la mitad del valor de <span class="math notranslate nohighlight">\(y(x)\)</span>.</p>
+<figure class="align-center" id="example-triangular-plate-differential-elements">
+<a class="reference internal image-reference" href="_images/example_triangular_plate_differential_elements.svg"><img alt="_images/example_triangular_plate_differential_elements.svg" src="_images/example_triangular_plate_differential_elements.svg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate-differential-elements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Aquí podemos utilizar cualquiera de los dos elementos diferenciales. Sólo debemos tener en consideración que si se utiliza el elemento diferencial de <span class="math notranslate nohighlight">\((a)\)</span>, entonces resultará una integral doble, que deberemos integrar en los límites definidos por el área triangular. Si utilizamos el elemento diferencial <span class="math notranslate nohighlight">\((b)\)</span> se tendrá una integral simple, que deberemos integrar en los límites definidos para la dirección en <span class="math notranslate nohighlight">\(x\)</span>, es decir, entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Para ejemplificar vamos a proceder de ambas maneras. \</p>
+<p><strong>Utilizando el elemento diferencial <span class="math notranslate nohighlight">\((a)\)</span></strong></p>
+<p>Calculando cada una de las integrales:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\int_A dA = \dint{0}{b}{0}{hx/b}{}{dy}{dx} = \sint{0}{b}{\sbr{y}_0^{hx/b}}{dx} = 
+\frac{h}{b} \sint{0}{b}{x}{dx} = \frac{h}{b}\sbr{\frac{x^2}{2}}_0^b = 
+\frac{h}{b}\rbr{\frac{b^2}{2}} = \frac{bh}{2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\int_A \tilde{x} \, dA = \dint{0}{b}{0}{hx/b}{x}{dy}{dx} = 
+\sint{0}{b}{x\sbr{y}_0^{hx/b}}{dx} = 
+\frac{h}{b} \sint{0}{b}{x^2}{dx} = 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= \frac{h}{b} \fsbr{x^3}{3}_0^b =
+\frac{h}{b} \frbr{b^3}{3} = \frac{hb^2}{3}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\int_A \tilde{y} \, dA = \dint{0}{b}{0}{hx/b}{y}{dy}{dx} = 
+\sint{0}{b}{\fsbr{y^2}{2}_0^{hx/b}}{dx} = 
+\frac{h^2}{2b^2} \sint{0}{b}{x^2}{dx} = 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+= \frac{h^2}{2b^2} \fsbr{x^3}{3}_0^b =
+\frac{h^2}{2b^2} \frbr{b^3}{3} = \frac{h^2 b}{6}
+\]</div>
+<p>Sustituyendo los valores calculados:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\bar{x} = \ffrac{hb^2}{3}{bh}{2} = \frac{2hb^2}{3bh} = \frac{2}{3} b
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\bar{y} = \ffrac{h^2 b}{6}{bh}{2} = \frac{2h^2 b}{6bh} = \frac{1}{3} h
+\]</div>
+<div class="math notranslate nohighlight">
+\[ \rbr{\bar{x}, \bar{y}} = \rbr{\frac{2}{3} b, \frac{1}{3} h} \]</div>
+<p><strong>Utilizando el elemento diferencial <span class="math notranslate nohighlight">\((b)\)</span>}</strong></p>
+<p>En este caso las integrales simples se pueden plantear de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ \int_A dA = \frac{h}{b} \sint{0}{b}{x}{dx} = \frac{bh}{2} \]</div>
+<div class="math notranslate nohighlight">
+\[ \int_A \tilde{x}\, dA = \frac{h}{b} \sint{0}{b}{x^2}{dx} = \frac{hb^2}{3} \]</div>
+<div class="math notranslate nohighlight">
+\[ \int_A \tilde{y}\, dA = \frac{h^2}{2b^2} \sint{0}{b}{x^2}{dx} = \frac{h^2 b}{6} \]</div>
+<p>Observe que los resultados de las integrales son exactamente los mismos que obtuvimos con la manera anterior. La elección del elemento diferencial dependerá completamente de cuál le resulte más cómodo de plantear y resolver. En el caso de que se tenga una placa con densidad variable, aquí sí o sí tendrá que usar una integral doble para determinar el centro de masa.</p>
+<hr class="docutils" />
 </section>
 </section>
 </section>
@@ -736,7 +914,11 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-cuerpo-rigido">Energía potencial de un cuerpo rígido</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa">Centro de masa</a></li>
 </ul>
 </li>
 </ul>

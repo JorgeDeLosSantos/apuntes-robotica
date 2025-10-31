@@ -438,12 +438,12 @@ document.write(`
 <span class="eqno">(61)<a class="headerlink" href="#equation-lin" title="Link to this equation">#</a></span>\[
 L(t) = y_0 + f(t_0, y_0) (t - t_0)
 \]</div>
-<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 47</span></a>:</p>
+<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 54</span></a>:</p>
 <figure class="align-center" id="euler-method">
 <a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Ahora, considerando un incremento <span class="math notranslate nohighlight">\(h\)</span> positivo en el eje <span class="math notranslate nohighlight">\(t\)</span>, al reemplazar <span class="math notranslate nohighlight">\(t\)</span> por <span class="math notranslate nohighlight">\(t_1 = t_0 + h\)</span> en \ref{eq:lin} se tiene:</p>
@@ -488,12 +488,12 @@ y_{i+1} = y_i + h f(t_i, y_i)
 <p>Así, la aproximación buscada es <span class="math notranslate nohighlight">\( y_{aprox}(0.5) \approx y_5 \approx 6.3 \)</span>. Se puede verificar de forma sencilla que la solución exacta para este problema de valor inicial está dada por:</p>
 <div class="math notranslate nohighlight">
 \[ y(t) = \frac{3}{2} t^2 + 2t + 5 \]</div>
-<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 48</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
+<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 55</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
 <figure class="align-center" id="euler-numed-example-01">
 <a class="reference internal image-reference" href="_images/euler_numed_example_01.pdf"><img alt="_images/euler_numed_example_01.pdf" src="_images/euler_numed_example_01.pdf" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -538,12 +538,12 @@ y_{i+1} = y_{i} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
 \[ k_3 = f\left(t_i + \frac{1}{2}h, y_i + \frac{1}{2}k_2 h \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ k_4 = f\left(t_i + h, y_i + k_3 h \right) \]</div>
-<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 49</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
+<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 56</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
 <figure class="align-center" id="rk4-slopes">
 <a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />

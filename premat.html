@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=c609212d" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/customized-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -439,7 +441,7 @@ document.write(`
 <h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>Una matriz es un arreglo rectangular bidimensional de números (o elementos) escritos entre corchetes. Cada número de la matriz se conoce como <em>elemento</em> o <em>entrada</em> de la matriz. Los elementos de una matriz están dispuestos en filas y columnas, se denota como una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span> (léase <em>m por n</em>) a aquella que se compone de <span class="math notranslate nohighlight">\(m\)</span> filas y <span class="math notranslate nohighlight">\(n\)</span> columnas. Usualmente para nombrar las matrices se utilizarán letras mayúsculas, por ejemplo sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span>, de manera general puede escribirse como:</p>
 <div class="math notranslate nohighlight" id="equation-gral-matrix">
-<span class="eqno">(62)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(66)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -521,7 +523,7 @@ y <span class="math notranslate nohighlight">\( C \in \mathbb{R}^{n\times r} \)<
 <h3>Transpuesta de una matriz<a class="headerlink" href="#transpuesta-de-una-matriz" title="Link to this heading">#</a></h3>
 <p>La transpuesta de una matriz <span class="math notranslate nohighlight">\(A\)</span> de <span class="math notranslate nohighlight">\(m \times n\)</span> se denota como <span class="math notranslate nohighlight">\(A^T\)</span> y es una matriz de <span class="math notranslate nohighlight">\(n \times m\)</span> que tiene la primera fila de <span class="math notranslate nohighlight">\(A\)</span> como su primera columna, la segunda fila de <span class="math notranslate nohighlight">\(A\)</span> como su segunda columna y así de manera sucesiva. Por tanto la transpuesta de la matriz <span class="math notranslate nohighlight">\(A\)</span> dada en la ecuación <span class="xref std std-ref">gral_matrix</span> será:</p>
 <div class="math notranslate nohighlight" id="equation-transpose-matrix">
-<span class="eqno">(63)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(67)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A^T = \begin{bmatrix}
 a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1} \\
 a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
@@ -561,7 +563,7 @@ a_3  &amp; 0    &amp; -a_1 \\
 <p>Para cualesquiera vectores <span class="math notranslate nohighlight">\(\vec{a}\)</span> y <span class="math notranslate nohighlight">\(\vec{b}\)</span> en <span class="math notranslate nohighlight">\( \mathbb{R}^3 \)</span>, y escalares <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <p>Sea <span class="math notranslate nohighlight">\(R\)</span> una matriz ortogonal, y <span class="math notranslate nohighlight">\(\vec{a}\)</span> un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, se puede verificar que:</p>
 <div class="math notranslate nohighlight" id="equation-similarity-transformation-skew-symmetric-matrix">
-<span class="eqno">(64)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
+<span class="eqno">(68)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
 R S(\vec{a}) R^T = S(R\vec{a})
 \]</div>
 <p>El lado izquierdo de esta ecuación representa una transformación de similitud de la matriz <span class="math notranslate nohighlight">\(S(\vec{a})\)</span>. Esta ecuación establece que la representación matricial de <span class="math notranslate nohighlight">\( S(\vec{a}) \)</span> en un sistema de referencia rotado por <span class="math notranslate nohighlight">\(R\)</span> es la mismo que la matriz antisimétrica <span class="math notranslate nohighlight">\( S(R\vec{a}) \)</span> correspondiente al vector <span class="math notranslate nohighlight">\(\vec{a}\)</span> rotado por <span class="math notranslate nohighlight">\(R\)</span>.</p>
@@ -646,7 +648,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/triangulo_rectangulo.svg"><img alt="_images/triangulo_rectangulo.svg" src="_images/triangulo_rectangulo.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Triángulo rectángulo</span><a class="headerlink" href="#triangulo-rectangulo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Triángulo rectángulo</span><a class="headerlink" href="#triangulo-rectangulo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -655,13 +657,13 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <p>Un triángulo oblicuángulo es aquel en el cual ninguno de sus ángulos es recto. Para resolver un triángulo de este tipo, se pueden utilizar la ley de senos o la ley de cosenos, dependiendo de la información que se tenga disponible.</p>
 <section id="ley-de-senos">
 <h4>Ley de senos<a class="headerlink" href="#ley-de-senos" title="Link to this heading">#</a></h4>
-<p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 51</span></a> se cumple que:</p>
+<p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 54</span></a> se cumple que:</p>
 <div class="math notranslate nohighlight" id="equation-ley-de-senos">
-<span class="eqno">(65)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
+<span class="eqno">(69)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
 \]</div>
 <p>Esta expresión se conoce como la <strong>ley de senos</strong>. La ley de senos se puede enunciar de forma general como: <em>en cualquier triángulo, la razón entre el seno de un ángulo y el lado opuesto a ese ángulo es igual a la razón entre el seno de otro ángulo y el lado opuesto a ese ángulo.</em></p>
-<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(65)</a> se pueden obtener tres fórmulas:</p>
+<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(69)</a> se pueden obtener tres fórmulas:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b}  \qquad ; \qquad
@@ -677,7 +679,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/triangulo.svg"><img alt="_images/triangulo.svg" src="_images/triangulo.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Triángulo oblicuángulo</span><a class="headerlink" href="#triangulo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Triángulo oblicuángulo</span><a class="headerlink" href="#triangulo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -688,7 +690,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <li><p>Se conocen dos lados y el ángulo entre ellos.</p></li>
 <li><p>Se conocen los tres lados.</p></li>
 </ul>
-<p>En estas situaciones podemos hacer uso de la <strong>ley de cosenos</strong>, la cual establece que para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 51</span></a> se cumplen las siguientes tres relaciones:</p>
+<p>En estas situaciones podemos hacer uso de la <strong>ley de cosenos</strong>, la cual establece que para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 54</span></a> se cumplen las siguientes tres relaciones:</p>
 <div class="math notranslate nohighlight">
 \[ a^2 = b^2 + c^2 - 2bc \cos\alpha \]</div>
 <div class="math notranslate nohighlight">
@@ -726,7 +728,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/arctan2.svg"><img alt="_images/arctan2.svg" src="_images/arctan2.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 52 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Es evidente que el resultado anterior nos da un ángulo ubicado en el cuarto cuadrante, lo cual no corresponde con lo observado en la figura. Como se había mencionado, la función arcotangente ordinaria no puede manejar adecuadamente resultados cuando <span class="math notranslate nohighlight">\( x &lt; 0 \)</span>, puesto que al recibir un argumento único no tiene manera de saber si el signo negativo corresponde a la componente <span class="math notranslate nohighlight">\(y\)</span> o a la de <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -757,7 +759,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/arctan2_2.svg"><img alt="_images/arctan2_2.svg" src="_images/arctan2_2.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 53 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2-2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2-2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Tomando en cuenta lo anterior, una definición un poco más completa para la función arcotangente de dos argumentos incluye estos dos casos particulares:</p>
@@ -802,10 +804,10 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <p>El problema de encontrar la recta tangente a una curva y el problema de encontrar la velocidad de un objeto implican encontrar el mismo tipo de límite. Este tipo especial de límite se denomina <em>derivada</em> y se puede interpretar como una razón de cambio en muchas aplicaciones de ingeniería \cite{stewart}. En una gran parte de este texto utilizaremos derivadas para describir la cinemática de manipuladores, de manera específica para calcular las velocidades y aceleraciones a partir de la información de posición.</p>
 <p>De manera general, la derivada de una función <span class="math notranslate nohighlight">\(f\)</span> en un número <span class="math notranslate nohighlight">\(a\)</span>, denotada por <span class="math notranslate nohighlight">\(f'(a)\)</span>, es:</p>
 <div class="math notranslate nohighlight" id="equation-derivada-cte">
-<span class="eqno">(66)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(70)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
 f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} 
 \]</div>
-<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(66)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
+<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(70)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
 <div class="math notranslate nohighlight">
 \[
 f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} 

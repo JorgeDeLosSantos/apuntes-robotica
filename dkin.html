@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=c609212d" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/customized-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -388,6 +390,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivada-de-una-matriz-de-rotacion">Derivada de una matriz de rotación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-angulares-en-un-manipulador-serial">Velocidades angulares en un manipulador serial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-cuerpo-rigido">Velocidades lineales en un cuerpo rígido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
 </ul>
             </nav>
         </div>
@@ -414,6 +418,8 @@ document.write(`
 \newcommand{\colvech}[4]{\begin{bmatrix}#1\\#2\\#3 \\ #4\end{bmatrix}}
 \DeclareMathOperator{\sen}{sen}
 \renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\qp}[1]{\dot{q}_{#1}}
+\newcommand{\qpp}[1]{\ddot{q}_{#1}} 
 \)</span></p>
 <section id="derivada-de-una-matriz-de-rotacion">
 <h2>Derivada de una matriz de rotación<a class="headerlink" href="#derivada-de-una-matriz-de-rotacion" title="Link to this heading">#</a></h2>
@@ -442,10 +448,9 @@ S = \dot{R} R^T
 \dot{R} = S \,R
 \]</div>
 <p>Esta ecuación nos dice que la derivada de una matriz de rotación es equivalente a la multiplicación matricial de <span class="math notranslate nohighlight">\(R\)</span> por una matriz antisimétrica <span class="math notranslate nohighlight">\(S\)</span>.</p>
-<p>(angular_velocity) =</p>
 </section>
 <section id="velocidades-angulares-en-un-manipulador-serial">
-<h2>Velocidades angulares en un manipulador serial<a class="headerlink" href="#velocidades-angulares-en-un-manipulador-serial" title="Link to this heading">#</a></h2>
+<span id="angular-velocity"></span><h2>Velocidades angulares en un manipulador serial<a class="headerlink" href="#velocidades-angulares-en-un-manipulador-serial" title="Link to this heading">#</a></h2>
 <p>La velocidad angular es una propiedad de cuerpo rígido que indica qué tan rápido está cambiando de orientación un cuerpo rígido, y en qué dirección lo hace. En cursos elementales de mecánica del cuerpo rígido aprendemos que la velocidad angular para un sólido rígido que rota en el plano es un vector cuya magnitud es la derivada con respecto al tiempo de la posición angular, es decir:</p>
 <div class="math notranslate nohighlight">
 \[ \omega = \frac{d\theta}{dt} \]</div>
@@ -495,7 +500,7 @@ S = \dot{R} R^T
 <p>Si múltiplicamos lo anterior por <span class="math notranslate nohighlight">\((R_1^0)^T R_1^0\)</span> (este producto es igual a <span class="math notranslate nohighlight">\(I\)</span>, es decir, no alteramos la expresión), se tiene:</p>
 <div class="math notranslate nohighlight">
 \[ R_1^0 \dot{R}_2^1 = R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T R_1^0 R_2^1 \]</div>
-<p>Observe que <span class="math notranslate nohighlight">\( R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T \)</span> es una transformación de similitud de <span class="math notranslate nohighlight">\(S( \W_{1,2}^1 )\)</span>, entonces de acuerdo con la ecuación <a class="reference internal" href="premat.html#equation-similarity-transformation-skew-symmetric-matrix">(64)</a>:</p>
+<p>Observe que <span class="math notranslate nohighlight">\( R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T \)</span> es una transformación de similitud de <span class="math notranslate nohighlight">\(S( \W_{1,2}^1 )\)</span>, entonces de acuerdo con la ecuación <a class="reference internal" href="premat.html#equation-similarity-transformation-skew-symmetric-matrix">(68)</a>:</p>
 <div class="math notranslate nohighlight">
 \[ R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T = S( R_1^0 \W_{1,2}^1 ) \]</div>
 <p>Así pues, el segundo término de la ecuación <a class="reference internal" href="#equation-r-20-derivative">(29)</a> se puede escribir como:</p>
@@ -552,7 +557,192 @@ S( \W_{0,2}^0 ) R_2^0 = \sbr{ S( \W_{0,1}^0 ) + S( R_1^0 \W_{1,2}^1 ) } R_2^0
 \text{en el caso de que la junta $j$ sea prismática}
 \]</div>
 <p>Lo anterior implica que una junta prismática no contribuye a la velocidad angular, dado que no produce un cambio en la orientación entre los sistemas <span class="math notranslate nohighlight">\(\{j\}\)</span> y <span class="math notranslate nohighlight">\(\{j-1\}\)</span>.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule las velocidades angulares de los eslabones 1 y 2 del manipulador RR de la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 18</span></a>.</em></p>
+<figure class="align-center" id="example-rr-robot-dh-dkin">
+<a class="reference internal image-reference" href="_images/example_rr_robot_dh_dkin.svg"><img alt="_images/example_rr_robot_dh_dkin.svg" src="_images/example_rr_robot_dh_dkin.svg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-dh-dkin" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>La velocidad angular del eslabón 1 se puede determinar como sigue:</p>
+<div class="math notranslate nohighlight">
+\[ \W_1 = \W_{0,1}^0 \]</div>
+<p>Dado que la junta <span class="math notranslate nohighlight">\(1\)</span> es una revoluta, entonces el vector <span class="math notranslate nohighlight">\( \W_{0,1}^0 \)</span> nos quedará de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ \W_1 = \colvec{0}{0}{\qp{1}} \]</div>
+<p>Para la velocidad angular del eslabón se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[ \W_2 = \W_{0,1}^0 + R_1^0 \W_{1,2}^1 \]</div>
+<p>Dado que la segunda articulación también es una revoluta, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \W_{1,2}^1 = \colvec{0}{0}{\qp{2}} \]</div>
+<p>La matriz <span class="math notranslate nohighlight">\( R_1^0 \)</span> se puede obtener de la matriz <span class="math notranslate nohighlight">\(T_1^0\)</span> (calculada en el procedimiento de cinemática directa):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} R_1^0 = \begin{bmatrix}
+c_{1} &amp; -s_{1} &amp; 0 \\
+s_{1} &amp; c_{1} &amp; 0 \\
+0 &amp; 0 &amp; 1 
+\end{bmatrix} \end{split}\]</div>
+<p>Sustituyendo los términos en la expresión planteada inicialmente:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\W_2 = \colvec{0}{0}{\dot{q}_1} + 
+\begin{bmatrix}
+c_{1} &amp; -s_{1} &amp; 0 \\
+s_{1} &amp; c_{1} &amp; 0 \\
+0 &amp; 0 &amp; 1 
+\end{bmatrix} \colvec{0}{0}{\dot{q}_2} = \colvec{0}{0}{\dot{q}_1} + \colvec{0}{0}{\dot{q}_2} 
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\W_2 = \colvec{0}{0}{ \qp{1} + \qp{2} } \]</div>
+</div></section>
+<section id="velocidades-lineales-en-un-cuerpo-rigido">
+<span id="vel-lineal-cuerpo-rigido"></span><h2>Velocidades lineales en un cuerpo rígido<a class="headerlink" href="#velocidades-lineales-en-un-cuerpo-rigido" title="Link to this heading">#</a></h2>
+<p>En la Figura <code class="xref eq docutils literal notranslate"><span class="pre">rigid_body_velocities</span></code> se muestra un cuerpo rígido, al cual se le adhiere un sistema de referencia <span class="math notranslate nohighlight">\(\{1\}\)</span> que se mueve junto este. Se tiene también un sistema de referencia fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. El cuerpo rígido está en un movimiento general, es decir, experimenta un movimiento compuesto de rotación y traslación. En lo subsiguiente veremos cómo relacionar las velocidades lineales y angulares de este cuerpo rígido, utilizando los dos sistemas de referencia mostrados.</p>
+<figure class="align-center" id="rigid-body-velocities">
+<a class="reference internal image-reference" href="_images/rigid_body_velocities.svg"><img alt="_images/rigid_body_velocities.svg" src="_images/rigid_body_velocities.svg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Un cuerpo rígido</span><a class="headerlink" href="#rigid-body-velocities" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la Figura <a class="reference internal" href="#rigid-body-velocities"><span class="std std-numref">Fig. 19</span></a> puede observarse también un punto <span class="math notranslate nohighlight">\(Q\)</span>, del cual es sencillo verificar que se cumple la siguiente ecuación vectorial de posición:</p>
+<div class="math notranslate nohighlight" id="equation-position-equation">
+<span class="eqno">(32)<a class="headerlink" href="#equation-position-equation" title="Link to this equation">#</a></span>\[
+\vec{r}_Q = \vec{r}_{o_1} + \vec{r}_{Q/{o_1}}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\vec{r}_Q\)</span> es un vector que describe la posición de <span class="math notranslate nohighlight">\(Q\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, <span class="math notranslate nohighlight">\(\vec{r}_{o_1}\)</span> es un vector que define la posición del origen del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\vec{r}_{Q/{o_1}}\)</span> es un vector de posición <em>que va</em> desde el origen del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> hasta el punto <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<p>Una relación de velocidad se puede obtener si derivamos con respecto al tiempo cada uno de los términos de la ecuación <a class="reference internal" href="#equation-position-equation">(32)</a>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\vec{r}_Q}{dt} = \frac{d\vec{r}_{o_1}}{dt} + \frac{d\vec{r}_{Q/{o_1}}}{dt}
+\]</div>
+<p>Puesto que tanto <span class="math notranslate nohighlight">\(\vec{r}_Q\)</span> como <span class="math notranslate nohighlight">\(\vec{r}_{o_1}\)</span> son vectores de posición medidos desde el origen del sistema fijo, entonces la derivada de estos vectores con respecto al tiempo corresponderá a una velocidad absoluta, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d\vec{r}_Q}{dt} = \vec{v}_Q \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{d\vec{r}_{o_1}}{dt} = \vec{v}_{o_1} \]</div>
+<p>Sin embargo, la derivada de <span class="math notranslate nohighlight">\(\vec{r}_{Q/{o_1}}\)</span> corresponde a una velocidad relativa, puesto que es un posición de <span class="math notranslate nohighlight">\(Q\)</span> medida con respecto a un punto <span class="math notranslate nohighlight">\(o_1\)</span> que está en movimiento. Si el punto <span class="math notranslate nohighlight">\(Q\)</span> está fijo en el sólido rígido (o lo que es lo mismo: fijo con respecto al sistema <span class="math notranslate nohighlight">\(\{1\}\)</span>), entonces la velocidad de <span class="math notranslate nohighlight">\(Q\)</span> con respecto al punto <span class="math notranslate nohighlight">\(o_1\)</span>, vista desde el sistema inercial, está dada únicamente por el cambio de la orientación del vector <span class="math notranslate nohighlight">\(\vec{r}_{Q/{o_1}}\)</span>, lo cual puede determinarse mediante:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d\vec{r}_{Q/{o_1}}}{dt} = \W_1 \times \vec{r}_{Q/{o_1}} \]</div>
+<p>Si el punto <span class="math notranslate nohighlight">\(Q\)</span> se mueve con respecto al sistema <span class="math notranslate nohighlight">\(\{1\}\)</span>, entonces a lo anterior habría que sumarle un término que represente el cambio del vector <span class="math notranslate nohighlight">\(\vec{r}_{Q/{o_1}}\)</span> visto desde el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span>, es decir:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\vec{r}_{Q/{o_1}}}{dt} = \W_1 \times \vec{r}_{Q/{o_1}} + \rbr{ \frac{d\vec{r}_{Q/{o_1}}}{dt} }_{S_1} =
+ \W_1 \times \vec{r}_{Q/{o_1}} + \rbr{ \vec{v}_{Q/{o_1}} }_{S_1} 
+\]</div>
+<p>Así pues, la velocidad del punto <span class="math notranslate nohighlight">\(Q\)</span> se puede escribir de manera general como:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_Q =  \vec{v}_{o_1} + \W_1 \times \vec{r}_{Q/{o_1}} + \rbr{ \vec{v}_{Q/{o_1}} }_{S_1}
+\]</div>
 </section>
+<section id="velocidades-lineales-en-un-manipulador-serial">
+<span id="vel-lineal-extremo"></span><h2>Velocidades lineales en un manipulador serial<a class="headerlink" href="#velocidades-lineales-en-un-manipulador-serial" title="Link to this heading">#</a></h2>
+<p>Consideremos un manipulador serial conformado por juntas prismática y de revoluta, tal como se muestra en la figura <a class="reference internal" href="#serial-robot-velocities-png"><span class="std std-numref">Fig. 20</span></a>. Asumiendo, además, que cada sistema de referencia está colocado de acuerdo con la metodología de Denavit-Hartenberg, entonces cada eje <span class="math notranslate nohighlight">\(z_{i-1}\)</span> define la dirección de rotación o deslizamiento de la junta <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<figure class="align-center" id="serial-robot-velocities-png">
+<a class="reference internal image-reference" href="_images/serial_robot_velocities_png.png"><img alt="_images/serial_robot_velocities_png.png" src="_images/serial_robot_velocities_png.png" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Velocidades en un manipulador serial</span><a class="headerlink" href="#serial-robot-velocities-png" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Las velocidades angulares <span class="math notranslate nohighlight">\(\W_1, \W_2, \cdots, \W_n\)</span> corresponden a las velocidades angulares de cada eslabón con respecto al sistema de referencia de la base. Las velocidades angulares <span class="math notranslate nohighlight">\( \W_{0,1}^{0}, \W_{1,2}^0, \cdots , \W_{n-1,n}^{0} \)</span> corresponden a las velocidades angulares de cada eslabón <span class="math notranslate nohighlight">\(i\)</span> con respecto al eslabón <span class="math notranslate nohighlight">\(i-1\)</span> que le precede. Observe que si usamos la misma notación podríamos expresar que <span class="math notranslate nohighlight">\( \W_i = \W_{0,i}^0 \)</span>. De acuerdo con lo visto en la sección <a class="reference internal" href="#angular-velocity"><span class="std std-ref">Velocidades angulares en un manipulador serial</span></a> sabemos que:</p>
+<div class="math notranslate nohighlight" id="equation-angular-velocity-re">
+<span class="eqno">(33)<a class="headerlink" href="#equation-angular-velocity-re" title="Link to this equation">#</a></span>\[ 
+\W_i = \W_{0,1}^0 + \W_{1,2}^0 + \cdots + \W_{i-1,i}^0  
+\]</div>
+<p>Además es importante recordar que en el caso de la i-ésima junta sea prismática, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\W_{i-1,i}^0 = \vec{0} 
+\]</div>
+<p>De acuerdo con lo expuesto en la sección <a class="reference internal" href="#vel-lineal-cuerpo-rigido"><span class="std std-ref">Velocidades lineales en un cuerpo rígido</span></a> podemos expresar la velocidad del origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\{i\}\)</span> de la siguiente manera:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-framei">
+<span class="eqno">(34)<a class="headerlink" href="#equation-linear-velocity-framei" title="Link to this equation">#</a></span>\[ 
+\vec{v}_{o_i} = \vec{v}_{o_{i-1}} + \W_i \times \vec{r}_{o_i/o_{i-1}} + \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\( \vec{v}_{o_{i-1}} \)</span> denota la velocidad lineal del origen de coordenadas del sistema de referencia <span class="math notranslate nohighlight">\(\{i-1\}\)</span>, <span class="math notranslate nohighlight">\( \W_i \)</span> es la velocidad angular del eslabón <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\vec{r}_{o_i/o_{i-1}}\)</span> es un vector de posición del origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\{i\}\)</span> con respecto al origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\{i-1\}\)</span> y el término <span class="math notranslate nohighlight">\( \rbr{ v_{o_i/o_{i-1}} }_{i-1} \)</span> corresponde al cambio de la magnitud del vector que describe la posición del origen del sistema <span class="math notranslate nohighlight">\(\{i\}\)</span> en el sistema <span class="math notranslate nohighlight">\(\{i-1\}\)</span>.</p>
+<p>Así pues, las velocidades lineales de cada origen de los sistemas de referencia se pueden expresar como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+\vec{v}_{o_1} = \vec{v}_{o_0} + \W_1 \times \vec{r}_{o_1/o_{0}} + \rbr{ \vec{v}_{o_1/o_0} }_{0} \\
+\vec{v}_{o_2} = \vec{v}_{o_1} + \W_2 \times \vec{r}_{o_2/o_{1}} + \rbr{ \vec{v}_{o_2/o_1} }_{1} \\
+\vdots \\
+\vec{v}_{o_n} = \vec{v}_{o_{n-1}} + \W_n \times \vec{r}_{o_n/o_{n-1}} + \rbr{ \vec{v}_{o_n/o_{n-1}} }_{n-1} \\
+\end{matrix}
+\end{split}\]</div>
+<p>De las ecuaciones anteriores es sencillo verificar que la velocidad lineal del extremo del manipulador se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{o_n} = \vec{v}_{o_0} + \W_1 \times \vec{r}_{o_1/o_{0}} + \rbr{ \vec{v}_{o_1/o_0} }_{0} +
+\W_2 \times \vec{r}_{o_2/o_{1}} + \rbr{ \vec{v}_{o_2/o_1} }_{1} + \cdots + 
+\W_n \times \vec{r}_{o_n/o_{n-1}} + \rbr{ \vec{v}_{o_n/o_{n-1}} }_{n-1}
+\]</div>
+<p>O en su forma equivalente como:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{o_n} = \vec{v}_{o_0} + \sum_{i=1}^n \sbr{ \W_i \times \vec{r}_{o_i/o_{i-1}} + \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1} }
+\]</div>
+<p>Si el sistema de la base es un sistema fijo (caso típico, salvo que el manipulador estuviera montado sobre un dispositivo que le agregara movimiento), entonces <span class="math notranslate nohighlight">\(\vec{v}_{o_0} = \vec{0}\)</span>, lo cual implica que:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-end">
+<span class="eqno">(35)<a class="headerlink" href="#equation-linear-velocity-end" title="Link to this equation">#</a></span>\[
+\vec{v}_{o_n} = \sum_{i=1}^n \sbr{ \W_i \times \vec{r}_{o_i/o_{i-1}} + \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1} }
+\]</div>
+<p>Cada una de las velocidades angulares <span class="math notranslate nohighlight">\( \W_i \)</span> se determinan utilizando la ecuación <a class="reference internal" href="#equation-angular-velocity-re">(33)</a>. Los vectores de posición <span class="math notranslate nohighlight">\( \vec{r}_{o_i/o_{i-1}} \)</span> se calculan como:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{o_i/o_{i-1}} = \vec{r}_{o_i} - \vec{r}_{o_{i-1}} \]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_{o_i} = \sbr{ T_i^0 }_{1:3,4} \, ; \quad  
+\vec{r}_{o_{i-1}} = \sbr{ T_{i-1}^0 }_{1:3,4} 
+\]</div>
+<p>En el caso particular de que la i-ésima junta sea una revoluta, el término <span class="math notranslate nohighlight">\( \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}  \)</span> se hace cero, puesto que la distancia entre los orígenes de <span class="math notranslate nohighlight">\(\{i\}\)</span> y <span class="math notranslate nohighlight">\(\{i-1\}\)</span> permanece invariable.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> Calcule la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 18</span></a>.</p>
+<p><strong>Solución:</strong></p>
+<p>La velocidad lineal del extremo está dada por:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{v}_{o_2} = \W_1 \times \vec{r}_{o_1/o_0} + \rbr{ \vec{v}_{o_1/o_0} }_0 + 
+\W_2 \times \vec{r}_{o_2/o_1} + \rbr{ \vec{v}_{o_2/o_1} }_1  
+\]</div>
+<p>Dado que la distancia entre los orígenes de los sistemas <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{0\}\)</span> no cambia, entonces <span class="math notranslate nohighlight">\(\rbr{ \vec{v}_{o_1/o_0} }_0 = \vec{0}\)</span>. Algo similar ocurre con los orígenes de <span class="math notranslate nohighlight">\(\{2\}\)</span> y <span class="math notranslate nohighlight">\(\{1\}\)</span>, así pues <span class="math notranslate nohighlight">\(\rbr{ \vec{v}_{o_2/o_1} }_1 = \vec{0}\)</span>. \</p>
+<p>Las velocidades angulares <span class="math notranslate nohighlight">\(\W_1\)</span> y <span class="math notranslate nohighlight">\(\W_2\)</span> para este manipulador están dadas por:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\W_1 = \colvec{0}{0}{\qp{1}} \, ; \quad 
+\W_2 = \colvec{0}{0}{\qp{1} + \qp{2}} 
+\]</div>
+<p>Los vectores de posición <span class="math notranslate nohighlight">\(\vec{r}_{o_1/o_0}\)</span> y <span class="math notranslate nohighlight">\(\vec{r}_{o_2/o_1}\)</span> se pueden formar a partir de las matrices <span class="math notranslate nohighlight">\(T_i^0\)</span>, quedando:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_{o_1/o_0} = \colvec{l_1 c_1}{l_1 s_1}{0} \, ; \quad
+\vec{r}_{o_2/o_1} = \colvec{l_2 c_{12}}{l_2 s_{12}}{0}
+\]</div>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\W_1 \times \vec{r}_{o_1/o_0} = 
+\colvec{0}{0}{\qp{1}} \times \colvec{l_1 c_1}{l_1 s_1}{0} = 
+\colvec{-\qp{1} l_1 s_1}{\qp{1} l_1 c_1}{0} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\W_2 \times \vec{r}_{o_2/o_1} =  \colvec{0}{0}{\qp{1} + \qp{2}} \times \colvec{l_2 c_{12}}{l_2 s_{12}}{0} = 
+\colvec{-\rbr{\qp{1} + \qp{2}} l_2 s_{12}}{ \rbr{\qp{1} + \qp{2}} l_2 c_{12}  }{0}
+\]</div>
+<p>Sumando ambos términos:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{v}_{o_2} = \colvec{-\qp{1} l_1 s_1 -\rbr{\qp{1} + \qp{2}} l_2 s_{12}}{ \qp{1} l_1 c_1 + \rbr{\qp{1} + \qp{2}} l_2 c_{12}  }{ 0 } 
+\]</div>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -621,6 +811,8 @@ S( \W_{0,2}^0 ) R_2^0 = \sbr{ S( \W_{0,1}^0 ) + S( R_1^0 \W_{1,2}^1 ) } R_2^0
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivada-de-una-matriz-de-rotacion">Derivada de una matriz de rotación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-angulares-en-un-manipulador-serial">Velocidades angulares en un manipulador serial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-cuerpo-rigido">Velocidades lineales en un cuerpo rígido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
 </ul>
   </nav></div>
 

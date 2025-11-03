@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Preliminares matemáticos</a></li>
@@ -438,7 +439,7 @@ document.write(`
 <h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>Una matriz es un arreglo rectangular bidimensional de números (o elementos) escritos entre corchetes. Cada número de la matriz se conoce como <em>elemento</em> o <em>entrada</em> de la matriz. Los elementos de una matriz están dispuestos en filas y columnas, se denota como una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span> (léase <em>m por n</em>) a aquella que se compone de <span class="math notranslate nohighlight">\(m\)</span> filas y <span class="math notranslate nohighlight">\(n\)</span> columnas. Usualmente para nombrar las matrices se utilizarán letras mayúsculas, por ejemplo sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span>, de manera general puede escribirse como:</p>
 <div class="math notranslate nohighlight" id="equation-gral-matrix">
-<span class="eqno">(55)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(62)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -520,7 +521,7 @@ y <span class="math notranslate nohighlight">\( C \in \mathbb{R}^{n\times r} \)<
 <h3>Transpuesta de una matriz<a class="headerlink" href="#transpuesta-de-una-matriz" title="Link to this heading">#</a></h3>
 <p>La transpuesta de una matriz <span class="math notranslate nohighlight">\(A\)</span> de <span class="math notranslate nohighlight">\(m \times n\)</span> se denota como <span class="math notranslate nohighlight">\(A^T\)</span> y es una matriz de <span class="math notranslate nohighlight">\(n \times m\)</span> que tiene la primera fila de <span class="math notranslate nohighlight">\(A\)</span> como su primera columna, la segunda fila de <span class="math notranslate nohighlight">\(A\)</span> como su segunda columna y así de manera sucesiva. Por tanto la transpuesta de la matriz <span class="math notranslate nohighlight">\(A\)</span> dada en la ecuación <span class="xref std std-ref">gral_matrix</span> será:</p>
 <div class="math notranslate nohighlight" id="equation-transpose-matrix">
-<span class="eqno">(56)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(63)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A^T = \begin{bmatrix}
 a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1} \\
 a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
@@ -560,7 +561,7 @@ a_3  &amp; 0    &amp; -a_1 \\
 <p>Para cualesquiera vectores <span class="math notranslate nohighlight">\(\vec{a}\)</span> y <span class="math notranslate nohighlight">\(\vec{b}\)</span> en <span class="math notranslate nohighlight">\( \mathbb{R}^3 \)</span>, y escalares <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <p>Sea <span class="math notranslate nohighlight">\(R\)</span> una matriz ortogonal, y <span class="math notranslate nohighlight">\(\vec{a}\)</span> un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, se puede verificar que:</p>
 <div class="math notranslate nohighlight" id="equation-similarity-transformation-skew-symmetric-matrix">
-<span class="eqno">(57)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
+<span class="eqno">(64)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
 R S(\vec{a}) R^T = S(R\vec{a})
 \]</div>
 <p>El lado izquierdo de esta ecuación representa una transformación de similitud de la matriz <span class="math notranslate nohighlight">\(S(\vec{a})\)</span>. Esta ecuación establece que la representación matricial de <span class="math notranslate nohighlight">\( S(\vec{a}) \)</span> en un sistema de referencia rotado por <span class="math notranslate nohighlight">\(R\)</span> es la mismo que la matriz antisimétrica <span class="math notranslate nohighlight">\( S(R\vec{a}) \)</span> correspondiente al vector <span class="math notranslate nohighlight">\(\vec{a}\)</span> rotado por <span class="math notranslate nohighlight">\(R\)</span>.</p>
@@ -656,11 +657,11 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <h4>Ley de senos<a class="headerlink" href="#ley-de-senos" title="Link to this heading">#</a></h4>
 <p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 51</span></a> se cumple que:</p>
 <div class="math notranslate nohighlight" id="equation-ley-de-senos">
-<span class="eqno">(58)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
+<span class="eqno">(65)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
 \]</div>
 <p>Esta expresión se conoce como la <strong>ley de senos</strong>. La ley de senos se puede enunciar de forma general como: <em>en cualquier triángulo, la razón entre el seno de un ángulo y el lado opuesto a ese ángulo es igual a la razón entre el seno de otro ángulo y el lado opuesto a ese ángulo.</em></p>
-<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(58)</a> se pueden obtener tres fórmulas:</p>
+<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(65)</a> se pueden obtener tres fórmulas:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b}  \qquad ; \qquad
@@ -801,10 +802,10 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <p>El problema de encontrar la recta tangente a una curva y el problema de encontrar la velocidad de un objeto implican encontrar el mismo tipo de límite. Este tipo especial de límite se denomina <em>derivada</em> y se puede interpretar como una razón de cambio en muchas aplicaciones de ingeniería \cite{stewart}. En una gran parte de este texto utilizaremos derivadas para describir la cinemática de manipuladores, de manera específica para calcular las velocidades y aceleraciones a partir de la información de posición.</p>
 <p>De manera general, la derivada de una función <span class="math notranslate nohighlight">\(f\)</span> en un número <span class="math notranslate nohighlight">\(a\)</span>, denotada por <span class="math notranslate nohighlight">\(f'(a)\)</span>, es:</p>
 <div class="math notranslate nohighlight" id="equation-derivada-cte">
-<span class="eqno">(59)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(66)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
 f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} 
 \]</div>
-<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(59)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
+<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(66)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
 <div class="math notranslate nohighlight">
 \[
 f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} 

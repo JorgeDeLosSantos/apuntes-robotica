@@ -453,8 +453,89 @@ document.write(`
 </ul>
 <p><em>Pedro Jorge De Los Santos</em></p>
 <p><em>Guanajuato, México.</em></p>
-<!-- ```{tableofcontents}
-``` -->
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\vecg}[1]{\boldsymbol{#1}}
+\newcommand{\atantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) }
+\newcommand{\arctantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) }
+\newcommand{\vecuni}[1]{  \hat{\boldsymbol{\mathbf{#1}}} }
+\newcommand{\framei}[1]{ \{#1\} }
+\newcommand{\ejt}[1]{e^{j\theta_{#1}}}
+\newcommand{\rp}[1]{\dot{r}_{#1}}
+\newcommand{\rpp}[1]{\ddot{r}_{#1}}
+\newcommand{\w}[1]{\omega_{#1}}
+\newcommand{\sint}[4]{\int_{#1}^{#2} #3 \, #4}
+\newcommand{\sintp}[4]{\int_{#1}^{#2} \left( #3 \right) \, #4}
+\newcommand{\dint}[7]{\int_{#1}^{#2} \int_{#3}^{#4} #5 \, #6 \, #7 }
+\newcommand{\dintp}[7]{\int_{#1}^{#2} \int_{#3}^{#4} \left(#5\right) \, #6 \, #7 }
+\newcommand{\sumin}{ \mathlarger{\sum}_{i=1}^n }
+\newcommand{\rbr}[1]{ \left( #1 \right) }
+\newcommand{\sbr}[1]{ \left[ #1 \right] }
+\newcommand{\cbr}[1]{ \left\{ #1 \right\} }
+\newcommand{\abr}[1]{ \langle #1 \rangle }
+\newcommand{\frbr}[2]{ \left( \frac{#1}{#2} \right) }
+\newcommand{\fsbr}[2]{ \left[ \frac{#1}{#2} \right] }
+\newcommand{\fcbr}[2]{ \left\{ \frac{#1}{#2} \right\} }
+\newcommand{\fabr}[2]{ \langle \frac{#1}{#2} \rangle }
+\newcommand{\ffrac}[4]{ \frac{ \frac{#1}{#2} }{ \frac{#3}{#4} } }
+\newcommand{\La}{\mathcal{L}} 
+\newcommand{\Ki}{\mathcal{K}} 
+\newcommand{\Po}{\mathcal{P}} 
+\newcommand{\LaEq}[1]{
+\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right) - \frac{\partial\mathcal{L}}{\partial q_{#1}} = \tau_{#1}
+}
+\newcommand{\LaEqA}[1]{\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right)}
+\newcommand{\LaEqB}[1]{\frac{\partial\mathcal{L}}{\partial q_{#1}}}
+\newcommand{\tauvec}{ \bm{\tau} } 
+\newcommand{\KiEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} +
+\frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
+\newcommand{\KiTraEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} } 
+\newcommand{\KiRotEq}[1]{ \frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
+\newcommand{\PoEq}[1]{ - m_{#1} \vec{g}^T \vec{r}_{G_#1} } 
+\newcommand{\Icm}[1]{ I_{#1}^{{#1}'} } 
+\newcommand{\Isym}[1]{ 
+\begin{bmatrix} 
+I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
+0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \\
+0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \\
+\end{bmatrix} 
+} 
+\newcommand{\rG}[1]{ \vec{r}_{G_{#1}} } 
+\newcommand{\vG}[1]{ \vec{v}_{G_{#1}} }
+\newcommand{\lc}[1]{ l_{c_{#1}} }
+\newcommand{\qp}[1]{\dot{q}_{#1}}
+\newcommand{\qpp}[1]{\ddot{q}_{#1}} 
+\newcommand{\cijk}[3]{
+\frac{1}{2} \left( 
+\frac{\partial m_{#1#2}}{\partial q_{#3}} + 
+\frac{\partial m_{#1#3}}{\partial q_{#2}} -
+\frac{\partial m_{#2#3}}{\partial q_{#1}}
+\right)
+} 
+\newcommand{\wijk}[3]{ \boldsymbol{\omega}_{#2,#3}^{#1}}
+\newcommand{\W}{\boldsymbol{\omega}}
+\renewcommand{\aa}[1]{\alpha_{#1}} % Aceleración angular
+\newcommand{\cdt}[1]{c\theta_{#1}}
+\newcommand{\sdt}[1]{s\theta_{#1}}
+\newcommand{\tdt}[1]{t\theta_{#1}}
+\newcommand{\cdq}[1]{cq_{#1}}
+\newcommand{\sdq}[1]{sq_{#1}}
+\newcommand{\tdq}[1]{tq_{#1}}
+\newcommand{\symlist}{\bullet}
+\newcommand{\cda}[1]{c\alpha_{#1}}
+\newcommand{\sda}[1]{s\alpha_{#1}}
+\newcommand{\cdtt}[2]{c\left(\theta_{#1} + \theta_{#2} \right)}
+\newcommand{\sdtt}[2]{s\left(\theta_{#1} + \theta_{#2} \right)}
+\newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}
+\newcommand{\rowvec}[3]{\begin{bmatrix}#1&amp;#2&amp;#3\end{bmatrix}}
+\newcommand{\colvech}[4]{\begin{bmatrix}#1\\#2\\#3 \\ #4\end{bmatrix}}
+\newcommand{\Tij}[2]{T_{#1}^{#2}}
+\newcommand{\Rij}[2]{R_{#1}^{#2}}
+\renewcommand{\veci}[2]{\boldsymbol{\mathbf{r}}_{#1}^{#2}}
+\DeclareMathOperator{\arctantwo}{arctan2}
+\DeclareMathOperator{\sen}{sen}
+\end{split}\]</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>

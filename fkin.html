@@ -396,6 +396,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-las-a-i-y-t-n-0">Calculando las <span class="math notranslate nohighlight">\(A_i\)</span> y <span class="math notranslate nohighlight">\( T_n^0 \)</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-articular-y-espacio-operacional">Espacio articular y espacio operacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-directa-utilizando-python">Cinemática directa utilizando Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-para-resolver-con-la-computadora">Problemas para resolver con la computadora</a></li>
 </ul>
             </nav>
         </div>
@@ -587,7 +591,7 @@ s\theta_i &amp; c\theta_i c\alpha_i &amp; -c\theta_i s\alpha_i &amp; a_i s\theta
 \[ T_n^0 = A_1 A_2 \ldots A_n = T_1^0 T_2^1 \ldots T_{n}^{n-1} \]</div>
 <p>La matriz <span class="math notranslate nohighlight">\( T_n^0 \)</span> depende de todas las variables articulares (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(q_n\)</span>). Esta matriz nos proporcionará tanto la posición como la orientación del elemento terminal (sistema de referencia <span class="math notranslate nohighlight">\(\{n\}\)</span>) del manipulador con respecto al sistema de la base (sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>).</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> <em>Calcule la cinemática directa del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-dh"><span class="std std-numref">Fig. 29</span></a>a).</em></p>
+<p><strong>Ejemplo.</strong> <em>Calcule la cinemática directa del manipulador RR mostrado en la Figura <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>a).</em></p>
 <figure class="align-center" id="rr-robot-dh">
 <a class="reference internal image-reference" href="_images/rr_robot_dh.svg"><img alt="_images/rr_robot_dh.svg" src="_images/rr_robot_dh.svg" style="width: 60%;" />
 </a>
@@ -596,7 +600,7 @@ s\theta_i &amp; c\theta_i c\alpha_i &amp; -c\theta_i s\alpha_i &amp; a_i s\theta
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>El manipulador planar RR de la Figura <a class="reference internal" href="#rr-robot-dh"><span class="std std-numref">Fig. 29</span></a>a) tiene dos grados de libertad, con los dos ejes de articulación paralelos. Los sistemas de referencia siguiendo la metodología de Denavit-Hartenberg quedarían establecidos como se muestran en la <a class="reference internal" href="#rr-robot-dh"><span class="std std-numref">Fig. 29</span></a>b). Recuerde que el eje <span class="math notranslate nohighlight">\(z_0\)</span> se debe colocar en la junta <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(z_1\)</span> en la junta <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(z_2\)</span> en el extremo del manipulador y apuntando en la misma dirección que el eje <span class="math notranslate nohighlight">\(z\)</span> anterior (<span class="math notranslate nohighlight">\(z_1\)</span>). Observe que dado que <span class="math notranslate nohighlight">\(z_0\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span> son paralelos, entonces el eje <span class="math notranslate nohighlight">\(x_1\)</span> se coloca en la dirección de la normal común a ambos ejes. El mismo caso aplica para colocar a <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p>El manipulador planar RR de la Figura <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>a) tiene dos grados de libertad, con los dos ejes de articulación paralelos. Los sistemas de referencia siguiendo la metodología de Denavit-Hartenberg quedarían establecidos como se muestran en la <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>b). Recuerde que el eje <span class="math notranslate nohighlight">\(z_0\)</span> se debe colocar en la junta <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(z_1\)</span> en la junta <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(z_2\)</span> en el extremo del manipulador y apuntando en la misma dirección que el eje <span class="math notranslate nohighlight">\(z\)</span> anterior (<span class="math notranslate nohighlight">\(z_1\)</span>). Observe que dado que <span class="math notranslate nohighlight">\(z_0\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span> son paralelos, entonces el eje <span class="math notranslate nohighlight">\(x_1\)</span> se coloca en la dirección de la normal común a ambos ejes. El mismo caso aplica para colocar a <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
 <p>Ahora vamos a determinar cada uno de los parámetros de Denavit-Hartenberg. Los parámetros <span class="math notranslate nohighlight">\(\theta_1\)</span> y <span class="math notranslate nohighlight">\(\theta_2\)</span> corresponden a las variables articulares <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, dado que ambas articulaciones son revolutas. El parámetro <span class="math notranslate nohighlight">\(d_1\)</span> recuerde que es la distancia entre los ejes <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_0\)</span>, medida en la dirección de <span class="math notranslate nohighlight">\(z_0\)</span>, pero dado que estos ejes se intersecan entonces <span class="math notranslate nohighlight">\(d_1=0\)</span>. El parámetro <span class="math notranslate nohighlight">\(a_1\)</span> es la distancia entre <span class="math notranslate nohighlight">\(z_0\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span> medida en la dirección de <span class="math notranslate nohighlight">\(x_1\)</span>, observe que esta distancia es justamente <span class="math notranslate nohighlight">\(l_1\)</span>. El parámetro <span class="math notranslate nohighlight">\(\alpha_1\)</span> es el ángulo que hay que rotar para alinear al eje <span class="math notranslate nohighlight">\(z_0\)</span> con el eje <span class="math notranslate nohighlight">\(z_1\)</span>, girando alrededor del eje <span class="math notranslate nohighlight">\(x_1\)</span>, se observa que <span class="math notranslate nohighlight">\(z_0\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span> apuntan ya en la misma dirección, por lo cual <span class="math notranslate nohighlight">\(\alpha_1 = 0°\)</span>. El parámetro <span class="math notranslate nohighlight">\(d_2\)</span> es la distancia entre los ejes <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, medida en la dirección de <span class="math notranslate nohighlight">\(z_1\)</span>, pero dado que se intersecan entonces <span class="math notranslate nohighlight">\(d_2=0\)</span>. El parámetro <span class="math notranslate nohighlight">\(a_2\)</span> es la distancia entre los ejes <span class="math notranslate nohighlight">\(z_1\)</span> y <span class="math notranslate nohighlight">\(z_2\)</span> medida en la dirección de <span class="math notranslate nohighlight">\(x_2\)</span>, la cual corresponde justamente a <span class="math notranslate nohighlight">\(l_2\)</span>. Finalmente, el parámetro <span class="math notranslate nohighlight">\(\alpha_2\)</span> es el ángulo que hay que rotar alrededor del eje <span class="math notranslate nohighlight">\(x_2\)</span> para alinear al eje <span class="math notranslate nohighlight">\(z_1\)</span> con el <span class="math notranslate nohighlight">\(z_2\)</span>, se puede notar que los ejes <span class="math notranslate nohighlight">\(z_1\)</span> y <span class="math notranslate nohighlight">\(z_2\)</span> están alineados y por lo tanto <span class="math notranslate nohighlight">\(\alpha_2 = 0°\)</span>. Así pues, la tabla de parámetros de Denavit-Hartenberg quedaría de la siguiente manera:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -912,6 +916,172 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 \[ d_z = 65 c_{4} s_{5} s_{23} - 65 c_{5} c_{23} - 380 c_{23} + 360 s_{2} + 352 \]</div>
 </div></section>
 </section>
+<section id="espacio-articular-y-espacio-operacional">
+<h2>Espacio articular y espacio operacional<a class="headerlink" href="#espacio-articular-y-espacio-operacional" title="Link to this heading">#</a></h2>
+</section>
+<section id="cinematica-directa-utilizando-python">
+<h2>Cinemática directa utilizando Python<a class="headerlink" href="#cinematica-directa-utilizando-python" title="Link to this heading">#</a></h2>
+</section>
+<section id="problemas">
+<h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>En la Figura <a class="reference internal" href="#dh-frames"><span class="std std-numref">Fig. 34</span></a> se muestran tres sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span>, <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{2\}\)</span>. De las transformaciones <span class="math notranslate nohighlight">\( T_1^0 \)</span>, <span class="math notranslate nohighlight">\( T_2^0 \)</span> y <span class="math notranslate nohighlight">\( T_2^1 \)</span>, ¿cuáles se pueden expresar mediante los parámetros de Denavit-Hartenberg?</p>
+<figure class="align-center" id="dh-frames">
+<a class="reference internal image-reference" href="_images/dh_frames.svg"><img alt="_images/dh_frames.svg" src="_images/dh_frames.svg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">.</span><a class="headerlink" href="#dh-frames" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>En la figura <a class="reference internal" href="#rpp-robot"><span class="std std-numref">Fig. 35</span></a> se muestra un manipulador de 3 GDL (RPP). Establezca los sistemas de referencia siguiendo la metodología de Denavit-Hartenberg, obtenga la tabla de parámetros DH, forme las matrices <span class="math notranslate nohighlight">\( A_i \)</span> y calcule la matriz <span class="math notranslate nohighlight">\( T_3^0 \)</span> que describe la posición y orientación del extremo del manipulador con respecto a la base.</p>
+<figure class="align-center" id="rpp-robot">
+<a class="reference internal image-reference" href="_images/rpp_robot.svg"><img alt="_images/rpp_robot.svg" src="_images/rpp_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">.</span><a class="headerlink" href="#rpp-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Dado el manipulador mostrado en la figura <a class="reference internal" href="#rrp-robot-with-frames"><span class="std std-numref">Fig. 36</span></a> y los sistemas de referencia esquematizados, determine la posición <span class="math notranslate nohighlight">\((x,y,z)\)</span> del extremo manipulador si <span class="math notranslate nohighlight">\( q_1 = 30° \)</span>, <span class="math notranslate nohighlight">\(q_2 = 45° \)</span> y <span class="math notranslate nohighlight">\(q_3 = 150 \)</span> mm. Considerar que <span class="math notranslate nohighlight">\(a_1 = 180\)</span> mm y <span class="math notranslate nohighlight">\( d_2 = 220 \)</span> mm.</p>
+<figure class="align-center" id="rrp-robot-with-frames">
+<a class="reference internal image-reference" href="_images/rrp_robot_with_frames.svg"><img alt="_images/rrp_robot_with_frames.svg" src="_images/rrp_robot_with_frames.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Manipulador RRP</span><a class="headerlink" href="#rrp-robot-with-frames" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>En la figura <a class="reference internal" href="#rrrr-robot"><span class="std std-numref">Fig. 37</span></a> se muestra un manipulador de 4 GDL cuyas dimensiones son las indicadas. Realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Establezca los sistemas de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros (<span class="math notranslate nohighlight">\(a_i\)</span>,<span class="math notranslate nohighlight">\(\alpha_i\)</span>,<span class="math notranslate nohighlight">\(d_i\)</span>,<span class="math notranslate nohighlight">\(\theta_i\)</span>).</p></li>
+<li><p>Forme las matrices de transformación <span class="math notranslate nohighlight">\(T_i^{i-1}\)</span></p></li>
+<li><p>Calcule la matriz de transformación <span class="math notranslate nohighlight">\(T_4^0\)</span>.</p></li>
+</ul>
+<figure class="align-center" id="rrrr-robot">
+<a class="reference internal image-reference" href="_images/rrrr_robot.svg"><img alt="_images/rrrr_robot.svg" src="_images/rrrr_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Manipulador RRRR</span><a class="headerlink" href="#rrrr-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-01"><span class="std std-numref">Fig. 38</span></a> calcule la cinemática directa.</p>
+<figure class="align-center" id="complex-robot-01">
+<a class="reference internal image-reference" href="_images/complex_robot_01.svg"><img alt="_images/complex_robot_01.svg" src="_images/complex_robot_01.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-02"><span class="std std-numref">Fig. 39</span></a> calcule la cinemática directa.</p>
+<figure class="align-center" id="complex-robot-02">
+<a class="reference internal image-reference" href="_images/complex_robot_02.svg"><img alt="_images/complex_robot_02.svg" src="_images/complex_robot_02.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-03"><span class="std std-numref">Fig. 40</span></a> calcule la cinemática directa.</p>
+<figure class="align-center" id="complex-robot-03">
+<a class="reference internal image-reference" href="_images/complex_robot_03.svg"><img alt="_images/complex_robot_03.svg" src="_images/complex_robot_03.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-03" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-04"><span class="std std-numref">Fig. 41</span></a> calcule la cinemática directa.</p>
+<figure class="align-center" id="complex-robot-04">
+<a class="reference internal image-reference" href="_images/complex_robot_04.svg"><img alt="_images/complex_robot_04.svg" src="_images/complex_robot_04.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-04" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-05"><span class="std std-numref">Fig. 42</span></a> calcule la cinemática directa.</p>
+<figure class="align-center" id="complex-robot-05">
+<a class="reference internal image-reference" href="_images/complex_robot_05.svg"><img alt="_images/complex_robot_05.svg" src="_images/complex_robot_05.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-05" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Calcule la cinemática directa para el manipulador SCARA mostrado en la figura <a class="reference internal" href="#scara-robot"><span class="std std-numref">Fig. 43</span></a>.</p>
+<figure class="align-center" id="scara-robot">
+<a class="reference internal image-reference" href="_images/scara_robot.svg"><img alt="_images/scara_robot.svg" src="_images/scara_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#scara-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el robot industrial <a class="reference external" href="https://drive.google.com/file/d/1RMQUCClo7H04lLVTTjVNbZsSDRs2AY6A/view?usp=drive_link">Fanuc LR Mate 200iC</a> realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Trace el diagrama cinemático.</p></li>
+<li><p>Establezca los sistema de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros de DH.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Para el robot <a class="reference external" href="https://drive.google.com/drive/folders/1RP50k3JsaJhdzFs5dnZGsfthFjL6f_9f?usp=sharing">Fanuc M710iC/50</a> realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Trace el diagrama cinemático.</p></li>
+<li><p>Establezca los sistema de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros de DH.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Para el robot <a class="reference external" href="https://drive.google.com/drive/folders/1RRQ3QJU3QdbkwV6EQl2drIRTvikNWQBd?usp=sharing">KUKA KR 160 R1570 nano</a> realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Trace el diagrama cinemático.</p></li>
+<li><p>Establezca los sistema de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros de DH.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Para el robot industrial <a class="reference external" href="https://drive.google.com/drive/folders/1RxXR-DcQJr3xYB5zjpFRizR86aI7tn6l?usp=sharing">ABB IRB 910SC</a> realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Trace el diagrama cinemático.</p></li>
+<li><p>Establezca los sistema de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros de DH.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Para el robot industrial <a class="reference external" href="https://drive.google.com/drive/folders/1QNWVaK4xVh6EifrVnVeEspM15UwgsTHI?usp=sharing">Meca500</a> realice lo siguiente:</p>
+<ul class="simple">
+<li><p>Trace el diagrama cinemático.</p></li>
+<li><p>Establezca los sistema de referencia siguiendo la metodología de DH.</p></li>
+<li><p>Obtenga la tabla de parámetros de DH.</p></li>
+</ul>
+</section>
+<section id="problemas-para-resolver-con-la-computadora">
+<h2>Problemas para resolver con la computadora<a class="headerlink" href="#problemas-para-resolver-con-la-computadora" title="Link to this heading">#</a></h2>
+<p><em>Los siguientes problemas deberán resolverse utilizando Python como lenguaje de programación. Para cada problema se debe describir de manera adecuada la metodología seguida para resolverlo.</em></p>
+<hr class="docutils" />
+<p>Desarrolle un programa de computadora que, dados como entrada el conjunto de parámetros de Denavit-Hartenberg para una cadena cinemática abierta, calcule la posición de su extremo.</p>
+<hr class="docutils" />
+<p>Se tiene un manipulador RR como el mostrado en la figura <a class="reference internal" href="#rr-robot"><span class="std std-numref">Fig. 44</span></a>. Si se sabe que los valores de las coordenadas articulares están dados por: <span class="math notranslate nohighlight">\(q_1 = \cos t\)</span> y <span class="math notranslate nohighlight">\(q_2 = \sin t \)</span>, y que sus dimensiones son <span class="math notranslate nohighlight">\( l_1 = l_2 = 350\)</span> mm. Desarrolle un programe que calcule y trace la trayectoria descrita por el extremo del manipulador para <span class="math notranslate nohighlight">\(0 \leq t \leq 2\pi\)</span>.</p>
+<figure class="align-center" id="rr-robot">
+<a class="reference internal image-reference" href="_images/rr_robot.svg"><img alt="_images/rr_robot.svg" src="_images/rr_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Desarrolle un programa de computadora que permita calcular la posición y orientación del extremo del robot industrial ABB IRB 140 dados como datos de entrada los valores articulares.</p>
+<hr class="docutils" />
+<p>Desarrolle un programa de computadora que dados como entrada los valores articulares <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, del manipulador <span class="math notranslate nohighlight">\(PP\)</span> mostrado en la figura <a class="reference internal" href="#pp-robot"><span class="std std-numref">Fig. 45</span></a>, calcule la posición del extremo del manipulador. El programa deberá también esquematizar la posición del manipulador.</p>
+<figure class="align-center" id="pp-robot">
+<a class="reference internal image-reference" href="_images/pp_robot.svg"><img alt="_images/pp_robot.svg" src="_images/pp_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Manipulador PP</span><a class="headerlink" href="#pp-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -986,6 +1156,10 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-las-a-i-y-t-n-0">Calculando las <span class="math notranslate nohighlight">\(A_i\)</span> y <span class="math notranslate nohighlight">\( T_n^0 \)</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-articular-y-espacio-operacional">Espacio articular y espacio operacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-directa-utilizando-python">Cinemática directa utilizando Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-para-resolver-con-la-computadora">Problemas para resolver con la computadora</a></li>
 </ul>
   </nav></div>
 

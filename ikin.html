@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=1612d5b8" />
+    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=c609212d" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/customized-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -59,6 +59,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ikin';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -363,7 +365,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -379,6 +383,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-analitico">El método analítico</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,7 +401,116 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cinematica-inversa">
-<h1>Cinemática inversa<a class="headerlink" href="#cinematica-inversa" title="Link to this heading">#</a></h1>
+<span id="ikin"></span><h1>Cinemática inversa<a class="headerlink" href="#cinematica-inversa" title="Link to this heading">#</a></h1>
+<p>El problema de la cinemática inversa de manipuladores consiste en determinar las posiciones articulares (<span class="math notranslate nohighlight">\(q_1, q_2, \cdots, q_n\)</span>) requeridas para posicionar y orientar el elemento terminal de una manera predefinida. Usualmente el procedimiento es más complejo que el correspondiente para la cinemática directa, ya que el problema de la cinemática inversa está fuertemente ligado a la morfología del robot y en consecuencia no existe una metodología específica que garantice la obtención de una solución.</p>
+<p>En general, se suelen utilizar dos métodos o enfoques para abordar el problema de la cinemática inversa: el método analítico y el método geométrico. Ambos presentan ventajas y desventajas que quedarán en evidencia conforme se expongan algunos ejemplos.</p>
+<section id="el-metodo-analitico">
+<h2>El método analítico<a class="headerlink" href="#el-metodo-analitico" title="Link to this heading">#</a></h2>
+<p>El método analítico consiste en resolver la ecuación matricial:</p>
+<div class="math notranslate nohighlight" id="equation-ik-eq">
+<span class="eqno">(26)<a class="headerlink" href="#equation-ik-eq" title="Link to this equation">#</a></span>\[ 
+T_n^0 =  H
+\]</div>
+<p>En la ecuación anterior, <span class="math notranslate nohighlight">\(H\)</span> representa la posición y orientación deseada para el elemento terminal y la matriz <span class="math notranslate nohighlight">\( T_n^0 \)</span> corresponde a la cinemática directa del manipulador. La tarea de la cinemática inversa se centra en calcular los valores de <span class="math notranslate nohighlight">\(q_1, q_2, ... , q_n\)</span> que verifican la ecuación <a class="reference internal" href="#equation-ik-eq">(26)</a>.</p>
+<p>En el caso más general, la ecuación matricial <a class="reference internal" href="#equation-ik-eq">(26)</a> conduce a un conjunto de dieciséis ecuaciones escalares con <span class="math notranslate nohighlight">\(n\)</span> incógnitas (<span class="math notranslate nohighlight">\( q_1, q_2, \ldots , q_n \)</span>). Cuatro de esas dieciséis ecuaciones son triviales, dado que la última fila de una matriz de transformación homogénea será siempre de la forma: <span class="math notranslate nohighlight">\( [0,0,0,1] \)</span>. Las ecuaciones que resultan usualmente son no lineales, en términos de funciones trigonométricas. Obtener una solución en forma cerrada para este tipo de sistemas de ecuaciones puede llegar a resultar un poco complejo. Cuando no sea posible obtener una solución cerrada, se pueden aproximar los valores articulares utilizando algún método numérico, algo que describiremos en la sección <span class="xref std std-ref">ik_num</span>.</p>
+<p>Para manipuladores de pocos grados de libertad, en los cuales el elemento términal únicamente se puede posicionar (pero no \textit{orientar}) es común que se proporcione información únicamente acerca de la posición deseada (<span class="math notranslate nohighlight">\(\vec{r}_P\)</span>). En este caso la parte de posición de la matriz <span class="math notranslate nohighlight">\(T_n^0\)</span> se debe igualar con esa posición deseada <span class="math notranslate nohighlight">\(\vec{r}_P\)</span>.</p>
+<p>Existen manipuladores de tres o cuatro grados de libertad (típicamente), en los cuales la cinemática inversa de posición no es suficiente para calcular los valores articulares requeridos; dado que usualmente estos manipuladores además de posicionarse en un plano o en el espacio, pueden también orientarse en una dirección. El manipulador SCARA es un ejemplo clásico de este tipo, dado que además de posicionarse en el espacio, permite establecer la orientación en una dirección.</p>
+<p>En este caso la estrategia es que además de igualar la parte de posición de la matriz <span class="math notranslate nohighlight">\(T_n^0\)</span> con una posición deseada <span class="math notranslate nohighlight">\(\vec{r}_P\)</span>, se deben también formular ecuaciones adicionales a partir de la submatriz de rotación y la información de la orientación deseada.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule la cinemática inversa del manipulador RR mostrado en la Figura <code class="docutils literal notranslate"><span class="pre">rr_robot_dh</span></code>. Considere que se requiere que el extremo del manipulador se posicione en las coordenadas <span class="math notranslate nohighlight">\( (P_x, P_y) \)</span></em>.</p>
+<figure class="align-center" id="rr-robot-dh">
+<a class="reference internal image-reference" href="_images/rr_robot_dh1.svg"><img alt="_images/rr_robot_dh1.svg" src="_images/rr_robot_dh1.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot-dh" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>Naturalmente, las longitudes de los eslabones (<span class="math notranslate nohighlight">\( l_1 \)</span> y <span class="math notranslate nohighlight">\( l_2 \)</span>) del robot son valores constantes y por lo tanto se asumen conocidos. Para resolver la cinemática inversa por el método analítico debemos primero calcular la matriz que describe la cinemática directa. En este caso <span class="math notranslate nohighlight">\( T_2^0 \)</span> está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} T_2^0 = \begin{bmatrix}
+c_{12} &amp; -s_{12} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} \\	
+s_{12} &amp; c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\	
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 
+\end{bmatrix} \end{split}\]</div>
+<p>Una vez conocida <span class="math notranslate nohighlight">\( T_n^0 \)</span> debemos igualar con los valores de posición y orientación deseados. En este caso la parte de posición tenemos que igualarla con las coordenadas <span class="math notranslate nohighlight">\((P_x, P_y)\)</span> que se quieren alcanzar.
+De esto resulta un sistema de dos ecuaciones:</p>
+<div class="math notranslate nohighlight" id="equation-ik-rr-example-eqx">
+<span class="eqno">(27)<a class="headerlink" href="#equation-ik-rr-example-eqx" title="Link to this equation">#</a></span>\[ 
+l_1 c_1 + l_2 c_{12} = P_x 
+\]</div>
+<div class="math notranslate nohighlight" id="equation-ik-rr-example-eqy">
+<span class="eqno">(28)<a class="headerlink" href="#equation-ik-rr-example-eqy" title="Link to this equation">#</a></span>\[
+l_1 s_1 + l_2 s_{12} = P_y
+\]</div>
+<p>Si se eleva al cuadrado cada miembro de las ecuaciones anteriores y se suman:</p>
+<div class="math notranslate nohighlight">
+\[ P_x^2 + P_y^2 = l_1^2 c_1^2 + 2l_1 l_2 c_1 c_{12} + l_2^2 c_{12}^2  +  l_1^2 s_1^2 + 2l_1 l_2 s_1 s_{12} + l_2^2 s_{12}^2  \]</div>
+<p>Factorizando y recordando que <span class="math notranslate nohighlight">\( \sin^2 x + \cos^2 x = 1 \)</span>, se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[ 
+P_x^2 + P_y^2 = l_1^2 (\isone{c_1^2 + s_1^2}) + l_2^2 (\isone{ c_{12}^2 + s_{12}^2 }) + 
+2l_1 l_2 c_1 c_{12} + 2l_1 l_2 s_1 s_{12} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+P_x^2 + P_y^2 = l_1^2 + l_2^2  + 2l_1 l_2 c_1 c_{12} + 2l_1 l_2 s_1 s_{12} 
+\]</div>
+<p>Para simplificar un poco más podemos aplicar las identidades trigonométricas de suma de ángulos. Sabemos que:</p>
+<div class="math notranslate nohighlight">
+\[ s_{12} = s_1 c_2 + c_1 s_2 \]</div>
+<div class="math notranslate nohighlight">
+\[ c_{12} = c_1 c_2 - s_1 s_2 \]</div>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight">
+\[ P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1 \left( c_1 c_2 - s_1 s_2 \right) + 
+2 l_1 l_2 s_1 \left( s_1 c_2 + c_1 s_2 \right)  \]</div>
+<div class="math notranslate nohighlight">
+\[ 
+P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 \eliminar{- 2 l_1 l_2 c_1 s_1 s_2 } + 2 l_1 l_2 s_1^2 c_2 
+\eliminar{+ 2l_1 l_2 s_1 c_1 s_2}
+\]</div>
+<p>Los términos resaltados se eliminan, de lo cual nos queda:</p>
+<div class="math notranslate nohighlight">
+\[ 
+P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 + 2 l_1 l_2 s_1^2 c_2 
+\]</div>
+<p>Podemos factorizar los dos últimos términos como <span class="math notranslate nohighlight">\( 2 l_1 l_2 c_2 ( c_1^2 + s_1^2 ) \)</span>, y aplicar la identidad trigonométrica <span class="math notranslate nohighlight">\( c_1^2 + s_1^2 = 1 \)</span>. De esto resultará:</p>
+<div class="math notranslate nohighlight">
+\[ P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2l_1 l_2 c_2 \]</div>
+<p>De la expresión anterior el único valor desconocido es <span class="math notranslate nohighlight">\(q_2\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ \cos{q_2} = \frac{P_x^2 + P_y^2 - l_1^2 - l_2^2}{2l_1 l_2} = K \]</div>
+<p>Por trigonometría se sabe que:</p>
+<div class="math notranslate nohighlight">
+\[ \tan x = \frac{\sin x}{\cos x}  \quad \text{ y   }  \sin x = \pm \sqrt{1 - \cos^2 x } \]</div>
+<p>Entonces podemos escribir la solución para <span class="math notranslate nohighlight">\(q_2\)</span> en términos de la función arcotangente:</p>
+<div class="math notranslate nohighlight">
+\[ q_2 = \arctan\left( \frac{ \pm \sqrt{1 - K^2} }{ K } \right) \]</div>
+<p>Para calcular <span class="math notranslate nohighlight">\(q_1\)</span>, de las ecuaciones \ref{eq:ik_rr_example_eqx} y \ref{eq:ik_rr_example_eqy} podemos dividirlas y manipular la expresión resultante:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\frac{P_y}{P_x} = \frac{ l_1 s_1 + l_2 s_{12} }{ l_1 c_1 + l_2 c_{12} }
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+P_y \left(  l_1 c_1 + l_2 c_{12} \right) = P_x \left( l_1 s_1 + l_2 s_{12} \right)
+\]</div>
+<p>Aplicando identidades trigonométricas de suma de ángulos:</p>
+<div class="math notranslate nohighlight">
+\[ P_y \left(  l_1 c_1 + l_2 c_1 c_2 - l_2 s_1 s_2 \right) = 
+P_x \left( l_1 s_1 + l_2 s_1 c_2 + l_2 c_1 s_2 \right)\]</div>
+<p>Agrupando y factorizando los términos que dependen de <span class="math notranslate nohighlight">\(\cos q_1 \)</span> y <span class="math notranslate nohighlight">\(\sin q_1 \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ c_1 \left( P_y l_1 + P_y l_2 c_2 - P_x l_2 s_2 \right) = 
+s_1 \left( P_x l_1 + P_x l_2 c_2 + P_y l_2 s_2 \right) \]</div>
+<p>De lo cual resulta:</p>
+<div class="math notranslate nohighlight">
+\[ 
+q_1 = \arctan\left( \frac{ P_y l_1 + P_y l_2 c_2 - P_x l_2 s_2 }{P_x l_1 + P_x l_2 c_2 + P_y l_2 s_2} \right)
+\]</div>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,6 +567,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-analitico">El método analítico</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

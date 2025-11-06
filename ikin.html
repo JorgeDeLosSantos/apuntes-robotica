@@ -389,6 +389,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-analitico">El método analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-inversa-de-posicion-metodo-geometrico">Cinemática inversa de posición: método geométrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desacoplo-cinematico">Desacoplo cinemático</a></li>
 </ul>
             </nav>
         </div>
@@ -404,6 +406,11 @@ document.write(`
 <span id="ikin"></span><h1>Cinemática inversa<a class="headerlink" href="#cinematica-inversa" title="Link to this heading">#</a></h1>
 <p>El problema de la cinemática inversa de manipuladores consiste en determinar las posiciones articulares (<span class="math notranslate nohighlight">\(q_1, q_2, \cdots, q_n\)</span>) requeridas para posicionar y orientar el elemento terminal de una manera predefinida. Usualmente el procedimiento es más complejo que el correspondiente para la cinemática directa, ya que el problema de la cinemática inversa está fuertemente ligado a la morfología del robot y en consecuencia no existe una metodología específica que garantice la obtención de una solución.</p>
 <p>En general, se suelen utilizar dos métodos o enfoques para abordar el problema de la cinemática inversa: el método analítico y el método geométrico. Ambos presentan ventajas y desventajas que quedarán en evidencia conforme se expongan algunos ejemplos.</p>
+<p><span class="math notranslate nohighlight">\(
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}
+\newcommand{\framei}[1]{ \{#1\} }
+\)</span></p>
 <section id="el-metodo-analitico">
 <h2>El método analítico<a class="headerlink" href="#el-metodo-analitico" title="Link to this heading">#</a></h2>
 <p>El método analítico consiste en resolver la ecuación matricial:</p>
@@ -417,7 +424,7 @@ T_n^0 =  H
 <p>Existen manipuladores de tres o cuatro grados de libertad (típicamente), en los cuales la cinemática inversa de posición no es suficiente para calcular los valores articulares requeridos; dado que usualmente estos manipuladores además de posicionarse en un plano o en el espacio, pueden también orientarse en una dirección. El manipulador SCARA es un ejemplo clásico de este tipo, dado que además de posicionarse en el espacio, permite establecer la orientación en una dirección.</p>
 <p>En este caso la estrategia es que además de igualar la parte de posición de la matriz <span class="math notranslate nohighlight">\(T_n^0\)</span> con una posición deseada <span class="math notranslate nohighlight">\(\vec{r}_P\)</span>, se deben también formular ecuaciones adicionales a partir de la submatriz de rotación y la información de la orientación deseada.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> <em>Calcule la cinemática inversa del manipulador RR mostrado en la Figura <code class="docutils literal notranslate"><span class="pre">rr_robot_dh</span></code>. Considere que se requiere que el extremo del manipulador se posicione en las coordenadas <span class="math notranslate nohighlight">\( (P_x, P_y) \)</span></em>.</p>
+<p><strong>Ejemplo.</strong> <em>Calcule la cinemática inversa del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>. Considere que se requiere que el extremo del manipulador se posicione en las coordenadas <span class="math notranslate nohighlight">\( (P_x, P_y) \)</span></em>.</p>
 <figure class="align-center" id="rr-robot-dh">
 <a class="reference internal image-reference" href="_images/rr_robot_dh1.svg"><img alt="_images/rr_robot_dh1.svg" src="_images/rr_robot_dh1.svg" style="width: 50%;" />
 </a>
@@ -450,7 +457,7 @@ l_1 s_1 + l_2 s_{12} = P_y
 <p>Factorizando y recordando que <span class="math notranslate nohighlight">\( \sin^2 x + \cos^2 x = 1 \)</span>, se tiene que:</p>
 <div class="math notranslate nohighlight">
 \[ 
-P_x^2 + P_y^2 = l_1^2 (\isone{c_1^2 + s_1^2}) + l_2^2 (\isone{ c_{12}^2 + s_{12}^2 }) + 
+P_x^2 + P_y^2 = l_1^2 (\textcolor{blue}{c_1^2 + s_1^2}) + l_2^2 (\textcolor{blue}{ c_{12}^2 + s_{12}^2 }) + 
 2l_1 l_2 c_1 c_{12} + 2l_1 l_2 s_1 s_{12} 
 \]</div>
 <div class="math notranslate nohighlight">
@@ -468,10 +475,10 @@ P_x^2 + P_y^2 = l_1^2 + l_2^2  + 2l_1 l_2 c_1 c_{12} + 2l_1 l_2 s_1 s_{12}
 2 l_1 l_2 s_1 \left( s_1 c_2 + c_1 s_2 \right)  \]</div>
 <div class="math notranslate nohighlight">
 \[ 
-P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 \eliminar{- 2 l_1 l_2 c_1 s_1 s_2 } + 2 l_1 l_2 s_1^2 c_2 
-\eliminar{+ 2l_1 l_2 s_1 c_1 s_2}
+P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 \textcolor{red}{- 2 l_1 l_2 c_1 s_1 s_2 } + 2 l_1 l_2 s_1^2 c_2 
+\textcolor{red}{+ 2l_1 l_2 s_1 c_1 s_2}
 \]</div>
-<p>Los términos resaltados se eliminan, de lo cual nos queda:</p>
+<p>Los términos resaltados en rojo se eliminan, de lo cual nos queda:</p>
 <div class="math notranslate nohighlight">
 \[ 
 P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 + 2 l_1 l_2 s_1^2 c_2 
@@ -488,7 +495,7 @@ P_x^2 + P_y^2 = l_1^2 + l_2^2 + 2 l_1 l_2 c_1^2 c_2 + 2 l_1 l_2 s_1^2 c_2
 <p>Entonces podemos escribir la solución para <span class="math notranslate nohighlight">\(q_2\)</span> en términos de la función arcotangente:</p>
 <div class="math notranslate nohighlight">
 \[ q_2 = \arctan\left( \frac{ \pm \sqrt{1 - K^2} }{ K } \right) \]</div>
-<p>Para calcular <span class="math notranslate nohighlight">\(q_1\)</span>, de las ecuaciones \ref{eq:ik_rr_example_eqx} y \ref{eq:ik_rr_example_eqy} podemos dividirlas y manipular la expresión resultante:</p>
+<p>Para calcular <span class="math notranslate nohighlight">\(q_1\)</span>, de las ecuaciones <a class="reference internal" href="#equation-ik-rr-example-eqx">(27)</a> y <a class="reference internal" href="#equation-ik-rr-example-eqy">(28)</a> podemos dividirlas y manipular la expresión resultante:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \frac{P_y}{P_x} = \frac{ l_1 s_1 + l_2 s_{12} }{ l_1 c_1 + l_2 c_{12} }
@@ -510,6 +517,484 @@ s_1 \left( P_x l_1 + P_x l_2 c_2 + P_y l_2 s_2 \right) \]</div>
 \[ 
 q_1 = \arctan\left( \frac{ P_y l_1 + P_y l_2 c_2 - P_x l_2 s_2 }{P_x l_1 + P_x l_2 c_2 + P_y l_2 s_2} \right)
 \]</div>
+</div><div class="example">
+<p><strong>Ejemplo.</strong> Calcula la cinemática inversa del manipulador RRR de la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrr_robot_dh_pro_ik</span></code>, considerando que el elemento terminal deberá alcanzar el punto <span class="math notranslate nohighlight">\( (P_x, P_y) \)</span>, y que además el eje <span class="math notranslate nohighlight">\(x_3\)</span> deberá formar un ángulo <span class="math notranslate nohighlight">\( \phi \)</span> con respecto al eje <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
+<figure class="align-center" id="rrr-robot-dh">
+<a class="reference internal image-reference" href="_images/rrr_robot_dh1.svg"><img alt="_images/rrr_robot_dh1.svg" src="_images/rrr_robot_dh1.svg" style="width: 50%;" />
+</a>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>La cinemática directa del manipulador RRR está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_3^0 = 
+\begin{bmatrix}
+c_{123} &amp; -s_{123} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} + l_3 c_{123} \\
+s_{123} &amp; c_{123} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} + l_3 s_{123} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Al igualar la parte de posición de esta matriz con la posición deseada, se obtienen dos ecuaciones:</p>
+<div class="math notranslate nohighlight" id="equation-rrr-planar-example-ik-01">
+<span class="eqno">(29)<a class="headerlink" href="#equation-rrr-planar-example-ik-01" title="Link to this equation">#</a></span>\[
+l_1 c_1 + l_2 c_{12} + l_3 c_{123} = P_x 
+\]</div>
+<div class="math notranslate nohighlight" id="equation-rrr-planar-example-ik-02">
+<span class="eqno">(30)<a class="headerlink" href="#equation-rrr-planar-example-ik-02" title="Link to this equation">#</a></span>\[ 
+l_1 s_1 + l_2 s_{12} + l_3 s_{123} = P_y 
+\]</div>
+<p>Observe que a partir de estas dos ecuaciones no podríamos resolver la cinemática inversa, puesto que tenemos tres valores articulares desconocidos (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span> y <span class="math notranslate nohighlight">\(q_3\)</span>). Sin embargo, podemos obtener ecuaciones adicionales a partir de la información de la orientación deseada. Es sencillo notar que el sistema <span class="math notranslate nohighlight">\(\framei{3}\)</span> y el sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span> difieren en orientación por una rotación en <span class="math notranslate nohighlight">\(z\)</span>, así pues si sabemos que el ángulo formado entre <span class="math notranslate nohighlight">\(x_3\)</span> y <span class="math notranslate nohighlight">\(x_0\)</span> debería ser <span class="math notranslate nohighlight">\(\phi\)</span>, la orientación deseada se puede expresar en forma de una matriz de rotación como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R = \begin{bmatrix}
+c\phi &amp; -s\phi &amp; 0 \\
+s\phi &amp; c\phi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Una ecuación adicional puede ser obtenida si igualamos esta matriz con la submatriz de rotación de <span class="math notranslate nohighlight">\(T_3^0\)</span>, por ejemplo, si tomamos la primera columna se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\colvec{c_{123}}{s_{123}}{0} = \colvec{c\phi}{s\phi}{0}
+\]</div>
+<p>Si combinamos las primeras dos componentes:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\frac{s_{123}}{c_{123}} = \frac{s\phi}{c\phi}
+\]</div>
+<p>De lo cual resulta una ecuación adicional:</p>
+<div class="math notranslate nohighlight" id="equation-rrr-planar-example-ik-03">
+<span class="eqno">(31)<a class="headerlink" href="#equation-rrr-planar-example-ik-03" title="Link to this equation">#</a></span>\[
+q_1 + q_2 + q_3 = \phi
+\]</div>
+<p>Las ecuaciones <a class="reference internal" href="#equation-rrr-planar-example-ik-01">(29)</a> y <a class="reference internal" href="#equation-rrr-planar-example-ik-02">(30)</a> se pueden reescribir sabiendo que <span class="math notranslate nohighlight">\(c_{123} = c\phi\)</span> y <span class="math notranslate nohighlight">\(s_{123} = s\phi\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-rrr-planar-example-ik-01b">
+<span class="eqno">(32)<a class="headerlink" href="#equation-rrr-planar-example-ik-01b" title="Link to this equation">#</a></span>\[
+l_1 c_1 + l_2 c_{12} = Q_x
+\]</div>
+<div class="math notranslate nohighlight" id="equation-rrr-planar-example-ik-02b">
+<span class="eqno">(33)<a class="headerlink" href="#equation-rrr-planar-example-ik-02b" title="Link to this equation">#</a></span>\[
+l_1 s_1 + l_2 s_{12} = Q_y
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(Q_x = P_x - l_3 c\phi\)</span> y <span class="math notranslate nohighlight">\(Q_y = P_y - l_3 s\phi\)</span>, siendo ambos valores completamente conocidos. Observe que las ecuaciones anteriores tienen una forma similar a las ecuaciones del ejemplo del manipulador RR resuelto previamente, salvo que tenemos <span class="math notranslate nohighlight">\( Q_x\)</span> en lugar de <span class="math notranslate nohighlight">\(P_x\)</span>, y de manera análoga para <span class="math notranslate nohighlight">\(Q_y\)</span>.</p>
+<p>Tomando en cuenta lo anterior, podemos establecer entonces que la solución para <span class="math notranslate nohighlight">\(q_2\)</span> está dada por:</p>
+<div class="math notranslate nohighlight">
+\[ \textcolor{green}{q_2 = \arctan\left( \frac{ \pm \sqrt{1 - K^2} }{ K } \right)} \]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ K = \cos{q_2} = \frac{Q_x^2 + Q_y^2 - l_1^2 - l_2^2}{2l_1 l_2} \]</div>
+<p>Y para <span class="math notranslate nohighlight">\(q_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\textcolor{green}{q_1 = \arctan\left( \frac{ Q_y l_1 + Q_y l_2 c_2 - Q_x l_2 s_2 }{Q_x l_1 + Q_x l_2 c_2 + Q_y l_2 s_2} \right)}
+\]</div>
+<p>Una vez conocidos <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, se puede obtener <span class="math notranslate nohighlight">\(q_3\)</span> de la ecuación <a class="reference internal" href="#equation-rrr-planar-example-ik-03">(31)</a>:</p>
+<div class="math notranslate nohighlight">
+\[ \textcolor{green}{ q_3 = \phi - q_1 - q_2 } \]</div>
+</div></section>
+<section id="cinematica-inversa-de-posicion-metodo-geometrico">
+<h2>Cinemática inversa de posición: método geométrico<a class="headerlink" href="#cinematica-inversa-de-posicion-metodo-geometrico" title="Link to this heading">#</a></h2>
+<p>Para manipuladores de a lo sumo tres grados de libertad se puede emplear un enfoque geométrico para calcular las variables articulares. Este enfoque sólo nos servirá para resolver cinemática inversa de posición. En el caso de que se requiera alcanzar una cierta orientación, se deberá complementar el procedimiento con las técnicas analíticas.</p>
+<p>La idea general del método geométrico es que si queremos calcular la variable articular <span class="math notranslate nohighlight">\(q_i\)</span>, debemos proyectar el manipulador en un plano determinado y realizar construcciones geométricas (usualmente triángulos) que nos ayuden a relacionar las distancias y ángulos conocidos del manipulador con aquellos a calcular.</p>
+<p>De manera particular, si necesitamos calcular <span class="math notranslate nohighlight">\( q_i \)</span> deberíamos proyectar en el plano:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x_{i-1} y_{i-1} \)</span>, si la i-ésima articulación es una revoluta.</p></li>
+<li><p><span class="math notranslate nohighlight">\( x_{i-1} z_{i-1} \)</span>, si la i-ésima articulación es una prismática.</p></li>
+</ul>
+<p>Debemos tener en cuenta que al momento de proyectar el manipulador en los planos que correspondan, es necesario que se haga para una posición lo más general posible ¿A qué nos referimos con esto? Se debe evitar a toda costa representar al manipulador en posiciones articulares asociadas con un ángulo que sean múltiplos de 90°, o bien, posiciones articulares asociadas con una distancia que sean nulas.</p>
+<p>Una de las ventajas del método geométrico es que normalmente resultan expresiones mucho más sencillas de manipular y resolver. Es algo que podrás corroborar en los ejemplos que a continuación se abordarán.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Utilice el método geométrico para calcular la cinemática inversa del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>. Considere que el elemento terminal deberá alcanzar la posición dada por <span class="math notranslate nohighlight">\((P_x, P_y)\)</span>.</em></p>
+<p><strong>Solución:</strong></p>
+<p>Recordar que este manipulador lo habíamos resuelto con el método analítico. Primero, es importante comprender que el manipulador RR planar puede alcanzar un punto (<span class="math notranslate nohighlight">\(P_x\)</span>, <span class="math notranslate nohighlight">\(P_y\)</span>) con alguna de las dos configuraciones que se muestran en la Figura <a class="reference internal" href="#multiple-solutions"><span class="std std-numref">Fig. 47</span></a>. En el entendido de que dicho punto está dentro de su espacio de trabajo alcanzable. Las configuraciones se denominan <em>codo arriba</em> y <em>codo abajo</em>, por la obvia analogía de este manipulador con un brazo humano. En lo subsiguiente vamos a desarrollar la solución de cinemática inversa para ambas configuraciones.</p>
+<figure class="align-center" id="multiple-solutions">
+<a class="reference internal image-reference" href="_images/multiple_solutions.svg"><img alt="_images/multiple_solutions.svg" src="_images/multiple_solutions.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Dos posibles configuraciones para el manipulador RR</span><a class="headerlink" href="#multiple-solutions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución para la configuración de codo abajo</strong></p>
+<p>Lo primero que debemos hacer es proyectar el manipulador en los planos que correspondan. Si queremos resolver para <span class="math notranslate nohighlight">\( q_1 \)</span> debemos proyectar en el plano <span class="math notranslate nohighlight">\( x_0 y_0 \)</span>. Para determinar <span class="math notranslate nohighlight">\( q_2 \)</span> debemos proyectar en el plano <span class="math notranslate nohighlight">\( x_1 y_1 \)</span>. Algo a considerar en este caso es que los planos <span class="math notranslate nohighlight">\( x_0 y_0 \)</span>  y <span class="math notranslate nohighlight">\( x_1 y_1 \)</span> son planos paralelos entre sí, por lo tanto, tendremos la misma proyección resultante en ambos casos.</p>
+<figure class="align-center" id="rr-robot-ik">
+<a class="reference internal image-reference" href="_images/rr_robot_ik.svg"><img alt="_images/rr_robot_ik.svg" src="_images/rr_robot_ik.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Proyección del manipulador RR (codo abajo)</span><a class="headerlink" href="#rr-robot-ik" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Como se observa en la figura <a class="reference internal" href="#rr-robot-ik"><span class="std std-numref">Fig. 48</span></a> el manipulador RR se proyecta en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span> y se trazan los triángulos mostrados. De este diagrama se observa que el ángulo <span class="math notranslate nohighlight">\(q_1\)</span> puede calcularse una vez conocidos los ángulos <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> mediante una simple diferencia:</p>
+<div class="math notranslate nohighlight">
+\[ \textcolor{green}{ q_1 = \alpha - \beta } \]</div>
+<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> se determina a partir del triángulo rectángulo formado por los catetos <span class="math notranslate nohighlight">\(P_x\)</span> y <span class="math notranslate nohighlight">\(P_y\)</span>, y la hipotenusa <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \arctan\left( \frac{P_y}{P_x} \right)  \]</div>
+<p>La longitud <span class="math notranslate nohighlight">\(r\)</span> puede calcularse como:</p>
+<div class="math notranslate nohighlight">
+\[ r = \sqrt{P_x^2 + P_y^2} \]</div>
+<p>El ángulo <span class="math notranslate nohighlight">\(\beta\)</span> se determina aplicando ley de cosenos:</p>
+<div class="math notranslate nohighlight">
+\[ 
+l_2^2 = l_1^2 + r^2 - 2l_1 r \cos \beta    \qquad \rightarrow \qquad
+\beta = \arccos\left( \frac{l_1^2 + r^2 - l_2^2}{2l_1 r} \right)
+\]</div>
+<p>De forma similar a <span class="math notranslate nohighlight">\(\beta\)</span> y utilizando el mismo triángulo se puede determinar <span class="math notranslate nohighlight">\(q_2\)</span>
+aplicando ley de cosenos:</p>
+<div class="math notranslate nohighlight">
+\[ 
+r^2 = l_1^2 + l_2^2 + 2l_1 l_2 \cos q_2    \qquad \rightarrow \qquad
+\cos q_2 =  \frac{r^2 - l_1^2 - l_2^2}{2l_1 l_2} 
+\]</div>
+<p>De lo cual se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[ \textcolor{green}{ q_2 = \arccos \left( \frac{r^2 - l_1^2 - l_2^2}{2l_1 l_2} \right) } \]</div>
+<p><strong>Solución para la configuración de codo arriba</strong></p>
+<p>Vamos a abordar ahora la otra posible solución para la cinemática inversa del manipulador RR, con la configuración de codo arriba. En la Figura <a class="reference internal" href="#rr-robot-ik-eu"><span class="std std-numref">Fig. 49</span></a> se puede observar la proyección del manipulador en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span>.</p>
+<figure class="align-center" id="rr-robot-ik-eu">
+<a class="reference internal image-reference" href="_images/rr_robot_ik_eu.svg"><img alt="_images/rr_robot_ik_eu.svg" src="_images/rr_robot_ik_eu.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Proyección del manipulador RR (codo arriba)</span><a class="headerlink" href="#rr-robot-ik-eu" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Del diagrama se puede notar rápidamente que el ángulo <span class="math notranslate nohighlight">\(q_1\)</span> es la suma de los ángulos internos <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\( \beta \)</span>, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \textcolor{green}{q_1 = \alpha + \beta} \]</div>
+<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> lo podemos calcular con las relaciones de triángulo rectángulo:</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \arctan\left( \frac{P_y}{P_x} \right) \]</div>
+<p>Para determinar <span class="math notranslate nohighlight">\(\beta\)</span> podemos aplicar ley de cosenos en el triángulo obtusángulo:</p>
+<div class="math notranslate nohighlight">
+\[ l_2^2 = l_1^2 + r^2 - 2l_1 r \cos \beta \]</div>
+<div class="math notranslate nohighlight">
+\[\beta = \arccos\left( \frac{l_1^2 + r^2 - l_2^2}{2l_1 r} \right) \]</div>
+<p>En la expresión anterior <span class="math notranslate nohighlight">\(r\)</span> es un valor no conocido, pero que podemos calcularlo aplicando el teorema de Pitágoras en el triángulo rectángulo:</p>
+<div class="math notranslate nohighlight">
+\[ r = \sqrt{P_x^2  + P_y^2}  \]</div>
+<p>Para calcular a <span class="math notranslate nohighlight">\(q_2\)</span> podemos aplicar ley de cosenos en el triángulo obtusángulo:</p>
+<div class="math notranslate nohighlight">
+\[ 
+r^2 = l_1^2 + l_2^2 + 2l_1 l_2 \cos q_2    \qquad \rightarrow \qquad
+\cos q_2 =  \frac{r^2 - l_1^2 - l_2^2}{2l_1 l_2} 
+\]</div>
+<p>Antes de establecer el resultado para <span class="math notranslate nohighlight">\(q_2\)</span>, es importante mencionar que de acuerdo al diagrama de la proyección trazada, el ángulo <span class="math notranslate nohighlight">\( q_2 \)</span> debería ser negativo, por la manera en la cual se asume su medición (sentido horario) en el esquema. Entonces, es crucial que al resultado que se obtenga de despejar la expresión anterior, se le multiplique por <span class="math notranslate nohighlight">\(-1\)</span>, para garantizar lo ya mencionado; es decir:</p>
+<div class="math notranslate nohighlight">
+\[\textcolor{green}{ q_2 = - \arccos \left( \frac{r^2 - l_1^2 - l_2^2}{2l_1 l_2} \right) } \]</div>
+</div><div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule la cinemática inversa del manipulador <span class="math notranslate nohighlight">\(RRR\)</span> mostrado en la figura. Considere que el elemento terminal deberá alcanzar la posición dada por: <span class="math notranslate nohighlight">\( \vec{r}_P = [P_x, P_y, P_z]^T \)</span>.</em></p>
+<figure class="align-center" id="example-rrr-robot-dh">
+<a class="reference internal image-reference" href="_images/example_rrr_robot_dh.svg"><img alt="_images/example_rrr_robot_dh.svg" src="_images/example_rrr_robot_dh.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#example-rrr-robot-dh" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>De acuerdo con lo que sabemos, para calcular a <span class="math notranslate nohighlight">\(q_1\)</span> debemos proyectar en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span>; para calcular a <span class="math notranslate nohighlight">\(q_2\)</span> en el plano <span class="math notranslate nohighlight">\(x_1 y_1\)</span> y para <span class="math notranslate nohighlight">\(q_3\)</span> en el plano <span class="math notranslate nohighlight">\(x_2 y_2\)</span>. Estos dos últimos planos son paralelos. En la Figura <a class="reference internal" href="#rrr-robot-iso"><span class="std std-numref">Fig. 51</span></a> se puede observar una representación tridimensional del manipulador RRR; del lado izquierdo se muestra en color rojizo el plano de proyección <span class="math notranslate nohighlight">\(x_0 y_0\)</span>, y del lado derecho en color verde claro se muestra el plano de proyección <span class="math notranslate nohighlight">\(x_1 y_1\)</span>.</p>
+<figure class="align-center" id="rrr-robot-iso">
+<a class="reference internal image-reference" href="_images/rrr_robot_iso.svg"><img alt="_images/rrr_robot_iso.svg" src="_images/rrr_robot_iso.svg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Vista tridimensional de los planos de proyección del manipulador RRR</span><a class="headerlink" href="#rrr-robot-iso" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la Figura <a class="reference internal" href="#rrr-robot-ik-01"><span class="std std-numref">Fig. 52</span></a> se puede observar el esquema de la proyección del manipulador en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span>. Es sencillo notar que el valor de <span class="math notranslate nohighlight">\(q_1\)</span> se puede calcular como sigue:</p>
+<div class="math notranslate nohighlight">
+\[ q_1 = \arctan\left( \frac{P_y}{P_x} \right) \]</div>
+<p>Además, el valor de la distancia <span class="math notranslate nohighlight">\(a\)</span> sería:</p>
+<div class="math notranslate nohighlight">
+\[ a = \sqrt{P_x^2 + P_y^2 }  \]</div>
+<figure class="align-center" id="rrr-robot-ik-01">
+<a class="reference internal image-reference" href="_images/rrr_robot_ik_01.svg"><img alt="_images/rrr_robot_ik_01.svg" src="_images/rrr_robot_ik_01.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Manipulador RRR, proyección en <span class="math notranslate nohighlight">\(x_0 y_0\)</span></span><a class="headerlink" href="#rrr-robot-ik-01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la Figura <a class="reference internal" href="#rrr-robot-ik-02"><span class="std std-numref">Fig. 53</span></a> se puede observar la proyección del manipulador en el plano <span class="math notranslate nohighlight">\(x_1 y_1\)</span>. La manera de proceder en este esquema es muy similar a lo que se hizo con el manipulador RR. Del esquema observamos que se tienen dos triángulos, los cuales denominaremos de la siguiente manera:</p>
+<ul class="simple">
+<li><p>Triángulo 1: el triángulo rectángulo, cuyos catetos son <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\((P_z - d_1)\)</span>, y siendo <span class="math notranslate nohighlight">\(r\)</span> la hipotenusa.</p></li>
+<li><p>Triángulo 2: el triángulo obtusángulo, cuyos lados son <span class="math notranslate nohighlight">\(l_2\)</span>, <span class="math notranslate nohighlight">\(l_3\)</span> y <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ul>
+<figure class="align-center" id="rrr-robot-ik-02">
+<a class="reference internal image-reference" href="_images/rrr_robot_ik_02.svg"><img alt="_images/rrr_robot_ik_02.svg" src="_images/rrr_robot_ik_02.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Manipulador RRR, proyección en <span class="math notranslate nohighlight">\(x_1 y_1\)</span></span><a class="headerlink" href="#rrr-robot-ik-02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Del esquema se puede observar que la variable articular <span class="math notranslate nohighlight">\(q_2\)</span> corresponde a la diferencia de los ángulos internos <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ q_2 =  \alpha - \beta \]</div>
+<p>Utilizando el triángulo <span class="math notranslate nohighlight">\(1\)</span> podemos calcular el valor de <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(r\)</span> de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \arctan \left( \frac{P_z - d_1}{a} \right) \]</div>
+<div class="math notranslate nohighlight">
+\[ r = \sqrt{a^2 + (P_z - d_1)^2} \]</div>
+<p>En el triángulo <span class="math notranslate nohighlight">\(2\)</span> podemos aplicar ley de cosenos para calcular a <span class="math notranslate nohighlight">\( \beta \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ l_3^2 = l_2^2 + r^2 - 2 l_2 r \cos \beta \]</div>
+<div class="math notranslate nohighlight">
+\[  \beta = \arccos \left(  \frac{l_2^2 + r^2 - l_3^2}{2 l_2 r} \right) \]</div>
+<p>Utilizando el mismo triángulo <span class="math notranslate nohighlight">\(2\)</span> podemos ahora calcular el valor de <span class="math notranslate nohighlight">\(q_3\)</span>, aplicando también ley de cosenos:</p>
+<div class="math notranslate nohighlight">
+\[ r^2 = l_2^2 + l_3^2 + 2 l_2 l_3 \cos q_3 \]</div>
+<div class="math notranslate nohighlight">
+\[ q_3 = \arccos\left( \frac{r^2 - l_2^2 - l_3^2}{2 l_2 l_3} \right) \]</div>
+<p>De esta manera queda completado el cálculo de la cinemática inversa para el manipulador RRR.</p>
+</div></section>
+<section id="desacoplo-cinematico">
+<h2>Desacoplo cinemático<a class="headerlink" href="#desacoplo-cinematico" title="Link to this heading">#</a></h2>
+<p>La mayoría de manipuladores industriales de 6 grados de libertad, como el que se muestra en la Figura <a class="reference internal" href="#abb-irb-120"><span class="std std-numref">Fig. 54</span></a>, están conformados por una morfología base (RRR), a la cual se le adiciona un mecanismo de muñeca esférica (RRR). Para este tipo de manipuladores es posible aplicar una técnica conocida como desacoplo cinemático, la cual consiste en dividir el problema de la cinemática inversa en dos subproblemas: cinemática inversa de posición y cinemática inversa de orientación. La cinemática inversa de posición se suele abordar utilizando un enfoque geométrico y la cinemática inversa de orientación mediante un procedimiento analítico.</p>
+<figure class="align-center" id="abb-irb-120">
+<a class="reference internal image-reference" href="_images/abb-irb-120.jpg"><img alt="_images/abb-irb-120.jpg" src="_images/abb-irb-120.jpg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Robot industrial ABB IRB 120</span><a class="headerlink" href="#abb-irb-120" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A continuación, vamos a describir una serie de pasos necesarios para realizar cinemática inversa de un manipulador de 6 grados de libertad utilizando la técnica de desacoplo cinemático. Para lo subsiguiente asumimos que se conoce de entrada la matriz de transformación homogénea <span class="math notranslate nohighlight">\(H\)</span> que describe la posición y orientación deseada del extremo del manipulador.</p>
+<p>Lo primero que hacemos es construir el diagrama cinemático del manipulador, basándonos en los manuales y esquemáticos del fabricante. Es importante identificar correctamente las distancias entre los ejes articulares. Con el diagrama ya realizado, procedemos a establecer los sistemas de referencia siguiendo la metodología de Denavit-Hartenberg. Obtenemos la tabla de parámetros y calculamos las matrices <span class="math notranslate nohighlight">\( R_3^0 \)</span> y <span class="math notranslate nohighlight">\( R_6^3 \)</span>. Es importante comprender que <span class="math notranslate nohighlight">\( R_3^0 \)</span> será una matriz que depende de los primeras tres variables articulares ( <span class="math notranslate nohighlight">\( R_3^0 (q_1,q_2,q_3) \)</span> ), y que <span class="math notranslate nohighlight">\( R_6^3 \)</span> depende de las últimas tres <span class="math notranslate nohighlight">\( R_6^3 (q_4,q_5,q_6) \)</span>.</p>
+<p>Una vez hecho lo anterior, comenzamos a calcular las coordenadas del centro de la muñeca esférica, utilizando la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_m = \vec{r}_e - d_6 \vec{z}_6^0 \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\vec{r}_e\)</span> son las coordenadas de posición que deberá alcanzar el extremo del manipulador, <span class="math notranslate nohighlight">\(d_6\)</span> la distancia entre los ejes <span class="math notranslate nohighlight">\(x_5\)</span> y <span class="math notranslate nohighlight">\(x_6\)</span>, medida en la dirección del eje <span class="math notranslate nohighlight">\( z_5 \)</span>, y <span class="math notranslate nohighlight">\(\vec{z}_6^0\)</span> la orientación del eje <span class="math notranslate nohighlight">\(z\)</span> del sistema de referencia del elemento terminal con respecto al de la base. Los términos <span class="math notranslate nohighlight">\( \vec{r}_e \)</span> y <span class="math notranslate nohighlight">\( \vec{z}_6^0 \)</span> se obtienen de la matriz <span class="math notranslate nohighlight">\(H\)</span>, de manera específica:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_e = H_{1:3,4} \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{z}_6^0 = H_{1:3,3} \]</div>
+<p>Ahora procedemos a resolver la cinemática inversa de posición utilizando el método geométrico y referenciando todo el procedimiento a las coordenadas del centro de la muñeca esférica. Con esto calcularemos las tres primeras variables articulares (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span> y <span class="math notranslate nohighlight">\(q_3\)</span>).</p>
+<p>Con los valores de <span class="math notranslate nohighlight">\(q_1 \)</span>, <span class="math notranslate nohighlight">\(q_2\)</span> y <span class="math notranslate nohighlight">\(q_3\)</span> ya calculados, procedemos a determinar de forma numérica la matriz de rotación <span class="math notranslate nohighlight">\(R_3^0\)</span>, sustituyendo los valores numéricos calculados previamente.</p>
+<p>De la cinemática directa sabemos que:</p>
+<div class="math notranslate nohighlight">
+\[ R_6^0 = R_3^0 R_6^3 \]</div>
+<p>Lo cual implica que:</p>
+<div class="math notranslate nohighlight">
+\[ R_6^3 = (R_3^0)^{-1} R_6^0 \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(R_6^0\)</span> es la submatriz de rotación de <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\( R_3^0 \)</span> la matriz numérica calculada previamente y <span class="math notranslate nohighlight">\(R_6^3\)</span>  la matriz de rotación en forma simbólica calculada al inicio del procedimiento. La expresión anterior define una ecuación matricial que deberemos resolver de manera analítica, y con lo cual calcularemos los valores para las tres variables articulares restantes (<span class="math notranslate nohighlight">\(q_4\)</span>, <span class="math notranslate nohighlight">\(q_5\)</span> y <span class="math notranslate nohighlight">\(q_6\)</span>). Esta parte es lo que corresponde a la <em>cinemática inversa de orientación</em>. Usualmente deberemos trabajar con las ecuaciones que resulten de igualar los elementos correspondientes a la tercera fila y a la tercera columna: <span class="math notranslate nohighlight">\(r_{31}\)</span>, <span class="math notranslate nohighlight">\(r_{32}\)</span>, <span class="math notranslate nohighlight">\(r_{33}\)</span>, <span class="math notranslate nohighlight">\(r_{23}\)</span>, <span class="math notranslate nohighlight">\(r_{13}\)</span>; dado que suelen quedar expresiones más sencillas de manipular.</p>
+<p>Para comprobar los resultados podemos sustituir los valores calculados en la matriz <span class="math notranslate nohighlight">\(T_6^0\)</span> de la cinemática directa y verificar que sea igual a la matriz <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\atantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) }\)</span></p>
+<div class="example">
+<p><strong>Ejemplo.</strong> Calcula la cinemática inversa del manipulador industrial ABB IRB 140 (ver Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">abb-irb-140</span></code>). Considera que se requiere que el extremo del robot esté posicionado y orientado de acuerdo con la siguiente matriz <span class="math notranslate nohighlight">\(H\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H = \begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 400 \\
+0 &amp; -1 &amp; 0 &amp; 500 \\
+0 &amp; 0 &amp; -1 &amp; 650 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>En la Figura <a class="reference internal" href="#abb-irb-140-kinematic-diagram"><span class="std std-numref">Fig. 55</span></a> se puede observar el diagrama cinemático del manipulador y los sistemas de referencia de Denavit-Hartenberg.</p>
+<figure class="align-center" id="abb-irb-140-kinematic-diagram">
+<a class="reference internal image-reference" href="_images/abb-irb-140-kinematic-diagram.svg"><img alt="_images/abb-irb-140-kinematic-diagram.svg" src="_images/abb-irb-140-kinematic-diagram.svg" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Diagrama cinemático del manipulador ABB IRB 140</span><a class="headerlink" href="#abb-irb-140-kinematic-diagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En la siguiente tabla se muestran los parámetros de Denavit-Hartenberg correspondientes. Recuerda que este procedimiento de cinemática directa para el IRB 140 fue desarrollado en un ejemplo del capítulo de cinemática.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(a_i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\alpha_i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(d_i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\theta_i\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(70\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(352\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(360\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(4\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(380\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_4\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(5\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_5\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(6\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(65\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(q_6\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Con esta información podemos calcular las matrices <span class="math notranslate nohighlight">\( R_3^0 \)</span> y <span class="math notranslate nohighlight">\( R_6^3 \)</span>, las cuales se muestran enseguida:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R_3^0 = \left[\begin{matrix}c_{1} c_{23} &amp; s_{1} &amp; c_{1} s_{23}\\c_{23} s_{1} &amp; - c_{1} &amp; s_{1} s_{23}\\s_{23} &amp; 0 &amp; - c_{23}\end{matrix}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+R_6^3 = \begin{bmatrix}c_{4} c_{5} c_{6} - s_{4} s_{6} &amp; - c_{4} c_{5} s_{6} - c_{6} s_{4} &amp; c_{4} s_{5}\\c_{4} s_{6} + c_{5} c_{6} s_{4} &amp; c_{4} c_{6} - c_{5} s_{4} s_{6} &amp; s_{4} s_{5}\\- c_{6} s_{5} &amp; s_{5} s_{6} &amp; c_{5}\end{bmatrix}
+\end{split}\]</div>
+<p>Una vez calculadas las matrices <span class="math notranslate nohighlight">\(R_3^0\)</span> y <span class="math notranslate nohighlight">\(R_6^3\)</span>, procedemos a determinar las coordenadas del centro de la muñeca esférica, lo cual podemos hacer mediante la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_m = \vec{r}_e - d_6 \vec{z}_6^0 =
+\colvec{400}{500}{650} - 65 \colvec{0}{0}{-1} = 
+\colvec{400}{500}{715}
+\]</div>
+<p>Con las coordenadas del centro de la muñeca esférica ya conocidas, procedemos a realizar la cinemática inversa de posición utilizando el método geométrico, con la finalidad de calcular las primeras tres variables articulares (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span>, <span class="math notranslate nohighlight">\(q_3\)</span>). De acuerdo con lo que aprendimos en secciones previas, si queremos calcular a <span class="math notranslate nohighlight">\(q_1\)</span> deberíamos proyectar en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span>. En la Figura <a class="reference internal" href="#abb-irb-140-ik-01"><span class="std std-numref">Fig. 56</span></a> se puede observar la proyección del manipulador IRB 140 en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span>. El valor de <span class="math notranslate nohighlight">\(q_1\)</span> se puede determinar de forma sencilla de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ q_1 = \atantwo{500}{400} = 51.34° \]</div>
+<p>El valor de la distancia <span class="math notranslate nohighlight">\(a\)</span> se puede calcular mediante el teorema de Pitágoras:</p>
+<div class="math notranslate nohighlight">
+\[ a = \sqrt{500^2 + 400^2} = 640.31 \text{ mm} \]</div>
+<figure class="align-center" id="abb-irb-140-ik-01">
+<a class="reference internal image-reference" href="_images/abb_irb_140_ik_01.svg"><img alt="_images/abb_irb_140_ik_01.svg" src="_images/abb_irb_140_ik_01.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Proyección en el plano <span class="math notranslate nohighlight">\(x_0 y_0\)</span> del robot ABB IRB 140</span><a class="headerlink" href="#abb-irb-140-ik-01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Para calcular a <span class="math notranslate nohighlight">\(q_2\)</span> debemos proyectar en <span class="math notranslate nohighlight">\(x_1 y_1\)</span>, y para <span class="math notranslate nohighlight">\(q_3\)</span> en el plano <span class="math notranslate nohighlight">\(x_2 y_2\)</span>. Se puede verificar que estos planos son paralelos, y por lo tanto la proyección en <span class="math notranslate nohighlight">\(x_1 y_1\)</span> nos bastaría para calcular a <span class="math notranslate nohighlight">\(q_2\)</span> y <span class="math notranslate nohighlight">\(q_3\)</span>. En la Figura <a class="reference internal" href="#abb-irb-140-ik-02"><span class="std std-numref">Fig. 57</span></a> se puede observar la proyección del manipulador en el plano <span class="math notranslate nohighlight">\(x_1 y_1\)</span>.</p>
+<figure class="align-center" id="abb-irb-140-ik-02">
+<a class="reference internal image-reference" href="_images/abb_irb_140_ik_02.svg"><img alt="_images/abb_irb_140_ik_02.svg" src="_images/abb_irb_140_ik_02.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 57 </span><span class="caption-text">Proyección en el plano <span class="math notranslate nohighlight">\(x_1 y_1\)</span> del robot ABB IRB 140</span><a class="headerlink" href="#abb-irb-140-ik-02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Del esquema podemos notar que el valor de <span class="math notranslate nohighlight">\(q_2\)</span> es la diferencia de los ángulos <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ q_2 = \alpha - \beta \]</div>
+<p>Ahora debemos calcular cada uno de esos valores. Del triángulo rectángulo podemos calcular la distancia (hipotenusa) <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ r = \sqrt{ (a-70)^2 + (715-352)^2 } = 676.03 \text{ mm} \]</div>
+<p>Y el ángulo <span class="math notranslate nohighlight">\( \alpha \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \atantwo{715-352}{a-70} = 32.48° \]</div>
+<p>El valor del ángulo <span class="math notranslate nohighlight">\(\beta\)</span> se puede calcular aplicando ley de cosenos en el triángulo obtusángulo:</p>
+<div class="math notranslate nohighlight">
+\[ 380^2 = 360^2 + r^2 - 2(360)(r) \cos \beta \]</div>
+<div class="math notranslate nohighlight">
+\[ \beta = \arccos\left( \frac{360^2 + r^2 - 380^2}{2(360)(r)} \right) = 24.7° \]</div>
+<p>Entonces, el valor de <span class="math notranslate nohighlight">\(q_2\)</span> sería:</p>
+<div class="math notranslate nohighlight">
+\[ q_2 = 32.48° - 24.7° = 7.78° \]</div>
+<p>Del esquema de la Figura <a class="reference internal" href="#abb-irb-140-ik-02"><span class="std std-numref">Fig. 57</span></a> se puede observar que el ángulo <span class="math notranslate nohighlight">\(q_3\)</span> es el valor del ángulo <span class="math notranslate nohighlight">\(\phi\)</span> más 90°, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ q_3 = \phi + 90° \]</div>
+<p>Donde el ángulo <span class="math notranslate nohighlight">\(\phi\)</span> podemos calcularlo utilizando ley de cosenos:</p>
+<div class="math notranslate nohighlight">
+\[ r^2 = 380^2 + 360^2 + 2(380)(360) \cos \phi \]</div>
+<div class="math notranslate nohighlight">
+\[ \phi =  \arccos\left( \frac{r^2 + 380^2 + 360^2}{2(380)(360)} \right) = 48.02° \]</div>
+<p>Por lo tanto:</p>
+<div class="math notranslate nohighlight">
+\[ q_3 = 48.02° + 90° = 138.02° \]</div>
+<p>Una vez calculados los valores de <span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span> y <span class="math notranslate nohighlight">\(q_3\)</span>, procedemos a sustituir estos valores en la matriz <span class="math notranslate nohighlight">\( R_3^0 \)</span>, de lo cual resulta:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+R_3^0 = \begin{bmatrix}-0.5167 &amp; 0.7809 &amp; 0.3511\\-0.6458 &amp; -0.6247 &amp; 0.4389\\0.5621 &amp; 0 &amp; 0.8271\end{bmatrix}
+\end{split}\]</div>
+<p>Ahora calculamos el producto <span class="math notranslate nohighlight">\( \left( R_3^0 \right)^{-1} R_6^0  \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\left( R_3^0 \right)^{-1} R_6^0 = 
+\displaystyle \left[\begin{matrix}-0.5167 &amp; -0.6458 &amp; 0.5621\\0.7809 &amp; -0.6247 &amp; 0\\0.3511 &amp; 0.4389 &amp; 0.8271\end{matrix}\right]
+\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; -1 &amp; 0\\0 &amp; 0 &amp; -1\end{matrix}\right]
+=
+\displaystyle \left[\begin{matrix}-0.5167 &amp; 0.6458 &amp; -0.5621\\0.7809 &amp; 0.6247 &amp; 0\\0.3511 &amp; -0.4389 &amp; -0.8271\end{matrix}\right]
+\end{split}\]</div>
+<p>La matriz que resulta la igualamos con <span class="math notranslate nohighlight">\(R_6^3\)</span> para formar la ecuación matricial que nos servirá para calcular la cinemática inversa de orientación, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ R_6^3 = \left( R_3^0 \right)^{-1} R_6^0  \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\displaystyle \left[\begin{matrix}c_{4} c_{5} c_{6} - s_{4} s_{6} &amp; - c_{4} c_{5} s_{6} - c_{6} s_{4} &amp; c_{4} s_{5}\\c_{4} s_{6} + c_{5} c_{6} s_{4} &amp; c_{4} c_{6} - c_{5} s_{4} s_{6} &amp; s_{4} s_{5}\\- c_{6} s_{5} &amp; s_{5} s_{6} &amp; c_{5}\end{matrix}\right]
+=
+\displaystyle \left[\begin{matrix}-0.5167 &amp; 0.6458 &amp; -0.5621\\0.7809 &amp; 0.6247 &amp; 0\\0.3511 &amp; -0.4389 &amp; -0.8271\end{matrix}\right]
+\end{split}\]</div>
+<p>Para <span class="math notranslate nohighlight">\( q_6 \)</span> podemos resolver dividiendo los elementos <span class="math notranslate nohighlight">\( r_{32} / r_{31} \)</span> de ambas matrices e igualando, es decir:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\cancel{s_5} s_6}{-c_6 \cancel{s_5}} = \frac{-0.4389}{0.3511}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{s_6}{-c_6} = \frac{-0.4389}{0.3511} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{s_6}{c_6} = \frac{-0.4389}{-0.3511} \]</div>
+<div class="math notranslate nohighlight">
+\[ q_6 = \atantwo{-0.4389}{-0.3511} = 231.34° \]</div>
+<p>En el caso de <span class="math notranslate nohighlight">\( q_4 \)</span> podemos hacer <span class="math notranslate nohighlight">\( r_{23} / r_{13} \)</span> e igualar:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{s_4 \cancel{s_5}}{c_4 \cancel{s_5}} = \frac{0}{-0.5621} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{s_4}{c_4} = \frac{0}{-0.5621} \]</div>
+<div class="math notranslate nohighlight">
+\[ q_4 = \atantwo{0}{-0.5621} = 180° \]</div>
+<p>El valor de <span class="math notranslate nohighlight">\( q_5 \)</span> podemos determinarlo igualando los elementos <span class="math notranslate nohighlight">\( r_{33} \)</span> de ambas matrices:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\cos q_5 = -0.8271 \qquad \rightarrow \qquad \sin q_5 = \sqrt{ 1 - (-0.8271)^2 }
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+q_5 = \atantwo{\sqrt{1 - (-0.8271)^2}}{-0.8271} = 145.8°
+\]</div>
+<p>Con esto quedan calculadas todas las posiciones articulares requeridas para que el robot ABB IRB 140 se posicione y oriente de acuerdo con la matriz <span class="math notranslate nohighlight">\(H\)</span>. Podríamos sustituir todos los valores en la matriz de la cinemática directa <span class="math notranslate nohighlight">\(T_6^0\)</span> y obtendríamos la matriz <span class="math notranslate nohighlight">\(H\)</span>. Retomando todos los valores calculados podríamos escribir el vector de posiciones articulares <span class="math notranslate nohighlight">\(\vec{q}\)</span> de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{q} = \begin{bmatrix}
+51.34° \\ 7.78° \\ 138.02° \\ 180° \\ 145.8° \\ 231.34°
+\end{bmatrix} \end{split}\]</div>
+<p>Es importante comprender que esta solución obtenida no es única, existen múltiples soluciones para este problema de cinemática inversa. Por ejemplo, para la cinemática inversa de orientación podemos tomar la solución para <span class="math notranslate nohighlight">\(q_5\)</span> dada por:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\cos q_5 = -0.8271 \qquad \rightarrow \qquad \sin q_5 = - \sqrt{ 1 - (-0.8271)^2 }
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+q_5 = \atantwo{-\sqrt{1 - (-0.8271)^2}}{-0.8271} = 214.2°
+\]</div>
+<p>Y entonces, esto implicaría que <span class="math notranslate nohighlight">\(q_6\)</span> estaría dado por:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{-\cancel{s_5} s_6}{c_6 \cancel{s_5}} = \frac{-0.4389}{0.3511} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{-s_6}{c_6} = \frac{-0.4389}{0.3511} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{s_6}{c_6} = \frac{0.4389}{0.3511} \]</div>
+<div class="math notranslate nohighlight">
+\[ q_6 = \atantwo{-0.4389}{-0.3511} = 51.34° \]</div>
+<p>Y para el caso de <span class="math notranslate nohighlight">\(q_4\)</span> se tendría que:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{-s_4 \cancel{s_5}}{-c_4 \cancel{s_5}} = \frac{0}{-0.5621} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{s_4}{c_4} = \frac{0}{0.5621} \]</div>
+<div class="math notranslate nohighlight">
+\[ q_4 = \atantwo{0}{0.5621} = 0° \]</div>
+<p>Esto nos conduciría a una segunda posible solución de la cinemática inversa dada por <span class="math notranslate nohighlight">\(\vec{q}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{q} = \begin{bmatrix}
+51.34° \\ 7.78° \\ 138.02° \\ 0° \\ 214.2° \\ 51.34°
+\end{bmatrix} \end{split}\]</div>
+<p>De igual manera, en la cinemática inversa de posición el manipulador se podría dibujar en una configuración diferente a la planteada, y obtendríamos un conjunto solución diferente. Se recomienda al lector que se tome el tiempo de verificar que las soluciones calculadas son correctas, haciendo la sustitución descrita en párrafos anteriores. El trabajo de multiplicación matricial para obtener <span class="math notranslate nohighlight">\( T_6^0 \)</span>, aún cuando se haga de forma completamente numérica, puede llegar a resultar cuando menos tedioso, por lo cual se recomienda que estas operaciones se realicen con el auxilio de herramientas computacionales. En el capítulo \ref{ch:python} se pueden encontrar algunas librerías, funciones y algoritmos recomendados para calcular matrices de rotación, transformaciones homogéneas, cinemática directa, cinemática inversa, entre otros.</p>
 </div></section>
 </section>
 
@@ -578,6 +1063,8 @@ q_1 = \arctan\left( \frac{ P_y l_1 + P_y l_2 c_2 - P_x l_2 s_2 }{P_x l_1 + P_x l
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-analitico">El método analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-inversa-de-posicion-metodo-geometrico">Cinemática inversa de posición: método geométrico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desacoplo-cinematico">Desacoplo cinemático</a></li>
 </ul>
   </nav></div>
 

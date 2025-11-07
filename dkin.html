@@ -398,6 +398,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana-de-un-punto-del-manipulador">La matriz jacobiana de un punto del manipulador}</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-jacobiano-analitico">El jacobiano analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularidades">Singularidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-diferencial-inversa">Cinemática diferencial inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-para-resolver-utilizando-la-computadora">Problemas para resolver utilizando la computadora</a></li>
 </ul>
             </nav>
         </div>
@@ -1553,14 +1558,229 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 1 &amp; 1 \\
 \end{bmatrix} }
 \end{split}\]</div>
-</div><hr class="footnotes docutils" />
+</div></section>
+</section>
+<section id="el-jacobiano-analitico">
+<h2>El jacobiano analítico<a class="headerlink" href="#el-jacobiano-analitico" title="Link to this heading">#</a></h2>
+</section>
+<section id="singularidades">
+<h2>Singularidades<a class="headerlink" href="#singularidades" title="Link to this heading">#</a></h2>
+</section>
+<section id="cinematica-diferencial-inversa">
+<h2>Cinemática diferencial inversa<a class="headerlink" href="#cinematica-diferencial-inversa" title="Link to this heading">#</a></h2>
+</section>
+<section id="problemas">
+<h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Calcule la matriz jacobiana del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a>.</p>
+<figure class="align-center" id="rr-robot-offset">
+<a class="reference internal image-reference" href="_images/rr_robot_offset.svg"><img alt="_images/rr_robot_offset.svg" src="_images/rr_robot_offset.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot-offset" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a> calcule la velocidad lineal y angular del extremo para un instante en el que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_1 = 30°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_1 = -0.75\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_2 = 45°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_2 = 1.65\)</span> rad/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Para el manipulador RR de la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a>, se sabe que el centro de masa del eslabón <span class="math notranslate nohighlight">\(2\)</span> está ubicado de acuerdo con el siguiente vector de posición: <span class="math notranslate nohighlight">\( \vec{r}_{G_2}^2 = [-110,0,0]^T \)</span>. Calcule la velocidad del centro de masa <span class="math notranslate nohighlight">\( G_2 \)</span> con respecto al sistema de referencia de la base, para un instante en el cual las posiciones y velocidades articulares son las que se listan enseguida.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_1 = 90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_1 = 0.25\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_2 = 60°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_2 = 1.5\)</span> rad/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>En la figura <a class="reference internal" href="#rr-robot"><span class="std std-numref">Fig. 72</span></a> se muestra un manipulador RR. Para un instante en el que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_1 = 90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_1 = 0.5\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_2 = 30°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_2 = 1.5\)</span> rad/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Realiza lo siguiente:</p>
+<ul class="simple">
+<li><p>Determina la velocidad lineal del extremo del manipulador.</p></li>
+<li><p>Calcula la velocidad angular de cada uno de los eslabones.</p></li>
+<li><p>Calcula la matriz jacobiana del extremo del manipulador.</p></li>
+<li><p>Calcula la velocidad de un punto <span class="math notranslate nohighlight">\(A\)</span> cuyas coordenadas en el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> están dadas por <span class="math notranslate nohighlight">\(\vec{r}_A^2 = \rowvec{-100}{20}{0}^T\)</span></p></li>
+</ul>
+<figure class="align-center" id="rr-robot">
+<a class="reference internal image-reference" href="_images/rr_robot1.svg"><img alt="_images/rr_robot1.svg" src="_images/rr_robot1.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Calcule la matriz jacobiana para el manipulador RRR mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrr_planar_robot</span></code>.</p>
+<figure class="align-default" id="id2">
+<img alt="_images/rrr_planar_robot.svg" src="_images/rrr_planar_robot.svg" />
+<figcaption>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Para el manipulador RRR mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrr_planar_robot</span></code> calcule la velocidad  lineal del extremo del manipulador para un instante en el que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_1 = 30°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_1 = 1.5 \)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_2 = 90°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_2 = 2 \)</span> rad/s</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_3 = 135°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_3 = 1.25 \)</span> rad/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Considere que las longitudes de los eslabones son <span class="math notranslate nohighlight">\( l_1 = l_2 = 300 \)</span> mm y <span class="math notranslate nohighlight">\( l_3 = 200 \)</span> mm.</p>
+<hr class="docutils" />
+<p>En la Figura <a class="reference internal" href="#ppr-robot"><span class="std std-numref">Fig. 74</span></a> se muestra un manipulador PPR, calcule la matriz jacobiana.</p>
+<figure class="align-center" id="ppr-robot">
+<a class="reference internal image-reference" href="_images/ppr_robot.svg"><img alt="_images/ppr_robot.svg" src="_images/ppr_robot.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">Manipulador PPR</span><a class="headerlink" href="#ppr-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>En la Figura <a class="reference internal" href="#rrp-robot-dh-with-off-dk"><span class="std std-numref">Fig. 75</span></a> se muestra un manipulador RRP. Para un instante en el que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\( q_1 = 90° \)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\( \dot{q}_1 = 0.25 \text{ rad/s} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\( q_2 = 30° \)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\( \dot{q}_2 = 1.75 \text{ rad/s} \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\( q_3 = 200 \text{ mm} \)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\( \dot{q}_3 = 35 \text{ mm/s} \)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Realiza lo siguiente:</p>
+<ul class="simple">
+<li><p>Calcula la velocidad lineal del extremo del manipulador.</p></li>
+<li><p>Calcula la velocidad angular de los eslabones 1, 2, y 3.</p></li>
+<li><p>Se tiene un punto <span class="math notranslate nohighlight">\(Q\)</span> ubicado en el eslabón 2, su posición con respecto al sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> está dada por: <span class="math notranslate nohighlight">\( \vec{r}_Q^2 = [0,35,0]^T \)</span> mm. Calcula <span class="math notranslate nohighlight">\(\vec{v}_Q\)</span>.</p></li>
+<li><p>Calcula la matriz jacobiana del extremo del manipulador.</p></li>
+</ul>
+<figure class="align-center" id="rrp-robot-dh-with-off-dk">
+<a class="reference internal image-reference" href="_images/rrp_robot_dh_with_off_dk.svg"><img alt="_images/rrp_robot_dh_with_off_dk.svg" src="_images/rrp_robot_dh_with_off_dk.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Manipulador RRP</span><a class="headerlink" href="#rrp-robot-dh-with-off-dk" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p>Calcule la velocidad lineal y angular del extremo del robot ABB IRB 140, para un instante en el que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_1 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_1 = 0.75\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_2 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_2 = 1.25\)</span> rad/s</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_3 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_3 = 0.5\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_4 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_4 = 0\)</span> rad/s</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_5 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_5 = 2\)</span> rad/s</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(q_6 = 0°\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dot{q}_6 = 0.5\)</span> rad/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="problemas-para-resolver-utilizando-la-computadora">
+<h2>Problemas para resolver utilizando la computadora<a class="headerlink" href="#problemas-para-resolver-utilizando-la-computadora" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Desarrolla una función denominada <code class="docutils literal notranslate"><span class="pre">calcular_jacobiano</span></code>, la cual deberá calcular la matriz jacobiana geométrica asociada con un manipulador serial. Los argumentos de entradas deberán ser tuplas que contengan los parámetros de Denavit-Hartenberg y el tipo de articulación, es decir: (<span class="math notranslate nohighlight">\(a_i\)</span>, <span class="math notranslate nohighlight">\(\alpha_i\)</span>, <span class="math notranslate nohighlight">\(d_i\)</span>, <span class="math notranslate nohighlight">\(\theta_i\)</span>, <span class="math notranslate nohighlight">\(t_a\)</span>), siendo <span class="math notranslate nohighlight">\(t_a\)</span> el tipo de articulación. Naturalmente, se deberán pasar tantas tuplas como grados de libertad tenga el manipulador. Utiliza SymPy para formar la matriz, de tal manera que los elementos puedan ser tanto variables simbólicas como valores numéricos.</p>
+<p><em>Plantilla de función sugerida</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_jacobiano</span><span class="p">(</span><span class="o">*</span><span class="n">dh_params</span><span class="p">):</span>
+	<span class="c1"># realizar cálculos aquí</span>
+	<span class="k">return</span> <span class="n">J</span>
+</pre></div>
+</div>
+<p><em>Ejemplo de invocación a la función</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="n">q1</span><span class="p">,</span><span class="n">q2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;q_1,q_2&#39;</span><span class="p">)</span>
+<span class="n">calcular_jacobiano</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q1</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q2</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Para el manipulador planar RRR de la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrr_planar_robot</span></code> se sabe que las posiciones articulares están dadas por:</p>
+<div class="math notranslate nohighlight">
+\[ q_1 = \cos t  \qquad q_2 = \sin t  \qquad q_3 = t \]</div>
+<p>Grafique las componentes de velocidad lineal (<span class="math notranslate nohighlight">\(v_x, v_y, v_z\)</span>) del extremo del manipulador en el intervalo <span class="math notranslate nohighlight">\(0 \leq t \leq 5\)</span>. Considere que <span class="math notranslate nohighlight">\( l_1 = l_2 = l_3 = 250 \)</span> mm.</p>
+<hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="pos-point-note" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Realmente podría ser en términos de cualquier conjunto de coordenadas generalizadas que describan su posición.</p>
 </aside>
 </aside>
-</section>
 </section>
 </section>
 
@@ -1637,6 +1857,11 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana-de-un-punto-del-manipulador">La matriz jacobiana de un punto del manipulador}</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-jacobiano-analitico">El jacobiano analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularidades">Singularidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cinematica-diferencial-inversa">Cinemática diferencial inversa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-para-resolver-utilizando-la-computadora">Problemas para resolver utilizando la computadora</a></li>
 </ul>
   </nav></div>
 

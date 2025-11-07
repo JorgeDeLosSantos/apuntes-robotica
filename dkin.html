@@ -395,6 +395,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-formar-la-matriz-jacobiana">¿Cómo formar la matriz jacobiana?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana-de-un-punto-del-manipulador">La matriz jacobiana de un punto del manipulador}</a></li>
 </ul>
 </li>
 </ul>
@@ -414,6 +415,7 @@ document.write(`
 <p>Comenzaremos por calcular las velocidades lineales y angulares por separado en un manipulador serial. Luego, introduciremos el concepto de <em>matriz jacobiana</em>, que nos permitirá describir de manera unificada la relación entre las velocidades de las articulaciones y las velocidades lineales y angulares del extremo del manipulador.</p>
 <p><span class="math notranslate nohighlight">\(
 \newcommand{\W}{\boldsymbol{\omega}}
+\newcommand{\w}[1]{\omega_{#1}}
 \newcommand{\rbr}[1]{ \left( #1 \right) }
 \newcommand{\sbr}[1]{ \left[ #1 \right] }
 \newcommand{\cbr}[1]{ \left\{ #1 \right\} }
@@ -1358,6 +1360,199 @@ J = \left[\begin{matrix}-170 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1\\0 &amp; 1 &amp;
 \[ \vec{v}_{o_3} = \colvec{425}{45}{30} \text{  mm/s} \]</div>
 <div class="math notranslate nohighlight">
 \[ \W_{3} = \colvec{0}{0}{-2.5} \text{ rad/s}\]</div>
+</div></section>
+<section id="la-matriz-jacobiana-de-un-punto-del-manipulador">
+<span id="jacobian-point"></span><h3>La matriz jacobiana de un punto del manipulador}<a class="headerlink" href="#la-matriz-jacobiana-de-un-punto-del-manipulador" title="Link to this heading">#</a></h3>
+<p>En la sección previa vimos cómo formar la matriz jacobiana del extremo del manipulador, sin embargo, en muchas ocasiones es necesario conocer las velocidades lineales y angulares en algún otro punto del manipulador, por ejemplo, cuando se analiza la dinámica del robot es necesario determinar las velocidades del centro de masa de cada eslabón. En esta sección veremos cómo formar la matriz jacobiana para una ubicación específica del manipulador.</p>
+<p>Antes de comenzar con el análisis, lo primero que debemos comprender es que, en un manipulador serial, si accionamos la <span class="math notranslate nohighlight">\(i-\)</span>ésima articulación y mantenemos fijas todas las otras, entonces esta articulación producirá un movimiento sobre los eslabones <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(i+1\)</span>, <span class="math notranslate nohighlight">\(\cdots\)</span>, <span class="math notranslate nohighlight">\(n\)</span>. Por ejemplo, refiriéndonos al manipulador RRR de la Figura <a class="reference internal" href="#rrr-robot-jacobian-point"><span class="std std-numref">Fig. 69</span></a>, si accionamos la junta número <span class="math notranslate nohighlight">\((3)\)</span> el único eslabón que se movería sería el <span class="math notranslate nohighlight">\(3\)</span>, si accionamos la junta <span class="math notranslate nohighlight">\((2)\)</span> entonces afectaría tanto al eslabón <span class="math notranslate nohighlight">\(2\)</span> como al <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<figure class="align-center" id="rrr-robot-jacobian-point">
+<a class="reference internal image-reference" href="_images/rrr_robot_jacobian_point.svg"><img alt="_images/rrr_robot_jacobian_point.svg" src="_images/rrr_robot_jacobian_point.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#rrr-robot-jacobian-point" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Así pues, suponiendo que se tiene un punto <span class="math notranslate nohighlight">\(A\)</span> ubicado en el eslabón <span class="math notranslate nohighlight">\(1\)</span>, entonces podríamos inferir que el accionamiento de las juntas <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(3\)</span> no le <em>afecta</em>, lo cual nos lleva a pensar que la matriz jacobiana asociada con este punto <span class="math notranslate nohighlight">\(A\)</span> debería contener ceros en las columnas <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(3\)</span> que corresponden a estas juntas, para que al efectuar la multiplicación por el vector de velocidades articulares se corresponda con una contribución nula de estas velocidades articulares a la velocidad lineal del punto <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Lo descrito previamente se puede generalizar para un punto ubicado en cualquier eslabón de un manipulador serial. Supongamos que se tiene un punto <span class="math notranslate nohighlight">\(Q\)</span> ubicado en el eslabón <span class="math notranslate nohighlight">\(m\)</span> de un manipulador serial, entonces la matriz jacobiana correspondiente al punto <span class="math notranslate nohighlight">\(Q\)</span> es una matriz de <span class="math notranslate nohighlight">\(6\times n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J_Q = \begin{bmatrix}
+\rbr{\vec{J}_{v_1}}_Q &amp; \rbr{\vec{J}_{v_2}}_Q &amp; \cdots &amp; \rbr{\vec{J}_{v_n}}_Q \\
+\rbr{\vec{J}_{\w{1}}}_Q &amp; \rbr{\vec{J}_{\w{2}}}_Q &amp; \cdots &amp; \rbr{\vec{J}_{\w{n}}}_Q
+\end{bmatrix}
+\end{split}\]</div>
+<p>Para cuando <span class="math notranslate nohighlight">\(i \leq m \)</span>, las columnas de <span class="math notranslate nohighlight">\(J_Q\)</span> se determinan de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\rbr{\vec{J}_{v_i}}_Q = \left\{\begin{matrix}
+\vec{z}_{i-1} \times \rbr{\vec{r}_Q - \vec{r}_{o_{i-1}}} &amp; \text{ si la junta i es revoluta} \\
+\vec{z}_{i-1} &amp; \text{ si la junta i es prismática} \\ 
+\end{matrix}\right.
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\rbr{\vec{J}_{\w{i}}}_Q = \left\{\begin{matrix}
+\vec{z}_{i-1} &amp; \text{ si la junta i es revoluta} \\
+\vec{0} &amp; \text{ si la junta i es prismática}
+\end{matrix}\right.
+\end{split}\]</div>
+<p>En el caso de que <span class="math notranslate nohighlight">\(i &gt; m\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+\rbr{\vec{J}_{v_i}}_Q = \vec{0} \\
+\rbr{\vec{J}_{\w{i}}}_Q = \vec{0}
+\end{matrix} 
+\end{split}\]</div>
+<p>En las ecuaciones anteriores, <span class="math notranslate nohighlight">\(\vec{r}_Q\)</span> es un vector que describe la posición del punto <span class="math notranslate nohighlight">\(Q\)</span> en el sistema de referencia de la base.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule la matriz jacobiana de los puntos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>, ubicados en los eslabones 1 y 2, respectivamente, del manipulador RR mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">example_rr_robot_point_velocity_jacobian</span></code>. Se sabe que:</em></p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_A^1 = \colvec{-\rbr{l_1 - l_{c_1}}}{0}{0} \, ; \qquad
+\vec{r}_B^2 = \colvec{-\rbr{l_2 - l_{c_2}}}{0}{0}
+\]</div>
+<figure class="align-center" id="img-dkin-examples-example-rr-robot-point-velocity">
+<a class="reference internal image-reference" href="_images/example_rr_robot_point_velocity.svg"><img alt="_images/example_rr_robot_point_velocity.svg" src="_images/example_rr_robot_point_velocity.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#img-dkin-examples-example-rr-robot-point-velocity" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución</strong>:</p>
+<p><strong>Matriz jacobiana del punto <span class="math notranslate nohighlight">\(A\)</span></strong></p>
+<p>La matriz jacobiana del punto <span class="math notranslate nohighlight">\(A\)</span> está conformada de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J_A = 
+\begin{bmatrix}
+\rbr{ \vec{J}_{v_1} }_A &amp; \rbr{ \vec{J}_{v_2} }_A \\
+\rbr{ \vec{J}_{\w{1}} }_A &amp; \rbr{ \vec{J}_{\w{2}} }_A \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Puesto que el punto <span class="math notranslate nohighlight">\(A\)</span> está ubicado en el eslabón <span class="math notranslate nohighlight">\(1\)</span> (<span class="math notranslate nohighlight">\(m=1\)</span>), entonces tanto <span class="math notranslate nohighlight">\( \rbr{ \vec{J}_{v_2} }_A\)</span> como <span class="math notranslate nohighlight">\(\rbr{ \vec{J}_{\w{2}} }_A\)</span> son cero, dado que en esta segunda columna (<span class="math notranslate nohighlight">\(i=2\)</span>) se cumple que <span class="math notranslate nohighlight">\(i &gt; m\)</span>. Calculamos ahora los términos de la primera columna, debido a que la junta <span class="math notranslate nohighlight">\(1\)</span> es una revoluta, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{J}_{v_1} }_A = \vec{z}_0 \times \rbr{  \vec{r}_A - \vec{r}_{o_0} }
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{ \vec{J}_{\w{1}} }_A = \vec{z}_0
+\]</div>
+<p>El vector <span class="math notranslate nohighlight">\(\vec{r}_A\)</span> podemos determinarlo si aplicamos una transformación a <span class="math notranslate nohighlight">\(\vec{r}_A^1\)</span> para describirlo en el sistema de la base:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{r}_A = T_1^0 \vec{r}_A^1 = 
+\begin{bmatrix}
+c_1 &amp; -s_1 &amp; 0 &amp; l_1 c_1 \\
+s_1 &amp;  c_1 &amp; 0 &amp; l_1 s_1 \\
+0   &amp; 0    &amp; 1 &amp; 0 \\
+0   &amp; 0    &amp; 0 &amp; 1 
+\end{bmatrix}
+\colvech{-\rbr{l_1 - l_{c_1}}}{0}{0}{1} = 
+\colvech{-\rbr{l_1 - l_{c_1}} c_1 + l_1 c_1 }{ -\rbr{l_1 - l_{c_1}} s_1 + l_1 s_1 }{0}{1}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_A = \colvec{ l_{c_1} c_1 }{ l_{c_1} s_1 }{0}
+\]</div>
+<p>Además, sabemos que <span class="math notranslate nohighlight">\(\vec{z}_0 = \rowvec{0}{0}{1}^T\)</span> y que <span class="math notranslate nohighlight">\( \vec{r}_{o_0} = \rowvec{0}{0}{0}^T \)</span>. Sustituyendo y realizando las operaciones:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{J}_{v_1} }_A =  \colvec{0}{0}{1} \times \colvec{ l_{c_1} c_1 }{ l_{c_1} s_1 }{0} = 
+\colvec{ -l_{c_1} s_1 }{ l_{c_1} c_1 }{0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{ \vec{J}_{\w{1}} }_A = \colvec{0}{0}{1}
+\]</div>
+<p>Entonces, la matriz <span class="math notranslate nohighlight">\(J_A\)</span> nos queda de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\textcolor{green}{ J_A = \begin{bmatrix}
+-l_{c_1} s_1 &amp; 0 \\
+l_{c_1} c_1 &amp; 0 \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+1 &amp; 0 \\
+\end{bmatrix} }
+\end{split}\]</div>
+<p><strong>Matriz jacobiana del punto <span class="math notranslate nohighlight">\(B\)</span></strong></p>
+<p>La matriz jacobiana del punto <span class="math notranslate nohighlight">\(B\)</span> está conformada de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J_B = 
+\begin{bmatrix}
+\rbr{ \vec{J}_{v_1} }_B &amp; \rbr{ \vec{J}_{v_2} }_B \\
+\rbr{ \vec{J}_{\w{1}} }_B &amp; \rbr{ \vec{J}_{\w{2}} }_B \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Puesto que el punto <span class="math notranslate nohighlight">\(B\)</span> está ubicado en el eslabón <span class="math notranslate nohighlight">\(2\)</span> (<span class="math notranslate nohighlight">\(m=2\)</span>), para ambas columnas de <span class="math notranslate nohighlight">\(J_B\)</span> (<span class="math notranslate nohighlight">\(i=1, i=2\)</span>) se cumple que <span class="math notranslate nohighlight">\(i \leq m\)</span>. Dado que tanto la junta <span class="math notranslate nohighlight">\(1\)</span> como la junta <span class="math notranslate nohighlight">\(2\)</span> son revoluta, entonces:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{J}_{v_1} }_B = \vec{z}_0 \times \rbr{  \vec{r}_B - \vec{r}_{o_0} } \, ; \qquad
+\rbr{ \vec{J}_{v_2} }_B = \vec{z}_1 \times \rbr{  \vec{r}_B - \vec{r}_{o_1} }
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{ \vec{J}_{\w{1}} }_B = \vec{z}_0 \, ; \qquad
+\rbr{ \vec{J}_{\w{2}} }_B = \vec{z}_1
+\]</div>
+<p>El vector <span class="math notranslate nohighlight">\(\vec{r}_B\)</span> lo calculamos aplicando la transformación correspondiente a <span class="math notranslate nohighlight">\(\vec{r}_B^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{r}_B = T_2^0 \vec{r}_B^2 = 
+\begin{bmatrix}
+c_{12} &amp; -s_{12} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} \\
+s_{12} &amp;  c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
+0   &amp; 0    &amp; 1 &amp; 0 \\
+0   &amp; 0    &amp; 0 &amp; 1 
+\end{bmatrix}
+\colvech{-\rbr{l_2 - l_{c_2}}}{0}{0}{1} = 
+\colvech{-\rbr{l_2 - l_{c_2}} c_{12} + l_1 c_1 + l_2 c_{12} }{ -\rbr{l_2 - l_{c_2}} s_{12} + l_1 s_1 +  l_2 s_{12} }{0}{1}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_B = \colvec{ l_1 c_1 + l_{c_2} c_{12} }{ l_1 s_1 + l_{c_2} s_{12} }{0}
+\]</div>
+<p>Tanto <span class="math notranslate nohighlight">\(\vec{z}_1\)</span> como <span class="math notranslate nohighlight">\(\vec{r}_{o_1}\)</span> se obtienen de la matriz <span class="math notranslate nohighlight">\(T_1^0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{z}_1 = \sbr{T_1^0}_{1:3,3} = \colvec{0}{0}{1} \,; \qquad 
+\vec{r}_{o_1} = \sbr{T_1^0}_{1:3,4} = \colvec{l_1 c_1}{l_1 s_1}{0} 
+\]</div>
+<p>Sustituyendo y realizando las operaciones:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{J}_{v_1} }_B =  \colvec{0}{0}{1} \times \colvec{ l_1 c_1 + l_{c_2} c_{12} }{ l_1 s_1 + l_{c_2} s_{12} }{0} = 
+\colvec{ - l_1 s_1 - l_{c_2} s_{12} }{ l_1 c_1 + l_{c_2} c_{12} }{0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{ \vec{J}_{\w{1}} }_B = \colvec{0}{0}{1}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{J}_{v_2} }_B =  \colvec{0}{0}{1} \times \colvec{ l_{c_2} c_{12} }{ l_{c_2} s_{12} }{0} = 
+\colvec{ - l_{c_2} s_{12} }{ l_{c_2} c_{12} }{0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rbr{ \vec{J}_{\w{2}} }_B = \colvec{0}{0}{1}
+\]</div>
+<p>Finalmente, organizando los términos, la matriz <span class="math notranslate nohighlight">\(J_B\)</span> nos queda de la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\textcolor{green}{ J_B = \begin{bmatrix}
+- l_1 s_1 - l_{c_2} s_{12}  &amp; - l_{c_2} s_{12} \\
+l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+1 &amp; 1 \\
+\end{bmatrix} }
+\end{split}\]</div>
 </div><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="pos-point-note" role="doc-footnote">
@@ -1439,6 +1634,7 @@ J = \left[\begin{matrix}-170 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1\\0 &amp; 1 &amp;
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-formar-la-matriz-jacobiana">¿Cómo formar la matriz jacobiana?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana-de-un-punto-del-manipulador">La matriz jacobiana de un punto del manipulador}</a></li>
 </ul>
 </li>
 </ul>

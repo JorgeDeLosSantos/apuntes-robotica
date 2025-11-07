@@ -393,7 +393,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-angulares-en-un-manipulador-serial">Velocidades angulares en un manipulador serial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-cuerpo-rigido">Velocidades lineales en un cuerpo rígido</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-formar-la-matriz-jacobiana">¿Cómo formar la matriz jacobiana?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -502,7 +505,7 @@ S = \dot{R} R^T
 <p>Si múltiplicamos lo anterior por <span class="math notranslate nohighlight">\((R_1^0)^T R_1^0\)</span> (este producto es igual a <span class="math notranslate nohighlight">\(I\)</span>, es decir, no alteramos la expresión), se tiene:</p>
 <div class="math notranslate nohighlight">
 \[ R_1^0 \dot{R}_2^1 = R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T R_1^0 R_2^1 \]</div>
-<p>Observe que <span class="math notranslate nohighlight">\( R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T \)</span> es una transformación de similitud de <span class="math notranslate nohighlight">\(S( \W_{1,2}^1 )\)</span>, entonces de acuerdo con la ecuación <a class="reference internal" href="premat.html#equation-similarity-transformation-skew-symmetric-matrix">(77)</a>:</p>
+<p>Observe que <span class="math notranslate nohighlight">\( R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T \)</span> es una transformación de similitud de <span class="math notranslate nohighlight">\(S( \W_{1,2}^1 )\)</span>, entonces de acuerdo con la ecuación <a class="reference internal" href="premat.html#equation-similarity-transformation-skew-symmetric-matrix">(84)</a>:</p>
 <div class="math notranslate nohighlight">
 \[ R_1^0 S( \W_{1,2}^1 ) \rbr{R_1^0}^T = S( R_1^0 \W_{1,2}^1 ) \]</div>
 <p>Así pues, el segundo término de la ecuación <a class="reference internal" href="#equation-r-20-derivative">(38)</a> se puede escribir como:</p>
@@ -962,13 +965,406 @@ s_2 &amp; 0 &amp; -c_2 &amp; -q_3 c_2 + 280 \\
 + &amp; \cdots + \sbr{ \W_{n-1,n}^0 \times \vec{r}_{o_n/o_{n-1}} }
 \end{align*}
 \end{split}\]</div>
-<hr class="footnotes docutils" />
+<p>La propiedad distributiva del producto cruz establece que se cumple: <span class="math notranslate nohighlight">\(\vec{a} \times \rbr{\vec{b}_1 + \vec{b}_2 + \cdots + \vec{b}_n } = \vec{a} \times \vec{b}_1 + \vec{a} \times \vec{b}_2 + \cdots + \vec{a} \times \vec{b}_n \)</span>. Considerando esto, podemos reescribir lo anterior como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\sum_{i=1}^n  \rbr{ \W_i \times \vec{r}_{o_i/o_{i-1}} } = &amp;  
+\W_{0,1}^0 \times \sbr{ \vec{r}_{o_1/o_0} + \vec{r}_{o_2/o_1} + \cdots + \vec{r}_{o_n/o_{n-1}} } + \\ 
++ &amp; \W_{1,2}^0 \times \sbr{ \vec{r}_{o_2/o_1} + \cdots + \vec{r}_{o_n/o_{n-1}} }  \\
++ &amp; \cdots + \W_{n-1,n}^0 \times \vec{r}_{o_n/o_{n-1}}
+\end{align*}
+\end{split}\]</div>
+<p>Pero, dado que:</p>
+<div class="math notranslate nohighlight">
+\[ \sbr{ \vec{r}_{o_1/o_0} + \vec{r}_{o_2/o_1} + \cdots + \vec{r}_{o_n/o_{n-1}} } = \vec{r}_{o_n/o_{0}} \]</div>
+<div class="math notranslate nohighlight">
+\[ \sbr{ \vec{r}_{o_2/o_1} + \cdots + \vec{r}_{o_n/o_{n-1}} } = \vec{r}_{o_n/o_1} \]</div>
+<p>Entonces:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-rotational-part">
+<span class="eqno">(45)<a class="headerlink" href="#equation-linear-velocity-rotational-part" title="Link to this equation">#</a></span>\[ 
+\sum_{i=1}^n  \rbr{ \W_i \times \vec{r}_{o_i/o_{i-1}} } =  
+\W_{0,1}^0 \times \vec{r}_{o_n/o_0}  + 
+\W_{1,2}^0 \times \vec{r}_{o_n/o_1} + \cdots + 
+\W_{n-1,n}^0 \times \vec{r}_{o_n/o_{n-1}} = 
+\sum_{i=1}^n \sbr{ \W_{i-1,i}^0 \times \vec{r}_{o_n/o_{i-1}} }
+\]</div>
+<p>Con lo anterior, podemos reescribir la ecuación <a class="reference internal" href="#equation-linear-velocity-end">(44)</a> como:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-end-modified">
+<span class="eqno">(46)<a class="headerlink" href="#equation-linear-velocity-end-modified" title="Link to this equation">#</a></span>\[ 
+\vec{v}_{o_n} = \sum_{i=1}^n \sbr{ \W_{i-1,i}^0 \times \vec{r}_{o_n/o_{i-1}}  + \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1} } 
+\]</div>
+<p>Esta ecuación tiene la <em>particularidad</em> de utilizar las velocidades angulares entre eslabones sucesivos, en lugar de las velocidades angulares de cada eslabón con respecto a la base. Esto tiene cierta ventaja al momento de efectuar el cálculo, puesto que en el caso de que la i-ésima junta sea de tipo prismática, entonces <span class="math notranslate nohighlight">\(\W_{i-1,i}^0 = 0\)</span>, y el primer término de <a class="reference internal" href="#equation-linear-velocity-end-modified">(46)</a> se anula. En el caso de que la i-ésima junta sea de tipo revoluta, entonces el segundo término se hace cero, es decir, únicamente se sumaría uno de los términos dependiendo el tipo de articulación.</p>
+<p>De acuerdo con lo visto en la sección \ref{sec:angular_velocity}, la velocidad angular <span class="math notranslate nohighlight">\(\W_{i-1,i}^0\)</span> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\W_{i-1,i}^0 = R_{i-1}^0 \W_{i-1,i}^{i-1} = 
+\left\{
+\begin{matrix}
+\dot{q}_i \vec{z}_{i-1} &amp; \text{si la i-ésima junta es revoluta} \\
+\vec{0} &amp; \text{si la i-ésima junta es prismática}
+\end{matrix}
+\right.
+\end{split}\]</div>
+<p>La velocidad <span class="math notranslate nohighlight">\(\rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}\)</span> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1} = R_{i-1}^0 \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}^{i-1}
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}^{i-1}  = \colvec{0}{0}{\qp{i}}
+\]</div>
+<p>Siempre y cuando la i-ésima junta sea de tipo prismática; en el caso de que sea revoluta <span class="math notranslate nohighlight">\(\rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}^{i-1} = \vec{0}\)</span>. Así pues:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1} = 
+\left\{ \begin{matrix}
+\vec{0} &amp; \text{ si la i-ésima junta es revoluta} \\
+\dot{q}_i \vec{z}_{i-1}  &amp; \text{ si la i-ésima junta es prismática} \\
+\end{matrix}
+\right.
+\end{split}\]</div>
+<p>Considerando lo anterior, la ecuación \ref{eq:linear_velocity_end_modified} puede reescribirse como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{v}_{o_n} = \sum_{i=1}^n 
+\left\{ \begin{matrix}
+\dot{q}_i \, \vec{z}_{i-1} \times \vec{r}_{o_n/o_{i-1}} &amp; \text{ si la i-ésima junta es revoluta} \\
+\dot{q}_i \, \vec{z}_{i-1} &amp; \text{ si la i-ésima junta es prismática}
+\end{matrix}\right.
+\end{split}\]</div>
+<p>O bien, en forma un poco más compacta como:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-end-compact">
+<span class="eqno">(47)<a class="headerlink" href="#equation-linear-velocity-end-compact" title="Link to this equation">#</a></span>\[ 
+\vec{v}_{o_n} = \sum_{i=1}^n \, \dot{q}_i \, \vec{J}_{v_i}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\vec{J}_{v_i}\)</span> podemos definirlo de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \vec{J}_{v_i} = 
+ \left\{ 
+ \begin{matrix}
+	\vec{z}_{i-1} \times \vec{r}_{o_n/o_{i-1}} &amp; \text{ si la i-ésima junta es revoluta.} \\
+	\vec{z}_{i-1} &amp; \text{ si la i-ésima junta es prismática.}
+ \end{matrix}
+ \right.
+\end{split}\]</div>
+<p>Se puede observar que la ecuación <a class="reference internal" href="#equation-linear-velocity-end-compact">(47)</a> es posible escribirla como una multiplicación de una matriz <span class="math notranslate nohighlight">\(J_v\)</span> (cuyas columnas son los vectores <span class="math notranslate nohighlight">\(\vec{J}_{v_i}\)</span>) por un vector <span class="math notranslate nohighlight">\(\dot{\vec{q}}\)</span>, es decir:</p>
+<div class="math notranslate nohighlight" id="equation-linear-velocity-end-jacobian">
+<span class="eqno">(48)<a class="headerlink" href="#equation-linear-velocity-end-jacobian" title="Link to this equation">#</a></span>\[
+\vec{v}_{o_n} = J_v \, \dot{\vec{q}}
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J_v = \begin{bmatrix}
+\vec{J}_{v_1} &amp; \vec{J}_{v_2} &amp; \cdots &amp; \vec{J}_{v_n}
+\end{bmatrix} \, \quad ; \quad
+\dot{ \vec{q} } = \begin{bmatrix}
+\dot{q}_1 \\ \dot{q}_2 \\ \vdots \\ \dot{q}_n
+\end{bmatrix}
+\end{split}\]</div>
+<p>A la matriz <span class="math notranslate nohighlight">\(J_v\)</span> se le denomina <strong>matriz jacobiana de velocidad lineal</strong> o bien simplemente <strong>jacobiano de velocidad lineal</strong>. Observe que esta matriz nos proporciona una relación entre las velocidades articulares y las velocidades lineales del extremo del manipulador en el espacio cartesiano.</p>
+<p>La velocidad angular del elemento terminal (eslabón <span class="math notranslate nohighlight">\(n\)</span>) también se puede escribir en forma de una multiplicación matricial. Para esto comenzaremos recordando que la velocidad angular del eslabón <span class="math notranslate nohighlight">\(n\)</span> está dada por la suma de las velocidades angulares <span class="math notranslate nohighlight">\( \W_{i-1,i}^0 \)</span> de los eslabones que le preceden:</p>
+<div class="math notranslate nohighlight">
+\[
+\W_n = \W_{0,1}^0 + \W_{1,2}^0 + \cdots + \W_{n-1,n}^0 = \sum_{i=1}^n \, \W_{i-1,i}^0
+\]</div>
+<p>Sabemos además que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\W_{i-1,i}^0 = R_{i-1}^0 \W_{i-1,i}^{i-1} = 
+\left\{
+\begin{matrix}
+\dot{q}_i \vec{z}_{i-1} &amp; \text{si la i-ésima junta es revoluta} \\
+\vec{0} &amp; \text{si la i-ésima junta es prismática}
+\end{matrix}
+\right.
+\end{split}\]</div>
+<p>Entonces, podemos reescribir la suma de velocidades angulares como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\W_n = \sum_{i=1}^n 
+\left\{ \begin{matrix}
+\dot{q}_i \vec{z}_{i-1} &amp; \text{si la i-ésima junta es revoluta} \\
+\vec{0} &amp; \text{si la i-ésima junta es prismática}
+\end{matrix} \right.
+\end{split}\]</div>
+<p>O en forma equivalente como:</p>
+<div class="math notranslate nohighlight" id="equation-angular-velocity-compact">
+<span class="eqno">(49)<a class="headerlink" href="#equation-angular-velocity-compact" title="Link to this equation">#</a></span>\[
+\W_n = \sum_{i=1}^n \, \dot{q}_i \, \vec{J}_{\omega_i}
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{J}_{\omega_i} = \left\{ \begin{matrix}
+\vec{z}_{i-1} &amp; \text{si la i-ésima junta es revoluta} \\
+\vec{0} &amp; \text{si la i-ésima junta es prismática}
+\end{matrix} \right.
+\end{split}\]</div>
+<p>La ecuación <a class="reference internal" href="#equation-angular-velocity-compact">(49)</a> se puede escribir también como una multiplicación de una matriz <span class="math notranslate nohighlight">\(J_{\omega}\)</span> (cuyas columnas son los vectores <span class="math notranslate nohighlight">\(\vec{J}_{\omega_i}\)</span>) por un vector <span class="math notranslate nohighlight">\(\dot{\vec{q}}\)</span>, es decir:</p>
+<div class="math notranslate nohighlight" id="equation-angular-velocity-end-jacobian">
+<span class="eqno">(50)<a class="headerlink" href="#equation-angular-velocity-end-jacobian" title="Link to this equation">#</a></span>\[
+\W_n = J_{\omega} \, \dot{\vec{q}}
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J_{\omega} = \begin{bmatrix}
+\vec{J}_{\omega_1} &amp; \vec{J}_{\omega_2} &amp; \cdots &amp; \vec{J}_{\omega_n}
+\end{bmatrix} \, \quad ; \quad
+\dot{ \vec{q} } = \begin{bmatrix}
+\dot{q}_1 \\ \dot{q}_2 \\ \vdots \\ \dot{q}_n
+\end{bmatrix}
+\end{split}\]</div>
+<p>A la matriz <span class="math notranslate nohighlight">\(J_{\omega}\)</span> se le denomina <strong>matriz jacobiana de velocidad angular</strong> o bien simplemente <strong>jacobiano de velocidad angular</strong>. Observe que esta matriz nos proporciona una relación entre las velocidades articulares y la velocidad angular del elemento terminal en el espacio cartesiano.</p>
+<p>Las ecuaciones <a class="reference internal" href="#equation-linear-velocity-end-jacobian">(48)</a> y <a class="reference internal" href="#equation-angular-velocity-end-jacobian">(50)</a> se pueden expresar de manera conjunta como:</p>
+<div class="math notranslate nohighlight" id="equation-jacobian-matrix">
+<span class="eqno">(51)<a class="headerlink" href="#equation-jacobian-matrix" title="Link to this equation">#</a></span>\[
+\vec{v} = J \dot{ \vec{q} }
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{v} = \begin{bmatrix} \vec{v}_{o_n} \\ \W_n \end{bmatrix} \, ; \qquad 
+J = \begin{bmatrix} J_v \\ J_{\omega} \end{bmatrix} \, ; \qquad 
+\dot{ \vec{q} } = \begin{bmatrix}
+\dot{q}_1 \\ \dot{q}_2 \\ \vdots \\ \dot{q}_n
+\end{bmatrix}
+\end{split}\]</div>
+<p>A la matriz <span class="math notranslate nohighlight">\(J\)</span> se le denomina <strong>matriz jacobiana</strong>, <strong>jacobiano</strong> o de manera un poco más específica <strong>jacobiano geométrico</strong>. La matriz jacobiana se calcula para una ubicación específica del manipulador, en este caso particular se ha obtenido para el elemento términal, no obstante, se puede formular para cualquier punto en el manipulador. Es sencillo verificar que la matriz jacobiana asociada a un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad, es una matriz de <span class="math notranslate nohighlight">\(6 \times n\)</span>.</p>
+<p>Ahora, con todo lo anterior, estamos en posibilidad de formular (bueno, en este punto realmente sería resumir) un procedimiento para determinar la matriz jacobiana asociada con el elemento terminal (eslabón <span class="math notranslate nohighlight">\(n\)</span>) de un manipulador serial de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad.</p>
+<section id="como-formar-la-matriz-jacobiana">
+<h3>¿Cómo formar la matriz jacobiana?<a class="headerlink" href="#como-formar-la-matriz-jacobiana" title="Link to this heading">#</a></h3>
+<p>La matriz jacobiana asociada con el extremo de un manipulador serial está conformada de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J = \begin{bmatrix}
+\vec{J}_{v_1} &amp; \vec{J}_{v_2} &amp; \cdots &amp; \vec{J}_{v_n} \\
+\vec{J}_{\omega_1} &amp; \vec{J}_{\omega_2} &amp; \cdots &amp; \vec{J}_{\omega_n} \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \vec{J}_{v_i} = 
+ \left\{ 
+ \begin{matrix}
+	\vec{z}_{i-1} \times \rbr{ \vec{r}_{o_n} - \vec{r}_{o_{i-1}} } &amp; \text{ si la i-ésima junta es revoluta.} \\
+	\vec{z}_{i-1} &amp; \text{ si la i-ésima junta es prismática.}
+ \end{matrix}
+ \right.
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\vec{J}_{\omega_i} = \left\{ \begin{matrix}
+\vec{z}_{i-1} &amp; \text{si la i-ésima junta es revoluta} \\
+\vec{0} &amp; \text{si la i-ésima junta es prismática}
+\end{matrix} \right.
+\end{split}\]</div>
+<p>Además, se debe considerar que cada uno de los vectores implicados se pueden determinar de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{z}_{i-1} = \sbr{ T_{i-1}^0 }_{1:3,3}  \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{o_n} = \sbr{ T_n^0 }_{1:3,4} \]</div>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{o_{i-1}} = \sbr{ T_{i-1}^0 }_{1:3,4} \]</div>
+<p>De manera particular, los vectores <span class="math notranslate nohighlight">\(\vec{r}_{o_0}\)</span> y <span class="math notranslate nohighlight">\(\vec{z}_0\)</span> siempre tendrán la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_{o_0} = \colvec{0}{0}{0} \, ; \qquad
+\vec{z}_{0} = \colvec{0}{0}{1}
+\]</div>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule la matriz jacobiana del manipulador planar RR mostrado en la Figura <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>).</em></p>
+<p><strong>Solución:</strong></p>
+<p>De la cinemática directa se sabe que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_1^0 = \begin{bmatrix}
+c_1 &amp; -s_1 &amp; 0 &amp; l_1 c_1 \\
+s_1 &amp; c_1 &amp; 0 &amp; l_1 s_1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 
+\end{bmatrix}
+\qquad ; \qquad
+T_2^0 = \begin{bmatrix}
+c_{12} &amp; -s_{12} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} \\
+s_{12} &amp; c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Dado que ambas articulaciones son revolutas, la matriz jacobiana quedará de la forma:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J = 
+\begin{bmatrix}
+\vec{J}_{v_1} &amp; \vec{J}_{v_2} \\
+\vec{J}_{\omega_1} &amp; \vec{J}_{\omega_2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\vec{z}_0 \times \left( \vec{r}_{o_2} - \vec{r}_{o_0} \right) &amp; \vec{z}_1 \times \left( \vec{r}_{o_2} - \vec{r}_{o_1} \right) \\
+\vec{z}_0 &amp; \vec{z}_1
+\end{bmatrix} 
+\end{split}\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{z}_0 = \colvec{0}{0}{1} \quad ; \quad 
+\vec{r}_{o_0} = \colvec{0}{0}{0} \quad ; \quad 
+\vec{z}_1 = \colvec{0}{0}{1} \quad ; \quad
+\vec{r}_{o_1} = \colvec{l_1 c_1}{l_1 s_1}{0}  \quad ; \quad 
+\vec{r}_{o_2} = \colvec{l_1 c_1 + l_2 c_{12}}{l_1 s_1 + l_2 s_{12}}{0} 
+\]</div>
+<p>Realizando los productos vectoriales correspondientes se tiene:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{J}_{v_1} = \vec{z}_0 \times \left( \vec{r}_{o_2} - \vec{r}_{o_0} \right) = 
+\colvec{0}{0}{1} \times \colvec{l_1 c_1 + l_2 c_{12}}{l_1 s_1 + l_2 s_{12}}{0} = \colvec{-l_1 s_1 - l_2 s_{12}}{l_1 c_1 + l_2 c_{12}}{0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{J}_{v_2} = \vec{z}_1 \times \left( \vec{r}_{o_2} - \vec{r}_{o_1} \right) = 
+\colvec{0}{0}{1} \times \colvec{l_2 c_{12}}{l_2 s_{12}}{0} = \colvec{-l_2 s_{12}}{l_2 c_{12}}{0}
+\]</div>
+<p>Dado que ambas articulaciones son revolutas, tanto <span class="math notranslate nohighlight">\( \vec{J}_{\omega_1} \)</span> como  <span class="math notranslate nohighlight">\( \vec{J}_{\omega_2} \)</span> están dadas por:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{J}_{\omega_1} = \vec{z}_0 = \colvec{0}{0}{1} \qquad ; \qquad  
+\vec{J}_{\omega_1} = \vec{z}_1 = \colvec{0}{0}{1} 
+\]</div>
+<p>Entonces, acomodando los términos calculados, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\textcolor{green}{
+J = \begin{bmatrix}
+-l_1 s_1 - l_2 s_{12} &amp; -l_2 s_{12} \\ 
+l_1 c_1 + l_2 c_{12} &amp; l_2 c_{12} \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+0 &amp; 0 \\
+1 &amp; 1
+\end{bmatrix} }
+\end{split}\]</div>
+</div><p><strong>Ejemplo.</strong> <em>Para el manipulador planar RR de la Figura <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>, calcule la velocidad lineal y angular de su extremo, para un instante en el cual <span class="math notranslate nohighlight">\( q_1 = 45° \)</span> y <span class="math notranslate nohighlight">\( q_2 = 30° \)</span>, siendo <span class="math notranslate nohighlight">\( \dot{q}_1 = 1.5 \)</span> rad/s y <span class="math notranslate nohighlight">\( \dot{q}_2 = 3 \)</span> rad/s. Considere que <span class="math notranslate nohighlight">\( l_1 = l_2 = 280 \)</span> mm.</em></p>
+<p><strong>Solución:</strong></p>
+<p>Tomamos como punto de partida la matriz jacobiana calculada en el Ejemplo anterior, sustituimos los valores correspondientes, de lo cual se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} J = \left[\begin{matrix}-468.449 &amp; -270.459\\270.459 &amp; 72.4693\\0 &amp; 0\\0 &amp; 0\\0 &amp; 0\\1.0 &amp; 1.0\end{matrix}\right] \end{split}\]</div>
+<p>Para obtener el vector de velocidades del extremo del manipulador, debemos multiplicar la matriz jacobiana <span class="math notranslate nohighlight">\(J\)</span> por el vector de velocidades articulares <span class="math notranslate nohighlight">\(\vec{\dot{q}}\)</span>, mismo que está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \dot{ \vec{q} } = \begin{bmatrix}
+\dot{q_1} \\
+\dot{q_2}
+\end{bmatrix} = 
+\begin{bmatrix}
+1.5 \\ 3
+\end{bmatrix}
+\end{split}\]</div>
+<p>Realizando la multiplicación, tenemos:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{V} = J \dot{ \vec{q} } = \begin{bmatrix}
+-468.449 &amp; -270.459\\270.459 &amp; 72.4693\\0 &amp; 0\\0 &amp; 0\\0 &amp; 0\\1.0 &amp; 1.0
+\end{bmatrix} 
+\begin{bmatrix}
+1.5 \\ 3
+\end{bmatrix} = 
+\textcolor{green}{
+\left[\begin{matrix}-1514.05\\623.097\\0\\0\\0\\4.5\end{matrix}\right] }
+\end{split}\]</div>
+<p>Lo cual resulta en el vector de velocidades lineales y angulares del extremo del manipulador.</p>
+</div><div class="example">
+<p><strong>Ejemplo.</strong> <em>Para el manipulador RPP mostrado en la Figura \ref{fig:rpp_robot_cdif} calcule las velocidades del extremo, para un instante en el cual <span class="math notranslate nohighlight">\( q_1 = 90° \)</span>, <span class="math notranslate nohighlight">\( q_2 = 200 \)</span> mm y <span class="math notranslate nohighlight">\( q_3 = 100 \)</span> mm, además, se sabe que las velocidades articulares son <span class="math notranslate nohighlight">\( \dot{q}_1 = -2.5 \)</span> rad/s,  <span class="math notranslate nohighlight">\( \dot{q}_2 = 30 \)</span> mm/s, <span class="math notranslate nohighlight">\( \dot{q}_3 = 45 \)</span> mm/s. Considere que <span class="math notranslate nohighlight">\( a = 200 \)</span> mm y <span class="math notranslate nohighlight">\( b = 70 \)</span> mm.</em></p>
+<figure class="align-center" id="rpp-robot-cdif">
+<a class="reference internal image-reference" href="_images/rpp_robot_cdif.svg"><img alt="_images/rpp_robot_cdif.svg" src="_images/rpp_robot_cdif.svg" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Manipulador RPP</span><a class="headerlink" href="#rpp-robot-cdif" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>Calculando la cinemática directa, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+T_1^0 = \displaystyle \left[\begin{matrix}\cos{\left(q_{1} \right)} &amp; - \sin{\left(q_{1} \right)} &amp; 0 &amp; b \cos{\left(q_{1} \right)}\\\sin{\left(q_{1} \right)} &amp; \cos{\left(q_{1} \right)} &amp; 0 &amp; b \sin{\left(q_{1} \right)}\\0 &amp; 0 &amp; 1 &amp; a\\0 &amp; 0 &amp; 0 &amp; 1\end{matrix}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+T_2^0 = \displaystyle \left[\begin{matrix}- \sin{\left(q_{1} \right)} &amp; 0 &amp; \cos{\left(q_{1} \right)} &amp; b \cos{\left(q_{1} \right)}\\\cos{\left(q_{1} \right)} &amp; 0 &amp; \sin{\left(q_{1} \right)} &amp; b \sin{\left(q_{1} \right)}\\0 &amp; 1 &amp; 0 &amp; a + q_{2}\\0 &amp; 0 &amp; 0 &amp; 1\end{matrix}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+T_3^0 = \displaystyle \left[\begin{matrix}- \sin{\left(q_{1} \right)} &amp; 0 &amp; \cos{\left(q_{1} \right)} &amp; \left(b + q_{3}\right) \cos{\left(q_{1} \right)}\\\cos{\left(q_{1} \right)} &amp; 0 &amp; \sin{\left(q_{1} \right)} &amp; \left(b + q_{3}\right) \sin{\left(q_{1} \right)}\\0 &amp; 1 &amp; 0 &amp; a + q_{2}\\0 &amp; 0 &amp; 0 &amp; 1\end{matrix}\right]
+\end{split}\]</div>
+<p>Dado que estamos trabajando con un manipulador RPP, la matriz jacobiana tendrá la forma:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J = 
+\begin{bmatrix}
+\vec{J}_{v_1} &amp; \vec{J}_{v_2} &amp; \vec{J}_{v_3} \\
+\vec{J}_{\omega_1} &amp; \vec{J}_{\omega_2} &amp; \vec{J}_{\omega_3} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\vec{z}_0 \times \left( \vec{r}_{o_3} - \vec{r}_{o_0} \right) &amp; \vec{z}_1 &amp; \vec{z}_2 \\
+\vec{z}_0 &amp; \vec{0} &amp; \vec{0}
+\end{bmatrix}
+\end{split}\]</div>
+<p>Recuerde que tanto la segunda como tercera articulación son prismáticas, lo cual facilita en gran medida el cálculo de la matriz jacobiana. Identificando cada término implicado:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{z}_0 = \colvec{0}{0}{1} \,; \quad 
+\vec{z}_1 = \colvec{0}{0}{1} \, ; \quad 
+\vec{z}_2 = \colvec{\cos q_1}{\sin q_1}{0} \, ; \quad 
+\vec{r}_{o_0} = \colvec{0}{0}{0} \, ;\quad 
+\vec{r}_{o_3} = \displaystyle \left[\begin{matrix}\left(b + q_{3}\right) \cos{\left(q_{1} \right)}\\\left(b + q_{3}\right) \sin{\left(q_{1} \right)}\\a + q_{2}\end{matrix}\right] 
+\end{split}\]</div>
+<p>Efectuando el producto vectorial para calcular <span class="math notranslate nohighlight">\( \vec{J}_{v_1} \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{J}_{v_1} = \vec{z}_0 \times \left( \vec{r}_{o_3} - \vec{r}_{o_0} \right) = 
+\left[\begin{matrix}- \left(b + q_{3}\right) \sin{\left(q_{1} \right)}\\\left(b + q_{3}\right) \cos{\left(q_{1} \right)}\\0\end{matrix}\right]
+\end{split}\]</div>
+<p>Acomodando los términos como corresponde, formamos la matriz jacobiana:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J = \left[\begin{matrix}- \left(b + q_{3}\right) \sin{\left(q_{1} \right)} &amp; 0 &amp; \cos{\left(q_{1} \right)}\\\left(b + q_{3}\right) \cos{\left(q_{1} \right)} &amp; 0 &amp; \sin{\left(q_{1} \right)}\\0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0\end{matrix}\right]
+\end{split}\]</div>
+<p>Sustituyendo los valores numéricos, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+J = \left[\begin{matrix}-170 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1\\0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0\end{matrix}\right]
+\end{split}\]</div>
+<p>Luego, el vector de velocidades articulares podemos definirlo como:</p>
+<div class="math notranslate nohighlight">
+\[ \dot{ \vec{q} } = \colvec{-2.5}{30}{45} \]</div>
+<p>Para calcular las velocidades del extremo, efectuamos el producto de J y <span class="math notranslate nohighlight">\( \dot{ \vec{q} } \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\vec{V} = J \dot{ \vec{q} } = 
+\left[\begin{matrix}-170 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1\\0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0\end{matrix}\right]
+\colvec{-2.5}{30}{45}
+=
+\left[\begin{matrix}425.0\\45\\30\\0\\0\\-2.5\end{matrix}\right]
+\end{split}\]</div>
+<p>Por lo tanto:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{v}_{o_3} = \colvec{425}{45}{30} \text{  mm/s} \]</div>
+<div class="math notranslate nohighlight">
+\[ \W_{3} = \colvec{0}{0}{-2.5} \text{ rad/s}\]</div>
+</div><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="pos-point-note" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Realmente podría ser en términos de cualquier conjunto de coordenadas generalizadas que describan su posición.</p>
 </aside>
 </aside>
+</section>
 </section>
 </section>
 
@@ -1040,7 +1436,10 @@ s_2 &amp; 0 &amp; -c_2 &amp; -q_3 c_2 + 280 \\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-angulares-en-un-manipulador-serial">Velocidades angulares en un manipulador serial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-cuerpo-rigido">Velocidades lineales en un cuerpo rígido</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidades-lineales-en-un-manipulador-serial">Velocidades lineales en un manipulador serial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matriz-jacobiana">La matriz jacobiana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-formar-la-matriz-jacobiana">¿Cómo formar la matriz jacobiana?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

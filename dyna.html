@@ -497,52 +497,52 @@ I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
 <p>La obtención del modelo dinámico de un manipulador juega un rol importante para la simulación del movimiento, el análisis de la estructura del manipulador y el diseño de los algoritmos de control. La simulación del movimiento de un manipulador permite probar estrategias de control sin necesidad de disponer físicamente del manipulador. El cálculo de las fuerzas y torques requeridos para la ejecución de los movimientos del robot proporciona información valiosa para el diseño de las juntas, transmisiones y actuadores.</p>
 <p>El modelo dinámico de un robot consiste en una ecuación diferencial (ordinaria) vectorial en las posiciones, ya sean articulares <span class="math notranslate nohighlight">\( \vec{q} \)</span> o cartesianas <span class="math notranslate nohighlight">\( \vec{x} \)</span>, generalmente de segundo orden, pudiéndose expresar como:</p>
 <div class="math notranslate nohighlight" id="equation-joint-dyn-model">
-<span class="eqno">(45)<a class="headerlink" href="#equation-joint-dyn-model" title="Link to this equation">#</a></span>\[
+<span class="eqno">(52)<a class="headerlink" href="#equation-joint-dyn-model" title="Link to this equation">#</a></span>\[
 f(\vec{q}, \vec{\dot{q}}, \vec{\ddot{q}}, \tauvec ) = \vec{0}
 \]</div>
 <div class="math notranslate nohighlight" id="equation-cartesian-dyn-model">
-<span class="eqno">(46)<a class="headerlink" href="#equation-cartesian-dyn-model" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(53)<a class="headerlink" href="#equation-cartesian-dyn-model" title="Link to this equation">#</a></span>\[ 
 f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 \]</div>
-<p>En las expresiones anteriores el vector <span class="math notranslate nohighlight">\( \tauvec \)</span> corresponde a las fuerzas y torques aplicados en las juntas por los actuadores. La ecuación <a class="reference internal" href="#equation-joint-dyn-model">(45)</a> corresponde al <em>modelo dinámico articular</em> y la ecuación <a class="reference internal" href="#equation-cartesian-dyn-model">(46)</a> al <em>modelo dinámico cartesiano</em>.</p>
+<p>En las expresiones anteriores el vector <span class="math notranslate nohighlight">\( \tauvec \)</span> corresponde a las fuerzas y torques aplicados en las juntas por los actuadores. La ecuación <a class="reference internal" href="#equation-joint-dyn-model">(52)</a> corresponde al <em>modelo dinámico articular</em> y la ecuación <a class="reference internal" href="#equation-cartesian-dyn-model">(53)</a> al <em>modelo dinámico cartesiano</em>.</p>
 <section id="dinamica-de-cuerpo-rigidos">
 <h2>Dinámica de cuerpo rígidos<a class="headerlink" href="#dinamica-de-cuerpo-rigidos" title="Link to this heading">#</a></h2>
 <section id="ecuaciones-de-newton-euler">
 <h3>Ecuaciones de Newton-Euler.<a class="headerlink" href="#ecuaciones-de-newton-euler" title="Link to this heading">#</a></h3>
 <p>La fuerza resultante que actúa en un cuerpo rígido es igual a la tasa de cambio en el tiempo de su cantidad de movimiento lineal con respecto a un sistema de referencia inercial:</p>
 <div class="math notranslate nohighlight" id="equation-newton-linear-momentum">
-<span class="eqno">(47)<a class="headerlink" href="#equation-newton-linear-momentum" title="Link to this equation">#</a></span>\[
+<span class="eqno">(54)<a class="headerlink" href="#equation-newton-linear-momentum" title="Link to this equation">#</a></span>\[
 \Sigma \vec{F} = \dot{ \vec{P} } = m \dot{\vec{v}}_G
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\vec{v}_G\)</span> es la velocidad del centro de masa del cuerpo rígido, <span class="math notranslate nohighlight">\(\Sigma \vec{F}\)</span> es la fuerza resultante que actúa sobre el cuerpo rígido y <span class="math notranslate nohighlight">\(\vec{P}\)</span> es la cantidad de movimiento lineal con respecto al sistema de referencia inercial. Dado que <span class="math notranslate nohighlight">\( \vec{a}_G = \dot{\vec{v}}_G  \)</span>, la ecuación anterior se puede escribir como</p>
 <div class="math notranslate nohighlight">
 \[ \Sigma \vec{F} = m \vec{a}_G \]</div>
-<p>De la ecuación <a class="reference internal" href="#equation-newton-linear-momentum">(47)</a> se desprende un principio o teorema de conservación de la cantidad de movimiento:</p>
+<p>De la ecuación <a class="reference internal" href="#equation-newton-linear-momentum">(54)</a> se desprende un principio o teorema de conservación de la cantidad de movimiento:</p>
 <blockquote>
 <div><p><em>Si la fuerza resultante en un sólido es cero, entonces <span class="math notranslate nohighlight">\( \dot{\vec{P}} = 0 \)</span>, lo cual implica que la cantidad de movimiento lineal del sólido se conserva, es decir, permanece constante.</em></p>
 </div></blockquote>
 <p>El momento resultante (<span class="math notranslate nohighlight">\(\Sigma \vec{M}_O\)</span>) de las fuerzas externas que actúan en un cuerpo rígido con respecto a un punto fijo <span class="math notranslate nohighlight">\(O\)</span> en un sistema de referencia inercial, es igual a la tasa de cambio en el tiempo de la cantidad de movimiento angular alrededor de <span class="math notranslate nohighlight">\(O\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-euler-angular-momentum">
-<span class="eqno">(48)<a class="headerlink" href="#equation-euler-angular-momentum" title="Link to this equation">#</a></span>\[
+<span class="eqno">(55)<a class="headerlink" href="#equation-euler-angular-momentum" title="Link to this equation">#</a></span>\[
 \Sigma \vec{M}_O = \dot{\vec{H}}_O
 \]</div>
-<p>donde <span class="math notranslate nohighlight">\(\vec{H}_O\)</span> es la cantidad de movimiento angular del cuerpo con respecto al mismo punto <span class="math notranslate nohighlight">\(O\)</span>. De la ecuación <a class="reference internal" href="#equation-euler-angular-momentum">(48)</a> se desprende también un principio de conservación de la cantidad de movimiento angular:</p>
+<p>donde <span class="math notranslate nohighlight">\(\vec{H}_O\)</span> es la cantidad de movimiento angular del cuerpo con respecto al mismo punto <span class="math notranslate nohighlight">\(O\)</span>. De la ecuación <a class="reference internal" href="#equation-euler-angular-momentum">(55)</a> se desprende también un principio de conservación de la cantidad de movimiento angular:</p>
 <blockquote>
 <div><p><em>Si el momento resultante en un sólido con respecto a un punto fijo <span class="math notranslate nohighlight">\(O\)</span> es cero, entonces <span class="math notranslate nohighlight">\(\dot{\vec{H}}_O = 0 \)</span>, lo cual implica que la cantidad de movimiento angular <span class="math notranslate nohighlight">\(\vec{H}_O\)</span> con respecto a <span class="math notranslate nohighlight">\(O\)</span> se conserva, es decir, permanece constante.</em></p>
 </div></blockquote>
-<p>La ecuación <a class="reference internal" href="#equation-euler-angular-momentum">(48)</a> se puede escribir también haciendo que el punto <span class="math notranslate nohighlight">\(O\)</span> ahora se corresponda con la ubicación del centro de masa (<span class="math notranslate nohighlight">\(G\)</span>), es decir:</p>
+<p>La ecuación <a class="reference internal" href="#equation-euler-angular-momentum">(55)</a> se puede escribir también haciendo que el punto <span class="math notranslate nohighlight">\(O\)</span> ahora se corresponda con la ubicación del centro de masa (<span class="math notranslate nohighlight">\(G\)</span>), es decir:</p>
 <div class="math notranslate nohighlight" id="equation-euler-angular-momentum-com">
-<span class="eqno">(49)<a class="headerlink" href="#equation-euler-angular-momentum-com" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(56)<a class="headerlink" href="#equation-euler-angular-momentum-com" title="Link to this equation">#</a></span>\[ 
 \Sigma \vec{M}_G = \dot{\vec{H}}_G
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\Sigma \vec{M}_G \)</span> es la sumatoria de los momentos alrededor de <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(\vec{H}_G\)</span> la cantidad de movimiento angular alrededor del centro de masa.</p>
-<p>Consideremos un cuerpo rígido modelado como un sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas como el que se muestra en la figura. Las ecuaciones <a class="reference internal" href="#equation-newton-linear-momentum">(47)</a> y <a class="reference internal" href="#equation-euler-angular-momentum">(48)</a> son aplicables para este modelo. Si las <span class="math notranslate nohighlight">\(N\)</span> partículas son newtonianas, la cantidad de movimiento lineal y la cantidad de movimiento angular están dadas por:</p>
+<p>Consideremos un cuerpo rígido modelado como un sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas como el que se muestra en la figura. Las ecuaciones <a class="reference internal" href="#equation-newton-linear-momentum">(54)</a> y <a class="reference internal" href="#equation-euler-angular-momentum">(55)</a> son aplicables para este modelo. Si las <span class="math notranslate nohighlight">\(N\)</span> partículas son newtonianas, la cantidad de movimiento lineal y la cantidad de movimiento angular están dadas por:</p>
 <div class="math notranslate nohighlight" id="equation-linear-momentum-particles">
-<span class="eqno">(50)<a class="headerlink" href="#equation-linear-momentum-particles" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(57)<a class="headerlink" href="#equation-linear-momentum-particles" title="Link to this equation">#</a></span>\[ 
 \vec{P} = \sumin m_i \vec{v}_i
 \]</div>
 <div class="math notranslate nohighlight" id="equation-angular-momentum-particles">
-<span class="eqno">(51)<a class="headerlink" href="#equation-angular-momentum-particles" title="Link to this equation">#</a></span>\[
+<span class="eqno">(58)<a class="headerlink" href="#equation-angular-momentum-particles" title="Link to this equation">#</a></span>\[
 \vec{H}_O = \sumin \vec{R}_i \times m_i \vec{v}_i
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(m_i\)</span> es la masa, <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> la velocidad y <span class="math notranslate nohighlight">\(\vec{R}_i\)</span> la posición, de la i-ésima partícula, descritas en el sistema inercial.</p>
@@ -551,12 +551,12 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 <h3>Ecuaciones de Euler-Lagrange<a class="headerlink" href="#ecuaciones-de-euler-lagrange" title="Link to this heading">#</a></h3>
 <p>Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utilizar las ecuaciones de Euler-Lagrange. Dado un sistema mecánico de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad, sus ecuaciones de movimiento se pueden obtener como sigue:</p>
 <div class="math notranslate nohighlight" id="equation-euler-lagrange-rigid-body">
-<span class="eqno">(52)<a class="headerlink" href="#equation-euler-lagrange-rigid-body" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(59)<a class="headerlink" href="#equation-euler-lagrange-rigid-body" title="Link to this equation">#</a></span>\[ 
 \LaEq{i} \quad ; \text{ Para } i=1,2,\cdots,n
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(\La\)</span> es una función escalar llamada <em>lagrangiano</em>, y está dada por la diferencia entre la energía cinética y potencial del cuerpo rígido, es decir:</p>
 <div class="math notranslate nohighlight" id="equation-lagrangian">
-<span class="eqno">(53)<a class="headerlink" href="#equation-lagrangian" title="Link to this equation">#</a></span>\[
+<span class="eqno">(60)<a class="headerlink" href="#equation-lagrangian" title="Link to this equation">#</a></span>\[
 \La = \Ki - \Po
 \]</div>
 <p>A <span class="math notranslate nohighlight">\(q_i\)</span> y <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> se les denomina <em>coordenada generalizada</em> y <em>velocidad generalizada</em>, de forma respectiva. Un conjunto de coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{q_1, q_2, \cdots, q_n} \)</span> es aquel que describe de manera completa la posición de un sistema de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. Las velocidades generalizadas son las derivadas de las coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{\dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n} \)</span>.</p>
@@ -566,25 +566,25 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 <section id="energia-cinetica-de-un-cuerpo-rigido">
 <h3>Energía cinética de un cuerpo rígido<a class="headerlink" href="#energia-cinetica-de-un-cuerpo-rigido" title="Link to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\newcommand{\W}{\boldsymbol{\omega}} \newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}} \newcommand{\w}[1]{\omega_{#1}} \)</span>
-En la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 68</span></a> se muestra un cuerpo rígido, el cual está rotando con una velocidad angular <span class="math notranslate nohighlight">\(\W\)</span> y donde la posición de la i-ésima partícula de masa <span class="math notranslate nohighlight">\(m_i\)</span> con respecto al sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está dada por el vector <span class="math notranslate nohighlight">\(\vec{r}_{i/G}\)</span>. El sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está adherido al sólido y el sistema <span class="math notranslate nohighlight">\(Oxyz\)</span> es un sistema de referencia inercial.</p>
+En la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 69</span></a> se muestra un cuerpo rígido, el cual está rotando con una velocidad angular <span class="math notranslate nohighlight">\(\W\)</span> y donde la posición de la i-ésima partícula de masa <span class="math notranslate nohighlight">\(m_i\)</span> con respecto al sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está dada por el vector <span class="math notranslate nohighlight">\(\vec{r}_{i/G}\)</span>. El sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está adherido al sólido y el sistema <span class="math notranslate nohighlight">\(Oxyz\)</span> es un sistema de referencia inercial.</p>
 <figure class="align-center" id="lagrangian-rigid-body">
 <a class="reference internal image-reference" href="_images/lagrangian_rigid_body.svg"><img alt="_images/lagrangian_rigid_body.svg" src="_images/lagrangian_rigid_body.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Un cuerpo rígido en rotación.</span><a class="headerlink" href="#lagrangian-rigid-body" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Un cuerpo rígido en rotación.</span><a class="headerlink" href="#lagrangian-rigid-body" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La energía cinética de un cuerpo rígido es la suma de las energías cinéticas de cada una de las partículas que lo conforman:</p>
 <div class="math notranslate nohighlight" id="equation-kinetic-energy-rigid-body">
-<span class="eqno">(54)<a class="headerlink" href="#equation-kinetic-energy-rigid-body" title="Link to this equation">#</a></span>\[
+<span class="eqno">(61)<a class="headerlink" href="#equation-kinetic-energy-rigid-body" title="Link to this equation">#</a></span>\[
 \Ki = \sumin \frac{1}{2} m_i \vec{v}_i \cdot \vec{v}_i
 \]</div>
-<p>Para el sólido de la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 68</span></a> la velocidad <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> de la partícula <span class="math notranslate nohighlight">\(i\)</span> se puede expresar en el sistema inercial como:</p>
+<p>Para el sólido de la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 69</span></a> la velocidad <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> de la partícula <span class="math notranslate nohighlight">\(i\)</span> se puede expresar en el sistema inercial como:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{v}_i = \vec{v}_G + \W \times r_{i/G} \]</div>
-<p>Sustituyendo la velocidad en la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(54)</a> se tiene:</p>
+<p>Sustituyendo la velocidad en la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(61)</a> se tiene:</p>
 <div class="math notranslate nohighlight" id="equation-kinetic-energy-com">
-<span class="eqno">(55)<a class="headerlink" href="#equation-kinetic-energy-com" title="Link to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(62)<a class="headerlink" href="#equation-kinetic-energy-com" title="Link to this equation">#</a></span>\[\begin{split} 
 \begin{matrix}
 \displaystyle
 \Ki = \sumin \, \frac{1}{2} m_i \rbr{\vec{v}_G + \W \times \vec{r}_{i/G}} \cdot \rbr{\vec{v}_G + \W \times \vec{r}_{i/G}} \\
@@ -607,7 +607,7 @@ En la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span c
 <p>Por la definición de centro de masa, es sencillo verificar que el término:</p>
 <div class="math notranslate nohighlight">
 \[ \sumin m_i \vec{r}_{i/G} = 0 \]</div>
-<p>Lo cual implica que el segundo término de <a class="reference internal" href="#equation-kinetic-energy-com">(55)</a> se hace cero.</p>
+<p>Lo cual implica que el segundo término de <a class="reference internal" href="#equation-kinetic-energy-com">(62)</a> se hace cero.</p>
 <p>Para el tercer término, podemos aplicar la siguiente identidad vectorial:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{A} \cdot \rbr{\vec{B} \times \vec{C}} = \vec{B} \cdot \rbr{ \vec{C} \times \vec{A}} \]</div>
@@ -665,7 +665,7 @@ m_i \vec{r}_{i/G} \times \rbr{\W \times \vec{r}_{i/G} } =
 \]</div>
 <p>De tal manera que, en forma más compacta:</p>
 <div class="math notranslate nohighlight" id="equation-angular-momentum-three-equations">
-<span class="eqno">(56)<a class="headerlink" href="#equation-angular-momentum-three-equations" title="Link to this equation">#</a></span>\[
+<span class="eqno">(63)<a class="headerlink" href="#equation-angular-momentum-three-equations" title="Link to this equation">#</a></span>\[
  \sumin m_i \vec{r}_{i/G} \times \rbr{ \W \times \vec{r}_{i/G} } = 
 \colvec{
 I_{xx} \w{x} + I_{xy} \w{y} + I_{xz} \w{z}  }
@@ -674,7 +674,7 @@ I_{xx} \w{x} + I_{xy} \w{y} + I_{xz} \w{z}  }
 \]</div>
 <p>donde:</p>
 <div class="math notranslate nohighlight" id="equation-moments-of-inertia">
-<span class="eqno">(57)<a class="headerlink" href="#equation-moments-of-inertia" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(64)<a class="headerlink" href="#equation-moments-of-inertia" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{matrix}
 \displaystyle
 I_{xx} = \sumin m_i \rbr{y_i^2 + z_i^2} \\
@@ -685,22 +685,22 @@ I_{zz} = \sumin m_i \rbr{x_i^2 + y_i^2}
 \end{matrix}
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-products-of-inertia">
-<span class="eqno">(58)<a class="headerlink" href="#equation-products-of-inertia" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(65)<a class="headerlink" href="#equation-products-of-inertia" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{matrix}
 I_{xy} = I_{yx} = - \sumin m_i x_i y_i \\
 I_{xz} = I_{zx} = - \sumin m_i x_i z_i \\
 I_{yz} = I_{zy} = - \sumin m_i y_i z_i 
 \end{matrix}
 \end{split}\]</div>
-<p>Las cantidades dadas en la ecuación <a class="reference internal" href="#equation-moments-of-inertia">(57)</a> se denominan <em>momentos de inercia</em> y las de la ecuación <a class="reference internal" href="#equation-products-of-inertia">(58)</a> corresponden a los <em>productos de inercia</em>.</p>
-<p>El vector de la ecuación <a class="reference internal" href="#equation-angular-momentum-three-equations">(56)</a> se puede escribir en forma de una multiplicación matricial como:</p>
+<p>Las cantidades dadas en la ecuación <a class="reference internal" href="#equation-moments-of-inertia">(64)</a> se denominan <em>momentos de inercia</em> y las de la ecuación <a class="reference internal" href="#equation-products-of-inertia">(65)</a> corresponden a los <em>productos de inercia</em>.</p>
+<p>El vector de la ecuación <a class="reference internal" href="#equation-angular-momentum-three-equations">(63)</a> se puede escribir en forma de una multiplicación matricial como:</p>
 <div class="math notranslate nohighlight" id="equation-angular-momentum-matricial-form">
-<span class="eqno">(59)<a class="headerlink" href="#equation-angular-momentum-matricial-form" title="Link to this equation">#</a></span>\[
+<span class="eqno">(66)<a class="headerlink" href="#equation-angular-momentum-matricial-form" title="Link to this equation">#</a></span>\[
 I_G \W
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(I_G\)</span> es una matriz dada por:</p>
 <div class="math notranslate nohighlight" id="equation-inertia-tensor">
-<span class="eqno">(60)<a class="headerlink" href="#equation-inertia-tensor" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(67)<a class="headerlink" href="#equation-inertia-tensor" title="Link to this equation">#</a></span>\[\begin{split}
 I_G = \begin{bmatrix}
 I_{xx} &amp; I_{xy} &amp; I_{xz} \\ 
 I_{yx} &amp; I_{yy} &amp; I_{yz} \\
@@ -708,7 +708,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \end{bmatrix}
 \end{split}\]</div>
 <p>a esta matriz se le denomina <em>matriz de inercia</em> o más comunmente <em>tensor de inercia</em>. En este caso el tensor de inercia describe la manera en que la masa está distribuida con respecto al sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> adherido al sólido, así pues aún cuando el cuerpo se traslade o rote, el tensor de inercia permanece invariable. En secciones posteriores nos centraremos en cómo determinar cada uno de los componentes del tensor de inercia.</p>
-<p>Considerando todo lo anterior, el tercer término de <a class="reference internal" href="#equation-kinetic-energy-com">(55)</a> se puede escribir como:</p>
+<p>Considerando todo lo anterior, el tercer término de <a class="reference internal" href="#equation-kinetic-energy-com">(62)</a> se puede escribir como:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \frac{1}{2} \W \cdot \sumin m_i \vec{r}_{i/G} \times \rbr{ \W \times \vec{r}_{i/G} } = 
@@ -719,7 +719,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \[ \vec{u} \cdot \vec{v} = \vec{u}^T \vec{v} \]</div>
 <p>Entonces, la energía cinética total del cuerpo rígido se puede escribir de la siguiente manera:</p>
 <div class="math notranslate nohighlight" id="equation-kinetic-energy-rigid-body-final">
-<span class="eqno">(61)<a class="headerlink" href="#equation-kinetic-energy-rigid-body-final" title="Link to this equation">#</a></span>\[
+<span class="eqno">(68)<a class="headerlink" href="#equation-kinetic-energy-rigid-body-final" title="Link to this equation">#</a></span>\[
 \Ki = \frac{1}{2} m \vec{v}_G^T \vec{v}_G + \frac{1}{2} \W^T I_G \W
 \]</div>
 <section id="energia-potencial-de-un-cuerpo-rigido">
@@ -747,7 +747,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \]</div>
 <p>O bien, expresado en términos de las componentes escalares:</p>
 <div class="math notranslate nohighlight" id="equation-center-of-mass-particles">
-<span class="eqno">(62)<a class="headerlink" href="#equation-center-of-mass-particles" title="Link to this equation">#</a></span>\[
+<span class="eqno">(69)<a class="headerlink" href="#equation-center-of-mass-particles" title="Link to this equation">#</a></span>\[
 \bar{x} = \frac{\displaystyle \sum x_i m_i }{\displaystyle \sum m_i } \, ; \quad
 \bar{y} = \frac{\displaystyle \sum y_i m_i }{\displaystyle \sum m_i } \, ; \quad
 \bar{z} = \frac{\displaystyle \sum z_i m_i }{\displaystyle \sum m_i } \, ; \quad
@@ -759,7 +759,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <a class="reference internal image-reference" href="_images/example_particles_center_of_mass.svg"><img alt="_images/example_particles_center_of_mass.svg" src="_images/example_particles_center_of_mass.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 69 </span><span class="caption-text">.</span><a class="headerlink" href="#example-particles-center-of-mass" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">.</span><a class="headerlink" href="#example-particles-center-of-mass" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -790,9 +790,9 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <div class="math notranslate nohighlight">
 \[ \bar{y} = 1 \text{ m} \]</div>
 <hr class="docutils" />
-<p>Las ecuaciones <a class="reference internal" href="#equation-center-of-mass-particles">(62)</a> se pueden generalizar para un cuerpo rígido, bajo la asunción de que un cuerpo rígido se puede considerar como un conjunto infinito de partículas cuyas distancias son invariables entre sí, así la sumatoria la podemos reemplazar por una integral, es decir:</p>
+<p>Las ecuaciones <a class="reference internal" href="#equation-center-of-mass-particles">(69)</a> se pueden generalizar para un cuerpo rígido, bajo la asunción de que un cuerpo rígido se puede considerar como un conjunto infinito de partículas cuyas distancias son invariables entre sí, así la sumatoria la podemos reemplazar por una integral, es decir:</p>
 <div class="math notranslate nohighlight" id="equation-center-of-mass-rigid-body">
-<span class="eqno">(63)<a class="headerlink" href="#equation-center-of-mass-rigid-body" title="Link to this equation">#</a></span>\[
+<span class="eqno">(70)<a class="headerlink" href="#equation-center-of-mass-rigid-body" title="Link to this equation">#</a></span>\[
 \bar{x} = \frac{\displaystyle \int_m \tilde{x} \, dm }{\displaystyle \int_m dm } \, ; \quad
 \bar{y} = \frac{\displaystyle \int_m \tilde{y} \, dm }{\displaystyle \int_m dm } \, ; \quad
 \bar{z} = \frac{\displaystyle \int_m \tilde{z} \, dm }{\displaystyle \int_m dm } \, ; \quad
@@ -802,14 +802,14 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \[ dm = \rho \, dV \]</div>
 <p>En el caso general, la densidad podría no ser constante y depender de la ubicación, es decir <span class="math notranslate nohighlight">\(\rho = \rho(x,y,z)\)</span>. Para la mayoría de situaciones en ingeniería, los componentes mecánicos están fabricados con materiales homogéneos (densidad constante), lo cual implica que el centro de masa coincidará con el centroide del volumen del sólido, de tal manera que las coordenadas del centro de masa se pueden determinar mediante:</p>
 <div class="math notranslate nohighlight" id="equation-center-of-volume">
-<span class="eqno">(64)<a class="headerlink" href="#equation-center-of-volume" title="Link to this equation">#</a></span>\[
+<span class="eqno">(71)<a class="headerlink" href="#equation-center-of-volume" title="Link to this equation">#</a></span>\[
 \bar{x} = \frac{\displaystyle \int_V \tilde{x} \, dV }{\displaystyle \int_V dV } \, ; \quad
 \bar{y} = \frac{\displaystyle \int_V \tilde{y} \, dV }{\displaystyle \int_V dV } \, ; \quad
 \bar{z} = \frac{\displaystyle \int_V \tilde{z} \, dV }{\displaystyle \int_V dV } \, ; \quad
 \]</div>
 <p>Para cuerpos rígidos con forma de placas delgadas, de espesor uniforme y homogéneas, el centro de masa coincidirá con el centroide del área de la placa, así, las coordenadas del centro de masa se pueden determinar mediante:</p>
 <div class="math notranslate nohighlight" id="equation-center-of-area">
-<span class="eqno">(65)<a class="headerlink" href="#equation-center-of-area" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(72)<a class="headerlink" href="#equation-center-of-area" title="Link to this equation">#</a></span>\[ 
 \bar{x} = \frac{\displaystyle \int_A \tilde{x} \, dA }{\displaystyle \int_A dA } \, ; \quad
 \bar{y} = \frac{\displaystyle \int_A \tilde{y} \, dA }{\displaystyle \int_A dA } \, ; \quad
 \bar{z} = \frac{\displaystyle \int_A \tilde{z} \, dA }{\displaystyle \int_A dA } \, ; \quad
@@ -820,7 +820,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <a class="reference internal image-reference" href="_images/example_triangular_plate.svg"><img alt="_images/example_triangular_plate.svg" src="_images/example_triangular_plate.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 70 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -835,7 +835,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <a class="reference internal image-reference" href="_images/example_triangular_plate_differential_elements.svg"><img alt="_images/example_triangular_plate_differential_elements.svg" src="_images/example_triangular_plate_differential_elements.svg" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 71 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate-differential-elements" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-plate-differential-elements" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Aquí podemos utilizar cualquiera de los dos elementos diferenciales. Sólo debemos tener en consideración que si se utiliza el elemento diferencial de <span class="math notranslate nohighlight">\((a)\)</span>, entonces resultará una integral doble, que deberemos integrar en los límites definidos por el área triangular. Si utilizamos el elemento diferencial <span class="math notranslate nohighlight">\((b)\)</span> se tendrá una integral simple, que deberemos integrar en los límites definidos para la dirección en <span class="math notranslate nohighlight">\(x\)</span>, es decir, entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Para ejemplificar vamos a proceder de ambas maneras. \</p>
@@ -895,7 +895,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <a class="reference internal image-reference" href="_images/example_triangular_prism_center_of_mass.svg"><img alt="_images/example_triangular_prism_center_of_mass.svg" src="_images/example_triangular_prism_center_of_mass.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Prisma triangular</span><a class="headerlink" href="#example-triangular-prism-center-of-mass" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Prisma triangular</span><a class="headerlink" href="#example-triangular-prism-center-of-mass" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -906,12 +906,12 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \bar{y} = \frac{\displaystyle \int_V \tilde{y} \, dV }{\displaystyle \int_V dV } \, ; \quad
 \bar{y} = \frac{\displaystyle \int_V \tilde{z} \, dV }{\displaystyle \int_V dV }
 \]</div>
-<p>La formulación de las integrales dependerá del elemento diferencial que se seleccione. Por ejemplo, si utilizamos un elemento diferencial como el mostrado en la Figura <a class="reference internal" href="#example-triangular-prism-center-of-mass-diff-element-cube"><span class="std std-numref">Fig. 73</span></a>, es sencillo observar que las coordenadas centroidales de este elemento son: <span class="math notranslate nohighlight">\(\tilde{x} = x, \tilde{y} = y, \tilde{z}=z\)</span>, y que el volumen diferencial está dado por <span class="math notranslate nohighlight">\(dV = dx\, dy \, dz\)</span>.</p>
+<p>La formulación de las integrales dependerá del elemento diferencial que se seleccione. Por ejemplo, si utilizamos un elemento diferencial como el mostrado en la Figura <a class="reference internal" href="#example-triangular-prism-center-of-mass-diff-element-cube"><span class="std std-numref">Fig. 74</span></a>, es sencillo observar que las coordenadas centroidales de este elemento son: <span class="math notranslate nohighlight">\(\tilde{x} = x, \tilde{y} = y, \tilde{z}=z\)</span>, y que el volumen diferencial está dado por <span class="math notranslate nohighlight">\(dV = dx\, dy \, dz\)</span>.</p>
 <figure class="align-center" id="example-triangular-prism-center-of-mass-diff-element-cube">
 <a class="reference internal image-reference" href="_images/example_triangular_prism_center_of_mass_diff_element_cube.svg"><img alt="_images/example_triangular_prism_center_of_mass_diff_element_cube.svg" src="_images/example_triangular_prism_center_of_mass_diff_element_cube.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 73 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-prism-center-of-mass-diff-element-cube" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-prism-center-of-mass-diff-element-cube" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Tomando en cuenta lo anterior, la integral del volumen total se puede plantear como una integral triple:</p>
@@ -970,7 +970,7 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 <a class="reference internal image-reference" href="_images/example_triangular_prism_center_of_mass_diff_elements_plate.svg"><img alt="_images/example_triangular_prism_center_of_mass_diff_elements_plate.svg" src="_images/example_triangular_prism_center_of_mass_diff_elements_plate.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 74 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-prism-center-of-mass-diff-elements-plate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">.</span><a class="headerlink" href="#example-triangular-prism-center-of-mass-diff-elements-plate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Planteando y resolviendo cada una de las integrales:</p>
@@ -1033,7 +1033,7 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 <a class="reference internal image-reference" href="_images/example_moment_of_inertia_composite.svg"><img alt="_images/example_moment_of_inertia_composite.svg" src="_images/example_moment_of_inertia_composite.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 75 </span><span class="caption-text">.</span><a class="headerlink" href="#example-moment-of-inertia-composite" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">.</span><a class="headerlink" href="#example-moment-of-inertia-composite" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1096,7 +1096,7 @@ I_{zz} = \int_m r_{z}^2 \, dm \, ; \quad
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 76 </span><span class="caption-text">.</span><a class="headerlink" href="#example-rectangular-plate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">.</span><a class="headerlink" href="#example-rectangular-plate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Momentos inercia con respecto a los ejes del sistema <span class="math notranslate nohighlight">\(xyz\)</span></strong></p>
@@ -1163,12 +1163,12 @@ I_{z_1z_1} = \int_m r_z^2 \, dm = \rho t  \int_{-\frac{b}{2}}^{\frac{b}{2}} \int
 <hr class="docutils" />
 <section id="teorema-de-los-ejes-paralelos">
 <h4>Teorema de los ejes paralelos<a class="headerlink" href="#teorema-de-los-ejes-paralelos" title="Link to this heading">#</a></h4>
-<p>Si se conoce el momento de inercia de un cuerpo respecto de un eje que pasa por su centro de masa, entonces se puede también determinar fácilmente el momento de inercia con respecto de cualquier otro eje que sea paralelo. En el esquema mostrado en la Figura <a class="reference internal" href="#parallel-axis-theorem"><span class="std std-numref">Fig. 77</span></a> se tienen dos sistemas referencia, uno de estos tiene su origen en el centro de masa del cuerpo rígido.</p>
+<p>Si se conoce el momento de inercia de un cuerpo respecto de un eje que pasa por su centro de masa, entonces se puede también determinar fácilmente el momento de inercia con respecto de cualquier otro eje que sea paralelo. En el esquema mostrado en la Figura <a class="reference internal" href="#parallel-axis-theorem"><span class="std std-numref">Fig. 78</span></a> se tienen dos sistemas referencia, uno de estos tiene su origen en el centro de masa del cuerpo rígido.</p>
 <figure class="align-center" id="parallel-axis-theorem">
 <a class="reference internal image-reference" href="_images/parallel_axis_theorem.svg"><img alt="_images/parallel_axis_theorem.svg" src="_images/parallel_axis_theorem.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 77 </span><span class="caption-text">.</span><a class="headerlink" href="#parallel-axis-theorem" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">.</span><a class="headerlink" href="#parallel-axis-theorem" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Vamos a suponer que necesitamos determinar el momento de inercia del sólido con respecto al eje <span class="math notranslate nohighlight">\(x\)</span>, podríamos plantearlo de la siguiente manera:</p>
@@ -1194,7 +1194,7 @@ I_{z_1z_1} = \int_m r_z^2 \, dm = \rho t  \int_{-\frac{b}{2}}^{\frac{b}{2}} \int
 \[ I_{xx} = \bar{I}_{x_1x_1} + m d^2 \]</div>
 <p>Este resultado es lo que se conoce de forma extendida como el teorema de los ejes paralelos. Observe que si conocemos el momento de inercia con respecto al eje <span class="math notranslate nohighlight">\(x_1\)</span> (que pasa por el centro de masa), entonces sería muy sencillo determinar el momento de inercia con respecto a cualquier otro eje <span class="math notranslate nohighlight">\(x\)</span> que sea paralelo, puesto que sólo necesitaríamos conocer la masa total del sólido y la distancia perpendicular entre el eje centroidal y el otro eje paralelo. Este procedimiento se puede replicar para cualquiera de los otros ejes cartesianos, de forma un poco más general, podemos expresar el teorema de los ejes paralelos de la siguiente manera:</p>
 <div class="math notranslate nohighlight" id="equation-parallel-axis-theorem">
-<span class="eqno">(66)<a class="headerlink" href="#equation-parallel-axis-theorem" title="Link to this equation">#</a></span>\[
+<span class="eqno">(73)<a class="headerlink" href="#equation-parallel-axis-theorem" title="Link to this equation">#</a></span>\[
 I_{uu} = \bar{I}_{u'u'} + md^2 
 \]</div>
 <p>Y enunciarlo de la forma habitual: <em>el momento de inercia de un cuerpo rígido respecto a cualquier eje <span class="math notranslate nohighlight">\(u\)</span> que sea paralelo a un eje <span class="math notranslate nohighlight">\(u'\)</span> que pasa por su centro de masa, es igual al momento de inercia con respecto al eje <span class="math notranslate nohighlight">\(u'\)</span> más el producto de la masa total del cuerpo por el cuadrado de la distancia perpendicular entre los dos ejes.</em></p>
@@ -1205,7 +1205,7 @@ I_{uu} = \bar{I}_{u'u'} + md^2
 <a class="reference internal image-reference" href="_images/example_rectangular_plate_parallel_axis.svg"><img alt="_images/example_rectangular_plate_parallel_axis.svg" src="_images/example_rectangular_plate_parallel_axis.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 78 </span><span class="caption-text">.</span><a class="headerlink" href="#example-rectangular-plate-parallel-axis" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">.</span><a class="headerlink" href="#example-rectangular-plate-parallel-axis" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1243,7 +1243,7 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <hr class="docutils" />
 <section id="momento-de-inercia-de-solidos-compuestos">
 <h4>Momento de inercia de sólidos compuestos<a class="headerlink" href="#momento-de-inercia-de-solidos-compuestos" title="Link to this heading">#</a></h4>
-<p>Para muchos sólidos compuestos, es posible <em>dividirlos</em> en partes más simples cuyos momentos de inercia sean fácilmente calculables. Una vez determinados estos momentos de inercia de cada parte simple, se pueden sumar para calcular el momento de inercia del sólido compuesto. Por ejemplo, el sólido de la Figura <a class="reference internal" href="#composite-bodies-inertia"><span class="std std-numref">Fig. 79</span></a> se puede dividir en las tres partes simples que se observan (dos porciones rectangulares y una porción triangular). Así pues, el momento de inercia del sólido compuesto con respecto al eje <span class="math notranslate nohighlight">\(x\)</span> se puede determinar como sigue:</p>
+<p>Para muchos sólidos compuestos, es posible <em>dividirlos</em> en partes más simples cuyos momentos de inercia sean fácilmente calculables. Una vez determinados estos momentos de inercia de cada parte simple, se pueden sumar para calcular el momento de inercia del sólido compuesto. Por ejemplo, el sólido de la Figura <a class="reference internal" href="#composite-bodies-inertia"><span class="std std-numref">Fig. 80</span></a> se puede dividir en las tres partes simples que se observan (dos porciones rectangulares y una porción triangular). Así pues, el momento de inercia del sólido compuesto con respecto al eje <span class="math notranslate nohighlight">\(x\)</span> se puede determinar como sigue:</p>
 <div class="math notranslate nohighlight">
 \[ I_{xx} =  \rbr{ I_{xx} }_1 + \rbr{ I_{xx} }_2 + \rbr{ I_{xx} }_3 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\( \rbr{ I_{xx} }_i \)</span> denota el momento de inercia de masa de la porción <span class="math notranslate nohighlight">\(i\)</span> con respecto al eje <span class="math notranslate nohighlight">\(x\)</span>. Expresiones análogas se pueden plantear para <span class="math notranslate nohighlight">\( I_{yy} \)</span> e <span class="math notranslate nohighlight">\( I_{zz} \)</span>, a saber:</p>
@@ -1256,7 +1256,7 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <a class="reference internal image-reference" href="_images/composite_bodies_inertia.svg"><img alt="_images/composite_bodies_inertia.svg" src="_images/composite_bodies_inertia.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Cuerpo compuesto</span><a class="headerlink" href="#composite-bodies-inertia" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">Cuerpo compuesto</span><a class="headerlink" href="#composite-bodies-inertia" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>De manera general, para un sólido compuesto por <span class="math notranslate nohighlight">\(n\)</span> partes simples, los momentos de inercia con respecto a los ejes de un sistema cartesiano <span class="math notranslate nohighlight">\(xyz\)</span> se pueden determinar mediante:</p>
@@ -1280,7 +1280,7 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <a class="reference internal image-reference" href="_images/example_moment_of_inertia_composite.svg"><img alt="_images/example_moment_of_inertia_composite.svg" src="_images/example_moment_of_inertia_composite.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 80 </span><span class="caption-text">.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1344,16 +1344,16 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <a class="reference internal image-reference" href="_images/example_solid_moment_of_inertia.svg"><img alt="_images/example_solid_moment_of_inertia.svg" src="_images/example_solid_moment_of_inertia.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 81 </span><span class="caption-text">.</span><a class="headerlink" href="#example-solid-moment-of-inertia" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 82 </span><span class="caption-text">.</span><a class="headerlink" href="#example-solid-moment-of-inertia" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>Este sólido compuesto podemos seccionarlo en dos prismas rectangulares simples, tal como se muestra en la Figura <a class="reference internal" href="#example-solid-moment-of-inertia-b"><span class="std std-numref">Fig. 82</span></a>.</p>
+<p>Este sólido compuesto podemos seccionarlo en dos prismas rectangulares simples, tal como se muestra en la Figura <a class="reference internal" href="#example-solid-moment-of-inertia-b"><span class="std std-numref">Fig. 83</span></a>.</p>
 <figure class="align-center" id="example-solid-moment-of-inertia-b">
 <a class="reference internal image-reference" href="_images/example_solid_moment_of_inertia_b.svg"><img alt="_images/example_solid_moment_of_inertia_b.svg" src="_images/example_solid_moment_of_inertia_b.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 82 </span><span class="caption-text">.</span><a class="headerlink" href="#example-solid-moment-of-inertia-b" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 83 </span><span class="caption-text">.</span><a class="headerlink" href="#example-solid-moment-of-inertia-b" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La masa de cada una de estas porciones se puede determinar como sigue:</p>
@@ -1441,7 +1441,7 @@ I_{yz} = - \sumin y_i z_i m_i  \quad ; \quad
 <li><p>Si un sistema de partículas (o un cuerpo rígido) es simétrico con respecto a dos planos, entonces todos los productos de inercia son cero.</p></li>
 </ul>
 </div>
-<p>Para el sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 83</span></a>b) se puede verificar que:</p>
+<p>Para el sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 84</span></a>b) se puede verificar que:</p>
 <div class="math notranslate nohighlight">
 \[ I_{xy} = -\sbr{(a)(b)(m_1) + (a)(-b)(m_2)} = -m_1 ab + m_2 ab \]</div>
 <p>Un resultado igual al que se había observado para el caso anterior. Aquí valdría la pena agregar que si:</p>
@@ -1449,11 +1449,11 @@ I_{yz} = - \sumin y_i z_i m_i  \quad ; \quad
 <li><p><span class="math notranslate nohighlight">\(m_1 &gt; m_2\)</span>, entonces <span class="math notranslate nohighlight">\( I_{xy} &lt; 0 \)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(m_1 &lt; m_2\)</span>, entonces <span class="math notranslate nohighlight">\( I_{xy} &gt; 0 \)</span>.</p></li>
 </ul>
-<p>En el caso del sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 83</span></a>c) el producto de inercia <span class="math notranslate nohighlight">\(I_{xy}\)</span> está dado por:</p>
+<p>En el caso del sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 84</span></a>c) el producto de inercia <span class="math notranslate nohighlight">\(I_{xy}\)</span> está dado por:</p>
 <div class="math notranslate nohighlight">
 \[ I_{xy} = -\sbr{(a)(b)(m_1) + (-a)(-b)(m_2)} = -m_1 ab - m_2 ab \]</div>
 <p>Aquí podemos notar que, independiente de las magnitudes de <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>, el producto de inercia será negativo.</p>
-<p>Finalmente, para el sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 83</span></a>d) el producto de inercia se calcula como:</p>
+<p>Finalmente, para el sistema de la Figura <a class="reference internal" href="#products-of-inertia"><span class="std std-numref">Fig. 84</span></a>d) el producto de inercia se calcula como:</p>
 <div class="math notranslate nohighlight">
 \[  I_{xy} = -\sbr{(a)(-b)(m_1) + (-a)(b)(m_2)} = m_1 ab + m_2 ab \]</div>
 <p>En este caso <span class="math notranslate nohighlight">\( I_{xy} \)</span> será siempre una cantidad positiva. Aprovechando los resultados anteriores se puede establecer lo siguiente:</p>
@@ -1469,20 +1469,20 @@ I_{yz} = - \sumin y_i z_i m_i  \quad ; \quad
 <a class="reference internal image-reference" href="_images/products_of_inertia.svg"><img alt="_images/products_of_inertia.svg" src="_images/products_of_inertia.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 83 </span><span class="caption-text">Dos masas puntuales en el plano <span class="math notranslate nohighlight">\(xy\)</span></span><a class="headerlink" href="#products-of-inertia" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 84 </span><span class="caption-text">Dos masas puntuales en el plano <span class="math notranslate nohighlight">\(xy\)</span></span><a class="headerlink" href="#products-of-inertia" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Lo visto anteriormente para un sistema de partículas, se puede generalizar para el caso de un sólido rígido mediante el uso de las siguientes expresiones:</p>
 <div class="math notranslate nohighlight" id="equation-ixy-rigid-body">
-<span class="eqno">(67)<a class="headerlink" href="#equation-ixy-rigid-body" title="Link to this equation">#</a></span>\[
+<span class="eqno">(74)<a class="headerlink" href="#equation-ixy-rigid-body" title="Link to this equation">#</a></span>\[
 I_{xy} = - \int_m xy \, dm
 \]</div>
 <div class="math notranslate nohighlight" id="equation-ixz-rigid-body">
-<span class="eqno">(68)<a class="headerlink" href="#equation-ixz-rigid-body" title="Link to this equation">#</a></span>\[
+<span class="eqno">(75)<a class="headerlink" href="#equation-ixz-rigid-body" title="Link to this equation">#</a></span>\[
 I_{xz} = - \int_m xz \, dm
 \]</div>
 <div class="math notranslate nohighlight" id="equation-iyz-rigid-body">
-<span class="eqno">(69)<a class="headerlink" href="#equation-iyz-rigid-body" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(76)<a class="headerlink" href="#equation-iyz-rigid-body" title="Link to this equation">#</a></span>\[ 
 I_{yz} = - \int_m yz \, dm
 \]</div>
 <hr class="docutils" />
@@ -1491,7 +1491,7 @@ I_{yz} = - \int_m yz \, dm
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 84 </span><span class="caption-text">.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 85 </span><span class="caption-text">.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1519,12 +1519,12 @@ I_{xy} = -\frac{mbh}{4}
 <hr class="docutils" />
 <section id="teorema-de-los-planos-paralelos">
 <h4>Teorema de los planos paralelos<a class="headerlink" href="#teorema-de-los-planos-paralelos" title="Link to this heading">#</a></h4>
-<p>Si se conocen los productos de inercia de un sólido respecto de un sistema de referencia que pasa por su centro de masa, entonces se pueden también determinar fácilmente los productos de inercia con respecto de cualquier otro sistema de referencia que sea paralelo. En la Figura <a class="reference internal" href="#parallel-axis-theorem-products-of-inertia"><span class="std std-numref">Fig. 85</span></a> se muestra una placa plana, delgada y homogénea, en la cual se tienen dos sistemas referencia, teniendo uno de estos su origen en el centro de masa del cuerpo rígido. De la Figura se puede observar que tanto <span class="math notranslate nohighlight">\(I_{xz}\)</span> como <span class="math notranslate nohighlight">\( I_{yz} \)</span> son cero, debido a que al plano <span class="math notranslate nohighlight">\(xy\)</span> es un plano de simetría.</p>
+<p>Si se conocen los productos de inercia de un sólido respecto de un sistema de referencia que pasa por su centro de masa, entonces se pueden también determinar fácilmente los productos de inercia con respecto de cualquier otro sistema de referencia que sea paralelo. En la Figura <a class="reference internal" href="#parallel-axis-theorem-products-of-inertia"><span class="std std-numref">Fig. 86</span></a> se muestra una placa plana, delgada y homogénea, en la cual se tienen dos sistemas referencia, teniendo uno de estos su origen en el centro de masa del cuerpo rígido. De la Figura se puede observar que tanto <span class="math notranslate nohighlight">\(I_{xz}\)</span> como <span class="math notranslate nohighlight">\( I_{yz} \)</span> son cero, debido a que al plano <span class="math notranslate nohighlight">\(xy\)</span> es un plano de simetría.</p>
 <figure class="align-center" id="parallel-axis-theorem-products-of-inertia">
 <a class="reference internal image-reference" href="_images/parallel_axis_theorem_products_of_inertia.svg"><img alt="_images/parallel_axis_theorem_products_of_inertia.svg" src="_images/parallel_axis_theorem_products_of_inertia.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 85 </span><span class="caption-text">.</span><a class="headerlink" href="#parallel-axis-theorem-products-of-inertia" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 86 </span><span class="caption-text">.</span><a class="headerlink" href="#parallel-axis-theorem-products-of-inertia" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Para calcular el producto de inercia <span class="math notranslate nohighlight">\(I_{xy}\)</span> se tiene que:</p>
@@ -1563,7 +1563,7 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 86 </span><span class="caption-text">.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 87 </span><span class="caption-text">.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1601,7 +1601,7 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <a class="reference internal image-reference" href="_images/example_products_of_inertia_composite.svg"><img alt="_images/example_products_of_inertia_composite.svg" src="_images/example_products_of_inertia_composite.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 87 </span><span class="caption-text">.</span><a class="headerlink" href="#example-products-of-inertia-composite" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">.</span><a class="headerlink" href="#example-products-of-inertia-composite" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1643,14 +1643,14 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <p>Asumimos que la energía potencial <span class="math notranslate nohighlight">\(\Po\)</span> es debida únicamente a fuerzas conservativas, como la energía potencial asociada con la gravedad y la almacenada en resortes. En secciones previas vimos cómo calcular tanto la energía cinética como la potencial de un cuerpo rígido, ahora en las secciones posteriores estableceremos expresiones adaptadas para calcular estas energías para un eslabón que pertenece a un manipulador serial.</p>
 <p>Con el <em>lagrangiano</em> ya definido, procedemos a calcular las ecuaciones de movimiento de Euler-Lagrange:</p>
 <div class="math notranslate nohighlight" id="equation-euler-lagrange-equation">
-<span class="eqno">(70)<a class="headerlink" href="#equation-euler-lagrange-equation" title="Link to this equation">#</a></span>\[
+<span class="eqno">(77)<a class="headerlink" href="#equation-euler-lagrange-equation" title="Link to this equation">#</a></span>\[
 \LaEq{i} \qquad \qquad
 i = 1, 2, \cdots, n
 \]</div>
 <p>Para un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad se obtendrán <span class="math notranslate nohighlight">\(n\)</span> ecuaciones diferenciales de segundo orden que modelan su comportamiento dinámico. Este comportamiento se puede simular si resolvemos el sistema de ecuaciones diferenciales, lo cual usualmente se hará mediante métodos numéricos. Naturalmente este modelo dinámico se puede utilizar también para el diseño e implementación de algoritmos de control.</p>
 <section id="energia-cinetica-de-un-eslabon">
 <h3>Energía cinética de un eslabón<a class="headerlink" href="#energia-cinetica-de-un-eslabon" title="Link to this heading">#</a></h3>
-<p>Un eslabón de un manipulador serial es un cuerpo rígido y por lo tanto se puede utilizar la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(54)</a> para determinar su energía cinética, aquí estableceremos una versión ligeramente modificada, únicamente con el propósito de sistematizar un poco la obtención de las ecuaciones, así pues para el i-ésimo eslabón de un manipulador serial su energía cinética se puede determinar mediante:</p>
+<p>Un eslabón de un manipulador serial es un cuerpo rígido y por lo tanto se puede utilizar la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(61)</a> para determinar su energía cinética, aquí estableceremos una versión ligeramente modificada, únicamente con el propósito de sistematizar un poco la obtención de las ecuaciones, así pues para el i-ésimo eslabón de un manipulador serial su energía cinética se puede determinar mediante:</p>
 <div class="math notranslate nohighlight">
 \[
 \Ki_i = \KiEq{i}
@@ -1744,7 +1744,7 @@ $<span class="math notranslate nohighlight">\( \Ki_i = \KiEq{i} \)</span>$.</p>
 <a class="reference internal image-reference" href="img/dyna/examples/example_manipulador_p_01"><img alt="img/dyna/examples/example_manipulador_p_01" src="img/dyna/examples/example_manipulador_p_01" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 88 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-p-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 89 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-p-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1787,7 +1787,7 @@ $<span class="math notranslate nohighlight">\( \Ki_i = \KiEq{i} \)</span>$.</p>
 <a class="reference internal image-reference" href="_images/example_manipulador_pr.svg"><img alt="_images/example_manipulador_pr.svg" src="_images/example_manipulador_pr.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 89 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-pr" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 90 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-pr" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1972,7 +1972,7 @@ M(\vec{q}) \vec{\qpp{}} + \dot{M}(\vec{q}) \vec{\qp{}} -
 \]</div>
 <p>O en forma compacta:</p>
 <div class="math notranslate nohighlight" id="equation-dynamic-compact">
-<span class="eqno">(71)<a class="headerlink" href="#equation-dynamic-compact" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(78)<a class="headerlink" href="#equation-dynamic-compact" title="Link to this equation">#</a></span>\[ 
 M(\vec{q}) \vec{\qpp{}} + C(\vec{q},\vec{\qp{}}) \vec{\qp{}} + \vec{g}(\vec{q}) = \tauvec 
 \]</div>
 <p>Donde</p>
@@ -1985,7 +1985,7 @@ C(\vec{q},\vec{\qp{}}) \vec{\qp{}} = \dot{M}(\vec{q}) \vec{\qp{}} -
 \[ 
 \vec{g}(\vec{q}) = \frac{\partial \Po}{\partial \vec{q}}
 \]</div>
-<p>La ecuación <a class="reference internal" href="#equation-dynamic-compact">(71)</a> corresponde a la dinámica de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos denominado \textbf{vector de fuerzas centrífugas y de Coriolis}, <span class="math notranslate nohighlight">\( \vec{g}(\vec{q}) \)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos que contiene las fuerzas y pares gravitacionales. El vector <span class="math notranslate nohighlight">\(\tauvec\)</span> es el vector de fuerzas y pares externos, que en general corresponden a los pares y fuerzas aplicadas por los actuadores en las articulaciones.</p>
+<p>La ecuación <a class="reference internal" href="#equation-dynamic-compact">(78)</a> corresponde a la dinámica de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos denominado \textbf{vector de fuerzas centrífugas y de Coriolis}, <span class="math notranslate nohighlight">\( \vec{g}(\vec{q}) \)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos que contiene las fuerzas y pares gravitacionales. El vector <span class="math notranslate nohighlight">\(\tauvec\)</span> es el vector de fuerzas y pares externos, que en general corresponden a los pares y fuerzas aplicadas por los actuadores en las articulaciones.</p>
 <p>La matriz de fuerzas centrífugas y de Coriolis <span class="math notranslate nohighlight">\( C(\vec{q}, \vec{\qp{}})\)</span> puede no ser unica, pero el vector <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> si que lo es. Cada elemento <span class="math notranslate nohighlight">\(c_{ij}\)</span> de la matriz <span class="math notranslate nohighlight">\( C(\vec{q}, \vec{\qp{}})\)</span> se puede determinar mediante:</p>
 <div class="math notranslate nohighlight">
 \[ \displaystyle c_{ij} = \sum_{k=1}^n c_{ijk} \qp{k} \]</div>
@@ -2001,15 +2001,15 @@ c_{ijk} = \frac{1}{2} \rbr{
 <p>Donde <span class="math notranslate nohighlight">\( m_{ij} \)</span> denota el <span class="math notranslate nohighlight">\(ij\)</span>-ésimo elemento de la matriz de inercia.</p>
 <p>La matriz de inercia <span class="math notranslate nohighlight">\(M\)</span> de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad se puede calcular a partir de la siguiente expresión:</p>
 <div class="math notranslate nohighlight" id="equation-inertia-matrix-a">
-<span class="eqno">(72)<a class="headerlink" href="#equation-inertia-matrix-a" title="Link to this equation">#</a></span>\[
+<span class="eqno">(79)<a class="headerlink" href="#equation-inertia-matrix-a" title="Link to this equation">#</a></span>\[
 M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T I_{i} J_{\w{i}} }
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(J_{v_i}\)</span> y <span class="math notranslate nohighlight">\(J_{\w{i}}\)</span> corresponden a los jacobianos de velocidad lineal y angular del centro de masa del eslabón <span class="math notranslate nohighlight">\(i\)</span>, respectivamente. Como en la sección previa, <span class="math notranslate nohighlight">\(I_{i}\)</span> es el tensor de inercia del eslabón <span class="math notranslate nohighlight">\(i\)</span> descrito en un sistema paralelo a <span class="math notranslate nohighlight">\(\{0\}\)</span> pero ubicado en el centro de masa del eslabón <span class="math notranslate nohighlight">\(i\)</span>. Recordando que <span class="math notranslate nohighlight">\(I_i\)</span> se puede determinar mediante la transformación de similaridad:</p>
 <div class="math notranslate nohighlight">
 \[ I_i = R_i^0 \, \Icm{i} \rbr{R_i^0}^T \]</div>
-<p>Entonces la ecuación <a class="reference internal" href="#equation-inertia-matrix-a">(72)</a> se puede escribir como:</p>
+<p>Entonces la ecuación <a class="reference internal" href="#equation-inertia-matrix-a">(79)</a> se puede escribir como:</p>
 <div class="math notranslate nohighlight" id="equation-inertia-matrix-b">
-<span class="eqno">(73)<a class="headerlink" href="#equation-inertia-matrix-b" title="Link to this equation">#</a></span>\[
+<span class="eqno">(80)<a class="headerlink" href="#equation-inertia-matrix-b" title="Link to this equation">#</a></span>\[
 M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T  R_i^0 \, \Icm{i} \rbr{R_i^0}^T J_{\w{i}} }
 \]</div>
 <p><strong>Ejemplo.</strong> <em>Obtenga el modelo dinámico en forma compacta del manipulador RP mostrado en la figura. Considere que ambos eslabones son simétricos con respecto al menos dos planos del sistema ubicado en su centro de masa.</em></p>
@@ -2017,7 +2017,7 @@ M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T  R_i^0 \, \Icm{i} \rb
 <a class="reference internal image-reference" href="_images/example_manipulador_pr.svg"><img alt="_images/example_manipulador_pr.svg" src="_images/example_manipulador_pr.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 90 </span><span class="caption-text">.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 91 </span><span class="caption-text">.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -2154,7 +2154,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <hr class="docutils" />
 <section id="fuerzas-generalizadas">
 <h3>Fuerzas generalizadas<a class="headerlink" href="#fuerzas-generalizadas" title="Link to this heading">#</a></h3>
-<p>En la ecuación <a class="reference internal" href="#equation-euler-lagrange-equation">(70)</a> el término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a la fuerza y/o torque aplicados en la dirección de la i-ésima coordenada generalizada, naturalmente, si las fuerzas externas se aplican en una dirección que no se corresponde con las coordenadas generalizadas, entonces se deben <em>proyectar</em> las fuerzas externas en la dirección de dichas coordenadas.</p>
+<p>En la ecuación <a class="reference internal" href="#equation-euler-lagrange-equation">(77)</a> el término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a la fuerza y/o torque aplicados en la dirección de la i-ésima coordenada generalizada, naturalmente, si las fuerzas externas se aplican en una dirección que no se corresponde con las coordenadas generalizadas, entonces se deben <em>proyectar</em> las fuerzas externas en la dirección de dichas coordenadas.</p>
 <p>Consideremos primeramente que se tiene un manipulador serial sujeto a una fuerza <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> y un torque <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> aplicados en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Si tanto <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> como <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> se expresan en el sistema de referencia de la base, entonces es posible proyectarlos en la dirección de las coordenadas generalizadas del manipulador, mediante la siguiente ecuación:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2163,7 +2163,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <p>Donde <span class="math notranslate nohighlight">\(J_{B_1}\)</span> es la matriz jacobiana, <span class="math notranslate nohighlight">\(\rbr{J_v}_{B_1}\)</span> es el jacobiano de velocidad lineal y <span class="math notranslate nohighlight">\(\rbr{J_{\W}}_{B_1}\)</span> el jacobiano de velocidad angular, en todos los casos calculadas en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Puede revisar la sección <span class="xref std std-ref">jacobian_point</span> para recordar cómo determinar las matrices jacobianas asociadas con un punto del manipulador.</p>
 <p>La ecuación anterior se puede reescribir para cuando se tienen varias fuerzas y torques aplicados en diversas ubicaciones del manipulador serial, así pues, para una <span class="math notranslate nohighlight">\(N\)</span> cantidad de fuerzas y torques aplicados en un manipulador serial se tiene:</p>
 <div class="math notranslate nohighlight" id="equation-generalized-forces-calculation">
-<span class="eqno">(74)<a class="headerlink" href="#equation-generalized-forces-calculation" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(81)<a class="headerlink" href="#equation-generalized-forces-calculation" title="Link to this equation">#</a></span>\[ 
 \tauvec = \sum_{k=1}^N \, J_{B_k}^T \colvec{\vec{F}_k}{\bm{\mu}_k}{} = 
 \sum_{k=1}^N \rbr{J_v}_{B_k}^T \vec{F}_k + \rbr{J_{\W}}_{B_k}^T \bm{\mu}_k 
 \]</div>
@@ -2173,12 +2173,12 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 \tauvec = \begin{bmatrix} \tau_1 \\ \tau_2 \\ \vdots \\ \tau_n \end{bmatrix}
 \end{split}\]</div>
 <hr class="docutils" />
-<p><strong>Ejemplo.</strong> Determine la fuerza generalizada <span class="math notranslate nohighlight">\(\tauvec\)</span> para el manipulador R mostrado en la Figura <a class="reference internal" href="#example-manipulador-r-generalized-forces"><span class="std std-numref">Fig. 91</span></a>, considerando que está sujeto a una carga externa <span class="math notranslate nohighlight">\(F\)</span> aplicada en su extremo, de magnitud constante y que permace siempre en dirección vertical hacia abajo, tal como se esquematiza.</p>
+<p><strong>Ejemplo.</strong> Determine la fuerza generalizada <span class="math notranslate nohighlight">\(\tauvec\)</span> para el manipulador R mostrado en la Figura <a class="reference internal" href="#example-manipulador-r-generalized-forces"><span class="std std-numref">Fig. 92</span></a>, considerando que está sujeto a una carga externa <span class="math notranslate nohighlight">\(F\)</span> aplicada en su extremo, de magnitud constante y que permace siempre en dirección vertical hacia abajo, tal como se esquematiza.</p>
 <figure class="align-center" id="example-manipulador-r-generalized-forces">
 <a class="reference internal image-reference" href="_images/example_manipulador_r_generalized_forces.svg"><img alt="_images/example_manipulador_r_generalized_forces.svg" src="_images/example_manipulador_r_generalized_forces.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 91 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-r-generalized-forces" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 92 </span><span class="caption-text">.</span><a class="headerlink" href="#example-manipulador-r-generalized-forces" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -2268,7 +2268,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <a class="reference internal image-reference" href="_images/trapezoidal_plate.svg"><img alt="_images/trapezoidal_plate.svg" src="_images/trapezoidal_plate.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 92 </span><span class="caption-text">.</span><a class="headerlink" href="#trapezoidal-plate" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 93 </span><span class="caption-text">.</span><a class="headerlink" href="#trapezoidal-plate" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -2277,7 +2277,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <a class="reference internal image-reference" href="_images/two_rectangles.svg"><img alt="_images/two_rectangles.svg" src="_images/two_rectangles.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 93 </span><span class="caption-text">.</span><a class="headerlink" href="#two-rectangles" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 94 </span><span class="caption-text">.</span><a class="headerlink" href="#two-rectangles" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -2286,7 +2286,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <a class="reference internal image-reference" href="_images/rectangle_and_triangle.svg"><img alt="_images/rectangle_and_triangle.svg" src="_images/rectangle_and_triangle.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 94 </span><span class="caption-text">.</span><a class="headerlink" href="#rectangle-and-triangle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 95 </span><span class="caption-text">.</span><a class="headerlink" href="#rectangle-and-triangle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -2295,7 +2295,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <a class="reference internal image-reference" href="_images/rectangle_and_triangle_hollow.svg"><img alt="_images/rectangle_and_triangle_hollow.svg" src="_images/rectangle_and_triangle_hollow.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 95 </span><span class="caption-text">.</span><a class="headerlink" href="#rectangle-and-triangle-hollow" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 96 </span><span class="caption-text">.</span><a class="headerlink" href="#rectangle-and-triangle-hollow" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -2310,29 +2310,29 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <a class="reference internal image-reference" href="_images/solid_01.svg"><img alt="_images/solid_01.svg" src="_images/solid_01.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 96 </span><span class="caption-text">.</span><a class="headerlink" href="#solid-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 97 </span><span class="caption-text">.</span><a class="headerlink" href="#solid-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>Obtenga el modelo dinámico del manipulador PP mostrado en la Figura <a class="reference internal" href="#manipulador-pp-01"><span class="std std-numref">Fig. 97</span></a>. Considere que las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. El <span class="math notranslate nohighlight">\(CM_1\)</span> está ubicado a una distancia <span class="math notranslate nohighlight">\(l_{c_1}\)</span> del origen de <span class="math notranslate nohighlight">\(\{1\}\)</span>, y el <span class="math notranslate nohighlight">\(CM_2\)</span> coincide con el origen de <span class="math notranslate nohighlight">\(\{2\}\)</span>.</p>
+<p>Obtenga el modelo dinámico del manipulador PP mostrado en la Figura <a class="reference internal" href="#manipulador-pp-01"><span class="std std-numref">Fig. 98</span></a>. Considere que las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. El <span class="math notranslate nohighlight">\(CM_1\)</span> está ubicado a una distancia <span class="math notranslate nohighlight">\(l_{c_1}\)</span> del origen de <span class="math notranslate nohighlight">\(\{1\}\)</span>, y el <span class="math notranslate nohighlight">\(CM_2\)</span> coincide con el origen de <span class="math notranslate nohighlight">\(\{2\}\)</span>.</p>
 <figure class="align-center" id="manipulador-pp-01">
 <a class="reference internal image-reference" href="_images/manipulador_pp_01.svg"><img alt="_images/manipulador_pp_01.svg" src="_images/manipulador_pp_01.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 97 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-pp-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 98 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-pp-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>Obtenga el modelo dinámico del manipulador PP mostrado en la Figura <a class="reference internal" href="#manipulador-pp-02"><span class="std std-numref">Fig. 98</span></a>. Considere que las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. El <span class="math notranslate nohighlight">\(CM_1\)</span> está ubicado a una distancia <span class="math notranslate nohighlight">\(l_{c_1}\)</span> del origen de <span class="math notranslate nohighlight">\(\{1\}\)</span>, tal como se esquematiza, y el <span class="math notranslate nohighlight">\(CM_2\)</span> coincide con el origen de <span class="math notranslate nohighlight">\(\{2\}\)</span>.</p>
+<p>Obtenga el modelo dinámico del manipulador PP mostrado en la Figura <a class="reference internal" href="#manipulador-pp-02"><span class="std std-numref">Fig. 99</span></a>. Considere que las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. El <span class="math notranslate nohighlight">\(CM_1\)</span> está ubicado a una distancia <span class="math notranslate nohighlight">\(l_{c_1}\)</span> del origen de <span class="math notranslate nohighlight">\(\{1\}\)</span>, tal como se esquematiza, y el <span class="math notranslate nohighlight">\(CM_2\)</span> coincide con el origen de <span class="math notranslate nohighlight">\(\{2\}\)</span>.</p>
 <figure class="align-center" id="manipulador-pp-02">
 <a class="reference internal image-reference" href="_images/manipulador_pp_02.svg"><img alt="_images/manipulador_pp_02.svg" src="_images/manipulador_pp_02.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 98 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-pp-02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 99 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-pp-02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>Obtenga el modelo dinámico del manipulador RP mostrado en la Figura <a class="reference internal" href="#manipulador-rp-01"><span class="std std-numref">Fig. 99</span></a>. Las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. Los tensores de inercia expresados en un sistema ubicado en el centro de masa de cada eslabón están dados por:</p>
+<p>Obtenga el modelo dinámico del manipulador RP mostrado en la Figura <a class="reference internal" href="#manipulador-rp-01"><span class="std std-numref">Fig. 100</span></a>. Las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. Los tensores de inercia expresados en un sistema ubicado en el centro de masa de cada eslabón están dados por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \Icm{1} = \begin{bmatrix}
@@ -2350,7 +2350,7 @@ I_{x_2x_2} &amp; 0 &amp; 0 \\
 <a class="reference internal image-reference" href="_images/manipulador_rp_01.svg"><img alt="_images/manipulador_rp_01.svg" src="_images/manipulador_rp_01.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 99 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-rp-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 100 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-rp-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

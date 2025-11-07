@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=c609212d" />
+    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=6ed36201" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/customized-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cinemática diferencial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
@@ -558,12 +559,12 @@ S( \W_{0,2}^0 ) R_2^0 = \sbr{ S( \W_{0,1}^0 ) + S( R_1^0 \W_{1,2}^1 ) } R_2^0
 \]</div>
 <p>Lo anterior implica que una junta prismática no contribuye a la velocidad angular, dado que no produce un cambio en la orientación entre los sistemas <span class="math notranslate nohighlight">\(\{j\}\)</span> y <span class="math notranslate nohighlight">\(\{j-1\}\)</span>.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> <em>Calcule las velocidades angulares de los eslabones 1 y 2 del manipulador RR de la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 58</span></a>.</em></p>
+<p><strong>Ejemplo.</strong> <em>Calcule las velocidades angulares de los eslabones 1 y 2 del manipulador RR de la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</em></p>
 <figure class="align-center" id="example-rr-robot-dh-dkin">
 <a class="reference internal image-reference" href="_images/example_rr_robot_dh_dkin.svg"><img alt="_images/example_rr_robot_dh_dkin.svg" src="_images/example_rr_robot_dh_dkin.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 58 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-dh-dkin" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-dh-dkin" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -606,10 +607,10 @@ s_{1} &amp; c_{1} &amp; 0 \\
 <a class="reference internal image-reference" href="_images/rigid_body_velocities.svg"><img alt="_images/rigid_body_velocities.svg" src="_images/rigid_body_velocities.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 59 </span><span class="caption-text">Un cuerpo rígido</span><a class="headerlink" href="#rigid-body-velocities" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Un cuerpo rígido</span><a class="headerlink" href="#rigid-body-velocities" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En la Figura <a class="reference internal" href="#rigid-body-velocities"><span class="std std-numref">Fig. 59</span></a> puede observarse también un punto <span class="math notranslate nohighlight">\(Q\)</span>, del cual es sencillo verificar que se cumple la siguiente ecuación vectorial de posición:</p>
+<p>En la Figura <a class="reference internal" href="#rigid-body-velocities"><span class="std std-numref">Fig. 64</span></a> puede observarse también un punto <span class="math notranslate nohighlight">\(Q\)</span>, del cual es sencillo verificar que se cumple la siguiente ecuación vectorial de posición:</p>
 <div class="math notranslate nohighlight" id="equation-position-equation">
 <span class="eqno">(41)<a class="headerlink" href="#equation-position-equation" title="Link to this equation">#</a></span>\[
 \vec{r}_Q = \vec{r}_{o_1} + \vec{r}_{Q/{o_1}}
@@ -642,12 +643,12 @@ s_{1} &amp; c_{1} &amp; 0 \\
 </section>
 <section id="velocidades-lineales-en-un-manipulador-serial">
 <span id="vel-lineal-extremo"></span><h2>Velocidades lineales en un manipulador serial<a class="headerlink" href="#velocidades-lineales-en-un-manipulador-serial" title="Link to this heading">#</a></h2>
-<p>Consideremos un manipulador serial conformado por juntas prismática y de revoluta, tal como se muestra en la figura <a class="reference internal" href="#serial-robot-velocities-png"><span class="std std-numref">Fig. 60</span></a>. Asumiendo, además, que cada sistema de referencia está colocado de acuerdo con la metodología de Denavit-Hartenberg, entonces cada eje <span class="math notranslate nohighlight">\(z_{i-1}\)</span> define la dirección de rotación o deslizamiento de la junta <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Consideremos un manipulador serial conformado por juntas prismática y de revoluta, tal como se muestra en la figura <a class="reference internal" href="#serial-robot-velocities-png"><span class="std std-numref">Fig. 65</span></a>. Asumiendo, además, que cada sistema de referencia está colocado de acuerdo con la metodología de Denavit-Hartenberg, entonces cada eje <span class="math notranslate nohighlight">\(z_{i-1}\)</span> define la dirección de rotación o deslizamiento de la junta <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <figure class="align-center" id="serial-robot-velocities-png">
 <a class="reference internal image-reference" href="_images/serial_robot_velocities_png.png"><img alt="_images/serial_robot_velocities_png.png" src="_images/serial_robot_velocities_png.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Velocidades en un manipulador serial</span><a class="headerlink" href="#serial-robot-velocities-png" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">Velocidades en un manipulador serial</span><a class="headerlink" href="#serial-robot-velocities-png" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Las velocidades angulares <span class="math notranslate nohighlight">\(\W_1, \W_2, \cdots, \W_n\)</span> corresponden a las velocidades angulares de cada eslabón con respecto al sistema de referencia de la base. Las velocidades angulares <span class="math notranslate nohighlight">\( \W_{0,1}^{0}, \W_{1,2}^0, \cdots , \W_{n-1,n}^{0} \)</span> corresponden a las velocidades angulares de cada eslabón <span class="math notranslate nohighlight">\(i\)</span> con respecto al eslabón <span class="math notranslate nohighlight">\(i-1\)</span> que le precede. Observe que si usamos la misma notación podríamos expresar que <span class="math notranslate nohighlight">\( \W_i = \W_{0,i}^0 \)</span>. De acuerdo con lo visto en la sección <a class="reference internal" href="#angular-velocity"><span class="std std-ref">Velocidades angulares en un manipulador serial</span></a> sabemos que:</p>
@@ -704,7 +705,7 @@ s_{1} &amp; c_{1} &amp; 0 \\
 \]</div>
 <p>En el caso particular de que la i-ésima junta sea una revoluta, el término <span class="math notranslate nohighlight">\( \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}  \)</span> se hace cero, puesto que la distancia entre los orígenes de <span class="math notranslate nohighlight">\(\{i\}\)</span> y <span class="math notranslate nohighlight">\(\{i-1\}\)</span> permanece invariable.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> Calcule la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 58</span></a>.</p>
+<p><strong>Ejemplo.</strong> Calcule la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</p>
 <p><strong>Solución:</strong></p>
 <p>La velocidad lineal del extremo está dada por:</p>
 <div class="math notranslate nohighlight">
@@ -741,6 +742,83 @@ s_{1} &amp; c_{1} &amp; 0 \\
 <div class="math notranslate nohighlight">
 \[ 
 \vec{v}_{o_2} = \colvec{-\qp{1} l_1 s_1 -\rbr{\qp{1} + \qp{2}} l_2 s_{12}}{ \qp{1} l_1 c_1 + \rbr{\qp{1} + \qp{2}} l_2 c_{12}  }{ 0 } 
+\]</div>
+</div><p>Si conocemos la posición del extremo del manipulador (<span class="math notranslate nohighlight">\( \vec{r}_{o_n} \)</span>) en función de las variables articulares de posición (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span>, <span class="math notranslate nohighlight">\(...\)</span>, <span class="math notranslate nohighlight">\(q_n\)</span>), es posible determinar la velocidad lineal mediante derivación con respecto al tiempo, es decir:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v}_{o_n} = \frac{d\vec{r}_{o_n}}{dt}
+\]</div>
+<p>El vector <span class="math notranslate nohighlight">\(\vec{r}_{o_n}\)</span> se puede obtener de la matriz de cinemática directa <span class="math notranslate nohighlight">\(T_n^0\)</span>; recordando que la cuarta columna de esta matriz corresponde a la posición del origen de coordenadas del sistema de referencia <span class="math notranslate nohighlight">\(\{n\}\)</span>, el cual se coloca usualmente en el extremo del manipulador, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{r}_{o_n} = \sbr{ T_n^0 }_{1:3,4}  \]</div>
+<p>El vector de velocidad lineal <span class="math notranslate nohighlight">\(\vec{v}_{o_n}\)</span> nos quedará usualmente en términos de las velocidades articulares (<span class="math notranslate nohighlight">\(\dot{q}_1\)</span>, <span class="math notranslate nohighlight">\(\dot{q}_2\)</span>, <span class="math notranslate nohighlight">\(...\)</span>, <span class="math notranslate nohighlight">\(\dot{q}_n\)</span>). Al efectuar la derivada con respecto al tiempo se debe considerar que las variables articulares de posición (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(q_n\)</span>) son funciones que dependen del tiempo, es decir <span class="math notranslate nohighlight">\( q_i = q_i(t) \)</span>. Naturalmente, el resto de parámetros constantes del manipulador, se deben tratar como tal al momento de realizar las derivadas correspondientes.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>Utilice derivadas para determinar la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</em></p>
+<p><strong>Solución:</strong></p>
+<p>Recordar que la cinemática directa de este manipulador está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_2^0 = 
+\begin{bmatrix}
+c_{12} &amp; -s_{12} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} \\
+s_{12} &amp; c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Entonces, el vector de posición <span class="math notranslate nohighlight">\( \vec{r}_{o_2} \)</span> sería:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \vec{r}_{o_2} = \begin{bmatrix}
+l_1 c_1 + l_2 c_{12} \\
+l_1 s_1 + l_2 s_{12} \\
+0 
+\end{bmatrix} \end{split}\]</div>
+<p>Por lo cual, al derivar con respecto al tiempo tendríamos:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\textcolor{green}{ 
+\vec{v}_{o_2} = 
+\left[\begin{matrix}
+- l_{1} \dot{q}_{1} s_{1}  - l_{2} \left(\dot{q}_{1} + \dot{q}_{2}\right) s_{12} \\
+l_{1} \dot{q}_{1} c_{1}  + l_{2} \left(\dot{q}_{1} + \dot{q}_{2}\right) c_{12} \\
+0\end{matrix}\right]
+}
+\end{split}\]</div>
+<p>Observe que esta solución coincide con la obtenida previamente mediante los productos vectoriales.</p>
+</div><div class="example">
+<p><strong>Ejemplo.</strong> <em>Calcule la velocidad lineal del extremo del manipulador RRP mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrp_robot_dkin_example</span></code>, para un instante en el que:</em></p>
+<div class="math notranslate nohighlight">
+\[ q_1 = 45° \,;\quad q_2 = 30°  \,;\quad q_3 = 200 \text{ mm} \]</div>
+<div class="math notranslate nohighlight">
+\[ \dot{q}_1 = 1.5 \text{ rad/s}  \,;\quad \dot{q}_2 = 2.0 \text{ rad/s}  \,;\quad \dot{q}_3 = 30 \text{ mm/s} \]</div>
+<figure class="align-center" id="rrp-robot-dkin-example">
+<a class="reference internal image-reference" href="_images/rrp_robot_dkin_example.svg"><img alt="_images/rrp_robot_dkin_example.svg" src="_images/rrp_robot_dkin_example.svg" style="width: 50%;" />
+</a>
+</figure>
+<p><strong>Solución:</strong></p>
+<p>La matriz de cinemática directa para este manipulador está dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+T_3^0 = \begin{bmatrix}
+c_1 c_2 &amp; s_1 &amp; c_1 s_2 &amp; 60 c_1 + q_3 c_1 s_2 \\
+s_1 c_2 &amp; -c_1 &amp; s_1 s_2 &amp; 60 s_1 + q_3 s_1 s_2 \\
+s_2 &amp; 0 &amp; -c_2 &amp; -q_3 c_2 + 280 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>De lo cual:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{r}_{o_3} = \colvec{60 c_1 + q_3 c_1 s_2}{60 s_1 + q_3 s_1 s_2}{-q_3 c_2 + 280}
+\]</div>
+<p>Derivando con respecto al tiempo se tiene:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\vec{v}_{o_3} = \colvec{-60 \qp{1} s_1 + \qp{3} c_1 s_2 - q_3 \qp{1} s_1 s_2 + q_3 \qp{2} c_1 c_2 }{60 \qp{1} c_1 + \qp{3} s_1 s_2 + q_3 \qp{1} c_1 s_2 + q_3 \qp{2} s_1 c_2 }{ -\qp{3} c_2 + q_3 \qp{2} s_2 }
+\]</div>
+<p>Sustituyendo los valores numéricos:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\textcolor{green}{ \vec{v}_{o_3} = \colvec{85.85}{425.3}{174} \text{ mm/s} }
 \]</div>
 </div></section>
 </section>

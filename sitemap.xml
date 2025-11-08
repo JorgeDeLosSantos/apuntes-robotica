@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/intro.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/introrob.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/htra.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/fkin.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/ikin.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/dkin.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/dyna.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/gentra.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/premat.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jorgedelossantos.github.io/apuntes-robotica/numed.html</loc>
+  <lastmod>2025-11-07T22:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

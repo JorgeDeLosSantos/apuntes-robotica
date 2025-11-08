@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/customized.css?v=6ed36201" />
@@ -442,8 +442,7 @@ L(t) = y_0 + f(t_0, y_0) (t - t_0)
 \]</div>
 <p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 112</span></a>:</p>
 <figure class="align-center" id="euler-method">
-<a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 112 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
 </figcaption>
@@ -492,8 +491,7 @@ y_{i+1} = y_i + h f(t_i, y_i)
 \[ y(t) = \frac{3}{2} t^2 + 2t + 5 \]</div>
 <p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 113</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
 <figure class="align-center" id="euler-numed-example-01">
-<a class="reference internal image-reference" href="_images/euler_numed_example_01.svg"><img alt="_images/euler_numed_example_01.svg" src="_images/euler_numed_example_01.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/euler_numed_example_01.svg"><img alt="_images/euler_numed_example_01.svg" src="_images/euler_numed_example_01.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 113 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
 </figcaption>
@@ -542,8 +540,7 @@ y_{i+1} = y_{i} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
 \[ k_4 = f\left(t_i + h, y_i + k_3 h \right) \]</div>
 <p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 114</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
 <figure class="align-center" id="rk4-slopes">
-<a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 114 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
 </figcaption>
@@ -641,8 +638,7 @@ y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
 </div>
 <p>En la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rk4_numed_example_01</span></code> se observan las gráficas de las aproximaciones mediante el método de Euler y el de Runge-Kutta de cuarto orden (ambos con <span class="math notranslate nohighlight">\(h=0.1\)</span>). Se puede notar que la aproximación de RK4 prácticamente <em>cae</em> sobre la curva solución real.</p>
 <figure class="align-center" id="rk4-numed-example-01">
-<a class="reference internal image-reference" href="_images/rk4_numed_example_01.svg"><img alt="_images/rk4_numed_example_01.svg" src="_images/rk4_numed_example_01.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rk4_numed_example_01.svg"><img alt="_images/rk4_numed_example_01.svg" src="_images/rk4_numed_example_01.svg" width="50%" /></a>
 </figure>
 </div></section>
 </section>

@@ -28,14 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=c609212d" />
+    <link rel="stylesheet" type="text/css" href="_static/customized.css?v=6ed36201" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/customized-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cinemática directa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
@@ -416,8 +417,7 @@ document.write(`
 <p>La cinemática directa de manipuladores consiste en determinar la posición y orientación del extremo de un manipulador, a partir de las posiciones articulares. En general suele ser un problema bastante <em>abordable</em>, dado que se sigue una metodología para establecer los sistemas de referencia y con base a esto formar las matrices de transformación homogénea que proporcionan las relaciones entre los mismos.</p>
 <p>En la Figura <a class="reference internal" href="#fk-and-ik"><span class="std std-numref">Fig. 25</span></a> se muestra un esquema que representa el papel de la cinemática directa e inversa como herramientas para relacionar el espacio cartesiano (asociado con posiciones y orientaciones del elemento terminal) con el espacio de las articulaciones (asociado con las posiciones articulares).</p>
 <figure class="align-center" id="fk-and-ik">
-<a class="reference internal image-reference" href="_images/fk_and_ik.svg"><img alt="_images/fk_and_ik.svg" src="_images/fk_and_ik.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/fk_and_ik.svg"><img alt="_images/fk_and_ik.svg" src="_images/fk_and_ik.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 25 </span><span class="caption-text">Cinemática directa e inversa</span><a class="headerlink" href="#fk-and-ik" title="Link to this image">#</a></p>
 </figcaption>
@@ -427,8 +427,7 @@ document.write(`
 <p>Un robot manipulador está compuesto de un conjunto de eslabones interconectados mediante juntas (pares cinemáticos). En general, un manipulador serial con <span class="math notranslate nohighlight">\(n\)</span> juntas tendrá <span class="math notranslate nohighlight">\(n+1\)</span> eslabones, dado que cada junta (asumiendo que sean de 1 GDL) conecta dos eslabones.</p>
 <p>Para identificar los componentes de un manipulador se numeran las juntas de <span class="math notranslate nohighlight">\(1\)</span> a <span class="math notranslate nohighlight">\(n\)</span> y los eslabones de <span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(n\)</span>, comenzando desde el eslabón base (o referencia fija). Con esta convención, la articulación <span class="math notranslate nohighlight">\(i\)</span> conecta al eslabón <span class="math notranslate nohighlight">\(i-1\)</span>  con el eslabón <span class="math notranslate nohighlight">\(i\)</span> (ver Figura <a class="reference internal" href="#kinematic-chain-num"><span class="std std-numref">Fig. 26</span></a>).</p>
 <figure class="align-center" id="kinematic-chain-num">
-<a class="reference internal image-reference" href="_images/kinematic_chain_num.svg"><img alt="_images/kinematic_chain_num.svg" src="_images/kinematic_chain_num.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/kinematic_chain_num.svg"><img alt="_images/kinematic_chain_num.svg" src="_images/kinematic_chain_num.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 26 </span><span class="caption-text">Cadena cinemática, numeración</span><a class="headerlink" href="#kinematic-chain-num" title="Link to this image">#</a></p>
 </figcaption>
@@ -436,8 +435,7 @@ document.write(`
 <p>Con cada una de las articulaciones se asocia una variable de articulación denotada mediante <span class="math notranslate nohighlight">\(q_i\)</span>. En el caso de una junta de revoluta <span class="math notranslate nohighlight">\(q_i\)</span> es el ángulo de rotación, y para un par prismático <span class="math notranslate nohighlight">\(q_i\)</span> es el desplazamiento de la junta.</p>
 <p>Para realizar el análisis cinemático se adjunta rígidamente un sistema de referencia a cada eslabón (ver Figura <a class="reference internal" href="#kinematic-chain-sys"><span class="std std-numref">Fig. 27</span></a>). En particular, se adjunta el sistema <span class="math notranslate nohighlight">\(\{i\}\)</span> al eslabón <span class="math notranslate nohighlight">\(i\)</span>, esto implica que para cualquier movimiento que el robot realice las coordenadas de cada punto en el eslabón <span class="math notranslate nohighlight">\(i\)</span> son constantes cuando se expresan o describen con respecto al <span class="math notranslate nohighlight">\(i\)</span>-ésimo sistema de referencia.</p>
 <figure class="align-center" id="kinematic-chain-sys">
-<a class="reference internal image-reference" href="_images/kinematic_chain_sys.svg"><img alt="_images/kinematic_chain_sys.svg" src="_images/kinematic_chain_sys.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/kinematic_chain_sys.svg"><img alt="_images/kinematic_chain_sys.svg" src="_images/kinematic_chain_sys.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 27 </span><span class="caption-text">Cadena cinemática y sistemas de referencia</span><a class="headerlink" href="#kinematic-chain-sys" title="Link to this image">#</a></p>
 </figcaption>
@@ -464,8 +462,7 @@ R_j^i &amp; \vec{d}_j^i \\
 <p>A lo largo de este capítulo (y en el resto de estos apuntes) se utilizarán diagramas cinemáticos para representar manipuladores seriales. Dado que los manipuladores seriales que estudiaremos únicamente están conformados por juntas de revoluta (R) y prismáticas (P), nos centraremos en cómo representar este tipo de uniones.</p>
 <p>En la Figura <a class="reference internal" href="#kinematic-diagram-symbols"><span class="std std-numref">Fig. 28</span></a> podemos observar la representación en el plano y en el espacio de las juntas de revoluta y prismáticas. Observe que para la revoluta en el espacio se utiliza un cilindro, es importante establecer que la dirección axial del cilindro se debe corresponder con el eje de rotación de la junta de revoluta que se esté representando. En el caso de la junta prismática, se utiliza un prisma rectangular para representarla en el espacio, la dirección más alargada del prisma define la dirección de deslizamiento de dicha junta.</p>
 <figure class="align-center" id="kinematic-diagram-symbols">
-<a class="reference internal image-reference" href="_images/kinematic_diagram_symbols.svg"><img alt="_images/kinematic_diagram_symbols.svg" src="_images/kinematic_diagram_symbols.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/kinematic_diagram_symbols.svg"><img alt="_images/kinematic_diagram_symbols.svg" src="_images/kinematic_diagram_symbols.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 28 </span><span class="caption-text">Representación de las juntas de revoluta (R) y prismáticas (P)</span><a class="headerlink" href="#kinematic-diagram-symbols" title="Link to this image">#</a></p>
 </figcaption>
@@ -593,8 +590,7 @@ s\theta_i &amp; c\theta_i c\alpha_i &amp; -c\theta_i s\alpha_i &amp; a_i s\theta
 <div class="example">
 <p><strong>Ejemplo.</strong> <em>Calcule la cinemática directa del manipulador RR mostrado en la Figura <a class="reference internal" href="ikin.html#rr-robot-dh"><span class="std std-numref">Fig. 46</span></a>a).</em></p>
 <figure class="align-center" id="rr-robot-dh">
-<a class="reference internal image-reference" href="_images/rr_robot_dh.svg"><img alt="_images/rr_robot_dh.svg" src="_images/rr_robot_dh.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rr_robot_dh.svg"><img alt="_images/rr_robot_dh.svg" src="_images/rr_robot_dh.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 29 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot-dh" title="Link to this image">#</a></p>
 </figcaption>
@@ -676,8 +672,7 @@ s_{12} &amp; c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
 </div><div class="example">
 <p><strong>Ejemplo.</strong> <em>Calcule la cinemática directa del manipulador RRR mostrado en la Figura <a class="reference internal" href="#rrr-robot"><span class="std std-numref">Fig. 30</span></a>.</em></p>
 <figure class="align-center" id="rrr-robot">
-<a class="reference internal image-reference" href="_images/rrr_robot.svg"><img alt="_images/rrr_robot.svg" src="_images/rrr_robot.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rrr_robot.svg"><img alt="_images/rrr_robot.svg" src="_images/rrr_robot.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 30 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#rrr-robot" title="Link to this image">#</a></p>
 </figcaption>
@@ -685,8 +680,7 @@ s_{12} &amp; c_{12} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
 <p><strong>Solución:</strong></p>
 <p>El manipulador RRR mostrado en la Figura <a class="reference internal" href="#rrr-robot"><span class="std std-numref">Fig. 30</span></a> tiene tres grados de libertad (posicionamiento). Las direcciones de accionamiento de la primera y segunda articulación son mutuamente perpendiculares, además, las direcciones de la segunda y tercera articulación son paralelas. Los sistemas de referencia quedan establecidos como se muestra en la Figura <a class="reference internal" href="#rrr-robot-dh"><span class="std std-numref">Fig. 31</span></a>. Dado que <span class="math notranslate nohighlight">\(z_0\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span> se intersecan, entonces el eje <span class="math notranslate nohighlight">\(x_1\)</span> se coloca en la dirección normal al plano formado por ambos ejes. Los ejes <span class="math notranslate nohighlight">\(z_1\)</span> y <span class="math notranslate nohighlight">\(z_2\)</span> son paralelos, entonces <span class="math notranslate nohighlight">\(x_2\)</span> se coloca en la dirección de la normal común a ambos ejes. Los ejes <span class="math notranslate nohighlight">\(z_2\)</span> y <span class="math notranslate nohighlight">\(z_3\)</span> son paralelos, entonces <span class="math notranslate nohighlight">\(x_3\)</span> se coloca en la dirección de la normal común a ambos ejes.</p>
 <figure class="align-center" id="rrr-robot-dh">
-<a class="reference internal image-reference" href="_images/rrr_robot_dh.svg"><img alt="_images/rrr_robot_dh.svg" src="_images/rrr_robot_dh.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rrr_robot_dh.svg"><img alt="_images/rrr_robot_dh.svg" src="_images/rrr_robot_dh.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 31 </span><span class="caption-text">Manipulador RRR con los sistemas establecidos</span><a class="headerlink" href="#rrr-robot-dh" title="Link to this image">#</a></p>
 </figcaption>
@@ -798,8 +792,7 @@ s_{23} &amp; c_{23} &amp; 0 &amp; d_1 + l_2 s_2 + l_3 s_{23} \\
 <li><p><span class="math notranslate nohighlight">\(z_5\)</span> y <span class="math notranslate nohighlight">\(z_6\)</span> son colineales, por lo tanto el eje <span class="math notranslate nohighlight">\(x_6\)</span> se coloca de forma alineada con <span class="math notranslate nohighlight">\(x_5\)</span>. No obstante, es importante comprender que esa alineación no es permanente, dado que el ángulo que se forma entre <span class="math notranslate nohighlight">\(x_5\)</span> y <span class="math notranslate nohighlight">\(x_6\)</span> corresponde a la variable articular <span class="math notranslate nohighlight">\(q_6\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="abb-irb-140-kinematic-diagram">
-<a class="reference internal image-reference" href="_images/abb-irb-140-kinematic-diagram.svg"><img alt="_images/abb-irb-140-kinematic-diagram.svg" src="_images/abb-irb-140-kinematic-diagram.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/abb-irb-140-kinematic-diagram.svg"><img alt="_images/abb-irb-140-kinematic-diagram.svg" src="_images/abb-irb-140-kinematic-diagram.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 33 </span><span class="caption-text">Diagrama cinemático del manipulador ABB IRB 140</span><a class="headerlink" href="#abb-irb-140-kinematic-diagram" title="Link to this image">#</a></p>
 </figcaption>
@@ -927,8 +920,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>En la Figura <a class="reference internal" href="#dh-frames"><span class="std std-numref">Fig. 34</span></a> se muestran tres sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span>, <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{2\}\)</span>. De las transformaciones <span class="math notranslate nohighlight">\( T_1^0 \)</span>, <span class="math notranslate nohighlight">\( T_2^0 \)</span> y <span class="math notranslate nohighlight">\( T_2^1 \)</span>, ¿cuáles se pueden expresar mediante los parámetros de Denavit-Hartenberg?</p>
 <figure class="align-center" id="dh-frames">
-<a class="reference internal image-reference" href="_images/dh_frames.svg"><img alt="_images/dh_frames.svg" src="_images/dh_frames.svg" style="width: 60%;" />
-</a>
+<a class="reference internal image-reference" href="_images/dh_frames.svg"><img alt="_images/dh_frames.svg" src="_images/dh_frames.svg" width="60%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 34 </span><span class="caption-text">.</span><a class="headerlink" href="#dh-frames" title="Link to this image">#</a></p>
 </figcaption>
@@ -936,8 +928,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>En la figura <a class="reference internal" href="#rpp-robot"><span class="std std-numref">Fig. 35</span></a> se muestra un manipulador de 3 GDL (RPP). Establezca los sistemas de referencia siguiendo la metodología de Denavit-Hartenberg, obtenga la tabla de parámetros DH, forme las matrices <span class="math notranslate nohighlight">\( A_i \)</span> y calcule la matriz <span class="math notranslate nohighlight">\( T_3^0 \)</span> que describe la posición y orientación del extremo del manipulador con respecto a la base.</p>
 <figure class="align-center" id="rpp-robot">
-<a class="reference internal image-reference" href="_images/rpp_robot.svg"><img alt="_images/rpp_robot.svg" src="_images/rpp_robot.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rpp_robot.svg"><img alt="_images/rpp_robot.svg" src="_images/rpp_robot.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 35 </span><span class="caption-text">.</span><a class="headerlink" href="#rpp-robot" title="Link to this image">#</a></p>
 </figcaption>
@@ -945,8 +936,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Dado el manipulador mostrado en la figura <a class="reference internal" href="#rrp-robot-with-frames"><span class="std std-numref">Fig. 36</span></a> y los sistemas de referencia esquematizados, determine la posición <span class="math notranslate nohighlight">\((x,y,z)\)</span> del extremo manipulador si <span class="math notranslate nohighlight">\( q_1 = 30° \)</span>, <span class="math notranslate nohighlight">\(q_2 = 45° \)</span> y <span class="math notranslate nohighlight">\(q_3 = 150 \)</span> mm. Considerar que <span class="math notranslate nohighlight">\(a_1 = 180\)</span> mm y <span class="math notranslate nohighlight">\( d_2 = 220 \)</span> mm.</p>
 <figure class="align-center" id="rrp-robot-with-frames">
-<a class="reference internal image-reference" href="_images/rrp_robot_with_frames.svg"><img alt="_images/rrp_robot_with_frames.svg" src="_images/rrp_robot_with_frames.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rrp_robot_with_frames.svg"><img alt="_images/rrp_robot_with_frames.svg" src="_images/rrp_robot_with_frames.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 36 </span><span class="caption-text">Manipulador RRP</span><a class="headerlink" href="#rrp-robot-with-frames" title="Link to this image">#</a></p>
 </figcaption>
@@ -960,8 +950,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <li><p>Calcule la matriz de transformación <span class="math notranslate nohighlight">\(T_4^0\)</span>.</p></li>
 </ul>
 <figure class="align-center" id="rrrr-robot">
-<a class="reference internal image-reference" href="_images/rrrr_robot.svg"><img alt="_images/rrrr_robot.svg" src="_images/rrrr_robot.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rrrr_robot.svg"><img alt="_images/rrrr_robot.svg" src="_images/rrrr_robot.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">Manipulador RRRR</span><a class="headerlink" href="#rrrr-robot" title="Link to this image">#</a></p>
 </figcaption>
@@ -969,8 +958,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-01"><span class="std std-numref">Fig. 38</span></a> calcule la cinemática directa.</p>
 <figure class="align-center" id="complex-robot-01">
-<a class="reference internal image-reference" href="_images/complex_robot_01.svg"><img alt="_images/complex_robot_01.svg" src="_images/complex_robot_01.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/complex_robot_01.svg"><img alt="_images/complex_robot_01.svg" src="_images/complex_robot_01.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 38 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-01" title="Link to this image">#</a></p>
 </figcaption>
@@ -978,8 +966,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-02"><span class="std std-numref">Fig. 39</span></a> calcule la cinemática directa.</p>
 <figure class="align-center" id="complex-robot-02">
-<a class="reference internal image-reference" href="_images/complex_robot_02.svg"><img alt="_images/complex_robot_02.svg" src="_images/complex_robot_02.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/complex_robot_02.svg"><img alt="_images/complex_robot_02.svg" src="_images/complex_robot_02.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 39 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-02" title="Link to this image">#</a></p>
 </figcaption>
@@ -987,8 +974,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-03"><span class="std std-numref">Fig. 40</span></a> calcule la cinemática directa.</p>
 <figure class="align-center" id="complex-robot-03">
-<a class="reference internal image-reference" href="_images/complex_robot_03.svg"><img alt="_images/complex_robot_03.svg" src="_images/complex_robot_03.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/complex_robot_03.svg"><img alt="_images/complex_robot_03.svg" src="_images/complex_robot_03.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 40 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-03" title="Link to this image">#</a></p>
 </figcaption>
@@ -996,8 +982,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-04"><span class="std std-numref">Fig. 41</span></a> calcule la cinemática directa.</p>
 <figure class="align-center" id="complex-robot-04">
-<a class="reference internal image-reference" href="_images/complex_robot_04.svg"><img alt="_images/complex_robot_04.svg" src="_images/complex_robot_04.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/complex_robot_04.svg"><img alt="_images/complex_robot_04.svg" src="_images/complex_robot_04.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 41 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-04" title="Link to this image">#</a></p>
 </figcaption>
@@ -1005,8 +990,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Para el manipulador mostrado en la figura <a class="reference internal" href="#complex-robot-05"><span class="std std-numref">Fig. 42</span></a> calcule la cinemática directa.</p>
 <figure class="align-center" id="complex-robot-05">
-<a class="reference internal image-reference" href="_images/complex_robot_05.svg"><img alt="_images/complex_robot_05.svg" src="_images/complex_robot_05.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/complex_robot_05.svg"><img alt="_images/complex_robot_05.svg" src="_images/complex_robot_05.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 42 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#complex-robot-05" title="Link to this image">#</a></p>
 </figcaption>
@@ -1014,8 +998,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Calcule la cinemática directa para el manipulador SCARA mostrado en la figura <a class="reference internal" href="#scara-robot"><span class="std std-numref">Fig. 43</span></a>.</p>
 <figure class="align-center" id="scara-robot">
-<a class="reference internal image-reference" href="_images/scara_robot.svg"><img alt="_images/scara_robot.svg" src="_images/scara_robot.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/scara_robot.svg"><img alt="_images/scara_robot.svg" src="_images/scara_robot.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 43 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#scara-robot" title="Link to this image">#</a></p>
 </figcaption>
@@ -1064,8 +1047,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Se tiene un manipulador RR como el mostrado en la figura <a class="reference internal" href="#rr-robot"><span class="std std-numref">Fig. 44</span></a>. Si se sabe que los valores de las coordenadas articulares están dados por: <span class="math notranslate nohighlight">\(q_1 = \cos t\)</span> y <span class="math notranslate nohighlight">\(q_2 = \sin t \)</span>, y que sus dimensiones son <span class="math notranslate nohighlight">\( l_1 = l_2 = 350\)</span> mm. Desarrolle un programe que calcule y trace la trayectoria descrita por el extremo del manipulador para <span class="math notranslate nohighlight">\(0 \leq t \leq 2\pi\)</span>.</p>
 <figure class="align-center" id="rr-robot">
-<a class="reference internal image-reference" href="_images/rr_robot.svg"><img alt="_images/rr_robot.svg" src="_images/rr_robot.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/rr_robot1.svg"><img alt="_images/rr_robot1.svg" src="_images/rr_robot1.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 44 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
 </figcaption>
@@ -1075,8 +1057,7 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; d_z \\
 <hr class="docutils" />
 <p>Desarrolle un programa de computadora que dados como entrada los valores articulares <span class="math notranslate nohighlight">\(q_1\)</span> y <span class="math notranslate nohighlight">\(q_2\)</span>, del manipulador <span class="math notranslate nohighlight">\(PP\)</span> mostrado en la figura <a class="reference internal" href="#pp-robot"><span class="std std-numref">Fig. 45</span></a>, calcule la posición del extremo del manipulador. El programa deberá también esquematizar la posición del manipulador.</p>
 <figure class="align-center" id="pp-robot">
-<a class="reference internal image-reference" href="_images/pp_robot.svg"><img alt="_images/pp_robot.svg" src="_images/pp_robot.svg" style="width: 50%;" />
-</a>
+<a class="reference internal image-reference" href="_images/pp_robot.svg"><img alt="_images/pp_robot.svg" src="_images/pp_robot.svg" width="50%" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 45 </span><span class="caption-text">Manipulador PP</span><a class="headerlink" href="#pp-robot" title="Link to this image">#</a></p>
 </figcaption>

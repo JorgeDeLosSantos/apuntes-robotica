@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/customized.css?v=6ed36201" />
@@ -570,11 +570,12 @@ S( \W_{0,2}^0 ) R_2^0 = \sbr{ S( \W_{0,1}^0 ) + S( R_1^0 \W_{1,2}^1 ) } R_2^0
 \]</div>
 <p>Lo anterior implica que una junta prismática no contribuye a la velocidad angular, dado que no produce un cambio en la orientación entre los sistemas <span class="math notranslate nohighlight">\(\{j\}\)</span> y <span class="math notranslate nohighlight">\(\{j-1\}\)</span>.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> <em>Calcule las velocidades angulares de los eslabones 1 y 2 del manipulador RR de la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</em></p>
+<p><strong>Ejemplo.</strong> <em>Calcule las velocidades angulares de los eslabones 1 y 2 del manipulador RR de la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 64</span></a>.</em></p>
 <figure class="align-center" id="example-rr-robot-dh-dkin">
-<a class="reference internal image-reference" href="_images/example_rr_robot_dh_dkin.svg"><img alt="_images/example_rr_robot_dh_dkin.svg" src="_images/example_rr_robot_dh_dkin.svg" width="60%" /></a>
+<a class="reference internal image-reference" href="_images/example_rr_robot_dh_dkin.svg"><img alt="_images/example_rr_robot_dh_dkin.svg" src="_images/example_rr_robot_dh_dkin.svg" style="width: 60%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 63 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-dh-dkin" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-dh-dkin" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -614,12 +615,13 @@ s_{1} &amp; c_{1} &amp; 0 \\
 <span id="vel-lineal-cuerpo-rigido"></span><h2>Velocidades lineales en un cuerpo rígido<a class="headerlink" href="#velocidades-lineales-en-un-cuerpo-rigido" title="Link to this heading">#</a></h2>
 <p>En la Figura <code class="xref eq docutils literal notranslate"><span class="pre">rigid_body_velocities</span></code> se muestra un cuerpo rígido, al cual se le adhiere un sistema de referencia <span class="math notranslate nohighlight">\(\{1\}\)</span> que se mueve junto este. Se tiene también un sistema de referencia fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. El cuerpo rígido está en un movimiento general, es decir, experimenta un movimiento compuesto de rotación y traslación. En lo subsiguiente veremos cómo relacionar las velocidades lineales y angulares de este cuerpo rígido, utilizando los dos sistemas de referencia mostrados.</p>
 <figure class="align-center" id="rigid-body-velocities">
-<a class="reference internal image-reference" href="_images/rigid_body_velocities.svg"><img alt="_images/rigid_body_velocities.svg" src="_images/rigid_body_velocities.svg" width="60%" /></a>
+<a class="reference internal image-reference" href="_images/rigid_body_velocities.svg"><img alt="_images/rigid_body_velocities.svg" src="_images/rigid_body_velocities.svg" style="width: 60%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Un cuerpo rígido</span><a class="headerlink" href="#rigid-body-velocities" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">Un cuerpo rígido</span><a class="headerlink" href="#rigid-body-velocities" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En la Figura <a class="reference internal" href="#rigid-body-velocities"><span class="std std-numref">Fig. 64</span></a> puede observarse también un punto <span class="math notranslate nohighlight">\(Q\)</span>, del cual es sencillo verificar que se cumple la siguiente ecuación vectorial de posición:</p>
+<p>En la Figura <a class="reference internal" href="#rigid-body-velocities"><span class="std std-numref">Fig. 65</span></a> puede observarse también un punto <span class="math notranslate nohighlight">\(Q\)</span>, del cual es sencillo verificar que se cumple la siguiente ecuación vectorial de posición:</p>
 <div class="math notranslate nohighlight" id="equation-position-equation">
 <span class="eqno">(41)<a class="headerlink" href="#equation-position-equation" title="Link to this equation">#</a></span>\[
 \vec{r}_Q = \vec{r}_{o_1} + \vec{r}_{Q/{o_1}}
@@ -652,12 +654,12 @@ s_{1} &amp; c_{1} &amp; 0 \\
 </section>
 <section id="velocidades-lineales-en-un-manipulador-serial">
 <span id="vel-lineal-extremo"></span><h2>Velocidades lineales en un manipulador serial<a class="headerlink" href="#velocidades-lineales-en-un-manipulador-serial" title="Link to this heading">#</a></h2>
-<p>Consideremos un manipulador serial conformado por juntas prismática y de revoluta, tal como se muestra en la figura <a class="reference internal" href="#serial-robot-velocities-png"><span class="std std-numref">Fig. 65</span></a>. Asumiendo, además, que cada sistema de referencia está colocado de acuerdo con la metodología de Denavit-Hartenberg, entonces cada eje <span class="math notranslate nohighlight">\(z_{i-1}\)</span> define la dirección de rotación o deslizamiento de la junta <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Consideremos un manipulador serial conformado por juntas prismática y de revoluta, tal como se muestra en la figura <a class="reference internal" href="#serial-robot-velocities-png"><span class="std std-numref">Fig. 66</span></a>. Asumiendo, además, que cada sistema de referencia está colocado de acuerdo con la metodología de Denavit-Hartenberg, entonces cada eje <span class="math notranslate nohighlight">\(z_{i-1}\)</span> define la dirección de rotación o deslizamiento de la junta <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <figure class="align-center" id="serial-robot-velocities-png">
 <a class="reference internal image-reference" href="_images/serial_robot_velocities_png.png"><img alt="_images/serial_robot_velocities_png.png" src="_images/serial_robot_velocities_png.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 65 </span><span class="caption-text">Velocidades en un manipulador serial</span><a class="headerlink" href="#serial-robot-velocities-png" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">Velocidades en un manipulador serial</span><a class="headerlink" href="#serial-robot-velocities-png" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Las velocidades angulares <span class="math notranslate nohighlight">\(\W_1, \W_2, \cdots, \W_n\)</span> corresponden a las velocidades angulares de cada eslabón con respecto al sistema de referencia de la base. Las velocidades angulares <span class="math notranslate nohighlight">\( \W_{0,1}^{0}, \W_{1,2}^0, \cdots , \W_{n-1,n}^{0} \)</span> corresponden a las velocidades angulares de cada eslabón <span class="math notranslate nohighlight">\(i\)</span> con respecto al eslabón <span class="math notranslate nohighlight">\(i-1\)</span> que le precede. Observe que si usamos la misma notación podríamos expresar que <span class="math notranslate nohighlight">\( \W_i = \W_{0,i}^0 \)</span>. De acuerdo con lo visto en la sección <a class="reference internal" href="#angular-velocity"><span class="std std-ref">Velocidades angulares en un manipulador serial</span></a> sabemos que:</p>
@@ -714,7 +716,7 @@ s_{1} &amp; c_{1} &amp; 0 \\
 \]</div>
 <p>En el caso particular de que la i-ésima junta sea una revoluta, el término <span class="math notranslate nohighlight">\( \rbr{ \vec{v}_{o_i/o_{i-1}} }_{i-1}  \)</span> se hace cero, puesto que la distancia entre los orígenes de <span class="math notranslate nohighlight">\(\{i\}\)</span> y <span class="math notranslate nohighlight">\(\{i-1\}\)</span> permanece invariable.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> Calcule la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</p>
+<p><strong>Ejemplo.</strong> Calcule la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 64</span></a>.</p>
 <p><strong>Solución:</strong></p>
 <p>La velocidad lineal del extremo está dada por:</p>
 <div class="math notranslate nohighlight">
@@ -762,7 +764,7 @@ s_{1} &amp; c_{1} &amp; 0 \\
 \[ \vec{r}_{o_n} = \sbr{ T_n^0 }_{1:3,4}  \]</div>
 <p>El vector de velocidad lineal <span class="math notranslate nohighlight">\(\vec{v}_{o_n}\)</span> nos quedará usualmente en términos de las velocidades articulares (<span class="math notranslate nohighlight">\(\dot{q}_1\)</span>, <span class="math notranslate nohighlight">\(\dot{q}_2\)</span>, <span class="math notranslate nohighlight">\(...\)</span>, <span class="math notranslate nohighlight">\(\dot{q}_n\)</span>). Al efectuar la derivada con respecto al tiempo se debe considerar que las variables articulares de posición (<span class="math notranslate nohighlight">\(q_1\)</span>, <span class="math notranslate nohighlight">\(q_2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(q_n\)</span>) son funciones que dependen del tiempo, es decir <span class="math notranslate nohighlight">\( q_i = q_i(t) \)</span>. Naturalmente, el resto de parámetros constantes del manipulador, se deben tratar como tal al momento de realizar las derivadas correspondientes.</p>
 <div class="example">
-<p><strong>Ejemplo.</strong> <em>Utilice derivadas para determinar la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 63</span></a>.</em></p>
+<p><strong>Ejemplo.</strong> <em>Utilice derivadas para determinar la velocidad lineal del extremo del manipulador RR mostrado en la Figura <a class="reference internal" href="#example-rr-robot-dh-dkin"><span class="std std-numref">Fig. 64</span></a>.</em></p>
 <p><strong>Solución:</strong></p>
 <p>Recordar que la cinemática directa de este manipulador está dada por:</p>
 <div class="math notranslate nohighlight">
@@ -794,15 +796,16 @@ l_{1} \dot{q}_{1} c_{1}  + l_{2} \left(\dot{q}_{1} + \dot{q}_{2}\right) c_{12} \
 \end{split}\]</div>
 <p>Observe que esta solución coincide con la obtenida previamente mediante los productos vectoriales.</p>
 </div><div class="example">
-<p><strong>Ejemplo.</strong> <em>Calcule la velocidad lineal del extremo del manipulador RRP mostrado en la Figura <a class="reference internal" href="#rrp-robot-dkin-example"><span class="std std-numref">Fig. 66</span></a>, para un instante en el que:</em></p>
+<p><strong>Ejemplo.</strong> <em>Calcule la velocidad lineal del extremo del manipulador RRP mostrado en la Figura <a class="reference internal" href="#rrp-robot-dkin-example"><span class="std std-numref">Fig. 67</span></a>, para un instante en el que:</em></p>
 <div class="math notranslate nohighlight">
 \[ q_1 = 45° \,;\quad q_2 = 30°  \,;\quad q_3 = 200 \text{ mm} \]</div>
 <div class="math notranslate nohighlight">
 \[ \dot{q}_1 = 1.5 \text{ rad/s}  \,;\quad \dot{q}_2 = 2.0 \text{ rad/s}  \,;\quad \dot{q}_3 = 30 \text{ mm/s} \]</div>
 <figure class="align-center" id="rrp-robot-dkin-example">
-<a class="reference internal image-reference" href="_images/rrp_robot_dkin_example.svg"><img alt="_images/rrp_robot_dkin_example.svg" src="_images/rrp_robot_dkin_example.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rrp_robot_dkin_example.svg"><img alt="_images/rrp_robot_dkin_example.svg" src="_images/rrp_robot_dkin_example.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">.</span><a class="headerlink" href="#rrp-robot-dkin-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">.</span><a class="headerlink" href="#rrp-robot-dkin-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -854,9 +857,10 @@ s_2 &amp; 0 &amp; -c_2 &amp; -q_3 c_2 + 280 \\
 \vec{r}_B^2 = \colvec{-\rbr{l_2 - l_{c_2}}}{0}{0}
 \]</div>
 <figure class="align-center" id="example-rr-robot-point-velocity">
-<a class="reference internal image-reference" href="_images/example_rr_robot_point_velocity.svg"><img alt="_images/example_rr_robot_point_velocity.svg" src="_images/example_rr_robot_point_velocity.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/example_rr_robot_point_velocity.svg"><img alt="_images/example_rr_robot_point_velocity.svg" src="_images/example_rr_robot_point_velocity.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-point-velocity" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#example-rr-robot-point-velocity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1285,9 +1289,10 @@ l_1 c_1 + l_2 c_{12} &amp; l_2 c_{12} \\
 </div><div class="example">
 <p><strong>Ejemplo.</strong> <em>Para el manipulador RPP mostrado en la Figura \ref{fig:rpp_robot_cdif} calcule las velocidades del extremo, para un instante en el cual <span class="math notranslate nohighlight">\( q_1 = 90° \)</span>, <span class="math notranslate nohighlight">\( q_2 = 200 \)</span> mm y <span class="math notranslate nohighlight">\( q_3 = 100 \)</span> mm, además, se sabe que las velocidades articulares son <span class="math notranslate nohighlight">\( \dot{q}_1 = -2.5 \)</span> rad/s,  <span class="math notranslate nohighlight">\( \dot{q}_2 = 30 \)</span> mm/s, <span class="math notranslate nohighlight">\( \dot{q}_3 = 45 \)</span> mm/s. Considere que <span class="math notranslate nohighlight">\( a = 200 \)</span> mm y <span class="math notranslate nohighlight">\( b = 70 \)</span> mm.</em></p>
 <figure class="align-center" id="rpp-robot-cdif">
-<a class="reference internal image-reference" href="_images/rpp_robot_cdif.svg"><img alt="_images/rpp_robot_cdif.svg" src="_images/rpp_robot_cdif.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rpp_robot_cdif.svg"><img alt="_images/rpp_robot_cdif.svg" src="_images/rpp_robot_cdif.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Manipulador RPP</span><a class="headerlink" href="#rpp-robot-cdif" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Manipulador RPP</span><a class="headerlink" href="#rpp-robot-cdif" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1364,11 +1369,12 @@ J = \left[\begin{matrix}-170 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1\\0 &amp; 1 &amp;
 <section id="la-matriz-jacobiana-de-un-punto-del-manipulador">
 <span id="jacobian-point"></span><h3>La matriz jacobiana de un punto del manipulador}<a class="headerlink" href="#la-matriz-jacobiana-de-un-punto-del-manipulador" title="Link to this heading">#</a></h3>
 <p>En la sección previa vimos cómo formar la matriz jacobiana del extremo del manipulador, sin embargo, en muchas ocasiones es necesario conocer las velocidades lineales y angulares en algún otro punto del manipulador, por ejemplo, cuando se analiza la dinámica del robot es necesario determinar las velocidades del centro de masa de cada eslabón. En esta sección veremos cómo formar la matriz jacobiana para una ubicación específica del manipulador.</p>
-<p>Antes de comenzar con el análisis, lo primero que debemos comprender es que, en un manipulador serial, si accionamos la <span class="math notranslate nohighlight">\(i-\)</span>ésima articulación y mantenemos fijas todas las otras, entonces esta articulación producirá un movimiento sobre los eslabones <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(i+1\)</span>, <span class="math notranslate nohighlight">\(\cdots\)</span>, <span class="math notranslate nohighlight">\(n\)</span>. Por ejemplo, refiriéndonos al manipulador RRR de la Figura <a class="reference internal" href="#rrr-robot-jacobian-point"><span class="std std-numref">Fig. 69</span></a>, si accionamos la junta número <span class="math notranslate nohighlight">\((3)\)</span> el único eslabón que se movería sería el <span class="math notranslate nohighlight">\(3\)</span>, si accionamos la junta <span class="math notranslate nohighlight">\((2)\)</span> entonces afectaría tanto al eslabón <span class="math notranslate nohighlight">\(2\)</span> como al <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<p>Antes de comenzar con el análisis, lo primero que debemos comprender es que, en un manipulador serial, si accionamos la <span class="math notranslate nohighlight">\(i-\)</span>ésima articulación y mantenemos fijas todas las otras, entonces esta articulación producirá un movimiento sobre los eslabones <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(i+1\)</span>, <span class="math notranslate nohighlight">\(\cdots\)</span>, <span class="math notranslate nohighlight">\(n\)</span>. Por ejemplo, refiriéndonos al manipulador RRR de la Figura <a class="reference internal" href="#rrr-robot-jacobian-point"><span class="std std-numref">Fig. 70</span></a>, si accionamos la junta número <span class="math notranslate nohighlight">\((3)\)</span> el único eslabón que se movería sería el <span class="math notranslate nohighlight">\(3\)</span>, si accionamos la junta <span class="math notranslate nohighlight">\((2)\)</span> entonces afectaría tanto al eslabón <span class="math notranslate nohighlight">\(2\)</span> como al <span class="math notranslate nohighlight">\(3\)</span>.</p>
 <figure class="align-center" id="rrr-robot-jacobian-point">
-<a class="reference internal image-reference" href="_images/rrr_robot_jacobian_point.svg"><img alt="_images/rrr_robot_jacobian_point.svg" src="_images/rrr_robot_jacobian_point.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rrr_robot_jacobian_point.svg"><img alt="_images/rrr_robot_jacobian_point.svg" src="_images/rrr_robot_jacobian_point.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#rrr-robot-jacobian-point" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#rrr-robot-jacobian-point" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Así pues, suponiendo que se tiene un punto <span class="math notranslate nohighlight">\(A\)</span> ubicado en el eslabón <span class="math notranslate nohighlight">\(1\)</span>, entonces podríamos inferir que el accionamiento de las juntas <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(3\)</span> no le <em>afecta</em>, lo cual nos lleva a pensar que la matriz jacobiana asociada con este punto <span class="math notranslate nohighlight">\(A\)</span> debería contener ceros en las columnas <span class="math notranslate nohighlight">\(2\)</span> y <span class="math notranslate nohighlight">\(3\)</span> que corresponden a estas juntas, para que al efectuar la multiplicación por el vector de velocidades articulares se corresponda con una contribución nula de estas velocidades articulares a la velocidad lineal del punto <span class="math notranslate nohighlight">\(A\)</span>.</p>
@@ -1412,9 +1418,10 @@ J_Q = \begin{bmatrix}
 \vec{r}_B^2 = \colvec{-\rbr{l_2 - l_{c_2}}}{0}{0}
 \]</div>
 <figure class="align-center" id="img-dkin-examples-example-rr-robot-point-velocity">
-<a class="reference internal image-reference" href="_images/example_rr_robot_point_velocity.svg"><img alt="_images/example_rr_robot_point_velocity.svg" src="_images/example_rr_robot_point_velocity.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/example_rr_robot_point_velocity.svg"><img alt="_images/example_rr_robot_point_velocity.svg" src="_images/example_rr_robot_point_velocity.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#img-dkin-examples-example-rr-robot-point-velocity" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#img-dkin-examples-example-rr-robot-point-velocity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución</strong>:</p>
@@ -1565,15 +1572,16 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 <section id="problemas">
 <h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
-<p>Calcule la matriz jacobiana del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a>.</p>
+<p>Calcule la matriz jacobiana del manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 72</span></a>.</p>
 <figure class="align-center" id="rr-robot-offset">
-<a class="reference internal image-reference" href="_images/rr_robot_offset.svg"><img alt="_images/rr_robot_offset.svg" src="_images/rr_robot_offset.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rr_robot_offset.svg"><img alt="_images/rr_robot_offset.svg" src="_images/rr_robot_offset.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot-offset" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot-offset" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>Para el manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a> calcule la velocidad lineal y angular del extremo para un instante en el que:</p>
+<p>Para el manipulador RR mostrado en la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 72</span></a> calcule la velocidad lineal y angular del extremo para un instante en el que:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
@@ -1591,7 +1599,7 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 </table>
 </div>
 <hr class="docutils" />
-<p>Para el manipulador RR de la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 71</span></a>, se sabe que el centro de masa del eslabón <span class="math notranslate nohighlight">\(2\)</span> está ubicado de acuerdo con el siguiente vector de posición: <span class="math notranslate nohighlight">\( \vec{r}_{G_2}^2 = [-110,0,0]^T \)</span>. Calcule la velocidad del centro de masa <span class="math notranslate nohighlight">\( G_2 \)</span> con respecto al sistema de referencia de la base, para un instante en el cual las posiciones y velocidades articulares son las que se listan enseguida.</p>
+<p>Para el manipulador RR de la Figura <a class="reference internal" href="#rr-robot-offset"><span class="std std-numref">Fig. 72</span></a>, se sabe que el centro de masa del eslabón <span class="math notranslate nohighlight">\(2\)</span> está ubicado de acuerdo con el siguiente vector de posición: <span class="math notranslate nohighlight">\( \vec{r}_{G_2}^2 = [-110,0,0]^T \)</span>. Calcule la velocidad del centro de masa <span class="math notranslate nohighlight">\( G_2 \)</span> con respecto al sistema de referencia de la base, para un instante en el cual las posiciones y velocidades articulares son las que se listan enseguida.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
@@ -1634,16 +1642,18 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 <li><p>Calcula la velocidad de un punto <span class="math notranslate nohighlight">\(A\)</span> cuyas coordenadas en el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> están dadas por <span class="math notranslate nohighlight">\(\vec{r}_A^2 = \rowvec{-100}{20}{0}^T\)</span></p></li>
 </ul>
 <figure class="align-center" id="rr-robot">
-<a class="reference internal image-reference" href="_images/rr_robot.svg"><img alt="_images/rr_robot.svg" src="_images/rr_robot.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rr_robot.svg"><img alt="_images/rr_robot.svg" src="_images/rr_robot.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Manipulador RR</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
 <p>Calcule la matriz jacobiana para el manipulador RRR mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">rrr_planar_robot</span></code>.</p>
 <figure class="align-default" id="id2">
-<img alt="_images/rrr_planar_robot.svg" src="_images/rrr_planar_robot.svg" /><figcaption>
-<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<img alt="_images/rrr_planar_robot.svg" src="_images/rrr_planar_robot.svg" />
+<figcaption>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">Manipulador RRR</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1669,15 +1679,16 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 </div>
 <p>Considere que las longitudes de los eslabones son <span class="math notranslate nohighlight">\( l_1 = l_2 = 300 \)</span> mm y <span class="math notranslate nohighlight">\( l_3 = 200 \)</span> mm.</p>
 <hr class="docutils" />
-<p>En la Figura <a class="reference internal" href="#ppr-robot"><span class="std std-numref">Fig. 74</span></a> se muestra un manipulador PPR, calcule la matriz jacobiana.</p>
+<p>En la Figura <a class="reference internal" href="#ppr-robot"><span class="std std-numref">Fig. 75</span></a> se muestra un manipulador PPR, calcule la matriz jacobiana.</p>
 <figure class="align-center" id="ppr-robot">
-<a class="reference internal image-reference" href="_images/ppr_robot.svg"><img alt="_images/ppr_robot.svg" src="_images/ppr_robot.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/ppr_robot.svg"><img alt="_images/ppr_robot.svg" src="_images/ppr_robot.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 74 </span><span class="caption-text">Manipulador PPR</span><a class="headerlink" href="#ppr-robot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Manipulador PPR</span><a class="headerlink" href="#ppr-robot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>En la Figura <a class="reference internal" href="#rrp-robot-dh-with-off-dk"><span class="std std-numref">Fig. 75</span></a> se muestra un manipulador RRP. Para un instante en el que:</p>
+<p>En la Figura <a class="reference internal" href="#rrp-robot-dh-with-off-dk"><span class="std std-numref">Fig. 76</span></a> se muestra un manipulador RRP. Para un instante en el que:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
@@ -1705,9 +1716,10 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 <li><p>Calcula la matriz jacobiana del extremo del manipulador.</p></li>
 </ul>
 <figure class="align-center" id="rrp-robot-dh-with-off-dk">
-<a class="reference internal image-reference" href="_images/rrp_robot_dh_with_off_dk.svg"><img alt="_images/rrp_robot_dh_with_off_dk.svg" src="_images/rrp_robot_dh_with_off_dk.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="_images/rrp_robot_dh_with_off_dk.svg"><img alt="_images/rrp_robot_dh_with_off_dk.svg" src="_images/rrp_robot_dh_with_off_dk.svg" style="width: 50%;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 75 </span><span class="caption-text">Manipulador RRP</span><a class="headerlink" href="#rrp-robot-dh-with-off-dk" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">Manipulador RRP</span><a class="headerlink" href="#rrp-robot-dh-with-off-dk" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1746,13 +1758,13 @@ l_1 c_1 + l_{c_2} c_{12}    &amp;  l_{c_2} c_{12} \\
 <hr class="docutils" />
 <p>Desarrolla una función denominada <code class="docutils literal notranslate"><span class="pre">calcular_jacobiano</span></code>, la cual deberá calcular la matriz jacobiana geométrica asociada con un manipulador serial. Los argumentos de entradas deberán ser tuplas que contengan los parámetros de Denavit-Hartenberg y el tipo de articulación, es decir: (<span class="math notranslate nohighlight">\(a_i\)</span>, <span class="math notranslate nohighlight">\(\alpha_i\)</span>, <span class="math notranslate nohighlight">\(d_i\)</span>, <span class="math notranslate nohighlight">\(\theta_i\)</span>, <span class="math notranslate nohighlight">\(t_a\)</span>), siendo <span class="math notranslate nohighlight">\(t_a\)</span> el tipo de articulación. Naturalmente, se deberán pasar tantas tuplas como grados de libertad tenga el manipulador. Utiliza SymPy para formar la matriz, de tal manera que los elementos puedan ser tanto variables simbólicas como valores numéricos.</p>
 <p><em>Plantilla de función sugerida</em>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calcular_jacobiano</span><span class="p">(</span><span class="o">*</span><span class="n">dh_params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_jacobiano</span><span class="p">(</span><span class="o">*</span><span class="n">dh_params</span><span class="p">):</span>
 	<span class="c1"># realizar cálculos aquí</span>
 	<span class="k">return</span> <span class="n">J</span>
 </pre></div>
 </div>
 <p><em>Ejemplo de invocación a la función</em>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
 <span class="n">q1</span><span class="p">,</span><span class="n">q2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;q_1,q_2&#39;</span><span class="p">)</span>
 <span class="n">calcular_jacobiano</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q1</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q2</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
 </pre></div>

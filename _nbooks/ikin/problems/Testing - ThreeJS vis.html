@@ -59,9 +59,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_nbooks/ikin/problems/IK - 6DOF - Robot - 02';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_nbooks/ikin/problems/Testing - ThreeJS vis';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -265,7 +263,7 @@
       
       
       
-      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica/issues/new?title=Issue%20on%20page%20%2F_nbooks/ikin/problems/IK - 6DOF - Robot - 02.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/JorgeDeLosSantos/apuntes-robotica/issues/new?title=Issue%20on%20page%20%2F_nbooks/ikin/problems/Testing - ThreeJS vis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +293,7 @@
       
       
       
-      <li><a href="../../../_sources/_nbooks/ikin/problems/IK - 6DOF - Robot - 02.ipynb" target="_blank"
+      <li><a href="../../../_sources/_nbooks/ikin/problems/Testing - ThreeJS vis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,54 +402,275 @@ document.write(`
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">moro</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
-</div>
-<img src="https://jorgedelossantos.github.io/apuntes-robotica/_images/ik_6dof_robot_02.svg"><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">Robot</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="n">q1</span><span class="p">),</span> 
-    <span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q2</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q3</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="n">q4</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q5</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="n">q6</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">pi</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span>
-    <span class="n">q1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q2</span><span class="p">:</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">q3</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q4</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q5</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q6</span><span class="p">:</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tu robot</span>
+<span class="n">robot</span> <span class="o">=</span> <span class="n">Robot</span><span class="p">((</span><span class="n">l1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">q1</span><span class="p">),</span> <span class="p">(</span><span class="n">l2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">q2</span><span class="p">),</span> <span class="p">(</span><span class="n">l3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">q3</span><span class="p">))</span>
+
+<span class="c1"># Visualizar directamente en Jupyter!</span>
+<span class="n">robot</span><span class="o">.</span><span class="n">plot_diagram_threejs</span><span class="p">({</span>
+    <span class="n">q1</span><span class="p">:</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">q2</span><span class="p">:</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">q3</span><span class="p">:</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">l1</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">l2</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="n">l3</span><span class="p">:</span> <span class="mi">60</span>
 <span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/408a5c82cc4cc1f632348b1d291b75d2ab5614ec01383f1db4da861623ae0f94.png" src="../../../_images/408a5c82cc4cc1f632348b1d291b75d2ab5614ec01383f1db4da861623ae0f94.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="o">.</span><span class="n">plot_diagram</span><span class="p">({</span>
-    <span class="n">q1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q2</span><span class="p">:</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">q3</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q4</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q5</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">q6</span><span class="p">:</span><span class="mi">0</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/0d2f6e567b03dd7085bc210704ed8a46187433bb5008268fbe1f6167a4988ada.png" src="../../../_images/0d2f6e567b03dd7085bc210704ed8a46187433bb5008268fbe1f6167a4988ada.png" />
-</div>
+<div class="output text_html">
+        <div id="container-84e1fd23" style="width: 800px; height: 600px; border: 1px solid #ccc; position: relative;">
+            <div id="controls-84e1fd23" style="position: absolute; top: 10px; left: 10px; background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 5px; font-family: Arial, sans-serif; font-size: 12px; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                <button onclick="window.robot_84e1fd23.toggleRotation()" style="margin: 2px; padding: 5px 10px; cursor: pointer; border: none; background: #4CAF50; color: white; border-radius: 3px;">⏯ Rotar</button>
+                <button onclick="window.robot_84e1fd23.resetView()" style="margin: 2px; padding: 5px 10px; cursor: pointer; border: none; background: #4CAF50; color: white; border-radius: 3px;">🔄 Reset</button>
+                <div id="status-84e1fd23" style="margin-top: 5px; padding: 5px; font-size: 10px; color: #666;">Cargando...</div>
+            </div>
+        </div>
+        
+        <script>
+        (function() {
+            // Verificar si THREE ya está cargado
+            if (typeof THREE !== 'undefined') {
+                initRobot_84e1fd23();
+            } else {
+                // Cargar Three.js
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+                script.onload = function() {
+                    initRobot_84e1fd23();
+                };
+                script.onerror = function() {
+                    document.getElementById('status-84e1fd23').innerHTML = 'Error cargando Three.js ✗';
+                    document.getElementById('status-84e1fd23').style.color = 'red';
+                };
+                document.head.appendChild(script);
+            }
+            
+            function initRobot_84e1fd23() {
+                const robotData = {"joints": [[0.0, 0.0, 0.0], [0.0, 100.0, 0.0], [-80.0, 100.0, 0.0], [-80.0, 40.0, 0.0]], "frames": [{"position": [0.0, 0.0, 0.0], "x": [1.0, 0.0, 0.0], "y": [0.0, 1.0, 0.0], "z": [0.0, 0.0, 1.0]}, {"position": [0.0, 100.0, 0.0], "x": [0.0, 1.0, 0.0], "y": [-1.0, 0.0, 0.0], "z": [0.0, 0.0, 1.0]}, {"position": [-80.0, 100.0, 0.0], "x": [-1.0, 0.0, 0.0], "y": [0.0, -1.0, 0.0], "z": [0.0, 0.0, 1.0]}, {"position": [-80.0, 40.0, 0.0], "x": [0.0, -1.0, 0.0], "y": [1.0, 0.0, 0.0], "z": [0.0, 0.0, 1.0]}], "dimension": 150.0};
+                const container = document.getElementById('container-84e1fd23');
+                
+                // Variables locales para este robot
+                let scene, camera, renderer, robotGroup;
+                let isRotating = false;
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+                
+                try {
+                    // Escena
+                    scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0xf5f5f5);
+                    
+                    // Cámara
+                    camera = new THREE.PerspectiveCamera(
+                        50,
+                        800 / 600,
+                        0.1,
+                        robotData.dimension * 10
+                    );
+                    const camDist = robotData.dimension * 2;
+                    camera.position.set(camDist, camDist, camDist);
+                    camera.lookAt(0, 0, robotData.dimension / 2);
+                    
+                    // Renderer
+                    renderer = new THREE.WebGLRenderer({ antialias: true });
+                    renderer.setSize(800, 600);
+                    renderer.setPixelRatio(window.devicePixelRatio);
+                    container.appendChild(renderer.domElement);
+                    
+                    // Luces
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                    scene.add(ambientLight);
+                    
+                    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
+                    dirLight1.position.set(robotData.dimension, robotData.dimension, robotData.dimension);
+                    scene.add(dirLight1);
+                    
+                    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+                    dirLight2.position.set(-robotData.dimension, -robotData.dimension, -robotData.dimension);
+                    scene.add(dirLight2);
+                    
+                    // Grid
+                    const gridSize = robotData.dimension * 2;
+                    const gridHelper = new THREE.GridHelper(gridSize, 20, 0x888888, 0xcccccc);
+                    scene.add(gridHelper);
+                    
+                    // Ejes principales
+                    const axesHelper = new THREE.AxesHelper(robotData.dimension / 4);
+                    scene.add(axesHelper);
+                    
+                    // Grupo del robot
+                    robotGroup = new THREE.Group();
+                    scene.add(robotGroup);
+                    
+                    // Dibujar robot
+                    drawRobot();
+                    
+                    // Event listeners
+                    renderer.domElement.addEventListener('mousedown', onMouseDown);
+                    renderer.domElement.addEventListener('mousemove', onMouseMove);
+                    renderer.domElement.addEventListener('mouseup', onMouseUp);
+                    renderer.domElement.addEventListener('mouseleave', onMouseUp);
+                    renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
+                    
+                    // Animación
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        
+                        if (isRotating && robotGroup) {
+                            robotGroup.rotation.y += 0.005;
+                        }
+                        
+                        renderer.render(scene, camera);
+                    }
+                    animate();
+                    
+                    document.getElementById('status-84e1fd23').innerHTML = 
+                        'Listo - Arrastra para rotar | Scroll para zoom';
+                    document.getElementById('status-84e1fd23').style.color = 'green';
+                    
+                } catch(error) {
+                    console.error('Error:', error);
+                    document.getElementById('status-84e1fd23').innerHTML = 
+                        'Error: ' + error.message;
+                    document.getElementById('status-84e1fd23').style.color = 'red';
+                }
+                
+                function drawRobot() {
+                    const { joints, frames } = robotData;
+                    
+                    // Material para links
+                    const linkMaterial = new THREE.MeshPhongMaterial({
+                        color: 0x778877,
+                        shininess: 30,
+                        side: THREE.DoubleSide
+                    });
+                    
+                    // Dibujar links
+                    for (let i = 0; i < joints.length - 1; i++) {
+                        const start = new THREE.Vector3(...joints[i]);
+                        const end = new THREE.Vector3(...joints[i + 1]);
+                        
+                        const direction = new THREE.Vector3().subVectors(end, start);
+                        const length = direction.length();
+                        
+                        if (length > 0.001) {
+                            const radius = Math.max(robotData.dimension * 0.015, 1);
+                            const geometry = new THREE.CylinderGeometry(radius, radius, length, 8);
+                            const link = new THREE.Mesh(geometry, linkMaterial);
+                            
+                            const midpoint = start.clone().add(direction.clone().multiplyScalar(0.5));
+                            link.position.copy(midpoint);
+                            
+                            const axis = new THREE.Vector3(0, 1, 0);
+                            link.quaternion.setFromUnitVectors(axis, direction.clone().normalize());
+                            
+                            robotGroup.add(link);
+                        }
+                    }
+                    
+                    // Dibujar joints
+                    joints.forEach((joint, index) => {
+                        const radius = index === 0 ? 
+                            Math.max(robotData.dimension * 0.03, 2) : 
+                            Math.max(robotData.dimension * 0.025, 1.5);
+                        const geometry = new THREE.SphereGeometry(radius, 16, 16);
+                        const material = new THREE.MeshPhongMaterial({
+                            color: index === 0 ? 0xff00ff : 0xff1493,
+                            shininess: 50
+                        });
+                        const sphere = new THREE.Mesh(geometry, material);
+                        sphere.position.set(...joint);
+                        robotGroup.add(sphere);
+                    });
+                    
+                    // Dibujar sistemas de coordenadas
+                    const arrowLength = Math.max(robotData.dimension / 5, 10);
+                    const arrowHeadLength = arrowLength * 0.2;
+                    const arrowHeadWidth = arrowLength * 0.15;
+                    
+                    frames.forEach((frame) => {
+                        const origin = new THREE.Vector3(...frame.position);
+                        
+                        // Eje X (rojo)
+                        const xDir = new THREE.Vector3(...frame.x).normalize();
+                        const xArrow = new THREE.ArrowHelper(
+                            xDir, origin, arrowLength, 0xff0000, 
+                            arrowHeadLength, arrowHeadWidth
+                        );
+                        robotGroup.add(xArrow);
+                        
+                        // Eje Y (verde)
+                        const yDir = new THREE.Vector3(...frame.y).normalize();
+                        const yArrow = new THREE.ArrowHelper(
+                            yDir, origin, arrowLength, 0x00ff00,
+                            arrowHeadLength, arrowHeadWidth
+                        );
+                        robotGroup.add(yArrow);
+                        
+                        // Eje Z (azul)
+                        const zDir = new THREE.Vector3(...frame.z).normalize();
+                        const zArrow = new THREE.ArrowHelper(
+                            zDir, origin, arrowLength, 0x0000ff,
+                            arrowHeadLength, arrowHeadWidth
+                        );
+                        robotGroup.add(zArrow);
+                    });
+                }
+                
+                function onMouseDown(event) {
+                    isDragging = true;
+                    previousMousePosition = { x: event.clientX, y: event.clientY };
+                }
+                
+                function onMouseMove(event) {
+                    if (!isDragging || !robotGroup) return;
+                    
+                    const deltaX = event.clientX - previousMousePosition.x;
+                    const deltaY = event.clientY - previousMousePosition.y;
+                    
+                    robotGroup.rotation.y += deltaX * 0.01;
+                    robotGroup.rotation.x += deltaY * 0.01;
+                    
+                    previousMousePosition = { x: event.clientX, y: event.clientY };
+                }
+                
+                function onMouseUp() {
+                    isDragging = false;
+                }
+                
+                function onWheel(event) {
+                    event.preventDefault();
+                    if (camera) {
+                        const delta = event.deltaY * 0.001;
+                        const scale = 1 + delta;
+                        camera.position.multiplyScalar(scale);
+                    }
+                }
+                
+                // Exponer funciones públicas
+                window.robot_84e1fd23 = {
+                    toggleRotation: function() {
+                        isRotating = !isRotating;
+                    },
+                    resetView: function() {
+                        const camDist = robotData.dimension * 2;
+                        camera.position.set(camDist, camDist, camDist);
+                        camera.lookAt(0, 0, robotData.dimension / 2);
+                        robotGroup.rotation.set(0, 0, 0);
+                    }
+                };
+            }
+        })();
+        </script>
+        </div></div>
 </div>
 
     <script type="text/x-thebe-config">

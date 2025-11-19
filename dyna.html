@@ -436,63 +436,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="dinamica-de-robots">
 <h1>Dinámica de Robots<a class="headerlink" href="#dinamica-de-robots" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(
-\newcommand{\rbr}[1]{ \left( #1 \right) }
-\newcommand{\sbr}[1]{ \left[ #1 \right] }
-\newcommand{\cbr}[1]{ \left\{ #1 \right\} }
-\newcommand{\abr}[1]{ \langle #1 \rangle }
 \newcommand{\tauvec}{ \boldsymbol{\tau} } 
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
-\renewcommand{\bm}[1]{\boldsymbol{#1}}
-\newcommand{\sint}[4]{\int_{#1}^{#2} #3 \, #4}
-\newcommand{\sintp}[4]{\int_{#1}^{#2} \left( #3 \right) \, #4}
-\newcommand{\dint}[7]{\int_{#1}^{#2} \int_{#3}^{#4} #5 \, #6 \, #7 }
-\newcommand{\dintp}[7]{\int_{#1}^{#2} \int_{#3}^{#4} \left(#5\right) \, #6 \, #7 }
-\newcommand{\sumin}{ \sum_{i=1}^n }
-\newcommand{\La}{\mathcal{L}} 
-\newcommand{\Ki}{\mathcal{K}} 
-\newcommand{\Po}{\mathcal{P}} 
-\newcommand{\LaEq}[1]{
-\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right) - \frac{\partial\mathcal{L}}{\partial q_{#1}} = \tau_{#1}
-}
-\newcommand{\LaEqA}[1]{\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right)}
-\newcommand{\LaEqB}[1]{\frac{\partial\mathcal{L}}{\partial q_{#1}}}
-\newcommand{\KiEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} +
-\frac{1}{2} \boldsymbol{\omega}_{#1}^T I_{#1} \boldsymbol{\omega}_{#1} } 
-\newcommand{\KiTraEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} } 
-\newcommand{\KiRotEq}[1]{ \frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
-\newcommand{\PoEq}[1]{ - m_{#1} \vec{g}^T \vec{r}_{G_#1} } 
-\newcommand{\Icm}[1]{ I_{#1}^{{#1}'} } 
-\newcommand{\Isym}[1]{ 
-\begin{bmatrix} 
-I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
-0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \\
-0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \\
-\end{bmatrix} 
-}
-\newcommand{\frbr}[2]{ \left( \frac{#1}{#2} \right) }
-\newcommand{\fsbr}[2]{ \left[ \frac{#1}{#2} \right] }
-\newcommand{\fcbr}[2]{ \left\{ \frac{#1}{#2} \right\} }
-\newcommand{\fabr}[2]{ \langle \frac{#1}{#2} \rangle }
-\newcommand{\ffrac}[4]{ \frac{ \frac{#1}{#2} }{ \frac{#3}{#4} } }
-\newcommand{\qp}[1]{\dot{q}_{#1}}
-\newcommand{\qpp}[1]{\ddot{q}_{#1}} 
-\newcommand{\cdtt}[2]{c\left(\theta_{#1} + \theta_{#2} \right)}
-\newcommand{\sdtt}[2]{s\left(\theta_{#1} + \theta_{#2} \right)}
-\newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}
-\newcommand{\rowvec}[3]{\begin{bmatrix}#1&amp;#2&amp;#3\end{bmatrix}}
-\newcommand{\colvech}[4]{\begin{bmatrix}#1\\#2\\#3 \\ #4\end{bmatrix}}
-\newcommand{\rG}[1]{ \vec{r}_{G_{#1}} } 
-\newcommand{\vG}[1]{ \vec{v}_{G_{#1}} }
-\newcommand{\lc}[1]{ l_{c_{#1}} }
-\newcommand{\qp}[1]{\dot{q}_{#1}}
-\newcommand{\qpp}[1]{\ddot{q}_{#1}} 
-\newcommand{\cijk}[3]{
-\frac{1}{2} \left( 
-\frac{\partial m_{#1#2}}{\partial q_{#3}} + 
-\frac{\partial m_{#1#3}}{\partial q_{#2}} -
-\frac{\partial m_{#2#3}}{\partial q_{#1}}
-\right)
-} 
+\newcommand{\rbr}[1]{ \left( #1 \right) }
 \)</span></p>
 <p>La obtención del modelo dinámico de un manipulador juega un rol importante para la simulación del movimiento, el análisis de la estructura del manipulador y el diseño de los algoritmos de control. La simulación del movimiento de un manipulador permite probar estrategias de control sin necesidad de disponer físicamente del manipulador. El cálculo de las fuerzas y torques requeridos para la ejecución de los movimientos del robot proporciona información valiosa para el diseño de las juntas, transmisiones y actuadores.</p>
 <p>El modelo dinámico de un robot consiste en una ecuación diferencial (ordinaria) vectorial en las posiciones, ya sean articulares <span class="math notranslate nohighlight">\( \vec{q} \)</span> o cartesianas <span class="math notranslate nohighlight">\( \vec{x} \)</span>, generalmente de segundo orden, pudiéndose expresar como:</p>
@@ -539,17 +485,24 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 <p>Consideremos un cuerpo rígido modelado como un sistema de <span class="math notranslate nohighlight">\(N\)</span> partículas como el que se muestra en la figura. Las ecuaciones <a class="reference internal" href="#equation-newton-linear-momentum">(54)</a> y <a class="reference internal" href="#equation-euler-angular-momentum">(55)</a> son aplicables para este modelo. Si las <span class="math notranslate nohighlight">\(N\)</span> partículas son newtonianas, la cantidad de movimiento lineal y la cantidad de movimiento angular están dadas por:</p>
 <div class="math notranslate nohighlight" id="equation-linear-momentum-particles">
 <span class="eqno">(57)<a class="headerlink" href="#equation-linear-momentum-particles" title="Link to this equation">#</a></span>\[ 
-\vec{P} = \sumin m_i \vec{v}_i
+\vec{P} = \sum_{i=1}^n m_i \vec{v}_i
 \]</div>
 <div class="math notranslate nohighlight" id="equation-angular-momentum-particles">
 <span class="eqno">(58)<a class="headerlink" href="#equation-angular-momentum-particles" title="Link to this equation">#</a></span>\[
-\vec{H}_O = \sumin \vec{R}_i \times m_i \vec{v}_i
+\vec{H}_O = \sum_{i=1}^{n} \vec{R}_i \times m_i \vec{v}_i
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(m_i\)</span> es la masa, <span class="math notranslate nohighlight">\(\vec{v}_i\)</span> la velocidad y <span class="math notranslate nohighlight">\(\vec{R}_i\)</span> la posición, de la i-ésima partícula, descritas en el sistema inercial.</p>
 </section>
 <section id="ecuaciones-de-euler-lagrange">
 <h3>Ecuaciones de Euler-Lagrange<a class="headerlink" href="#ecuaciones-de-euler-lagrange" title="Link to this heading">#</a></h3>
-<p>Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utilizar las ecuaciones de Euler-Lagrange. Dado un sistema mecánico de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad, sus ecuaciones de movimiento se pueden obtener como sigue:</p>
+<p><span class="math notranslate nohighlight">\( 
+\newcommand{\La}{\mathcal{L}} 
+\newcommand{\Ki}{\mathcal{K}} 
+\newcommand{\Po}{\mathcal{P}} 
+\newcommand{\LaEq}[1]{
+\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right) - \frac{\partial\mathcal{L}}{\partial q_{#1}} = \tau_{#1}} 
+\)</span>
+Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utilizar las ecuaciones de Euler-Lagrange. Dado un sistema mecánico de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad, sus ecuaciones de movimiento se pueden obtener como sigue:</p>
 <div class="math notranslate nohighlight" id="equation-euler-lagrange-rigid-body">
 <span class="eqno">(59)<a class="headerlink" href="#equation-euler-lagrange-rigid-body" title="Link to this equation">#</a></span>\[ 
 \LaEq{i} \quad ; \text{ Para } i=1,2,\cdots,n
@@ -565,7 +518,7 @@ f(\vec{x}, \vec{\dot{x}}, \vec{\ddot{x}}, \tauvec ) = \vec{0}
 </section>
 <section id="energia-cinetica-de-un-cuerpo-rigido">
 <h3>Energía cinética de un cuerpo rígido<a class="headerlink" href="#energia-cinetica-de-un-cuerpo-rigido" title="Link to this heading">#</a></h3>
-<p><span class="math notranslate nohighlight">\(\newcommand{\W}{\boldsymbol{\omega}} \newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}} \newcommand{\w}[1]{\omega_{#1}} \)</span>
+<p><span class="math notranslate nohighlight">\(\newcommand{\W}{\boldsymbol{\omega}} \newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}} \newcommand{\w}[1]{\omega_{#1}} \newcommand{\sumin}{ \sum_{i=1}^n }\)</span>
 En la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 77</span></a> se muestra un cuerpo rígido, el cual está rotando con una velocidad angular <span class="math notranslate nohighlight">\(\W\)</span> y donde la posición de la i-ésima partícula de masa <span class="math notranslate nohighlight">\(m_i\)</span> con respecto al sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está dada por el vector <span class="math notranslate nohighlight">\(\vec{r}_{i/G}\)</span>. El sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está adherido al sólido y el sistema <span class="math notranslate nohighlight">\(Oxyz\)</span> es un sistema de referencia inercial.</p>
 <figure class="align-center" id="lagrangian-rigid-body">
 <a class="reference internal image-reference" href="_images/lagrangian_rigid_body.svg"><img alt="_images/lagrangian_rigid_body.svg" src="_images/lagrangian_rigid_body.svg" style="width: 60%;" />
@@ -647,7 +600,8 @@ m_i \vec{r}_{i/G} \times \rbr{\W \times \vec{r}_{i/G} } =
 { -m_i y_i x_i \w{x} + m_i x_i^2 \w{y} + m_i z_i^2 \w{y} - m_i y_i z_i \w{z} }
 { -m_i z_i x_i \w{x} + m_i x_i^2 \w{z} - m_i z_i y_i \w{y} + m_i y_i^2 \w{z} }
 \]</div>
-<p>Factorizando las velocidades angulares, cada una de las componentes del producto vectorial resulta en:</p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\sbr}[1]{ \left[ #1 \right] }\)</span>
+Factorizando las velocidades angulares, cada una de las componentes del producto vectorial resulta en:</p>
 <div class="math notranslate nohighlight">
 \[
 \colvec{
@@ -753,7 +707,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \bar{z} = \frac{\displaystyle \sum z_i m_i }{\displaystyle \sum m_i } \, ; \quad
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(x_i, y_i, z_i\)</span> son las coordenadas de la ubicación de la partícula <span class="math notranslate nohighlight">\(i\)</span> cuya masa es <span class="math notranslate nohighlight">\(m_i\)</span>.</p>
-<hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo.</strong> <em>Calcule el centro de masa del sistema de partículas que se muestran en la Figura. Cada partícula tiene una masa de 0.25 kg. Las unidades de longitud de la rejilla son metros.</em></p>
 <figure class="align-center" id="example-particles-center-of-mass">
 <a class="reference internal image-reference" href="_images/example_particles_center_of_mass.svg"><img alt="_images/example_particles_center_of_mass.svg" src="_images/example_particles_center_of_mass.svg" style="width: 50%;" />
@@ -789,8 +743,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \]</div>
 <div class="math notranslate nohighlight">
 \[ \bar{y} = 1 \text{ m} \]</div>
-<hr class="docutils" />
-<p>Las ecuaciones <a class="reference internal" href="#equation-center-of-mass-particles">(69)</a> se pueden generalizar para un cuerpo rígido, bajo la asunción de que un cuerpo rígido se puede considerar como un conjunto infinito de partículas cuyas distancias son invariables entre sí, así la sumatoria la podemos reemplazar por una integral, es decir:</p>
+</div><p>Las ecuaciones <a class="reference internal" href="#equation-center-of-mass-particles">(69)</a> se pueden generalizar para un cuerpo rígido, bajo la asunción de que un cuerpo rígido se puede considerar como un conjunto infinito de partículas cuyas distancias son invariables entre sí, así la sumatoria la podemos reemplazar por una integral, es decir:</p>
 <div class="math notranslate nohighlight" id="equation-center-of-mass-rigid-body">
 <span class="eqno">(70)<a class="headerlink" href="#equation-center-of-mass-rigid-body" title="Link to this equation">#</a></span>\[
 \bar{x} = \frac{\displaystyle \int_m \tilde{x} \, dm }{\displaystyle \int_m dm } \, ; \quad
@@ -814,7 +767,16 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \bar{y} = \frac{\displaystyle \int_A \tilde{y} \, dA }{\displaystyle \int_A dA } \, ; \quad
 \bar{z} = \frac{\displaystyle \int_A \tilde{z} \, dA }{\displaystyle \int_A dA } \, ; \quad
 \]</div>
-<hr class="docutils" />
+<div class="example">
+<p><span class="math notranslate nohighlight">\(\newcommand{\sint}[4]{\int_{#1}^{#2} #3 \, #4}
+\newcommand{\sintp}[4]{\int_{#1}^{#2} \left( #3 \right) \, #4}
+\newcommand{\dint}[7]{\int_{#1}^{#2} \int_{#3}^{#4} #5 \, #6 \, #7 }
+\newcommand{\dintp}[7]{\int_{#1}^{#2} \int_{#3}^{#4} \left(#5\right) \, #6 \, #7 }
+\newcommand{\frbr}[2]{ \left( \frac{#1}{#2} \right) }
+\newcommand{\fsbr}[2]{ \left[ \frac{#1}{#2} \right] }
+\newcommand{\fcbr}[2]{ \left\{ \frac{#1}{#2} \right\} }
+\newcommand{\fabr}[2]{ \langle \frac{#1}{#2} \rangle }
+\newcommand{\ffrac}[4]{ \frac{ \frac{#1}{#2} }{ \frac{#3}{#4} } } \)</span></p>
 <p><strong>Ejemplo.</strong> <em>Calcule el centro de masa de la placa triangular que se muestra en la figura.</em></p>
 <figure class="align-center" id="example-triangular-plate">
 <a class="reference internal image-reference" href="_images/example_triangular_plate.svg"><img alt="_images/example_triangular_plate.svg" src="_images/example_triangular_plate.svg" style="width: 50%;" />
@@ -889,7 +851,8 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <div class="math notranslate nohighlight">
 \[ \int_A \tilde{y}\, dA = \frac{h^2}{2b^2} \sint{0}{b}{x^2}{dx} = \frac{h^2 b}{6} \]</div>
 <p>Observe que los resultados de las integrales son exactamente los mismos que obtuvimos con la manera anterior. La elección del elemento diferencial dependerá completamente de cuál le resulte más cómodo de plantear y resolver. En el caso de que se tenga una placa con densidad variable <span class="math notranslate nohighlight">\(\rho(x,y)\)</span>, aquí sí o sí tendrá que usar una integral doble para determinar el centro de masa.</p>
-<hr class="docutils" />
+</div><hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo</strong>. Calcule el centro de masa del sólido mostrado en la figura. Considere que está conformado de un material homogéneo.</p>
 <figure class="align-center" id="example-triangular-prism-center-of-mass">
 <a class="reference internal image-reference" href="_images/example_triangular_prism_center_of_mass.svg"><img alt="_images/example_triangular_prism_center_of_mass.svg" src="_images/example_triangular_prism_center_of_mass.svg" style="width: 60%;" />
@@ -957,7 +920,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 \]</div>
 <div class="math notranslate nohighlight">
 \[  
-\rbr{\bar{x}, \bar{y}, \bar{z}} = \rbr{ \frac{a}{2}, \frac{b}{3}, \frac{2c}{3}}
+\textcolor{green}{ \rbr{\bar{x}, \bar{y}, \bar{z}} = \rbr{ \frac{a}{2}, \frac{b}{3}, \frac{2c}{3}} }
 \]</div>
 <p>Otra manera de abordar este problema es utilizando un elemento diferencial como el mostrado en la Figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">example_triangular_prism_center_of_mass_diff_element_plate</span></code>. Note que en este caso el volumen del elemento y sus coordenadas centroidales están dadas por:</p>
 <div class="math notranslate nohighlight">
@@ -996,8 +959,7 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 \rbr{\bar{x}, \bar{y}, \bar{z}} = \rbr{ \frac{a}{2}, \frac{b}{3}, \frac{2c}{3}}
 \]</div>
 <p>La ventaja de usar este elemento diferencial es que las integrales a resolver son integrales simples, aunque ya habrá notado que ubicar las coordenadas centroidales del elemento implica un poco más de <em>trabajo</em> que en el primero.</p>
-<hr class="docutils" />
-<section id="centro-de-masa-de-cuerpos-compuestos">
+</div><section id="centro-de-masa-de-cuerpos-compuestos">
 <h4>Centro de masa de cuerpos compuestos<a class="headerlink" href="#centro-de-masa-de-cuerpos-compuestos" title="Link to this heading">#</a></h4>
 <p>Un cuerpo compuesto es aquel que está formado por la unión de dos o más cuerpos simples. Estos cuerpos simples pueden ser de diferentes formas y tamaños, y al unirse forman un cuerpo más complejo. Por ejemplo, un cuerpo compuesto puede estar formado por la unión de varios cubos, cilindros o prismas.</p>
 <p>Para calcular el centro de masa de un cuerpo compuesto, es necesario dividir el cuerpo en una <span class="math notranslate nohighlight">\(n\)</span> cantidad de componentes simples, de los cuales sea sencillo determinar por separado su masa y centro de masa. Luego, las coordenadas del centro de masa estarán dadas por las siguientes expresiones:</p>
@@ -1027,7 +989,7 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 \quad ; \qquad
 \bar{z} = \frac{\displaystyle \sum_{i=1}^n  \tilde{z}_i \, A_i}{\displaystyle \sum_{i=1}^n A_i} 
 \]</div>
-<hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo.</strong> En la figura se muestra un sólido compuesto por dos porciones de placa cuadrangulares. Calcule el centro de masa del cuerpo compuesto. Considere que las placas son delgadas y de espesor uniforme. La masa de la sección 1 de 0.2 kg, y la sección 2 tiene una masa de 0.15 kg.</p>
 <figure class="align-center" id="example-moment-of-inertia-composite">
 <a class="reference internal image-reference" href="_images/example_moment_of_inertia_composite.svg"><img alt="_images/example_moment_of_inertia_composite.svg" src="_images/example_moment_of_inertia_composite.svg" style="width: 60%;" />
@@ -1055,8 +1017,7 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 \]</div>
 <div class="math notranslate nohighlight">
 \[ \rbr{\bar{x},\, \bar{y}} =  \rbr{185.7, \, 100} \text{ mm}  \]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="momento-de-inercia-de-masa">
 <h4>Momento de inercia de masa<a class="headerlink" href="#momento-de-inercia-de-masa" title="Link to this heading">#</a></h4>
 <p>El momento de inercia de masa de un cuerpo rígido (o sistema de partículas) es una cantidad que determina el par necesario para una aceleración angular deseada alrededor de un eje de rotación, similar a cómo la masa determina la fuerza necesaria para una aceleración deseada. Depende de la distribución de masa del cuerpo y del eje elegido, un momento de inercia más grande implica que se requiere más torque para cambiar la velocidad de rotación del cuerpo en una cantidad determinada.</p>
@@ -1090,7 +1051,7 @@ I_{yy} = \int_m r_{y}^2 \, dm \, ; \quad
 I_{zz} = \int_m r_{z}^2 \, dm \, ; \quad
 \]</div>
 <p>Tome en cuenta que estas integrales se efectúan sobre la distribución de la masa. La formulación de las integrales a calcular depende mucho de cómo se establezca el elemento diferencial de masa y de la densidad del sólido.</p>
-<hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo.</strong> Calcule el momento de inercia de masa de la placa rectangular con respecto a los sistemas <span class="math notranslate nohighlight">\(xyz\)</span> y <span class="math notranslate nohighlight">\(x_1 y_1 z_1\)</span>. Considere que la placa es de espesor delgado y uniforme, y que además es homogénea. El sistema <span class="math notranslate nohighlight">\(x_1y_1z_1\)</span> está ubicado en el centro de masa de la placa.</p>
 <figure class="align-center" id="example-rectangular-plate">
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
@@ -1159,8 +1120,7 @@ I_{z_1z_1} = \int_m r_z^2 \, dm = \rho t  \int_{-\frac{b}{2}}^{\frac{b}{2}} \int
 \]</div>
 <div class="math notranslate nohighlight">
 \[ I_{z_1z_1} = \frac{m}{12} \rbr{b^2 + h^2}  \]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="teorema-de-los-ejes-paralelos">
 <h4>Teorema de los ejes paralelos<a class="headerlink" href="#teorema-de-los-ejes-paralelos" title="Link to this heading">#</a></h4>
 <p>Si se conoce el momento de inercia de un cuerpo respecto de un eje que pasa por su centro de masa, entonces se puede también determinar fácilmente el momento de inercia con respecto de cualquier otro eje que sea paralelo. En el esquema mostrado en la Figura <a class="reference internal" href="#parallel-axis-theorem"><span class="std std-numref">Fig. 86</span></a> se tienen dos sistemas referencia, uno de estos tiene su origen en el centro de masa del cuerpo rígido.</p>
@@ -1199,7 +1159,7 @@ I_{uu} = \bar{I}_{u'u'} + md^2
 \]</div>
 <p>Y enunciarlo de la forma habitual: <em>el momento de inercia de un cuerpo rígido respecto a cualquier eje <span class="math notranslate nohighlight">\(u\)</span> que sea paralelo a un eje <span class="math notranslate nohighlight">\(u'\)</span> que pasa por su centro de masa, es igual al momento de inercia con respecto al eje <span class="math notranslate nohighlight">\(u'\)</span> más el producto de la masa total del cuerpo por el cuadrado de la distancia perpendicular entre los dos ejes.</em></p>
 <p>El teorema de los ejes paralelos facilita los cálculos de los momentos de inercia para sólidos con geometrías simples, dado que evita en muchas situaciones la necesidad de integración, y en su lugar se utilizan las tablas de momento de inercia de masa en conjunto con el teorema. En la siguiente sección veremos también que es muy recurrido para cuando tengamos que determinar los momentos de inercia de sólidos compuestos.</p>
-<hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo.</strong> Utilice el teorema de los ejes paralelos para determinar los momentos de inercia con respecto a los ejes del sistema <span class="math notranslate nohighlight">\(xyz\)</span> de la placa rectangular mostrada en la Figura. Considera que la placa es de espesor delgado y uniforme, y que además es homogénea.</p>
 <figure class="align-center" id="example-rectangular-plate-parallel-axis">
 <a class="reference internal image-reference" href="_images/example_rectangular_plate_parallel_axis.svg"><img alt="_images/example_rectangular_plate_parallel_axis.svg" src="_images/example_rectangular_plate_parallel_axis.svg" style="width: 60%;" />
@@ -1239,8 +1199,7 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 \]</div>
 <div class="math notranslate nohighlight">
 \[ I_{zz} = \frac{m}{3} \rbr{b^2 + h^2}  \]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="momento-de-inercia-de-solidos-compuestos">
 <h4>Momento de inercia de sólidos compuestos<a class="headerlink" href="#momento-de-inercia-de-solidos-compuestos" title="Link to this heading">#</a></h4>
 <p>Para muchos sólidos compuestos, es posible <em>dividirlos</em> en partes más simples cuyos momentos de inercia sean fácilmente calculables. Una vez determinados estos momentos de inercia de cada parte simple, se pueden sumar para calcular el momento de inercia del sólido compuesto. Por ejemplo, el sólido de la Figura <a class="reference internal" href="#composite-bodies-inertia"><span class="std std-numref">Fig. 88</span></a> se puede dividir en las tres partes simples que se observan (dos porciones rectangulares y una porción triangular). Así pues, el momento de inercia del sólido compuesto con respecto al eje <span class="math notranslate nohighlight">\(x\)</span> se puede determinar como sigue:</p>
@@ -1274,8 +1233,8 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <div class="math notranslate nohighlight">
 \[ \rbr{ I_{zz} }_i = \bar{ I }_{z_iz_i} + m_i d_{zz_i}^2 \]</div>
 <p>En lo anterior, <span class="math notranslate nohighlight">\(\bar{ I }_{x_ix_i}\)</span> corresponde al momento de inercia de la parte <span class="math notranslate nohighlight">\(i\)</span> con respecto al eje <span class="math notranslate nohighlight">\(x_i\)</span> que pasa su centro de masa, <span class="math notranslate nohighlight">\(m_i\)</span> es la masa de dicha parte y <span class="math notranslate nohighlight">\(d_{xx_i}\)</span> es la distancia más corta entre los ejes <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(x_i\)</span>. Y así de manera análoga para los otros dos ejes.</p>
-<hr class="docutils" />
-<p><strong>Ejemplo.</strong> En la figura se muestra un sólido compuesto por dos porciones de placa cuadrangulares. Determina los momentos de inercia con respecto a los ejes del sistema mostrado. Considera que las placas son delgadas y de espesor uniforme. La masa de la porción 1 es de 0.2 kg y la de la porción 2 es de 0.15 kg.</p>
+<div class="example"> 
+<p><strong>Ejemplo.</strong> <em>En la figura se muestra un sólido compuesto por dos porciones de placa cuadrangulares. Determina los momentos de inercia con respecto a los ejes del sistema mostrado. Considera que las placas son delgadas y de espesor uniforme. La masa de la porción 1 es de 0.2 kg y la de la porción 2 es de 0.15 kg.</em></p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/example_moment_of_inertia_composite.svg"><img alt="_images/example_moment_of_inertia_composite.svg" src="_images/example_moment_of_inertia_composite.svg" style="width: 60%;" />
 </a>
@@ -1284,7 +1243,7 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>El momento de inercia del cuerpo compuesto corresponde a la suma de los momentos de inercia de cada una porciones, con respecto a cada uno de los ejes correspondientes. \</p>
+<p>El momento de inercia del cuerpo compuesto corresponde a la suma de los momentos de inercia de cada una porciones, con respecto a cada uno de los ejes correspondientes.</p>
 <p>El momento de inercia <span class="math notranslate nohighlight">\( I_{xx} \)</span> se puede determinar mediante:</p>
 <div class="math notranslate nohighlight">
 \[ I_{xx} = \left(I_{xx}\right)_1 + \left(I_{xx}\right)_2 \]</div>
@@ -1337,9 +1296,9 @@ I_{zz} = \frac{1}{12} m \rbr{ b^2 + h^2 } + m \sbr{ \rbr{\frac{b}{2}}^2 + \rbr{\
 <p>Entonces:</p>
 <div class="math notranslate nohighlight">
 \[ I_{zz} = 21,333 \text{ kg}\cdot\text{mm}^2  \]</div>
-<hr class="docutils" />
-<hr class="docutils" />
-<p><strong>Ejemplo.</strong> En la Figura se muestra un sólido fabricado en un tipo de acero cuya densidad es <span class="math notranslate nohighlight">\(\rho = 7850\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span>. Calcule los momentos de inercia <span class="math notranslate nohighlight">\(I_{xx}\)</span>, <span class="math notranslate nohighlight">\(I_{yy}\)</span> e <span class="math notranslate nohighlight">\(I_{zz}\)</span>.</p>
+</div><hr class="docutils" />
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>En la Figura se muestra un sólido fabricado en un tipo de acero cuya densidad es <span class="math notranslate nohighlight">\(\rho = 7850\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span>. Calcule los momentos de inercia <span class="math notranslate nohighlight">\(I_{xx}\)</span>, <span class="math notranslate nohighlight">\(I_{yy}\)</span> e <span class="math notranslate nohighlight">\(I_{zz}\)</span>.</em></p>
 <figure class="align-center" id="example-solid-moment-of-inertia">
 <a class="reference internal image-reference" href="_images/example_solid_moment_of_inertia.svg"><img alt="_images/example_solid_moment_of_inertia.svg" src="_images/example_solid_moment_of_inertia.svg" style="width: 60%;" />
 </a>
@@ -1418,8 +1377,7 @@ m_2 = \rho V_2 = \rbr{7850}\rbr{70 \times 10^{-3}}\rbr{40\times 10^{-3}}\rbr{30\
 \]</div>
 <div class="math notranslate nohighlight">
 \[ I_{zz} = 5039.7 \text{ kg}\cdot\text{mm}^2 \]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="productos-de-inercia">
 <h4>Productos de inercia<a class="headerlink" href="#productos-de-inercia" title="Link to this heading">#</a></h4>
 <p>Los productos de inercia de masa son cantidades utilizadas para describir la distribución de la masa en un sólido en movimiento. Estos productos son esenciales para entender el comportamiento de un cuerpo cuando se somete a rotación alrededor de un eje en un sistema de coordenadas tridimensional. Los productos de inercia pueden entenderse también como una medida de la simetría del cuerpo con respecto a un sistema de referencia.</p>
@@ -1485,8 +1443,8 @@ I_{xz} = - \int_m xz \, dm
 <span class="eqno">(76)<a class="headerlink" href="#equation-iyz-rigid-body" title="Link to this equation">#</a></span>\[ 
 I_{yz} = - \int_m yz \, dm
 \]</div>
-<hr class="docutils" />
-<p><strong>Ejemplo.</strong> En la Figura se muestra una placa plana homogénea de forma rectangular, con espesor delgado y uniforme. Calcule los productos de inercia de masa con respecto a los sistemas <span class="math notranslate nohighlight">\(xyz\)</span> y <span class="math notranslate nohighlight">\(x_1y_1z_1\)</span> que se muestran.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>En la Figura se muestra una placa plana homogénea de forma rectangular, con espesor delgado y uniforme. Calcule los productos de inercia de masa con respecto a los sistemas <span class="math notranslate nohighlight">\(xyz\)</span> y <span class="math notranslate nohighlight">\(x_1y_1z_1\)</span> que se muestran.</em></p>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
 </a>
@@ -1515,8 +1473,7 @@ I_{xy} = -\frac{mbh}{4}
 <p>Note que todos los productos de inercia en el sistema de referencia <span class="math notranslate nohighlight">\(x_1y_1z_1\)</span> son cero, debido a que todos los planos de dicho sistema son planos de simetría para la placa rectangular, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ I_{x_1y_1} = I_{x_1z_1} = I_{y_1z_1} = 0 \]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="teorema-de-los-planos-paralelos">
 <h4>Teorema de los planos paralelos<a class="headerlink" href="#teorema-de-los-planos-paralelos" title="Link to this heading">#</a></h4>
 <p>Si se conocen los productos de inercia de un sólido respecto de un sistema de referencia que pasa por su centro de masa, entonces se pueden también determinar fácilmente los productos de inercia con respecto de cualquier otro sistema de referencia que sea paralelo. En la Figura <a class="reference internal" href="#parallel-axis-theorem-products-of-inertia"><span class="std std-numref">Fig. 94</span></a> se muestra una placa plana, delgada y homogénea, en la cual se tienen dos sistemas referencia, teniendo uno de estos su origen en el centro de masa del cuerpo rígido. De la Figura se puede observar que tanto <span class="math notranslate nohighlight">\(I_{xz}\)</span> como <span class="math notranslate nohighlight">\( I_{yz} \)</span> son cero, debido a que al plano <span class="math notranslate nohighlight">\(xy\)</span> es un plano de simetría.</p>
@@ -1557,7 +1514,7 @@ I_{xz} = \bar{I}_{x_1z_1}  - m \bar{x} \bar{z}
 <p>\begin{equation}
 I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 \end{equation}</p>
-<hr class="docutils" />
+<div class="example">
 <p><strong>Ejemplo.</strong> En la Figura se muestra una placa plana homogénea de forma rectangular, con espesor delgado y uniforme. Utilice el teorema de los planos paralelos para determinar el producto de inercia <span class="math notranslate nohighlight">\(I_{xy}\)</span>.</p>
 <figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="_images/example_rectangular_plate.svg"><img alt="_images/example_rectangular_plate.svg" src="_images/example_rectangular_plate.svg" style="width: 60%;" />
@@ -1576,8 +1533,7 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <div class="math notranslate nohighlight">
 \[ I_{xy} = - \frac{mbh}{4} \]</div>
 <p>Observe que este resultado coincide con el que se obtuvo mediante integración en un ejemplo anterior.</p>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="productos-de-inercia-de-cuerpos-compuestos">
 <h4>Productos de inercia de cuerpos compuestos<a class="headerlink" href="#productos-de-inercia-de-cuerpos-compuestos" title="Link to this heading">#</a></h4>
 <p>Los productos de inercia de un cuerpo compuesto de <span class="math notranslate nohighlight">\(n\)</span> partes simples, con respecto a un sistema de referencia <span class="math notranslate nohighlight">\(xyz\)</span>, se pueden determinar calculando por separado los productos de inercia de cada una de las partes y sumándolos, es decir:</p>
@@ -1595,8 +1551,8 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <div class="math notranslate nohighlight">
 \[ \rbr{ I_{yz} }_i = \bar{ I }_{y_iz_i} - m_i \bar{y}_i \bar{z}_i \]</div>
 <p>En lo anterior, <span class="math notranslate nohighlight">\(\bar{I}_{x_iy_i}\)</span> corresponde al producto de inercia de la parte <span class="math notranslate nohighlight">\(i\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(x_iy_iz_i\)</span> que pasa su centro de masa, <span class="math notranslate nohighlight">\(m_i\)</span> es la masa de dicha parte, <span class="math notranslate nohighlight">\(\bar{x}_i\)</span> y <span class="math notranslate nohighlight">\(\bar{y}_i\)</span> corresponden a las coordenadas en <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> del CDM de la parte <span class="math notranslate nohighlight">\(i\)</span>. Y así de manera análoga para los otros dos productos de inercia.</p>
-<hr class="docutils" />
-<p><strong>Ejemplo.</strong> En la Figura se muestra un cuerpo compuesto por tres partes rectangulares, de espesor delgado y uniforme. Se sabe que <span class="math notranslate nohighlight">\(m_1 = 0.121\)</span> kg, <span class="math notranslate nohighlight">\(m_2=0.104\)</span> kg y <span class="math notranslate nohighlight">\(m_3=0.226\)</span> kg. Calcule los productos de inercia del cuerpo compuesto con respecto al sistema <span class="math notranslate nohighlight">\(xyz\)</span> mostrado.</p>
+<div class="example">
+<p><strong>Ejemplo.</strong> <em>En la Figura se muestra un cuerpo compuesto por tres partes rectangulares, de espesor delgado y uniforme. Se sabe que <span class="math notranslate nohighlight">\(m_1 = 0.121\)</span> kg, <span class="math notranslate nohighlight">\(m_2=0.104\)</span> kg y <span class="math notranslate nohighlight">\(m_3=0.226\)</span> kg. Calcule los productos de inercia del cuerpo compuesto con respecto al sistema <span class="math notranslate nohighlight">\(xyz\)</span> mostrado.</em></p>
 <figure class="align-center" id="example-products-of-inertia-composite">
 <a class="reference internal image-reference" href="_images/example_products_of_inertia_composite.svg"><img alt="_images/example_products_of_inertia_composite.svg" src="_images/example_products_of_inertia_composite.svg" style="width: 60%;" />
 </a>
@@ -1627,9 +1583,8 @@ I_{yz} = \bar{I}_{y_1z_1}  - m \bar{y} \bar{z}
 <p>Se debe tener en cuenta que, por la simetría de los sistemas de referencia ubicados en el centro de masa, los productos de inercia <span class="math notranslate nohighlight">\(\bar{I}_{x_1y_1}\)</span>, <span class="math notranslate nohighlight">\(\bar{I}_{x_2y_2}\)</span> y <span class="math notranslate nohighlight">\(\bar{I}_{x_3y_3}\)</span> son cero. Sumando los productos de inercia calculados se tiene que:</p>
 <div class="math notranslate nohighlight">
 \[ I_{xy} = 1402.4  \text{ kg} \cdot \text{mm}^2 \]</div>
+</div></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="ejes-principales-de-inercia">
 <h3>Ejes principales de inercia<a class="headerlink" href="#ejes-principales-de-inercia" title="Link to this heading">#</a></h3>
 </section>
@@ -1650,7 +1605,10 @@ i = 1, 2, \cdots, n
 <p>Para un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad se obtendrán <span class="math notranslate nohighlight">\(n\)</span> ecuaciones diferenciales de segundo orden que modelan su comportamiento dinámico. Este comportamiento se puede simular si resolvemos el sistema de ecuaciones diferenciales, lo cual usualmente se hará mediante métodos numéricos. Naturalmente este modelo dinámico se puede utilizar también para el diseño e implementación de algoritmos de control.</p>
 <section id="energia-cinetica-de-un-eslabon">
 <h3>Energía cinética de un eslabón<a class="headerlink" href="#energia-cinetica-de-un-eslabon" title="Link to this heading">#</a></h3>
-<p>Un eslabón de un manipulador serial es un cuerpo rígido y por lo tanto se puede utilizar la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(61)</a> para determinar su energía cinética, aquí estableceremos una versión ligeramente modificada, únicamente con el propósito de sistematizar un poco la obtención de las ecuaciones, así pues para el i-ésimo eslabón de un manipulador serial su energía cinética se puede determinar mediante:</p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\KiEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} +
+\frac{1}{2} \boldsymbol{\omega}_{#1}^T I_{#1} \boldsymbol{\omega}_{#1} } 
+\newcommand{\Icm}[1]{ I_{#1}^{{#1}'} } \)</span>
+Un eslabón de un manipulador serial es un cuerpo rígido y por lo tanto se puede utilizar la ecuación <a class="reference internal" href="#equation-kinetic-energy-rigid-body">(61)</a> para determinar su energía cinética, aquí estableceremos una versión ligeramente modificada, únicamente con el propósito de sistematizar un poco la obtención de las ecuaciones, así pues para el i-ésimo eslabón de un manipulador serial su energía cinética se puede determinar mediante:</p>
 <div class="math notranslate nohighlight">
 \[
 \Ki_i = \KiEq{i}
@@ -1664,7 +1622,8 @@ i = 1, 2, \cdots, n
 </section>
 <section id="energia-potencial-de-un-eslabon">
 <h3>Energía potencial de un eslabón<a class="headerlink" href="#energia-potencial-de-un-eslabon" title="Link to this heading">#</a></h3>
-<p>La energía potencial del eslabón <span class="math notranslate nohighlight">\(i\)</span> de un manipulador está dada por:</p>
+<p><span class="math notranslate nohighlight">\( \newcommand{\PoEq}[1]{ - m_{#1} \vec{g}^T \vec{r}_{G_#1} } \)</span>
+La energía potencial del eslabón <span class="math notranslate nohighlight">\(i\)</span> de un manipulador está dada por:</p>
 <div class="math notranslate nohighlight">
 \[
 \Po_i = \PoEq{i}
@@ -1738,7 +1697,12 @@ $<span class="math notranslate nohighlight">\( \Ki_i = \KiEq{i} \)</span>$.</p>
 \LaEq{n}
 \end{matrix}
 \end{split}\]</div>
-<hr class="docutils" />
+<div class="example">
+<p><span class="math notranslate nohighlight">\(\newcommand{\LaEqA}[1]{\frac{d}{dt}\left( \frac{\partial\mathcal{L}}{\partial \dot{q}_{#1}} \right)}
+\newcommand{\LaEqB}[1]{\frac{\partial\mathcal{L}}{\partial q_{#1}}}
+\newcommand{\rowvec}[3]{\begin{bmatrix}#1&amp;#2&amp;#3\end{bmatrix}}
+\newcommand{\qp}[1]{\dot{q}_{#1}}
+\newcommand{\qpp}[1]{\ddot{q}_{#1}} \)</span></p>
 <p><strong>Ejemplo.</strong> Obtenga el modelo dinámico del manipulador P mostrado en la figura. El eslabón 1 tiene una masa <span class="math notranslate nohighlight">\(m_1\)</span> y su centro de masa coincide con el origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span>.</p>
 <figure class="align-center" id="example-manipulador-p-01">
 <a class="reference internal image-reference" href="img/dyna/examples/example_manipulador_p_01"><img alt="img/dyna/examples/example_manipulador_p_01" src="img/dyna/examples/example_manipulador_p_01" style="width: 60%;" />
@@ -1781,7 +1745,23 @@ $<span class="math notranslate nohighlight">\( \Ki_i = \KiEq{i} \)</span>$.</p>
 <p>Por lo tanto, la EDO que representa la dinámica del manipulador está dada por:</p>
 <div class="math notranslate nohighlight">
 \[ m_1 \qpp{1} - m_1 g =  \tau_1 \]</div>
-<hr class="docutils" />
+</div> <hr class="docutils" />
+<div class="example">
+<p><span class="math notranslate nohighlight">\(\newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}
+\newcommand{\colvech}[4]{\begin{bmatrix}#1\\#2\\#3 \\ #4\end{bmatrix}}
+\newcommand{\rG}[1]{ \vec{r}_{G_{#1}} } 
+\newcommand{\vG}[1]{ \vec{v}_{G_{#1}} }
+\newcommand{\lc}[1]{ l_{c_{#1}} }
+\newcommand{\KiTraEq}[1]{ \frac{1}{2} m_{#1} \vec{v}_{G_{#1}}^T \vec{v}_{G_{#1}} } 
+\newcommand{\KiRotEq}[1]{ \frac{1}{2} \bm{\omega}_{#1}^T I_{#1} \bm{\omega}_{#1} } 
+\newcommand{\Isym}[1]{ 
+\begin{bmatrix} 
+I_{x_{#1}x_{#1}} &amp; 0 &amp; 0 \\
+0 &amp; I_{y_{#1}y_{#1}} &amp; 0 \\
+0 &amp; 0 &amp; I_{z_{#1}z_{#1}} \\
+\end{bmatrix} }
+\renewcommand{\bm}[1]{\boldsymbol{#1}}
+\)</span></p>
 <p><strong>Ejemplo.</strong> <em>Obtenga el modelo dinámico del manipulador PR mostrado en la Figura. Considere que tanto el eslabón 1 como el 2 son simétricos con respecto al menos dos planos del sistema ubicado en su centro de masa. La longitud del eslabón 2 es <span class="math notranslate nohighlight">\(l_2\)</span>.</em></p>
 <figure class="align-center" id="example-manipulador-pr">
 <a class="reference internal image-reference" href="_images/example_manipulador_pr.svg"><img alt="_images/example_manipulador_pr.svg" src="_images/example_manipulador_pr.svg" style="width: 60%;" />
@@ -1931,7 +1911,7 @@ s_2  &amp; 0 &amp; c_2 \\
 \[ 
 \therefore \rbr{ m_2 \lc{2}^2 + I_{z_2z_2} } \qpp{2} + m_2 \lc{2} c_2 \qpp{1} + m_2 g \lc{2} s_2 = \tau_2  
 \]</div>
-</section>
+</div></section>
 <section id="modelo-dinamico-en-forma-compacta">
 <h3>Modelo dinámico en forma compacta<a class="headerlink" href="#modelo-dinamico-en-forma-compacta" title="Link to this heading">#</a></h3>
 <p>Considere un robot manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad compuesto de eslabones rígidos interconectados mediante juntas sin fricción. La energía cinética total de este manipulador se puede expresar como:</p>
@@ -2012,6 +1992,14 @@ M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T I_{i} J_{\w{i}} }
 <span class="eqno">(80)<a class="headerlink" href="#equation-inertia-matrix-b" title="Link to this equation">#</a></span>\[
 M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T  R_i^0 \, \Icm{i} \rbr{R_i^0}^T J_{\w{i}} }
 \]</div>
+<p><span class="math notranslate nohighlight">\(\newcommand{\cijk}[3]{
+\frac{1}{2} \left( 
+\frac{\partial m_{#1#2}}{\partial q_{#3}} + 
+\frac{\partial m_{#1#3}}{\partial q_{#2}} -
+\frac{\partial m_{#2#3}}{\partial q_{#1}}
+\right)} 
+\)</span></p>
+<div class="example">
 <p><strong>Ejemplo.</strong> <em>Obtenga el modelo dinámico en forma compacta del manipulador RP mostrado en la figura. Considere que ambos eslabones son simétricos con respecto al menos dos planos del sistema ubicado en su centro de masa.</em></p>
 <figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="_images/example_manipulador_pr.svg"><img alt="_images/example_manipulador_pr.svg" src="_images/example_manipulador_pr.svg" style="width: 60%;" />
@@ -2150,8 +2138,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 \begin{bmatrix} 0 \\ m_2 g l_{c_2} s_2 \end{bmatrix} = 
 \begin{bmatrix} \tau_1 \\ \tau_2 \end{bmatrix} 
 \end{split}\]</div>
-</section>
-<hr class="docutils" />
+</div></section>
 <section id="fuerzas-generalizadas">
 <h3>Fuerzas generalizadas<a class="headerlink" href="#fuerzas-generalizadas" title="Link to this heading">#</a></h3>
 <p>En la ecuación <a class="reference internal" href="#equation-euler-lagrange-equation">(77)</a> el término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a la fuerza y/o torque aplicados en la dirección de la i-ésima coordenada generalizada, naturalmente, si las fuerzas externas se aplican en una dirección que no se corresponde con las coordenadas generalizadas, entonces se deben <em>proyectar</em> las fuerzas externas en la dirección de dichas coordenadas.</p>

@@ -28,7 +28,7 @@ A continuación se listan y describen una serie de convenciones y notación a ut
 
 * Las cantidades vectoriales son representadas mediante letras en negritas, por ejemplo: $\vec{u}$, $\vec{v}$, $ \vec{A} $ y $\vec{B}$. 
 
-* Se utilizan paréntesis para numerar las juntas o articulaciones, corchetes para los eslabones y llaves para los sistemas de referencia. Ejemplo: {\it El sistema de referencia $\{3\}$ está adherido al eslabón $ \sbr{3} $ y su eje $z$ apunta en la dirección de accionamiento de la junta $\rbr{4}$ .}
+* Se utilizan paréntesis para numerar las juntas o articulaciones, corchetes para los eslabones y llaves para los sistemas de referencia. Ejemplo: *El sistema de referencia $\{3\}$ está adherido al eslabón $ \sbr{3} $ y su eje $z$ apunta en la dirección de accionamiento de la junta $\rbr{4}$ .*
 
 * $\Rij{n}{m} $ denota una matriz de rotación que describe la orientación del sistema $\{n\}$ con respecto a $\{m\}$.
 
@@ -56,6 +56,6 @@ La siguiente lista describe algunas abreviaturas y notaciones reducidas, sobre t
 * $ sq_m = \sin q_m $
 * $ s(\theta_m + \theta_n) = \sin\left( \theta_m + \theta_n \right) $
 * $ s(q_m + q_n) = \sin\left( q_m + q_n\right) $
-* $ s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) $, sí $m$ y $n$ son valores numéricos, en caso contrario: $ c_{mn} = \sin(m + n) $
+* $ s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) $, sí $m$ y $n$ son valores numéricos, en caso contrario: $ s_{mn} = \sin(m + n) $
 
 *Pedro Jorge De Los Santos*

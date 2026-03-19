@@ -414,8 +414,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-eslabon">Energía potencial de un eslabón</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-el-lagrangiano">Calculando el lagrangiano</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-resumen-modelo-dinamico-con-la-formulacion-de-euler-lagrange">Un resumen: modelo dinámico con la formulación de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-compacta">Modelo dinámico en forma compacta</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-generalizadas">Fuerzas generalizadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-matricial">Modelo dinámico en forma matricial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-del-modelo-dinamico">Propiedades del modelo dinámico</a></li>
 </ul>
 </li>
@@ -512,7 +513,7 @@ Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utili
 <span class="eqno">(61)<a class="headerlink" href="#equation-lagrangian" title="Link to this equation">#</a></span>\[
 \La = \Ki - \Po
 \]</div>
-<p>A <span class="math notranslate nohighlight">\(q_i\)</span> y <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> se les denomina <em>coordenada generalizada</em> y <em>velocidad generalizada</em>, de forma respectiva. Un conjunto de coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{q_1, q_2, \cdots, q_n} \)</span> es aquel que describe de manera completa la posición de un sistema de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. Las velocidades generalizadas son las derivadas de las coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{\dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n} \)</span>.</p>
+<p>A <span class="math notranslate nohighlight">\(q_i\)</span> y <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> se les denomina <em>coordenada generalizada</em> y <em>velocidad generalizada</em>, de forma respectiva. Un conjunto de coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{q_1, q_2, \cdots, q_n} \)</span> es aquel que describe de manera completa la posición de un sistema de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. Las velocidades generalizadas son las derivadas de las coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{ \dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n } \)</span>.</p>
 <p>La experiencia demuestra que dadas simultáneamente las coordenadas y velocidades generalizadas se determina completamente el estado del sistema y permite, en principio, predecir su movimiento futuro. Las relaciones entre las aceleraciones, las velocidades y las coordenadas se llaman <em>ecuaciones de movimiento</em>. \cite{landau}</p>
 <p>El término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a las fuerzas generalizadas aplicadas sobre el cuerpo rígido o sistema de cuerpos rígidos.</p>
 </section>
@@ -1661,18 +1662,15 @@ $<span class="math notranslate nohighlight">\( \Ki_i = \KiEq{i} \)</span>$.</p>
 <li><p>El vector de velocidad angular <span class="math notranslate nohighlight">\(\boldsymbol{\omega}_i\)</span> se puede determinar utilizando la ecuación:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ \boldsymbol{\omega}_i = \W_{0,1}^0 + R_1^0 \W_{1,2}^1 + \ldots + R_{i-1}^{0} \W_{i-1,i}^{i-1} \]</div>
-<p>Donde cada vector de la forma <span class="math notranslate nohighlight">\(\W_{j-1,j}^{j-1}\)</span> se puede formar como sigue:</p>
+\[ \boldsymbol{\omega}_i = \W_{0,1} + \W_{1,2} + \ldots + \W_{i-1,i} \]</div>
+<p>Donde cada vector de la forma <span class="math notranslate nohighlight">\(\W_{j-1,j}\)</span> se puede formar como sigue:</p>
 <div class="math notranslate nohighlight">
-\[ 
-    \W_{j-1,j}^{j-1} = \colvec{0}{0}{\dot{q}_j} \qquad ; \qquad 
-    \text{en el caso de que la junta $j$ sea revoluta}
-    \]</div>
-<div class="math notranslate nohighlight">
-\[ 
-    \W_{j-1,j}^{j-1} = \colvec{0}{0}{0} \qquad ; \qquad 
-    \text{en el caso de que la junta $j$ sea prismática}
-    \]</div>
+\[\begin{split} 
+    \W_{j-1,j} = \begin{cases} 
+    \dot{q}_j \, \vec{z}_{j-1} &amp; \text{en el caso de que la junta $j$ sea revoluta} \\
+    \vec{0}                    &amp; \text{en el caso de que la junta $j$ sea prismática}
+    \end{cases}
+    \end{split}\]</div>
 </li>
 <li><p>Calcular la energía potencial de cada uno de los eslabones.</p>
 <ul class="simple">
@@ -1915,17 +1913,46 @@ s_2  &amp; 0 &amp; c_2 \\
 \therefore \rbr{ m_2 \lc{2}^2 + I_{z_2z_2} } \qpp{2} + m_2 \lc{2} c_2 \qpp{1} + m_2 g \lc{2} s_2 = \tau_2  
 \]</div>
 </div></section>
-<section id="modelo-dinamico-en-forma-compacta">
-<h3>Modelo dinámico en forma compacta<a class="headerlink" href="#modelo-dinamico-en-forma-compacta" title="Link to this heading">#</a></h3>
-<p>Considere un robot manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad compuesto de eslabones rígidos interconectados mediante juntas sin fricción. La energía cinética total de este manipulador se puede expresar como:</p>
+<section id="modelo-dinamico-en-forma-matricial">
+<h3>Modelo dinámico en forma matricial<a class="headerlink" href="#modelo-dinamico-en-forma-matricial" title="Link to this heading">#</a></h3>
+<p>La energía cinética de un eslabón del manipulador serial se puede calcular como:</p>
 <div class="math notranslate nohighlight">
-\[ 
-\Ki = \frac{1}{2}\vec{\qp{}}^T M(\vec{q}) \vec{\qp{}}  \]</div>
-<p>Donde <span class="math notranslate nohighlight">\( M(\vec{q}) \)</span> es una matriz de <span class="math notranslate nohighlight">\(n \times n\)</span> denominada <em>matriz de inercia</em>. Esta matriz es una matriz simétrica y definida positiva.</p>
+\[
+\Ki_i = \KiEq{i}
+\]</div>
+<p>Tanto la velocidad del centro de masa como la velocidad angular del eslabón se pueden expresar utilizando los jacobianos correspondientes, es decir:</p>
+<div class="math notranslate nohighlight">
+\[ \vG{i} = J_{v_i} \, \vec{\qp{}} \]</div>
+<div class="math notranslate nohighlight">
+\[ \W_i = J_{\W_i} \, \vec{\qp{}} \]</div>
+<p>Lo cual que implica que:</p>
+<div class="math notranslate nohighlight">
+\[ \vG{i}^T =  \vec{\qp{}}^T J_{v_i}^T \]</div>
+<div class="math notranslate nohighlight">
+\[ \W_i^T = \vec{\qp{}}^T J_{\W_i}^T  \]</div>
+<p>Entonces, la energía cinética del eslabón <span class="math notranslate nohighlight">\(i\)</span> se puede reescribir como:</p>
+<div class="math notranslate nohighlight">
+\[
+\Ki_i = \frac{1}{2} m_i \vec{\qp{}}^T J_{v_i}^T  J_{v_i} \, \vec{\qp{}} + 
+\frac{1}{2} \vec{\qp{}}^T J_{\W_i}^T I_i J_{\W_i} \, \vec{\qp{}} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Ki_i = \frac{1}{2} \vec{\qp{}}^T \rbr{ m_i J_{v_i}^T  J_{v_i} + J_{\W_i}^T I_i J_{\W_i}} \vec{\qp{}} 
+\]</div>
+<p>Si consideramos ahora la energía cinética total, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\Ki = \frac{1}{2} \vec{\qp{}}^T M(\vec{q}) \vec{\qp{}} 
+\]</div>
+<p>Donde:</p>
+<div class="math notranslate nohighlight">
+\[ M(\vec{q}) = \sum_{i=1}^n \rbr{ m_i J_{v_i}^T  J_{v_i} + J_{\W_i}^T I_i J_{\W_i}} \]</div>
+<p>La matriz <span class="math notranslate nohighlight">\(M(\vec{q})\)</span> se denomina <strong>matriz de inercia</strong> (o matriz de masas), es una matriz de <span class="math notranslate nohighlight">\(n\times n\)</span> que caracteriza cómo la masa y su distribución afectan la relación de las fuerzas y aceleraciones articulares. Es una matriz simétrica y definida positiva, posteriormente abordaremos con más detenimiento estas propiedades.</p>
 <p>La energía potencial <span class="math notranslate nohighlight">\(\Po\)</span> no tiene una forma particular como en el caso de la energía cinética, pero se sabe que depende de las posiciones articulares <span class="math notranslate nohighlight">\(\vec{q}\)</span>. El langrangiano, definido en secciones previas, se puede escribir entonces como:</p>
 <div class="math notranslate nohighlight">
 \[ \La = \frac{1}{2}\vec{\qp{}}^T M(\vec{q}) \vec{\qp{}}  - \Po \]</div>
-<p>Entonces, la ecuación de Lagrange se puede establecer como:</p>
+<p>Con esto, la ecuación de Lagrange se puede establecer como:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \frac{d}{dt} \sbr{ \frac{\partial}{\partial \vec{\qp{}}}  \sbr{ \frac{1}{2}\vec{\qp{}}^T M(\vec{q}) \vec{\qp{}} }  } -  
@@ -1968,7 +1995,7 @@ C(\vec{q},\vec{\qp{}}) \vec{\qp{}} = \dot{M}(\vec{q}) \vec{\qp{}} -
 \[ 
 \vec{g}(\vec{q}) = \frac{\partial \Po}{\partial \vec{q}}
 \]</div>
-<p>La ecuación <a class="reference internal" href="#equation-dynamic-compact">(79)</a> corresponde a la dinámica de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos denominado \textbf{vector de fuerzas centrífugas y de Coriolis}, <span class="math notranslate nohighlight">\( \vec{g}(\vec{q}) \)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos que contiene las fuerzas y pares gravitacionales. El vector <span class="math notranslate nohighlight">\(\tauvec\)</span> es el vector de fuerzas y pares externos, que en general corresponden a los pares y fuerzas aplicadas por los actuadores en las articulaciones.</p>
+<p>La ecuación <a class="reference internal" href="#equation-dynamic-compact">(79)</a> corresponde a la dinámica de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos denominado <em>vector de fuerzas centrífugas y de Coriolis</em>, <span class="math notranslate nohighlight">\( \vec{g}(\vec{q}) \)</span> es un vector de <span class="math notranslate nohighlight">\(n\)</span> elementos que contiene las fuerzas y pares gravitacionales. El vector <span class="math notranslate nohighlight">\(\tauvec\)</span> es el vector de fuerzas y pares externos.</p>
 <p>La matriz de fuerzas centrífugas y de Coriolis <span class="math notranslate nohighlight">\( C(\vec{q}, \vec{\qp{}})\)</span> puede no ser unica, pero el vector <span class="math notranslate nohighlight">\(C(\vec{q},\vec{\qp{}}) \vec{\qp{}}\)</span> si que lo es. Cada elemento <span class="math notranslate nohighlight">\(c_{ij}\)</span> de la matriz <span class="math notranslate nohighlight">\( C(\vec{q}, \vec{\qp{}})\)</span> se puede determinar mediante:</p>
 <div class="math notranslate nohighlight">
 \[ \displaystyle c_{ij} = \sum_{k=1}^n c_{ijk} \qp{k} \]</div>
@@ -1982,19 +2009,6 @@ c_{ijk} = \frac{1}{2} \rbr{
     }
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\( m_{ij} \)</span> denota el <span class="math notranslate nohighlight">\(ij\)</span>-ésimo elemento de la matriz de inercia.</p>
-<p>La matriz de inercia <span class="math notranslate nohighlight">\(M\)</span> de un manipulador de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad se puede calcular a partir de la siguiente expresión:</p>
-<div class="math notranslate nohighlight" id="equation-inertia-matrix-a">
-<span class="eqno">(80)<a class="headerlink" href="#equation-inertia-matrix-a" title="Link to this equation">#</a></span>\[
-M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T I_{i} J_{\w{i}} }
-\]</div>
-<p>Donde <span class="math notranslate nohighlight">\(J_{v_i}\)</span> y <span class="math notranslate nohighlight">\(J_{\w{i}}\)</span> corresponden a los jacobianos de velocidad lineal y angular del centro de masa del eslabón <span class="math notranslate nohighlight">\(i\)</span>, respectivamente. Como en la sección previa, <span class="math notranslate nohighlight">\(I_{i}\)</span> es el tensor de inercia del eslabón <span class="math notranslate nohighlight">\(i\)</span> descrito en un sistema paralelo a <span class="math notranslate nohighlight">\(\{0\}\)</span> pero ubicado en el centro de masa del eslabón <span class="math notranslate nohighlight">\(i\)</span>. Recordando que <span class="math notranslate nohighlight">\(I_i\)</span> se puede determinar mediante la transformación de similaridad:</p>
-<div class="math notranslate nohighlight">
-\[ I_i = R_i^0 \, \Icm{i} \rbr{R_i^0}^T \]</div>
-<p>Entonces la ecuación <a class="reference internal" href="#equation-inertia-matrix-a">(80)</a> se puede escribir como:</p>
-<div class="math notranslate nohighlight" id="equation-inertia-matrix-b">
-<span class="eqno">(81)<a class="headerlink" href="#equation-inertia-matrix-b" title="Link to this equation">#</a></span>\[
-M = \sum_{i=1}^n \sbr{ m_i J_{v_i}^T J_{v_i} + J_{\w{i}}^T  R_i^0 \, \Icm{i} \rbr{R_i^0}^T J_{\w{i}} }
-\]</div>
 <p><span class="math notranslate nohighlight">\(\newcommand{\cijk}[3]{
 \frac{1}{2} \left( 
 \frac{\partial m_{#1#2}}{\partial q_{#3}} + 
@@ -2142,8 +2156,11 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 \begin{bmatrix} \tau_1 \\ \tau_2 \end{bmatrix} 
 \end{split}\]</div>
 </div></section>
-<section id="fuerzas-generalizadas">
-<h3>Fuerzas generalizadas<a class="headerlink" href="#fuerzas-generalizadas" title="Link to this heading">#</a></h3>
+<section id="el-vector-vec-tau">
+<h3>El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span><a class="headerlink" href="#el-vector-vec-tau" title="Link to this heading">#</a></h3>
+</section>
+<section id="id5">
+<h3>El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>En la ecuación <a class="reference internal" href="#equation-euler-lagrange-equation">(78)</a> el término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a la fuerza y/o torque aplicados en la dirección de la i-ésima coordenada generalizada, naturalmente, si las fuerzas externas se aplican en una dirección que no se corresponde con las coordenadas generalizadas, entonces se deben <em>proyectar</em> las fuerzas externas en la dirección de dichas coordenadas.</p>
 <p>Consideremos primeramente que se tiene un manipulador serial sujeto a una fuerza <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> y un torque <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> aplicados en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Si tanto <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> como <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> se expresan en el sistema de referencia de la base, entonces es posible proyectarlos en la dirección de las coordenadas generalizadas del manipulador, mediante la siguiente ecuación:</p>
 <div class="math notranslate nohighlight">
@@ -2153,7 +2170,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <p>Donde <span class="math notranslate nohighlight">\(J_{B_1}\)</span> es la matriz jacobiana, <span class="math notranslate nohighlight">\(\rbr{J_v}_{B_1}\)</span> es el jacobiano de velocidad lineal y <span class="math notranslate nohighlight">\(\rbr{J_{\W}}_{B_1}\)</span> el jacobiano de velocidad angular, en todos los casos calculadas en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Puede revisar la sección <a class="reference internal" href="dkin.html#jacobian-point"><span class="std std-ref">La matriz jacobiana de un punto del manipulador}</span></a> para recordar cómo determinar las matrices jacobianas asociadas con un punto del manipulador.</p>
 <p>La ecuación anterior se puede reescribir para cuando se tienen varias fuerzas y torques aplicados en diversas ubicaciones del manipulador serial, así pues, para una <span class="math notranslate nohighlight">\(N\)</span> cantidad de fuerzas y torques aplicados en un manipulador serial se tiene:</p>
 <div class="math notranslate nohighlight" id="equation-generalized-forces-calculation">
-<span class="eqno">(82)<a class="headerlink" href="#equation-generalized-forces-calculation" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(80)<a class="headerlink" href="#equation-generalized-forces-calculation" title="Link to this equation">#</a></span>\[ 
 \tauvec = \sum_{k=1}^N \, J_{B_k}^T \colvec{\vec{F}_k}{\bm{\mu}_k}{} = 
 \sum_{k=1}^N \rbr{J_v}_{B_k}^T \vec{F}_k + \rbr{J_{\W}}_{B_k}^T \bm{\mu}_k 
 \]</div>
@@ -2434,6 +2451,15 @@ B_2 &amp; D_2 &amp; 0 \\
 <p><span class="caption-number">Fig. 113 </span><span class="caption-text">.</span><a class="headerlink" href="#manipulador-rp-02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<hr class="docutils" />
+<p>Obtenga el modelo dinámico del manipulador RR mostrado en la figura. Las masas de los eslabones son <span class="math notranslate nohighlight">\(m_1\)</span> y <span class="math notranslate nohighlight">\(m_2\)</span>. Considera que los tensores de inercia <span class="math notranslate nohighlight">\(\Icm{i}\)</span> son matrices diagonales.</p>
+<figure class="align-center" id="rr-robot">
+<a class="reference internal image-reference" href="_images/rr_robot2.svg"><img alt="_images/rr_robot2.svg" src="_images/rr_robot2.svg" style="width: 45%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 114 </span><span class="caption-text">.</span><a class="headerlink" href="#rr-robot" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -2526,8 +2552,9 @@ B_2 &amp; D_2 &amp; 0 \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-eslabon">Energía potencial de un eslabón</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-el-lagrangiano">Calculando el lagrangiano</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-resumen-modelo-dinamico-con-la-formulacion-de-euler-lagrange">Un resumen: modelo dinámico con la formulación de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-compacta">Modelo dinámico en forma compacta</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-generalizadas">Fuerzas generalizadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-matricial">Modelo dinámico en forma matricial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-del-modelo-dinamico">Propiedades del modelo dinámico</a></li>
 </ul>
 </li>

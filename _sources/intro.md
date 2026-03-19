@@ -15,7 +15,7 @@ $$
 # Introducción
 
 ```{warning}
-Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido que podría estar incompleto e inconexo. **Fecha de última actualización: 07/11/2025**
+Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido que podría estar incompleto e inconexo. **Fecha de última actualización: 12/02/2026**
 ```
 
 Estos apuntes se han elaborado con la finalidad de servir como una referencia rápida para los alumnos de los cursos de Cinemática de Robots y Dinámica de Robots de la Universidad Politécnica de Guanajuato, para sumar a su formación conocimientos sólidos en materia del análisis de manipuladores seriales.

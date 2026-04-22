@@ -368,8 +368,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-el-lagrangiano">Calculando el lagrangiano</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-resumen-modelo-dinamico-con-la-formulacion-de-euler-lagrange">Un resumen: modelo dinámico con la formulación de Euler-Lagrange</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-matricial">Modelo dinámico en forma matricial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-de-fuerzas-externas-vec-tau-ext">El vector de fuerzas externas <span class="math notranslate nohighlight">\( \vec{\tau}_{ext} \)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-de-friccion-tauvec-fric">Fuerzas de fricción <span class="math notranslate nohighlight">\(\tauvec_{fric}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-aplicadas-por-las-actuadores-tauvec-act">Fuerzas aplicadas por las actuadores (<span class="math notranslate nohighlight">\(\tauvec_{act}\)</span>)</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-del-modelo-dinamico">Propiedades del modelo dinámico</a></li>
 </ul>
 </li>
@@ -2111,27 +2115,73 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 </div></section>
 <section id="el-vector-vec-tau">
 <h3>El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span><a class="headerlink" href="#el-vector-vec-tau" title="Link to this heading">#</a></h3>
-</section>
-<section id="id5">
-<h3>El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>En la ecuación <a class="reference internal" href="#equation-euler-lagrange-equation">(78)</a> el término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a la fuerza y/o torque aplicados en la dirección de la i-ésima coordenada generalizada, naturalmente, si las fuerzas externas se aplican en una dirección que no se corresponde con las coordenadas generalizadas, entonces se deben <em>proyectar</em> las fuerzas externas en la dirección de dichas coordenadas.</p>
-<p>Consideremos primeramente que se tiene un manipulador serial sujeto a una fuerza <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> y un torque <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> aplicados en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Si tanto <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> como <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> se expresan en el sistema de referencia de la base, entonces es posible proyectarlos en la dirección de las coordenadas generalizadas del manipulador, mediante la siguiente ecuación:</p>
+<p>Hasta ahora hemos trabajado con la obtención del modelo dinámico de un manipulador serial, considerando únicamente lo que concierne a la estructura física de los eslabones. En esta sección vamos a abordar y desmenuzar el término <span class="math notranslate nohighlight">\(\vec{\tau}\)</span> que aparece en la ecuación del modelo dinámico.</p>
+<p>El vector <span class="math notranslate nohighlight">\(\vec{\tau}\)</span> agrupa a todas las fuerzas externas generalizadas (no conservativas) que actúan sobre el manipulador, entre las cuales podemos identificar las fuerzas o torques que ejercen los actuadores, las fuerzas externas debidas a restricciones, contactos o a la manipulación de objetos por el elemento terminal, así como las fuerzas de fricción. Es común que <span class="math notranslate nohighlight">\( \vec{\tau} \)</span> se exprese como una combinación de cada tipo de fuerzas:</p>
+<div class="math notranslate nohighlight">
+\[ \vec{\tau} = \vec{\tau}_{act} + \vec{\tau}_{ext} - \vec{\tau}_{fric} \]</div>
+<section id="el-vector-de-fuerzas-externas-vec-tau-ext">
+<h4>El vector de fuerzas externas <span class="math notranslate nohighlight">\( \vec{\tau}_{ext} \)</span><a class="headerlink" href="#el-vector-de-fuerzas-externas-vec-tau-ext" title="Link to this heading">#</a></h4>
+<p>Supongamos que se tiene un manipulador serial sujeto a una fuerza <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> y un torque <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> aplicados en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Si tanto <span class="math notranslate nohighlight">\(\vec{F}_1\)</span> como <span class="math notranslate nohighlight">\(\bm{\mu}_1\)</span> se expresan en el sistema de referencia de la base, entonces es posible proyectarlos en la dirección de las coordenadas generalizadas del manipulador, mediante la siguiente ecuación:</p>
 <div class="math notranslate nohighlight">
 \[
-\tauvec = J_{B_1}^T \colvec{\vec{F}_1}{\bm{\mu}_1}{} = \rbr{J_v}_{B_1}^T \vec{F}_1 + \rbr{J_{\W}}_{B_1}^T \bm{\mu}_1 
+\tauvec_{ext} = J_{B_1}^T \colvec{\vec{F}_1}{\bm{\mu}_1}{} = \rbr{J_v}_{B_1}^T \vec{F}_1 + \rbr{J_{\W}}_{B_1}^T \bm{\mu}_1 
 \]</div>
-<p>Donde <span class="math notranslate nohighlight">\(J_{B_1}\)</span> es la matriz jacobiana, <span class="math notranslate nohighlight">\(\rbr{J_v}_{B_1}\)</span> es el jacobiano de velocidad lineal y <span class="math notranslate nohighlight">\(\rbr{J_{\W}}_{B_1}\)</span> el jacobiano de velocidad angular, en todos los casos calculadas en el punto <span class="math notranslate nohighlight">\(B_1\)</span>. Puede revisar la sección <a class="reference internal" href="dkin.html#jacobian-point"><span class="std std-ref">La matriz jacobiana de un punto del manipulador}</span></a> para recordar cómo determinar las matrices jacobianas asociadas con un punto del manipulador.</p>
+<p>Donde <span class="math notranslate nohighlight">\(J_{B_1}\)</span> es la matriz jacobiana, <span class="math notranslate nohighlight">\(\rbr{J_v}_{B_1}\)</span> es el jacobiano de velocidad lineal y <span class="math notranslate nohighlight">\(\rbr{J_{\W}}_{B_1}\)</span> el jacobiano de velocidad angular, en todos los casos calculadas en el punto <span class="math notranslate nohighlight">\(B_1\)</span> y descritas en el sistema de la base. Puede revisar la sección <a class="reference internal" href="dkin.html#jacobian-point"><span class="std std-ref">La matriz jacobiana de un punto del manipulador}</span></a> para recordar cómo determinar las matrices jacobianas asociadas con un punto del manipulador.</p>
 <p>La ecuación anterior se puede reescribir para cuando se tienen varias fuerzas y torques aplicados en diversas ubicaciones del manipulador serial, así pues, para una <span class="math notranslate nohighlight">\(N\)</span> cantidad de fuerzas y torques aplicados en un manipulador serial se tiene:</p>
 <div class="math notranslate nohighlight" id="equation-generalized-forces-calculation">
 <span class="eqno">(80)<a class="headerlink" href="#equation-generalized-forces-calculation" title="Link to this equation">#</a></span>\[ 
-\tauvec = \sum_{k=1}^N \, J_{B_k}^T \colvec{\vec{F}_k}{\bm{\mu}_k}{} = 
+\tauvec_{ext} = \sum_{k=1}^N \, J_{B_k}^T \colvec{\vec{F}_k}{\bm{\mu}_k}{} = 
 \sum_{k=1}^N \rbr{J_v}_{B_k}^T \vec{F}_k + \rbr{J_{\W}}_{B_k}^T \bm{\mu}_k 
 \]</div>
-<p>En las ecuaciones previas el término <span class="math notranslate nohighlight">\(\tauvec\)</span> es el vector de las fuerzas generalizadas:</p>
+<p>En la mayoría de los casos únicamente se aplican fuerzas o torques en el elemento terminal del manipulador, bajo esta consideración <span class="math notranslate nohighlight">\(\tauvec_{ext}\)</span> se calcula como sigue:</p>
+<div class="math notranslate nohighlight">
+\[
+\tauvec_{ext} = J^T \colvec{\vec{F}}{\bm{\mu}}{}
+\]</div>
+<p>Siendo <span class="math notranslate nohighlight">\(J\)</span> la matriz jacobiana del extremo del manipulador, <span class="math notranslate nohighlight">\(\vec{F}\)</span> y <span class="math notranslate nohighlight">\(\vec{\mu}\)</span> la fuerza y torque resultante aplicados en el elemento terminal.</p>
+</section>
+<section id="fuerzas-de-friccion-tauvec-fric">
+<h4>Fuerzas de fricción <span class="math notranslate nohighlight">\(\tauvec_{fric}\)</span><a class="headerlink" href="#fuerzas-de-friccion-tauvec-fric" title="Link to this heading">#</a></h4>
+<p>La fricción es un fenómeno que aparece principalmente asociada con las articulaciones y sus componentes (rodamientos, engranes, etc.). Siempre habrá fricción en un manipulador real y afecta su comportamiento dinámico. Un modelo simplificado de fricción puede establecerse considerando únicamente la fricción viscosa y la fricción de Coulomb, tal como se muestra a continuación:</p>
+<div class="math notranslate nohighlight">
+\[
+\tauvec_{fric} = B \, \dot{\vec{q}} + F_c  \, \text{sgn} \left( \dot{\vec{q}} \right)
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(B\)</span> y <span class="math notranslate nohighlight">\(F_c\)</span> son matrices que contienen los coeficientes de fricción correspondientes, usualmente tienen la forma:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\tauvec = \begin{bmatrix} \tau_1 \\ \tau_2 \\ \vdots \\ \tau_n \end{bmatrix}
+B = \begin{bmatrix}
+b_1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; b_2 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; b_n
+\end{bmatrix} ; \qquad
+F_c = \begin{bmatrix}
+f_{c_1} &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; f_{c_2} &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; f_{c_n}
+\end{bmatrix}
 \end{split}\]</div>
+<p>La función <span class="math notranslate nohighlight">\(\text{sgn}\)</span> se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{sgn}(x) = 
+\begin{cases}
+-1 &amp; \text{ si } x &lt; 0 \\
+0 &amp; \text{ si } x = 0 \\
+1 &amp; \text{ si } x &gt; 0 \\
+\end{cases}
+\end{split}\]</div>
+</section>
+<section id="fuerzas-aplicadas-por-las-actuadores-tauvec-act">
+<h4>Fuerzas aplicadas por las actuadores (<span class="math notranslate nohighlight">\(\tauvec_{act}\)</span>)<a class="headerlink" href="#fuerzas-aplicadas-por-las-actuadores-tauvec-act" title="Link to this heading">#</a></h4>
+<p>De manera general, el vector <span class="math notranslate nohighlight">\(\tauvec_{act}\)</span> se puede establecer de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[
+\tauvec_{act} = A \vec{u}
+\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(A\)</span> es una matriz de <span class="math notranslate nohighlight">\(n \times n\)</span> que transforma las señales/entradas de control <span class="math notranslate nohighlight">\(\vec{u}\)</span> en el torque/fuerza que ejerce cada actuador, es decir, esta matriz concentra las características de cada uno de los actuadores. Si los actuadores están desacoplados, <span class="math notranslate nohighlight">\(A\)</span> es una matriz diagonal.</p>
 <hr class="docutils" />
 <p><strong>Ejemplo.</strong> Determine la fuerza generalizada <span class="math notranslate nohighlight">\(\tauvec\)</span> para el manipulador R mostrado en la Figura <a class="reference internal" href="#example-manipulador-r-generalized-forces"><span class="std std-numref">Fig. 101</span></a>, considerando que está sujeto a una carga externa <span class="math notranslate nohighlight">\(F\)</span> aplicada en su extremo, de magnitud constante y que permace siempre en dirección vertical hacia abajo, tal como se esquematiza.</p>
 <figure class="align-center" id="example-manipulador-r-generalized-forces">
@@ -2163,6 +2213,7 @@ m_2 \lc{2} c_2  &amp; m_2 \lc{2}^2 + I_{z_2z_2}
 <p>Entonces:</p>
 <div class="math notranslate nohighlight">
 \[ \tau_1 = -F l_1 c_1 \]</div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="propiedades-del-modelo-dinamico">
@@ -2506,8 +2557,12 @@ B_2 &amp; D_2 &amp; 0 \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculando-el-lagrangiano">Calculando el lagrangiano</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-resumen-modelo-dinamico-con-la-formulacion-de-euler-lagrange">Un resumen: modelo dinámico con la formulación de Euler-Lagrange</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-dinamico-en-forma-matricial">Modelo dinámico en forma matricial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-vec-tau">El vector <span class="math notranslate nohighlight">\( \vec{\tau} \)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#el-vector-de-fuerzas-externas-vec-tau-ext">El vector de fuerzas externas <span class="math notranslate nohighlight">\( \vec{\tau}_{ext} \)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-de-friccion-tauvec-fric">Fuerzas de fricción <span class="math notranslate nohighlight">\(\tauvec_{fric}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuerzas-aplicadas-por-las-actuadores-tauvec-act">Fuerzas aplicadas por las actuadores (<span class="math notranslate nohighlight">\(\tauvec_{act}\)</span>)</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-del-modelo-dinamico">Propiedades del modelo dinámico</a></li>
 </ul>
 </li>
@@ -2538,7 +2593,7 @@ By Pedro Jorge De Los Santos
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2026.
       <br/>
     
   </p>

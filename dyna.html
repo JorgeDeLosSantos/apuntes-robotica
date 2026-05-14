@@ -344,17 +344,21 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-cuerpo-rigido">Energía potencial de un cuerpo rígido</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa">Centro de masa</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa-de-cuerpos-compuestos">Centro de masa de cuerpos compuestos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-masa">Momento de inercia de masa</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-masa">Momento de inercia de masa</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-los-ejes-paralelos">Teorema de los ejes paralelos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-solidos-compuestos">Momento de inercia de sólidos compuestos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia">Productos de inercia</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia">Productos de inercia</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-los-planos-paralelos">Teorema de los planos paralelos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia-de-cuerpos-compuestos">Productos de inercia de cuerpos compuestos</a></li>
 </ul>
@@ -473,9 +477,8 @@ Otra manera de abordar la dinámica de un cuerpo rígido (o partícula) es utili
 <p>A <span class="math notranslate nohighlight">\(q_i\)</span> y <span class="math notranslate nohighlight">\(\dot{q}_i\)</span> se les denomina <em>coordenada generalizada</em> y <em>velocidad generalizada</em>, de forma respectiva. Un conjunto de coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{q_1, q_2, \cdots, q_n} \)</span> es aquel que describe de manera completa la posición de un sistema de <span class="math notranslate nohighlight">\(n\)</span> grados de libertad. Las velocidades generalizadas son las derivadas de las coordenadas generalizadas <span class="math notranslate nohighlight">\( \rbr{ \dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n } \)</span>.</p>
 <p>La experiencia demuestra que dadas simultáneamente las coordenadas y velocidades generalizadas se determina completamente el estado del sistema y permite, en principio, predecir su movimiento futuro. Las relaciones entre las aceleraciones, las velocidades y las coordenadas se llaman <em>ecuaciones de movimiento</em>. \cite{landau}</p>
 <p>El término <span class="math notranslate nohighlight">\(\tau_i\)</span> corresponde a las fuerzas generalizadas aplicadas sobre el cuerpo rígido o sistema de cuerpos rígidos.</p>
-</section>
 <section id="energia-cinetica-de-un-cuerpo-rigido">
-<h3>Energía cinética de un cuerpo rígido<a class="headerlink" href="#energia-cinetica-de-un-cuerpo-rigido" title="Link to this heading">#</a></h3>
+<h4>Energía cinética de un cuerpo rígido<a class="headerlink" href="#energia-cinetica-de-un-cuerpo-rigido" title="Link to this heading">#</a></h4>
 <p><span class="math notranslate nohighlight">\(\newcommand{\W}{\boldsymbol{\omega}} \newcommand{\colvec}[3]{\begin{bmatrix}#1\\#2\\#3\end{bmatrix}} \newcommand{\w}[1]{\omega_{#1}} \newcommand{\sumin}{ \sum_{i=1}^n }\)</span>
 En la Figura <a class="reference internal" href="#lagrangian-rigid-body"><span class="std std-numref">Fig. 80</span></a> se muestra un cuerpo rígido, el cual está rotando con una velocidad angular <span class="math notranslate nohighlight">\(\W\)</span> y donde la posición de la i-ésima partícula de masa <span class="math notranslate nohighlight">\(m_i\)</span> con respecto al sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está dada por el vector <span class="math notranslate nohighlight">\(\vec{r}_{i/G}\)</span>. El sistema de referencia <span class="math notranslate nohighlight">\(Gx'y'z'\)</span> está adherido al sólido y el sistema <span class="math notranslate nohighlight">\(Oxyz\)</span> es un sistema de referencia inercial.</p>
 <figure class="align-center" id="lagrangian-rigid-body">
@@ -634,6 +637,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 <span class="eqno">(69)<a class="headerlink" href="#equation-kinetic-energy-rigid-body-final" title="Link to this equation">#</a></span>\[
 \Ki = \frac{1}{2} m \vec{v}_G^T \vec{v}_G + \frac{1}{2} \W^T I_G \W
 \]</div>
+</section>
 <section id="energia-potencial-de-un-cuerpo-rigido">
 <h4>Energía potencial de un cuerpo rígido<a class="headerlink" href="#energia-potencial-de-un-cuerpo-rigido" title="Link to this heading">#</a></h4>
 <p>La energía potencial gravitatoria de un cuerpo rígido es una cantidad que depende de la masa, la gravedad y la posición del centro de masa. Se puede expresar como:</p>
@@ -976,8 +980,9 @@ dV = \frac{abz}{c} \, dz \, ; \qquad
 <div class="math notranslate nohighlight">
 \[ \rbr{\bar{x},\, \bar{y}} =  \rbr{185.7, \, 100} \text{ mm}  \]</div>
 </div></section>
+</section>
 <section id="momento-de-inercia-de-masa">
-<h4>Momento de inercia de masa<a class="headerlink" href="#momento-de-inercia-de-masa" title="Link to this heading">#</a></h4>
+<h3>Momento de inercia de masa<a class="headerlink" href="#momento-de-inercia-de-masa" title="Link to this heading">#</a></h3>
 <p>El momento de inercia de masa de un cuerpo rígido (o sistema de partículas) es una cantidad que determina el par necesario para una aceleración angular deseada alrededor de un eje de rotación, similar a cómo la masa determina la fuerza necesaria para una aceleración deseada. Depende de la distribución de masa del cuerpo y del eje elegido, un momento de inercia más grande implica que se requiere más torque para cambiar la velocidad de rotación del cuerpo en una cantidad determinada.</p>
 <p>El momento de inercia (<span class="math notranslate nohighlight">\(I\)</span>) de una masa puntual (<span class="math notranslate nohighlight">\(m\)</span>) con respecto a un eje se define como el producto de la masa por la distancia al eje (<span class="math notranslate nohighlight">\(d\)</span>) elevada al cuadrado, es decir.</p>
 <div class="math notranslate nohighlight">
@@ -1078,8 +1083,7 @@ I_{z_1z_1} = \int_m r_z^2 \, dm = \rho t  \int_{-\frac{b}{2}}^{\frac{b}{2}} \int
 \]</div>
 <div class="math notranslate nohighlight">
 \[ I_{z_1z_1} = \frac{m}{12} \rbr{b^2 + h^2}  \]</div>
-</div></section>
-<section id="teorema-de-los-ejes-paralelos">
+</div><section id="teorema-de-los-ejes-paralelos">
 <h4>Teorema de los ejes paralelos<a class="headerlink" href="#teorema-de-los-ejes-paralelos" title="Link to this heading">#</a></h4>
 <p>Si se conoce el momento de inercia de un cuerpo respecto de un eje que pasa por su centro de masa, entonces se puede también determinar fácilmente el momento de inercia con respecto de cualquier otro eje que sea paralelo. En el esquema mostrado en la Figura <a class="reference internal" href="#parallel-axis-theorem"><span class="std std-numref">Fig. 89</span></a> se tienen dos sistemas referencia, uno de estos tiene su origen en el centro de masa del cuerpo rígido.</p>
 <figure class="align-center" id="parallel-axis-theorem">
@@ -1336,8 +1340,9 @@ m_2 = \rho V_2 = \rbr{7850}\rbr{70 \times 10^{-3}}\rbr{40\times 10^{-3}}\rbr{30\
 <div class="math notranslate nohighlight">
 \[ I_{zz} = 5039.7 \text{ kg}\cdot\text{mm}^2 \]</div>
 </div></section>
+</section>
 <section id="productos-de-inercia">
-<h4>Productos de inercia<a class="headerlink" href="#productos-de-inercia" title="Link to this heading">#</a></h4>
+<h3>Productos de inercia<a class="headerlink" href="#productos-de-inercia" title="Link to this heading">#</a></h3>
 <p>Los productos de inercia de masa son cantidades utilizadas para describir la distribución de la masa en un sólido en movimiento. Estos productos son esenciales para entender el comportamiento de un cuerpo cuando se somete a rotación alrededor de un eje en un sistema de coordenadas tridimensional. Los productos de inercia pueden entenderse también como una medida de la simetría del cuerpo con respecto a un sistema de referencia.</p>
 <p>Comenzaremos con los productos de inercia de un sistema de partículas ubicadas en el espacio, los cuales pueden determinarse mediante las siguientes expresiones:</p>
 <div class="math notranslate nohighlight">
@@ -1431,8 +1436,7 @@ I_{xy} = -\frac{mbh}{4}
 <p>Note que todos los productos de inercia en el sistema de referencia <span class="math notranslate nohighlight">\(x_1y_1z_1\)</span> son cero, debido a que todos los planos de dicho sistema son planos de simetría para la placa rectangular, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ I_{x_1y_1} = I_{x_1z_1} = I_{y_1z_1} = 0 \]</div>
-</div></section>
-<section id="teorema-de-los-planos-paralelos">
+</div><section id="teorema-de-los-planos-paralelos">
 <h4>Teorema de los planos paralelos<a class="headerlink" href="#teorema-de-los-planos-paralelos" title="Link to this heading">#</a></h4>
 <p>Si se conocen los productos de inercia de un sólido respecto de un sistema de referencia que pasa por su centro de masa, entonces se pueden también determinar fácilmente los productos de inercia con respecto de cualquier otro sistema de referencia que sea paralelo. En la Figura <a class="reference internal" href="#parallel-axis-theorem-products-of-inertia"><span class="std std-numref">Fig. 97</span></a> se muestra una placa plana, delgada y homogénea, en la cual se tienen dos sistemas referencia, teniendo uno de estos su origen en el centro de masa del cuerpo rígido. De la Figura se puede observar que tanto <span class="math notranslate nohighlight">\(I_{xz}\)</span> como <span class="math notranslate nohighlight">\( I_{yz} \)</span> son cero, debido a que al plano <span class="math notranslate nohighlight">\(xy\)</span> es un plano de simetría.</p>
 <figure class="align-center" id="parallel-axis-theorem-products-of-inertia">
@@ -2533,17 +2537,21 @@ B_2 &amp; D_2 &amp; 0 \\
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dinamica-de-cuerpo-rigidos">Dinámica de cuerpo rígidos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-newton-euler">Ecuaciones de Newton-Euler.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-euler-lagrange">Ecuaciones de Euler-Lagrange</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-cinetica-de-un-cuerpo-rigido">Energía cinética de un cuerpo rígido</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#energia-potencial-de-un-cuerpo-rigido">Energía potencial de un cuerpo rígido</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa">Centro de masa</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#centro-de-masa-de-cuerpos-compuestos">Centro de masa de cuerpos compuestos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-masa">Momento de inercia de masa</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-masa">Momento de inercia de masa</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-los-ejes-paralelos">Teorema de los ejes paralelos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#momento-de-inercia-de-solidos-compuestos">Momento de inercia de sólidos compuestos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia">Productos de inercia</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia">Productos de inercia</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-los-planos-paralelos">Teorema de los planos paralelos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productos-de-inercia-de-cuerpos-compuestos">Productos de inercia de cuerpos compuestos</a></li>
 </ul>

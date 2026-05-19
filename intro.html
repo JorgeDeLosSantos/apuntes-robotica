@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Una introducción a los manipuladores seriales" href="introrob.html" />
+    <link rel="next" title="1. Una introducción a los manipuladores seriales" href="introrob.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,16 +185,16 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">1. Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htra.html">2. Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">3. Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">4. Cinemática inversa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">6. Cinemática diferencial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">7. Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">8. Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">9. Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">10. Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -373,7 +373,7 @@ document.write(`
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido que podría estar incompleto e inconexo. <strong>Fecha de última actualización: 12/02/2026</strong></p>
+<p>Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido, ya que podría estar incompleto o inconexo. <strong>Fecha de última actualización: 14/05/2026</strong></p>
 </div>
 <p>Estos apuntes se han elaborado con la finalidad de servir como una referencia rápida para los alumnos de los cursos de Cinemática de Robots y Dinámica de Robots de la Universidad Politécnica de Guanajuato, para sumar a su formación conocimientos sólidos en materia del análisis de manipuladores seriales.</p>
 <p>La idea de este texto es proporcionar contenido que sea <em>digerible</em> para el alumno, incluyendo ejemplos, ejercicios, ejercicios para resolver con la computadora, videos, animaciones, entre otros recursos, que le ayuden a asimilar los temas correspondientes de una mejor manera.</p>
@@ -392,18 +392,18 @@ document.write(`
 </ul>
 <p>La siguiente lista describe algunas abreviaturas y notaciones reducidas, sobre todo para funciones trigonométricas que aparecerán de forma muy frecuente en los análisis de cinemática de manipuladores:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\( c_m = \cos \theta_m = \cos q_m \)</span>, sí <span class="math notranslate nohighlight">\(m\)</span> es un valor numérico, en caso contrario: <span class="math notranslate nohighlight">\( c_m = \cos m \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( s_m = \sin \theta_m = \sin q_m \)</span>, sí <span class="math notranslate nohighlight">\(m\)</span> es un valor numérico, en caso contrario: <span class="math notranslate nohighlight">\( s_m = \sin m \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( c_m = \cos \theta_m = \cos q_m \)</span>, si <span class="math notranslate nohighlight">\(m\)</span> es un valor numérico, en caso contrario: <span class="math notranslate nohighlight">\( c_m = \cos m \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( s_m = \sin \theta_m = \sin q_m \)</span>, si <span class="math notranslate nohighlight">\(m\)</span> es un valor numérico, en caso contrario: <span class="math notranslate nohighlight">\( s_m = \sin m \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( c\theta_m = \cos\theta_m \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( cq_m = \cos q_m \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( c(\theta_m + \theta_n) = \cos\left( \theta_m + \theta_n \right) \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( c(q_m + q_n) = \cos\left( q_m + q_n\right) \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( c_{mn} = \cos(\theta_m + \theta_n) = \cos(q_m + q_n) \)</span>, sí <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son valores numéricos, en caso contrario: <span class="math notranslate nohighlight">\( c_{mn} = \cos(m + n) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( c_{mn} = \cos(\theta_m + \theta_n) = \cos(q_m + q_n) \)</span>, si <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son valores numéricos, en caso contrario: <span class="math notranslate nohighlight">\( c_{mn} = \cos(m + n) \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( s\theta_m = \sin\theta_m \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( sq_m = \sin q_m \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( s(\theta_m + \theta_n) = \sin\left( \theta_m + \theta_n \right) \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( s(q_m + q_n) = \sin\left( q_m + q_n\right) \)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\( s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) \)</span>, sí <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son valores numéricos, en caso contrario: <span class="math notranslate nohighlight">\( s_{mn} = \sin(m + n) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) \)</span>, si <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son valores numéricos, en caso contrario: <span class="math notranslate nohighlight">\( s_{mn} = \sin(m + n) \)</span></p></li>
 </ul>
 <p><em>Pedro Jorge De Los Santos</em></p>
 </section>
@@ -446,7 +446,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Una introducción a los manipuladores seriales</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Una introducción a los manipuladores seriales</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

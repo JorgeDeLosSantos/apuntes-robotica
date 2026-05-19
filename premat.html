@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Preliminares matemáticos &#8212; Cinemática y dinámica de robots</title>
+    <title>9. Preliminares matemáticos &#8212; Cinemática y dinámica de robots</title>
   
   
   
@@ -64,8 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'premat';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Métodos numéricos para resolver ecuaciones diferenciales" href="numed.html" />
-    <link rel="prev" title="Generación de trayectorias" href="gentra.html" />
+    <link rel="next" title="10. Métodos numéricos para resolver ecuaciones diferenciales" href="numed.html" />
+    <link rel="prev" title="8. Generación de trayectorias" href="gentra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,16 +184,16 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">1. Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htra.html">2. Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">3. Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">4. Cinemática inversa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Preliminares matemáticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">6. Cinemática diferencial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">7. Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">8. Generación de trayectorias</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">10. Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -342,34 +342,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">Suma de matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">Multiplicación por un escalar</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">Transpuesta de una matriz</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">Matrices antisimétricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">9.1. Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">9.1.1. Suma de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">9.1.2. Multiplicación por un escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">9.1.3. Multiplicación de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">9.1.4. Transpuesta de una matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">9.1.5. Matrices antisimétricas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">Vectores</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">Producto punto</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">Producto vectorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">Ángulo entre dos vectores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">Proyección escalar y vectorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">9.2. Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">9.2.1. Producto punto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">9.2.2. Producto vectorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">9.2.3. Ángulo entre dos vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">9.2.4. Proyección escalar y vectorial</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">Trigonometría</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">Relaciones en un triángulo rectángulo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">Ley de senos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">Ley de cosenos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">9.3. Trigonometría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">9.3.1. Relaciones en un triángulo rectángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">9.3.2. Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">9.3.2.1. Ley de senos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">9.3.2.2. Ley de cosenos</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">Algunas identidades trigonométricas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">9.3.3. Algunas identidades trigonométricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">9.3.4. La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">Derivadas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">Algunas fórmulas de derivadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">9.4. Derivadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">9.4.1. Algunas fórmulas de derivadas</a></li>
 </ul>
 </li>
 </ul>
@@ -384,7 +384,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="preliminares-matematicos">
-<h1>Preliminares matemáticos<a class="headerlink" href="#preliminares-matematicos" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Preliminares matemáticos<a class="headerlink" href="#preliminares-matematicos" title="Link to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
 \[
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
@@ -392,10 +392,10 @@ document.write(`
 \]</div>
 <p>En esta sección se hará un brevísimo repaso de algunos tópicos de matemáticas universitarias de importancia para el seguimiento del curso de Cinemática de Robots. Evidentemente, lo aquí descrito es una revisión muy rápida de dichos conceptos, si requiere información más detallada o específica al respecto, puede consultar en las referencias colocadas al pie de página. <a class="footnote-reference brackets" href="#mathbooks1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#mathbooks2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#mathbooks3" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <section id="matrices">
-<h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>Una matriz es un arreglo rectangular bidimensional de números (o elementos) escritos entre corchetes. Cada número de la matriz se conoce como <em>elemento</em> o <em>entrada</em> de la matriz. Los elementos de una matriz están dispuestos en filas y columnas, se denota como una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span> (léase <em>m por n</em>) a aquella que se compone de <span class="math notranslate nohighlight">\(m\)</span> filas y <span class="math notranslate nohighlight">\(n\)</span> columnas. Usualmente para nombrar las matrices se utilizarán letras mayúsculas, por ejemplo sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de <span class="math notranslate nohighlight">\(m \times n\)</span>, de manera general puede escribirse como:</p>
 <div class="math notranslate nohighlight" id="equation-gral-matrix">
-<span class="eqno">(81)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-gral-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -404,7 +404,7 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 \end{bmatrix}
 \end{split}\]</div>
 <section id="suma-de-matrices">
-<h3>Suma de matrices<a class="headerlink" href="#suma-de-matrices" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Suma de matrices<a class="headerlink" href="#suma-de-matrices" title="Link to this heading">#</a></h3>
 <p>La suma matricial está definida para matrices del mismo tamaño y se obtiene sumando los elementos correspondientes. Por ejemplo, sean <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> dos matrices de <span class="math notranslate nohighlight">\(2 \times 2\)</span> dadas por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} A = \begin{bmatrix}
@@ -427,7 +427,7 @@ a_{21} + b_{21} &amp; a_{22} + b_{22}
 \end{split}\]</div>
 </section>
 <section id="multiplicacion-por-un-escalar">
-<h3>Multiplicación por un escalar<a class="headerlink" href="#multiplicacion-por-un-escalar" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Multiplicación por un escalar<a class="headerlink" href="#multiplicacion-por-un-escalar" title="Link to this heading">#</a></h3>
 <p>Cuando una matriz se multiplica por un escalar, cada elemento de la matriz se múltiplica por dicho escalar. Sea <span class="math notranslate nohighlight">\(A\)</span> la matriz de <span class="math notranslate nohighlight">\(2\times 2\)</span> descrita con anterioridad y <span class="math notranslate nohighlight">\(k\)</span> un escalar, entonces:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -438,7 +438,7 @@ k a_{21} &amp; k a_{22}
 \end{split}\]</div>
 </section>
 <section id="multiplicacion-de-matrices">
-<h3>Multiplicación de matrices<a class="headerlink" href="#multiplicacion-de-matrices" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.3. </span>Multiplicación de matrices<a class="headerlink" href="#multiplicacion-de-matrices" title="Link to this heading">#</a></h3>
 <p>Para que la multiplicación de matrices pueda efectuarse se debe cumplir que la matriz que premultiplica debe tener tantas columnas como filas tenga la que postmultiplica. En terminos más  \textit{amables}, sea <span class="math notranslate nohighlight">\(A\)</span> una matriz de dimensiones <span class="math notranslate nohighlight">\(m \times n\)</span> y <span class="math notranslate nohighlight">\(B\)</span> una matriz de <span class="math notranslate nohighlight">\( p \times q \)</span>, para poder multiplicarlas necesariamente se debe cumplir que <span class="math notranslate nohighlight">\( n = p \)</span>, además, la matriz resultante tendrá un tamaño dado por <span class="math notranslate nohighlight">\( m \times q \)</span>.</p>
 <p>Sean <span class="math notranslate nohighlight">\( A \)</span> y <span class="math notranslate nohighlight">\( B \)</span> dos matrices tal que puede efectuarse el producto <span class="math notranslate nohighlight">\(AB\)</span> y sea <span class="math notranslate nohighlight">\(C\)</span> la matriz que resulta de efectuar dicho producto, es decir:</p>
 <div class="math notranslate nohighlight">
@@ -474,10 +474,10 @@ y <span class="math notranslate nohighlight">\( C \in \mathbb{R}^{n\times r} \)<
 </ul>
 </section>
 <section id="transpuesta-de-una-matriz">
-<h3>Transpuesta de una matriz<a class="headerlink" href="#transpuesta-de-una-matriz" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.4. </span>Transpuesta de una matriz<a class="headerlink" href="#transpuesta-de-una-matriz" title="Link to this heading">#</a></h3>
 <p>La transpuesta de una matriz <span class="math notranslate nohighlight">\(A\)</span> de <span class="math notranslate nohighlight">\(m \times n\)</span> se denota como <span class="math notranslate nohighlight">\(A^T\)</span> y es una matriz de <span class="math notranslate nohighlight">\(n \times m\)</span> que tiene la primera fila de <span class="math notranslate nohighlight">\(A\)</span> como su primera columna, la segunda fila de <span class="math notranslate nohighlight">\(A\)</span> como su segunda columna y así de manera sucesiva. Por tanto la transpuesta de la matriz <span class="math notranslate nohighlight">\(A\)</span> dada en la ecuación <span class="xref std std-ref">gral_matrix</span> será:</p>
 <div class="math notranslate nohighlight" id="equation-transpose-matrix">
-<span class="eqno">(82)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-transpose-matrix" title="Link to this equation">#</a></span>\[\begin{split}
 A^T = \begin{bmatrix}
 a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1} \\
 a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
@@ -487,7 +487,7 @@ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn}
 \end{split}\]</div>
 </section>
 <section id="matrices-antisimetricas">
-<h3>Matrices antisimétricas<a class="headerlink" href="#matrices-antisimetricas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.5. </span>Matrices antisimétricas<a class="headerlink" href="#matrices-antisimetricas" title="Link to this heading">#</a></h3>
 <p>Se dice que una matriz <span class="math notranslate nohighlight">\(S\)</span> es antisimétrica si y sólo si:</p>
 <div class="math notranslate nohighlight">
 \[ S^T + S = 0 \]</div>
@@ -517,14 +517,14 @@ a_3  &amp; 0    &amp; -a_1 \\
 <p>Para cualesquiera vectores <span class="math notranslate nohighlight">\(\vec{a}\)</span> y <span class="math notranslate nohighlight">\(\vec{b}\)</span> en <span class="math notranslate nohighlight">\( \mathbb{R}^3 \)</span>, y escalares <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <p>Sea <span class="math notranslate nohighlight">\(R\)</span> una matriz ortogonal, y <span class="math notranslate nohighlight">\(\vec{a}\)</span> un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, se puede verificar que:</p>
 <div class="math notranslate nohighlight" id="equation-similarity-transformation-skew-symmetric-matrix">
-<span class="eqno">(83)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
+<span class="eqno">(9.3)<a class="headerlink" href="#equation-similarity-transformation-skew-symmetric-matrix" title="Link to this equation">#</a></span>\[
 R S(\vec{a}) R^T = S(R\vec{a})
 \]</div>
 <p>El lado izquierdo de esta ecuación representa una transformación de similitud de la matriz <span class="math notranslate nohighlight">\(S(\vec{a})\)</span>. Esta ecuación establece que la representación matricial de <span class="math notranslate nohighlight">\( S(\vec{a}) \)</span> en un sistema de referencia rotado por <span class="math notranslate nohighlight">\(R\)</span> es la mismo que la matriz antisimétrica <span class="math notranslate nohighlight">\( S(R\vec{a}) \)</span> correspondiente al vector <span class="math notranslate nohighlight">\(\vec{a}\)</span> rotado por <span class="math notranslate nohighlight">\(R\)</span>.</p>
 </section>
 </section>
 <section id="vectores">
-<h2>Vectores<a class="headerlink" href="#vectores" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Vectores<a class="headerlink" href="#vectores" title="Link to this heading">#</a></h2>
 <p>Un vector es una matriz que tiene una sola fila (vector fila) o columna (vector columna), en ambos casos a sus elementos se les conoce como componentes. En este texto usualmente se hará referencia a vectores columnas y de manera indistinta se denotarán como:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \vec{a} = \begin{bmatrix}
@@ -536,13 +536,13 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 \end{bmatrix}^T
 \end{split}\]</div>
 <section id="producto-punto">
-<h3>Producto punto<a class="headerlink" href="#producto-punto" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>Producto punto<a class="headerlink" href="#producto-punto" title="Link to this heading">#</a></h3>
 <p>El producto punto o producto escalar está definido para dos vectores del mismo tamaño y da como resultado un escalar. Sean <span class="math notranslate nohighlight">\( \vec{u} = \left[ u_1 \, u_2 \, u_3 \right]^T \)</span> y <span class="math notranslate nohighlight">\( \vec{v} = \left[  v_1 \, v_2 \, v_3 \right]^T \)</span> dos vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, el producto escalar se calcula como:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3  \]</div>
 </section>
 <section id="producto-vectorial">
-<h3>Producto vectorial<a class="headerlink" href="#producto-vectorial" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>Producto vectorial<a class="headerlink" href="#producto-vectorial" title="Link to this heading">#</a></h3>
 <p>El producto vectorial o producto cruz de dos vectores es una operación definida para vectores en un espacio tridimensional y del cual resulta un vector perpendicular a ambos involucrados. Sean <span class="math notranslate nohighlight">\( \vec{u} = \left[ u_1 \, u_2 \, u_3 \right]^T \)</span> y <span class="math notranslate nohighlight">\( \vec{v} = \left[ v_1 \, v_2 \, v_3 \right]^T \)</span> dos vectores en <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, entonces el producto vectorial está dado por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -553,7 +553,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 \end{split}\]</div>
 </section>
 <section id="angulo-entre-dos-vectores">
-<h3>Ángulo entre dos vectores<a class="headerlink" href="#angulo-entre-dos-vectores" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.3. </span>Ángulo entre dos vectores<a class="headerlink" href="#angulo-entre-dos-vectores" title="Link to this heading">#</a></h3>
 <p>El ángulo entre dos vectores se puede calcular a partir de la definición del producto escalar. Se sabe que:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{u}\cdot\vec{v} = uv \cos \theta \]</div>
@@ -562,7 +562,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 \[ \theta = \cos^{-1} \left( \frac{ \vec{u}\cdot\vec{v} }{uv} \right) \]</div>
 </section>
 <section id="proyeccion-escalar-y-vectorial">
-<h3>Proyección escalar y vectorial<a class="headerlink" href="#proyeccion-escalar-y-vectorial" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.2.4. </span>Proyección escalar y vectorial<a class="headerlink" href="#proyeccion-escalar-y-vectorial" title="Link to this heading">#</a></h3>
 <p>La proyección escalar de un vector <span class="math notranslate nohighlight">\(\vec{u}\)</span> sobre un vector <span class="math notranslate nohighlight">\( \vec{v} \)</span> está dada por:</p>
 <div class="math notranslate nohighlight">
 \[ u_v = \vec{u} \cdot \vecuni{v} \]</div>
@@ -585,9 +585,9 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 </section>
 </section>
 <section id="trigonometria">
-<h2>Trigonometría<a class="headerlink" href="#trigonometria" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Trigonometría<a class="headerlink" href="#trigonometria" title="Link to this heading">#</a></h2>
 <section id="relaciones-en-un-triangulo-rectangulo">
-<h3>Relaciones en un triángulo rectángulo<a class="headerlink" href="#relaciones-en-un-triangulo-rectangulo" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.1. </span>Relaciones en un triángulo rectángulo<a class="headerlink" href="#relaciones-en-un-triangulo-rectangulo" title="Link to this heading">#</a></h3>
 <p>El triángulo rectángulo es un tipo especial de triángulo que tiene un ángulo recto, es decir, un ángulo de 90°. Los otros dos ángulos agudos suman 90° también. La propiedad más distintiva de un triángulo rectángulo es que satisface el teorema de Pitágoras:</p>
 <div class="math notranslate nohighlight">
 \[ c^2 = a^2 + b^2 \]</div>
@@ -602,22 +602,22 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/triangulo_rectangulo.svg"><img alt="_images/triangulo_rectangulo.svg" src="_images/triangulo_rectangulo.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 117 </span><span class="caption-text">Triángulo rectángulo</span><a class="headerlink" href="#triangulo-rectangulo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Triángulo rectángulo</span><a class="headerlink" href="#triangulo-rectangulo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="relaciones-en-un-triangulo-oblicuangulo">
-<h3>Relaciones en un triángulo oblicuángulo<a class="headerlink" href="#relaciones-en-un-triangulo-oblicuangulo" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.2. </span>Relaciones en un triángulo oblicuángulo<a class="headerlink" href="#relaciones-en-un-triangulo-oblicuangulo" title="Link to this heading">#</a></h3>
 <p>Un triángulo oblicuángulo es aquel en el cual ninguno de sus ángulos es recto. Para resolver un triángulo de este tipo, se pueden utilizar la ley de senos o la ley de cosenos, dependiendo de la información que se tenga disponible.</p>
 <section id="ley-de-senos">
-<h4>Ley de senos<a class="headerlink" href="#ley-de-senos" title="Link to this heading">#</a></h4>
-<p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 118</span></a> se cumple que:</p>
+<h4><span class="section-number">9.3.2.1. </span>Ley de senos<a class="headerlink" href="#ley-de-senos" title="Link to this heading">#</a></h4>
+<p>Para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 9.2</span></a> se cumple que:</p>
 <div class="math notranslate nohighlight" id="equation-ley-de-senos">
-<span class="eqno">(84)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
+<span class="eqno">(9.4)<a class="headerlink" href="#equation-ley-de-senos" title="Link to this equation">#</a></span>\[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c}
 \]</div>
 <p>Esta expresión se conoce como la <strong>ley de senos</strong>. La ley de senos se puede enunciar de forma general como: <em>en cualquier triángulo, la razón entre el seno de un ángulo y el lado opuesto a ese ángulo es igual a la razón entre el seno de otro ángulo y el lado opuesto a ese ángulo.</em></p>
-<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(84)</a> se pueden obtener tres fórmulas:</p>
+<p>Es sencillo notar que de la ecuación <a class="reference internal" href="#equation-ley-de-senos">(9.4)</a> se pueden obtener tres fórmulas:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\sin\alpha}{a} = \frac{\sin\beta}{b}  \qquad ; \qquad
@@ -633,18 +633,18 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/triangulo.svg"><img alt="_images/triangulo.svg" src="_images/triangulo.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 118 </span><span class="caption-text">Triángulo oblicuángulo</span><a class="headerlink" href="#triangulo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Triángulo oblicuángulo</span><a class="headerlink" href="#triangulo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="ley-de-cosenos">
-<h4>Ley de cosenos<a class="headerlink" href="#ley-de-cosenos" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.3.2.2. </span>Ley de cosenos<a class="headerlink" href="#ley-de-cosenos" title="Link to this heading">#</a></h4>
 <p>La ley de senos no se puede utilizar para resolver un triángulo oblicuángulo en los siguientes casos:</p>
 <ul class="simple">
 <li><p>Se conocen dos lados y el ángulo entre ellos.</p></li>
 <li><p>Se conocen los tres lados.</p></li>
 </ul>
-<p>En estas situaciones podemos hacer uso de la <strong>ley de cosenos</strong>, la cual establece que para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 118</span></a> se cumplen las siguientes tres relaciones:</p>
+<p>En estas situaciones podemos hacer uso de la <strong>ley de cosenos</strong>, la cual establece que para un triángulo oblicuángulo como el mostrado en la Figura <a class="reference internal" href="#triangulo"><span class="std std-numref">Fig. 9.2</span></a> se cumplen las siguientes tres relaciones:</p>
 <div class="math notranslate nohighlight">
 \[ a^2 = b^2 + c^2 - 2bc \cos\alpha \]</div>
 <div class="math notranslate nohighlight">
@@ -655,7 +655,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 </section>
 </section>
 <section id="algunas-identidades-trigonometricas">
-<h3>Algunas identidades trigonométricas<a class="headerlink" href="#algunas-identidades-trigonometricas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.3. </span>Algunas identidades trigonométricas<a class="headerlink" href="#algunas-identidades-trigonometricas" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[ \sin(-\theta) = -\sin\theta \]</div>
 <div class="math notranslate nohighlight">
@@ -674,7 +674,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 \[ \cos(x \pm y) = \cos x \cos y \mp \sin x \sin y \]</div>
 </section>
 <section id="la-funcion-arcotangente-de-dos-argumentos-text-arctan2">
-<h3>La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span><a class="headerlink" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.3.4. </span>La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span><a class="headerlink" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2" title="Link to this heading">#</a></h3>
 <p>La función arcotangente (<span class="math notranslate nohighlight">\(\arctan\)</span>) nos permite calcular de forma adecuada un ángulo en el rango (-90°, 90°), es decir, aquellos que corresponden al primer y cuarto cuadrante del plano cartesiano. Sin embargo, cuando el ángulo que queremos calcular corresponde al segundo o tercer cuadrante, la función <span class="math notranslate nohighlight">\(\arctan\)</span> no puede manejarlo de forma apropiada. Por ejemplo, vamos a suponer que queremos calcular la dirección <span class="math notranslate nohighlight">\(\theta\)</span> del vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> mostrado en la Figura <a class="reference internal" href="#arctan2"><span class="std std-ref">.</span></a>, utilizando la función arctangente tendríamos que:</p>
 <div class="math notranslate nohighlight">
 \[ \theta = \arctan\left( \frac{1}{-1} \right) = \arctan\left(-1\right) = -45° \]</div>
@@ -682,7 +682,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/arctan2.svg"><img alt="_images/arctan2.svg" src="_images/arctan2.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 119 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9.3 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Es evidente que el resultado anterior nos da un ángulo ubicado en el cuarto cuadrante, lo cual no corresponde con lo observado en la figura. Como se había mencionado, la función arcotangente ordinaria no puede manejar adecuadamente resultados cuando <span class="math notranslate nohighlight">\( x &lt; 0 \)</span>, puesto que al recibir un argumento único no tiene manera de saber si el signo negativo corresponde a la componente <span class="math notranslate nohighlight">\(y\)</span> o a la de <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -713,7 +713,7 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 <a class="reference internal image-reference" href="_images/arctan2_2.svg"><img alt="_images/arctan2_2.svg" src="_images/arctan2_2.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 120 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2-2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9.4 </span><span class="caption-text">.</span><a class="headerlink" href="#arctan2-2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Tomando en cuenta lo anterior, una definición un poco más completa para la función arcotangente de dos argumentos incluye estos dos casos particulares:</p>
@@ -754,21 +754,21 @@ a_1 &amp; a_2 &amp; \cdots &amp; a_n
 </section>
 </section>
 <section id="derivadas">
-<h2>Derivadas<a class="headerlink" href="#derivadas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Derivadas<a class="headerlink" href="#derivadas" title="Link to this heading">#</a></h2>
 <p>El problema de encontrar la recta tangente a una curva y el problema de encontrar la velocidad de un objeto implican encontrar el mismo tipo de límite. Este tipo especial de límite se denomina <em>derivada</em> y se puede interpretar como una razón de cambio en muchas aplicaciones de ingeniería \cite{stewart}. En una gran parte de este texto utilizaremos derivadas para describir la cinemática de manipuladores, de manera específica para calcular las velocidades y aceleraciones a partir de la información de posición.</p>
 <p>De manera general, la derivada de una función <span class="math notranslate nohighlight">\(f\)</span> en un número <span class="math notranslate nohighlight">\(a\)</span>, denotada por <span class="math notranslate nohighlight">\(f'(a)\)</span>, es:</p>
 <div class="math notranslate nohighlight" id="equation-derivada-cte">
-<span class="eqno">(85)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(9.5)<a class="headerlink" href="#equation-derivada-cte" title="Link to this equation">#</a></span>\[ 
 f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} 
 \]</div>
-<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(85)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
+<p>Si este límite existe. Ahora, si en lugar de considerar un número <span class="math notranslate nohighlight">\(a\)</span> en la ecuación <a class="reference internal" href="#equation-derivada-cte">(9.5)</a>, utilizamos una variable <span class="math notranslate nohighlight">\(t\)</span>, tendremos que:</p>
 <div class="math notranslate nohighlight">
 \[
 f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} 
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\( f'(t) \)</span> es una nueva función llamada <strong>derivada de <span class="math notranslate nohighlight">\(f\)</span></strong>, la cual geométricamente se puede interpretar como la pendiente de la recta tangente a la gráfica de <span class="math notranslate nohighlight">\(f\)</span> en el punto <span class="math notranslate nohighlight">\((t, f(t))\)</span>.</p>
 <section id="algunas-formulas-de-derivadas">
-<h3>Algunas fórmulas de derivadas<a class="headerlink" href="#algunas-formulas-de-derivadas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>Algunas fórmulas de derivadas<a class="headerlink" href="#algunas-formulas-de-derivadas" title="Link to this heading">#</a></h3>
 <p>A continuación, se listan algunas fórmulas de derivadas que serán utilizadas de forma recurrente a lo largo de algunos capítulos de este texto. En general, dado que estaremos trabajando con la descripción de cinemática y dinámica de cuerpos rígidos, se considerará que la variable independiente es el tiempo <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>En lo subsiguiente se utilizará la <em>notación de Newton</em> para las derivadas, de tal manera que, suponiendo que se tiene una <span class="math notranslate nohighlight">\(x(t)\)</span>, entonces:</p>
 <div class="math notranslate nohighlight">
@@ -859,7 +859,7 @@ f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Generación de trayectorias</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Generación de trayectorias</p>
       </div>
     </a>
     <a class="right-next"
@@ -867,7 +867,7 @@ f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Métodos numéricos para resolver ecuaciones diferenciales</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Métodos numéricos para resolver ecuaciones diferenciales</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -887,34 +887,34 @@ f'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">Suma de matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">Multiplicación por un escalar</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">Multiplicación de matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">Transpuesta de una matriz</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">Matrices antisimétricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">9.1. Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suma-de-matrices">9.1.1. Suma de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">9.1.2. Multiplicación por un escalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-matrices">9.1.3. Multiplicación de matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpuesta-de-una-matriz">9.1.4. Transpuesta de una matriz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-antisimetricas">9.1.5. Matrices antisimétricas</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">Vectores</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">Producto punto</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">Producto vectorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">Ángulo entre dos vectores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">Proyección escalar y vectorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectores">9.2. Vectores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-punto">9.2.1. Producto punto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#producto-vectorial">9.2.2. Producto vectorial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulo-entre-dos-vectores">9.2.3. Ángulo entre dos vectores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeccion-escalar-y-vectorial">9.2.4. Proyección escalar y vectorial</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">Trigonometría</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">Relaciones en un triángulo rectángulo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">Ley de senos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">Ley de cosenos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometria">9.3. Trigonometría</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-rectangulo">9.3.1. Relaciones en un triángulo rectángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-en-un-triangulo-oblicuangulo">9.3.2. Relaciones en un triángulo oblicuángulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-senos">9.3.2.1. Ley de senos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-cosenos">9.3.2.2. Ley de cosenos</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">Algunas identidades trigonométricas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-identidades-trigonometricas">9.3.3. Algunas identidades trigonométricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-funcion-arcotangente-de-dos-argumentos-text-arctan2">9.3.4. La función arcotangente de dos argumentos <span class="math notranslate nohighlight">\(\text{arctan2}\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">Derivadas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">Algunas fórmulas de derivadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas">9.4. Derivadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-formulas-de-derivadas">9.4.1. Algunas fórmulas de derivadas</a></li>
 </ul>
 </li>
 </ul>

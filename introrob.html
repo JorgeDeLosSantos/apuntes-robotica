@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Una introducción a los manipuladores seriales &#8212; Cinemática y dinámica de robots</title>
+    <title>1. Una introducción a los manipuladores seriales &#8212; Cinemática y dinámica de robots</title>
   
   
   
@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'introrob';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Posición, orientación y transformaciones homogéneas" href="htra.html" />
+    <link rel="next" title="2. Posición, orientación y transformaciones homogéneas" href="htra.html" />
     <link rel="prev" title="Introducción" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,16 +184,16 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Una introducción a los manipuladores seriales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htra.html">2. Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">3. Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">4. Cinemática inversa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">6. Cinemática diferencial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">7. Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">8. Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">9. Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">10. Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -342,9 +342,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">¿Qué es un robot?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica">Clasificación de robots de acuerdo con su estructura mecánica</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunos-datos-sobre-los-robots-industriales">Algunos datos sobre los robots industriales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">1.1. ¿Qué es un robot?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica">1.2. Clasificación de robots de acuerdo con su estructura mecánica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunos-datos-sobre-los-robots-industriales">1.3. Algunos datos sobre los robots industriales</a></li>
 </ul>
             </nav>
         </div>
@@ -357,9 +357,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="una-introduccion-a-los-manipuladores-seriales">
-<h1>Una introducción a los manipuladores seriales<a class="headerlink" href="#una-introduccion-a-los-manipuladores-seriales" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Una introducción a los manipuladores seriales<a class="headerlink" href="#una-introduccion-a-los-manipuladores-seriales" title="Link to this heading">#</a></h1>
 <section id="que-es-un-robot">
-<h2>¿Qué es un robot?<a class="headerlink" href="#que-es-un-robot" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>¿Qué es un robot?<a class="headerlink" href="#que-es-un-robot" title="Link to this heading">#</a></h2>
 <p>Según la norma ISO 8373:2012, un robot es un <em>mecanismo accionado programable en dos o más ejes con cierto grado de autonomía, que se mueve dentro de su entorno para realizar las tareas previstas</em>. Los mecanismos accionados que carecen de la cantidad de ejes programables o que son completamente teleoperados (sin grado de autonomía) pero satisfacen las definiciones de robots industriales o de servicio, se denominan dispositivos robóticos.</p>
 <p>Los robots se pueden clasificar en dos grandes tipos de acuerdo con su aplicación prevista: robots industriales o robots de servicio. Los robots industriales son robots <em>para uso en aplicaciones de automatización industrial</em>, mientras que un robot de servicio <em>realiza tareas útiles para humanos o equipos, excluyendo aplicaciones de automatización industrial.</em></p>
 <p>El tipo de estructura mecánica y/o la composición cinemática de un robot es insuficiente para distinguir los robots industriales de los de servicio. Por lo tanto, según la definición de ISO, la aplicación es un criterio suficiente para distinguir los robots industriales de los de servicio, pero la cinemática no lo es.</p>
@@ -374,7 +374,7 @@ document.write(`
 <p>En este texto usaremos los términos <em>robot</em>, <em>manipulador serial</em> y <em>brazo robótico</em>, de forma intercambiable para referirnos a un robot en el sentido que lo describe la RIA: <em>un robot es un manipulador multifuncional reprogramable diseñado para mover materiales, partes, herramientas o dispositivos especializados a través de movimientos programados para la ejecución de una variedad de tareas.</em></p>
 </section>
 <section id="clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica">
-<h2>Clasificación de robots de acuerdo con su estructura mecánica<a class="headerlink" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Clasificación de robots de acuerdo con su estructura mecánica<a class="headerlink" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica" title="Link to this heading">#</a></h2>
 <p>De acuerdo con la IFR (International Federation of Robotics) los robots se pueden clasificar por su estructura mecánica de la siguiente manera:</p>
 <ul class="simple">
 <li><p>Robot articulado</p></li>
@@ -384,64 +384,64 @@ document.write(`
 <li><p>Robot SCARA</p></li>
 <li><p>Otros</p></li>
 </ul>
-<p>Un <em>robot articulado</em> es aquel cuyas articulaciones son todas revolutas. La mayoría de los manipuladores industriales tienen esta estructura mecánica. Se suele denominar a este robot también como antropomórfico, por la similitud de su estructura con los movimientos del cuerpo humano. En la Figura <a class="reference internal" href="#fanuc-m-710ic"><span class="std std-numref">Fig. 1</span></a> se muestra un robot industrial FANUC M-710iC, el cual es un robot de 6 grados de libertad.</p>
+<p>Un <em>robot articulado</em> es aquel cuyas articulaciones son todas revolutas. La mayoría de los manipuladores industriales tienen esta estructura mecánica. Se suele denominar a este robot también como antropomórfico, por la similitud de su estructura con los movimientos del cuerpo humano. En la Figura <a class="reference internal" href="#fanuc-m-710ic"><span class="std std-numref">Fig. 1.1</span></a> se muestra un robot industrial FANUC M-710iC, el cual es un robot de 6 grados de libertad.</p>
 <figure class="align-center" id="fanuc-m-710ic">
 <a class="reference internal image-reference" href="_images/fanuc-M-710iC.jpg"><img alt="_images/fanuc-M-710iC.jpg" src="_images/fanuc-M-710iC.jpg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Robot industrial FANUC M-710iC. <a class="footnote-reference brackets" href="#fanucm710ic" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#fanuc-m-710ic" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Robot industrial FANUC M-710iC. <a class="footnote-reference brackets" href="#fanucm710ic" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#fanuc-m-710ic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En un <em>robot cartesiano</em> las primeras tres articulaciones son prismáticas. Las variables articulares del manipulador cartesiano son las coordenadas cartesianas del efector final con respecto a la base. En general, la descripción cinemática de este manipulador es la más simple de todos los manipuladores. Los manipuladores cartesianos son útiles para aplicaciones de ensamblaje de mesa y, como robots de pórtico, para la transferencia de material o carga. En la Figura <a class="reference internal" href="#kuka-linear-kr300lp"><span class="std std-numref">Fig. 2</span></a> se puede observar un robot cartesiano KUKA KR 300LP.</p>
+<p>En un <em>robot cartesiano</em> las primeras tres articulaciones son prismáticas. Las variables articulares del manipulador cartesiano son las coordenadas cartesianas del efector final con respecto a la base. En general, la descripción cinemática de este manipulador es la más simple de todos los manipuladores. Los manipuladores cartesianos son útiles para aplicaciones de ensamblaje de mesa y, como robots de pórtico, para la transferencia de material o carga. En la Figura <a class="reference internal" href="#kuka-linear-kr300lp"><span class="std std-numref">Fig. 1.2</span></a> se puede observar un robot cartesiano KUKA KR 300LP.</p>
 <figure class="align-center" id="kuka-linear-kr300lp">
 <a class="reference internal image-reference" href="_images/kuka_linear_KR300LP.png"><img alt="_images/kuka_linear_KR300LP.png" src="_images/kuka_linear_KR300LP.png" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Robot industrial KUKA Linear Robot KR 300LP. <a class="footnote-reference brackets" href="#kuka-kr300lp" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#kuka-linear-kr300lp" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Robot industrial KUKA Linear Robot KR 300LP. <a class="footnote-reference brackets" href="#kuka-kr300lp" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#kuka-linear-kr300lp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Un <em>robot paralelo</em> es aquel en que posee dos o más cadenas cinemáticas que conectan la base (plataforma fija) con el efector final (plataforma móvil). La cinemática de cadena cerrada de los robots paralelos puede dar como resultado una mayor rigidez estructural y, por lo tanto, una mayor precisión que los robots de cadena cinemática abierta. En la Figura <a class="reference internal" href="#abb-irb-360"><span class="std std-numref">Fig. 3</span></a> se puede observar el robot paralelo ABB IRB 360 FlexPicker, el cual de acuerdo con el fabricante es capaz de las aplicaciones de recolección más rápidas y se ha optimizado para aplicaciones de embalaje.</p>
+<p>Un <em>robot paralelo</em> es aquel en que posee dos o más cadenas cinemáticas que conectan la base (plataforma fija) con el efector final (plataforma móvil). La cinemática de cadena cerrada de los robots paralelos puede dar como resultado una mayor rigidez estructural y, por lo tanto, una mayor precisión que los robots de cadena cinemática abierta. En la Figura <a class="reference internal" href="#abb-irb-360"><span class="std std-numref">Fig. 1.3</span></a> se puede observar el robot paralelo ABB IRB 360 FlexPicker, el cual de acuerdo con el fabricante es capaz de las aplicaciones de recolección más rápidas y se ha optimizado para aplicaciones de embalaje.</p>
 <figure class="align-center" id="abb-irb-360">
 <a class="reference internal image-reference" href="_images/abb_irb_360.jpg"><img alt="_images/abb_irb_360.jpg" src="_images/abb_irb_360.jpg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Robot industrial ABB IRB 360 FlexPicker. <a class="footnote-reference brackets" href="#abbirb360" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#abb-irb-360" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Robot industrial ABB IRB 360 FlexPicker. <a class="footnote-reference brackets" href="#abbirb360" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#abb-irb-360" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Un robot SCARA (<em>Selective Compliant Assembly Robot Arm</em>) tiene cuatro grados de libertad, usualmente tiene dos revolutas que sirven para la parte del posicionamiento en un plano, una unión prismática que define altura en dirección vertical y una junta de revoluta que permite orientar el elemento terminal rotando alredededor de la dirección vertical. En la Figura <a class="reference internal" href="#yaskawa-sg400"><span class="std std-numref">Fig. 4</span></a> se muestra un manipulador SCARA Yaskawa SG400.</p>
+<p>Un robot SCARA (<em>Selective Compliant Assembly Robot Arm</em>) tiene cuatro grados de libertad, usualmente tiene dos revolutas que sirven para la parte del posicionamiento en un plano, una unión prismática que define altura en dirección vertical y una junta de revoluta que permite orientar el elemento terminal rotando alredededor de la dirección vertical. En la Figura <a class="reference internal" href="#yaskawa-sg400"><span class="std std-numref">Fig. 1.4</span></a> se muestra un manipulador SCARA Yaskawa SG400.</p>
 <figure class="align-center" id="yaskawa-sg400">
 <a class="reference internal image-reference" href="_images/yaskawa-SG400.jpg"><img alt="_images/yaskawa-SG400.jpg" src="_images/yaskawa-SG400.jpg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Robot industrial SCARA Yaskawa SG400.</span><a class="headerlink" href="#yaskawa-sg400" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Robot industrial SCARA Yaskawa SG400.</span><a class="headerlink" href="#yaskawa-sg400" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="algunos-datos-sobre-los-robots-industriales">
-<h2>Algunos datos sobre los robots industriales<a class="headerlink" href="#algunos-datos-sobre-los-robots-industriales" title="Link to this heading">#</a></h2>
-<p>En esta sección se listan algunos datos reportados en el World Robotics 2021 de la IFR. En 2020, el stock operativo de robots industriales se calcula en <span class="math notranslate nohighlight">\(3,014,879\)</span> unidades (<span class="math notranslate nohighlight">\(+10\%\)</span>). En la Figura <a class="reference internal" href="#operational-stock"><span class="std std-numref">Fig. 5</span></a> puedes observar el crecimiento de robots industriales instalados en fábricas de todo el mundo.</p>
+<h2><span class="section-number">1.3. </span>Algunos datos sobre los robots industriales<a class="headerlink" href="#algunos-datos-sobre-los-robots-industriales" title="Link to this heading">#</a></h2>
+<p>En esta sección se listan algunos datos reportados en el World Robotics 2021 de la IFR. En 2020, el stock operativo de robots industriales se calcula en <span class="math notranslate nohighlight">\(3,014,879\)</span> unidades (<span class="math notranslate nohighlight">\(+10\%\)</span>). En la Figura <a class="reference internal" href="#operational-stock"><span class="std std-numref">Fig. 1.5</span></a> puedes observar el crecimiento de robots industriales instalados en fábricas de todo el mundo.</p>
 <figure class="align-center" id="operational-stock">
 <a class="reference internal image-reference" href="_images/operational_stock.png"><img alt="_images/operational_stock.png" src="_images/operational_stock.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Stock de robots industriales</span><a class="headerlink" href="#operational-stock" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Stock de robots industriales</span><a class="headerlink" href="#operational-stock" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>De acuerdo con la IFR, desde <span class="math notranslate nohighlight">\(2010\)</span>, la demanda de robots industriales ha aumentado considerablemente debido a la tendencia actual hacia la automatización y la continua innovación tecnológica en robótica industrial. En <span class="math notranslate nohighlight">\(2010\)</span>, las inversiones aumentaron e impulsaron las instalaciones de robots hasta <span class="math notranslate nohighlight">\(120,000\)</span> unidades. Para <span class="math notranslate nohighlight">\(2015\)</span>, las instalaciones anuales se habían más que duplicado a casi <span class="math notranslate nohighlight">\(254,000\)</span> unidades. En <span class="math notranslate nohighlight">\(2016\)</span> se superó la marca de las <span class="math notranslate nohighlight">\(300,000\)</span> instalaciones por año y en 2017 las instalaciones aumentaron a casi <span class="math notranslate nohighlight">\(400,000\)</span> unidades. La marca de las <span class="math notranslate nohighlight">\(400,000\)</span> unidades al año se superó por primera vez en 2018. En 2020 se instalaron alrededor de <span class="math notranslate nohighlight">\(384,000\)</span> unidades. En la Figura <a class="reference internal" href="#annual-installations"><span class="std std-numref">Fig. 6</span></a> puedes observar la variación de robots industriales instalados anualmente en todo el mundo.</p>
+<p>De acuerdo con la IFR, desde <span class="math notranslate nohighlight">\(2010\)</span>, la demanda de robots industriales ha aumentado considerablemente debido a la tendencia actual hacia la automatización y la continua innovación tecnológica en robótica industrial. En <span class="math notranslate nohighlight">\(2010\)</span>, las inversiones aumentaron e impulsaron las instalaciones de robots hasta <span class="math notranslate nohighlight">\(120,000\)</span> unidades. Para <span class="math notranslate nohighlight">\(2015\)</span>, las instalaciones anuales se habían más que duplicado a casi <span class="math notranslate nohighlight">\(254,000\)</span> unidades. En <span class="math notranslate nohighlight">\(2016\)</span> se superó la marca de las <span class="math notranslate nohighlight">\(300,000\)</span> instalaciones por año y en 2017 las instalaciones aumentaron a casi <span class="math notranslate nohighlight">\(400,000\)</span> unidades. La marca de las <span class="math notranslate nohighlight">\(400,000\)</span> unidades al año se superó por primera vez en 2018. En 2020 se instalaron alrededor de <span class="math notranslate nohighlight">\(384,000\)</span> unidades. En la Figura <a class="reference internal" href="#annual-installations"><span class="std std-numref">Fig. 1.6</span></a> puedes observar la variación de robots industriales instalados anualmente en todo el mundo.</p>
 <figure class="align-center" id="annual-installations">
 <a class="reference internal image-reference" href="_images/annual_installations.png"><img alt="_images/annual_installations.png" src="_images/annual_installations.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Instalaciones anuales de robots industriales</span><a class="headerlink" href="#annual-installations" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Instalaciones anuales de robots industriales</span><a class="headerlink" href="#annual-installations" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La IFR reporta que Asia es el mercado de robots industriales más grande del mundo. En 2020, se instalaron <span class="math notranslate nohighlight">\(266,452\)</span> unidades, un <span class="math notranslate nohighlight">\(7\%\)</span> más que las <span class="math notranslate nohighlight">\(249,598\)</span> unidades de 2019. Las instalaciones en China crecieron con fuerza (<span class="math notranslate nohighlight">\(168,377\)</span> unidades; <span class="math notranslate nohighlight">\(+20\%\)</span>), mientras que el mercado japonés (<span class="math notranslate nohighlight">\(38,653\)</span> unidades; <span class="math notranslate nohighlight">\(-23\%\)</span>) y el mercado coreano (<span class="math notranslate nohighlight">\(30,506\)</span> unidades; <span class="math notranslate nohighlight">\(-7\%\)</span>) tuvieron ciertas dificultades. Las instalaciones de robots en el segundo mercado más grande, Europa, disminuyeron un 8% a <span class="math notranslate nohighlight">\(67,700\)</span>unidades, por segundo año consecutivo desde un máximo de <span class="math notranslate nohighlight">\(75,560\)</span> unidades en <span class="math notranslate nohighlight">\(2018\)</span>. En el continente Americano, las instalaciones cayeron un <span class="math notranslate nohighlight">\(17\%\)</span> a <span class="math notranslate nohighlight">\(38,736\)</span> unidades en <span class="math notranslate nohighlight">\(2020\)</span>. Al mayor mercado en esta región, Estados Unidos, le ha ido mejor (<span class="math notranslate nohighlight">\(30,787\)</span> unidades; <span class="math notranslate nohighlight">\(-8\%\)</span> en 2020) que los otros mercados importantes de México (<span class="math notranslate nohighlight">\(3,363\)</span> unidades; <span class="math notranslate nohighlight">\(-26\%\)</span>) y Canadá (<span class="math notranslate nohighlight">\(2,566\)</span> unidades; <span class="math notranslate nohighlight">\(-29\%\)</span>).</p>
-<p>En la Figura <a class="reference internal" href="#largest-markets"><span class="std std-numref">Fig. 7</span></a> se pueden observar los quince países con mayor cantidad de robots instalados durante el <span class="math notranslate nohighlight">\(2020\)</span>. México ocupa el décimo primer lugar con las <span class="math notranslate nohighlight">\(3,363\)</span> unidades instaladas.</p>
+<p>En la Figura <a class="reference internal" href="#largest-markets"><span class="std std-numref">Fig. 1.7</span></a> se pueden observar los quince países con mayor cantidad de robots instalados durante el <span class="math notranslate nohighlight">\(2020\)</span>. México ocupa el décimo primer lugar con las <span class="math notranslate nohighlight">\(3,363\)</span> unidades instaladas.</p>
 <figure class="align-center" id="largest-markets">
 <a class="reference internal image-reference" href="_images/largest_markets.png"><img alt="_images/largest_markets.png" src="_images/largest_markets.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Países con mayor cantidad de robots industriales instalados en 2020</span><a class="headerlink" href="#largest-markets" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Países con mayor cantidad de robots industriales instalados en 2020</span><a class="headerlink" href="#largest-markets" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="footnotes docutils" />
@@ -506,7 +506,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Posición, orientación y transformaciones homogéneas</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Posición, orientación y transformaciones homogéneas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -526,9 +526,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">¿Qué es un robot?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica">Clasificación de robots de acuerdo con su estructura mecánica</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunos-datos-sobre-los-robots-industriales">Algunos datos sobre los robots industriales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-robot">1.1. ¿Qué es un robot?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-robots-de-acuerdo-con-su-estructura-mecanica">1.2. Clasificación de robots de acuerdo con su estructura mecánica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunos-datos-sobre-los-robots-industriales">1.3. Algunos datos sobre los robots industriales</a></li>
 </ul>
   </nav></div>
 

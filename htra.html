@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Posición, orientación y transformaciones homogéneas &#8212; Cinemática y dinámica de robots</title>
+    <title>2. Posición, orientación y transformaciones homogéneas &#8212; Cinemática y dinámica de robots</title>
   
   
   
@@ -64,8 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'htra';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cinemática directa" href="fkin.html" />
-    <link rel="prev" title="Una introducción a los manipuladores seriales" href="introrob.html" />
+    <link rel="next" title="3. Cinemática directa" href="fkin.html" />
+    <link rel="prev" title="1. Una introducción a los manipuladores seriales" href="introrob.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,16 +184,16 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Posición, orientación y transformaciones homogéneas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">1. Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">3. Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">4. Cinemática inversa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numed.html">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">6. Cinemática diferencial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">7. Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">8. Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">9. Preliminares matemáticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numed.html">10. Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -342,31 +342,31 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">Representación de la posición</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">Representación de la orientación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">Matrices de rotación</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-propiedades-de-la-matrices-de-rotacion">Algunas propiedades de la matrices de rotación</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-rotacion">Transformaciones de rotación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">2.1. Representación de la posición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">2.2. Representación de la orientación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">2.2.1. Matrices de rotación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-propiedades-de-la-matrices-de-rotacion">2.2.1.1. Algunas propiedades de la matrices de rotación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-rotacion">2.2.1.2. Transformaciones de rotación</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-similitud">Transformaciones de similitud</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-rotaciones">Composición de las rotaciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler">Ángulos de Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zxz">Ángulos de Euler ZXZ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zyz">Ángulos de Euler ZYZ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-roll-pitch-yaw">Ángulos Roll-Pitch-Yaw</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-similitud">2.2.2. Transformaciones de similitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-rotaciones">2.2.3. Composición de las rotaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler">2.2.4. Ángulos de Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zxz">2.2.4.1. Ángulos de Euler ZXZ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zyz">2.2.4.2. Ángulos de Euler ZYZ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-roll-pitch-yaw">2.2.4.3. Ángulos Roll-Pitch-Yaw</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-eje-angulo">Representación eje-ángulo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuaterniones">Cuaterniones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-eje-angulo">2.2.5. Representación eje-ángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuaterniones">2.2.6. Cuaterniones</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogenea">Matrices de transformación homogénea</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogeneas-basicas">Matrices de transformación homogéneas básicas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-matrices-de-transformacion-homogenea">Composición de las matrices de transformación homogénea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogenea">2.3. Matrices de transformación homogénea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogeneas-basicas">2.3.1. Matrices de transformación homogéneas básicas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-matrices-de-transformacion-homogenea">2.3.2. Composición de las matrices de transformación homogénea</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">2.4. Problemas</a></li>
 </ul>
             </nav>
         </div>
@@ -379,7 +379,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="posicion-orientacion-y-transformaciones-homogeneas">
-<h1>Posición, orientación y transformaciones homogéneas<a class="headerlink" href="#posicion-orientacion-y-transformaciones-homogeneas" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Posición, orientación y transformaciones homogéneas<a class="headerlink" href="#posicion-orientacion-y-transformaciones-homogeneas" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(
 \renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\framei}[1]{ \{#1\} }
@@ -393,8 +393,8 @@ document.write(`
 \)</span></p>
 <p>Un manipulador serial es un conjunto de eslabones rígidos unidos mediante pares cinemáticos. En el estudio de la cinemática usualmente lo que haremos es colocar sistemas de referencias adheridos a cada uno de los eslabones y posteriormente encontrar las relaciones entre estos sistemas para poder realizar una descripción de la cinemática del manipulador. Para lograr lo anterior,  necesitamos conocer los conceptos y herramientas matemáticas fundamentales para la representación de la posición y orientación de un cuerpo rígido, y eso es justamente el objetivo de este capítulo.</p>
 <section id="representacion-de-la-posicion">
-<h2>Representación de la posición<a class="headerlink" href="#representacion-de-la-posicion" title="Link to this heading">#</a></h2>
-<p>En mecánica, la posición de un punto se describe en un sistema de referencia mediante vectores de posición. En la Figura <a class="reference internal" href="#rep-pos-01"><span class="std std-numref">Fig. 8</span></a> se muestran dos puntos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span>, cuyas posiciones están dadas por:</p>
+<h2><span class="section-number">2.1. </span>Representación de la posición<a class="headerlink" href="#representacion-de-la-posicion" title="Link to this heading">#</a></h2>
+<p>En mecánica, la posición de un punto se describe en un sistema de referencia mediante vectores de posición. En la Figura <a class="reference internal" href="#rep-pos-01"><span class="std std-numref">Fig. 2.1</span></a> se muestran dos puntos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span>, cuyas posiciones están dadas por:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{r}_P = \colvec{6}{3}{0}  \qquad ; \qquad \vec{r}_Q = \colvec{2}{5}{0}  \]</div>
 <p>Naturalmente ambos vectores están descritos en el sistema de referencia <span class="math notranslate nohighlight">\(xyz\)</span> que se muestra, y dado que únicamente se tiene dicho sistema de referencia, no hay necesidad de especificar con respecto a qué sistema se están midiendo las coordenadas de posición representadas.</p>
@@ -402,55 +402,55 @@ document.write(`
 <a class="reference internal image-reference" href="_images/rep_pos_01.svg"><img alt="_images/rep_pos_01.svg" src="_images/rep_pos_01.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>En la Figura <a class="reference internal" href="#rep-pos-02"><span class="std std-numref">Fig. 9</span></a> se muestra un punto <span class="math notranslate nohighlight">\(P\)</span> y dos sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span> y <span class="math notranslate nohighlight">\(\framei{1}\)</span>. Donde el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> se obtiene mediante operaciones de  traslación a partir de <span class="math notranslate nohighlight">\(\framei{1}\)</span>. La descripción de <span class="math notranslate nohighlight">\(P\)</span> en cada uno de los sistemas de referencia está dada por:</p>
+<p>En la Figura <a class="reference internal" href="#rep-pos-02"><span class="std std-numref">Fig. 2.2</span></a> se muestra un punto <span class="math notranslate nohighlight">\(P\)</span> y dos sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span> y <span class="math notranslate nohighlight">\(\framei{1}\)</span>. Donde el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> se obtiene mediante operaciones de  traslación a partir de <span class="math notranslate nohighlight">\(\framei{1}\)</span>. La descripción de <span class="math notranslate nohighlight">\(P\)</span> en cada uno de los sistemas de referencia está dada por:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{r}_P^0 = \colvec{5}{2}{0} \qquad ; \qquad \vec{r}_P^1 = \colvec{2}{-3}{0}
 \]</div>
-<p>Es más, notará que tal como se muestra en la Figura <a class="reference internal" href="#rep-pos-03"><span class="std std-numref">Fig. 10</span></a> las posiciones descritas en ambos sistemas están relacionadas mediante:</p>
+<p>Es más, notará que tal como se muestra en la Figura <a class="reference internal" href="#rep-pos-03"><span class="std std-numref">Fig. 2.3</span></a> las posiciones descritas en ambos sistemas están relacionadas mediante:</p>
 <div class="math notranslate nohighlight" id="equation-rep-pos">
-<span class="eqno">(1)<a class="headerlink" href="#equation-rep-pos" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-rep-pos" title="Link to this equation">#</a></span>\[
 \vec{r}_P^{0} = \vec{r}_{o_1}^0 + \vec{r}_P^{1}
 \]</div>
-<p>Donde <span class="math notranslate nohighlight">\( \vec{r}_{o_1}^0 \)</span> describe la posición del origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span>. Se debe tener cuidado con la ecuación <a class="reference internal" href="#equation-rep-pos">(1)</a>, puesto que únicamente se cumple cuando los dos sistemas de referencia involucrados son paralelos entre sí, en cualquier otra situación una expresión como esa no será válida.</p>
+<p>Donde <span class="math notranslate nohighlight">\( \vec{r}_{o_1}^0 \)</span> describe la posición del origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span>. Se debe tener cuidado con la ecuación <a class="reference internal" href="#equation-rep-pos">(2.1)</a>, puesto que únicamente se cumple cuando los dos sistemas de referencia involucrados son paralelos entre sí, en cualquier otra situación una expresión como esa no será válida.</p>
 <figure class="align-center" id="rep-pos-02">
 <a class="reference internal image-reference" href="_images/rep_pos_02.svg"><img alt="_images/rep_pos_02.svg" src="_images/rep_pos_02.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="rep-pos-03">
 <a class="reference internal image-reference" href="_images/rep_pos_03.svg"><img alt="_images/rep_pos_03.svg" src="_images/rep_pos_03.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-03" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Representación de la posición.</span><a class="headerlink" href="#rep-pos-03" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="representacion-de-la-orientacion">
-<h2>Representación de la orientación<a class="headerlink" href="#representacion-de-la-orientacion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Representación de la orientación<a class="headerlink" href="#representacion-de-la-orientacion" title="Link to this heading">#</a></h2>
 <p>La orientación de un cuerpo rígido en el espacio puede definirse mediante al menos tres parámetros, de su curso de física o estática elemental recordará que habitualmente se hace uso de los cosenos directores para dicha tarea. En cinemática de robots, además de los cosenos directores (agrupados en las matrices de rotación) se hace uso de otros métodos de representación como los ángulos de Euler, los cuaterniones y los pares de rotación.</p>
 <p>Para hacer la descripción de la orientación de un sólido rígido, es necesario adherir un sistema de referencia solidario al mismo, el cual nos servirá para realizar la representación de orientación con respecto a otros sistemas de referencia. Así pues, tome en cuenta que en esta sección estudiaremos relaciones de orientación entre sistemas de referencia, pero no pierda de vista que, en última instancia, los eslabones o cuerpos rígidos subyacen a estos sistemas.</p>
 <section id="matrices-de-rotacion">
-<h3>Matrices de rotación<a class="headerlink" href="#matrices-de-rotacion" title="Link to this heading">#</a></h3>
-<p>En la Figura <a class="reference internal" href="#rep-or-01"><span class="std std-numref">Fig. 11</span></a> se muestra un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> que ha sido obtenido a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span> mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Una manera de representar dicha rotación sería simplemente con el parámetro de rotación <span class="math notranslate nohighlight">\(\theta\)</span>, pero evidentemente esto no escalaría de manera adecuada para un caso de representación tridimensional.</p>
+<h3><span class="section-number">2.2.1. </span>Matrices de rotación<a class="headerlink" href="#matrices-de-rotacion" title="Link to this heading">#</a></h3>
+<p>En la Figura <a class="reference internal" href="#rep-or-01"><span class="std std-numref">Fig. 2.4</span></a> se muestra un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> que ha sido obtenido a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span> mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Una manera de representar dicha rotación sería simplemente con el parámetro de rotación <span class="math notranslate nohighlight">\(\theta\)</span>, pero evidentemente esto no escalaría de manera adecuada para un caso de representación tridimensional.</p>
 <figure class="align-center" id="rep-or-01">
 <a class="reference internal image-reference" href="_images/rep_or_01.svg"><img alt="_images/rep_or_01.svg" src="_images/rep_or_01.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por rotación a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#rep-or-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por rotación a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#rep-or-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Otra opción es decribir las componentes de los ejes del sistema de referencia <span class="math notranslate nohighlight">\( \{1\} \)</span> en el sistema <span class="math notranslate nohighlight">\( \{0\} \)</span>, es decir, <span class="math notranslate nohighlight">\( \vec{x}_1^0 \)</span> y <span class="math notranslate nohighlight">\( \vec{y}_1^0 \)</span>. En el caso particular del ejemplo de la figura <a class="reference internal" href="#rep-or-01"><span class="std std-numref">Fig. 11</span></a> se puede observar que dichos vectores estarán dados por:</p>
+<p>Otra opción es decribir las componentes de los ejes del sistema de referencia <span class="math notranslate nohighlight">\( \{1\} \)</span> en el sistema <span class="math notranslate nohighlight">\( \{0\} \)</span>, es decir, <span class="math notranslate nohighlight">\( \vec{x}_1^0 \)</span> y <span class="math notranslate nohighlight">\( \vec{y}_1^0 \)</span>. En el caso particular del ejemplo de la figura <a class="reference internal" href="#rep-or-01"><span class="std std-numref">Fig. 2.4</span></a> se puede observar que dichos vectores estarán dados por:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{x}_1^0 = \colvec{\cos\theta}{\sin\theta}{}  \qquad ; \qquad  \vec{y}_1^0 = \colvec{-\sin\theta}{\cos\theta}{} \]</div>
 <p>Si estos vectores se acomodan de tal manera que:</p>
 <div class="math notranslate nohighlight" id="equation-rotation-matrix-2x2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-rotation-matrix-2x2" title="Link to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-rotation-matrix-2x2" title="Link to this equation">#</a></span>\[\begin{split} 
 R_1^0 = \begin{bmatrix}
 \vec{x}_1^0 &amp; \vec{y}_1^0
 \end{bmatrix}  = 
@@ -472,7 +472,7 @@ R_1^0 = \begin{bmatrix}
 \colvec{\cos(90°+\theta)}{\cos\theta}{} = \colvec{-\sin\theta}{\cos\theta}{}
 \]</div>
 <p>Recordar que en el caso de vectores unitarios la proyección escalar de un vector sobre el otro resulta simplemente en el coseno del ángulo <span class="math notranslate nohighlight">\(\theta\)</span> que forman entre ellos.</p>
-<p>La descripción de los tres ejes coordenados se puede completar considerando que el eje <span class="math notranslate nohighlight">\(z_1\)</span> permanece invariable, apuntando en la misma dirección que el eje <span class="math notranslate nohighlight">\(z_0\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#basic-rot"><span class="std std-numref">Fig. 12</span></a>. Así, es posible ampliar la matriz de la ecuación <a class="reference internal" href="#equation-rotation-matrix-2x2">(2)</a> considerando ahora las componentes en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, es decir:</p>
+<p>La descripción de los tres ejes coordenados se puede completar considerando que el eje <span class="math notranslate nohighlight">\(z_1\)</span> permanece invariable, apuntando en la misma dirección que el eje <span class="math notranslate nohighlight">\(z_0\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#basic-rot"><span class="std std-numref">Fig. 2.5</span></a>. Así, es posible ampliar la matriz de la ecuación <a class="reference internal" href="#equation-rotation-matrix-2x2">(2.2)</a> considerando ahora las componentes en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, es decir:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 R_1^0 = \begin{bmatrix}
@@ -504,7 +504,7 @@ R_1^0 =
 <a class="reference internal image-reference" href="_images/basic_rot.svg"><img alt="_images/basic_rot.svg" src="_images/basic_rot.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#basic-rot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Un sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> obtenido por una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> a partir de <span class="math notranslate nohighlight">\( \{0\} \)</span></span><a class="headerlink" href="#basic-rot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>De manera general, la matriz de rotación anterior nos permite describir la orientación de un sistema con respecto a otro cuando se ha efectuado una rotación <span class="math notranslate nohighlight">\(\theta\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Se puede proceder de una manera muy similar para obtener las matrices de rotación correspondientes a rotaciones alrededor de los ejes <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(x\)</span>. Las siguientes tres matrices, que denominaremos como matrices de rotación básicas, las utilizaremos para representar las operaciones de rotación con respecto a los tres ejes cartesianos:</p>
@@ -581,14 +581,14 @@ R_0^1 =
 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>Algo que podrá notar con facilidad es que la matriz <span class="math notranslate nohighlight">\(R_0^1\)</span> no es más que la transpuesta de la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span>. De hecho, <span class="math notranslate nohighlight">\(R_0^1\)</span> es la matriz inversa de <span class="math notranslate nohighlight">\(R_1^0\)</span>, pero como veremos posteriormente las matrices de rotación son un tipo especial de matrices que presentan algunas propiedades particulares, como que su inversa es igual a la transpuesta. Veamos un poco más, por ejemplo, refiriéndonos a la Figura <a class="reference internal" href="#basic-rot"><span class="std std-numref">Fig. 12</span></a>, la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span> nos describe cómo ha sido obtenido el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> a partir del sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, es decir, mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> positiva alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Ahora, pensemos en la relación inversa <span class="math notranslate nohighlight">\(R_0^1\)</span>, ¿cómo ha sido obtenido el sistema <span class="math notranslate nohighlight">\(\{0\}\)</span> partir del <span class="math notranslate nohighlight">\(\{1\}\)</span>? La rotación seguiría siendo alrededor del eje <span class="math notranslate nohighlight">\(z\)</span> pero una cantidad <span class="math notranslate nohighlight">\(\theta\)</span> negativa. Podemos verificar que si tomamos la matriz de rotación básica <span class="math notranslate nohighlight">\(R_{z,\theta}\)</span> y sustituimos un ángulo <span class="math notranslate nohighlight">\(-\theta\)</span>, obtendríamos la matriz <span class="math notranslate nohighlight">\(R_0^1\)</span> calculada previamente.</p>
+<p>Algo que podrá notar con facilidad es que la matriz <span class="math notranslate nohighlight">\(R_0^1\)</span> no es más que la transpuesta de la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span>. De hecho, <span class="math notranslate nohighlight">\(R_0^1\)</span> es la matriz inversa de <span class="math notranslate nohighlight">\(R_1^0\)</span>, pero como veremos posteriormente las matrices de rotación son un tipo especial de matrices que presentan algunas propiedades particulares, como que su inversa es igual a la transpuesta. Veamos un poco más, por ejemplo, refiriéndonos a la Figura <a class="reference internal" href="#basic-rot"><span class="std std-numref">Fig. 2.5</span></a>, la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span> nos describe cómo ha sido obtenido el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> a partir del sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, es decir, mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> positiva alrededor del eje <span class="math notranslate nohighlight">\(z\)</span>. Ahora, pensemos en la relación inversa <span class="math notranslate nohighlight">\(R_0^1\)</span>, ¿cómo ha sido obtenido el sistema <span class="math notranslate nohighlight">\(\{0\}\)</span> partir del <span class="math notranslate nohighlight">\(\{1\}\)</span>? La rotación seguiría siendo alrededor del eje <span class="math notranslate nohighlight">\(z\)</span> pero una cantidad <span class="math notranslate nohighlight">\(\theta\)</span> negativa. Podemos verificar que si tomamos la matriz de rotación básica <span class="math notranslate nohighlight">\(R_{z,\theta}\)</span> y sustituimos un ángulo <span class="math notranslate nohighlight">\(-\theta\)</span>, obtendríamos la matriz <span class="math notranslate nohighlight">\(R_0^1\)</span> calculada previamente.</p>
 <p>Este resultado lo podemos generalizar. Sean <span class="math notranslate nohighlight">\(\{M\}\)</span> y <span class="math notranslate nohighlight">\(\{N\}\)</span> dos sistemas de referencia que difieren por una rotación (o secuencia de rotaciones), entonces las matrices de rotación que los describen están relacionadas de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[
 R_N^M = (R_M^N)^{-1} = (R_M^N)^{T}
 \]</div>
 <section id="algunas-propiedades-de-la-matrices-de-rotacion">
-<h4>Algunas propiedades de la matrices de rotación<a class="headerlink" href="#algunas-propiedades-de-la-matrices-de-rotacion" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.2.1.1. </span>Algunas propiedades de la matrices de rotación<a class="headerlink" href="#algunas-propiedades-de-la-matrices-de-rotacion" title="Link to this heading">#</a></h4>
 <p>Se puede verificar que las filas y columnas de una matriz de rotación son unitarias y mutuamente ortogonales, una matriz con estas características se denomina <strong>matriz ortogonal</strong>. Sea <span class="math notranslate nohighlight">\(R\)</span> una matriz de rotación, entonces:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\( R^{-1} = R^T \)</span></p></li>
@@ -657,15 +657,15 @@ det\left(R_{x,\theta}\right) = \cos^2 \theta + \sen^2 \theta = 1
 <p>En el caso de la fila y columna 1 es evidente que son vectores unitarios. Para las filas 2 y 3 se puede observar que tendremos cálculos similares a los mostrados para las columnas.</p>
 </div></section>
 <section id="transformaciones-de-rotacion">
-<h4>Transformaciones de rotación<a class="headerlink" href="#transformaciones-de-rotacion" title="Link to this heading">#</a></h4>
-<p>En la Figura <a class="reference internal" href="#trans-rot-3d"><span class="std std-numref">Fig. 13</span></a> se observa un sólido rígido con forma de prisma rectangular, al cual se le ha adherido un sistema de referencia <span class="math notranslate nohighlight">\( \{1\} \)</span>, además, <span class="math notranslate nohighlight">\( \{1\} \)</span> está rotado un ángulo <span class="math notranslate nohighlight">\(\theta\)</span> alrededor de <span class="math notranslate nohighlight">\(z\)</span> con respecto a un sistema base <span class="math notranslate nohighlight">\( \{0\} \)</span>. Asumiendo que las dimensiones del prisma son <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(c\)</span> en las direcciones de <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(y_1\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span>, respectivamente, entonces las coordenadas del vertice <span class="math notranslate nohighlight">\(P\)</span> descritas en el sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> están dadas por:</p>
+<h4><span class="section-number">2.2.1.2. </span>Transformaciones de rotación<a class="headerlink" href="#transformaciones-de-rotacion" title="Link to this heading">#</a></h4>
+<p>En la Figura <a class="reference internal" href="#trans-rot-3d"><span class="std std-numref">Fig. 2.6</span></a> se observa un sólido rígido con forma de prisma rectangular, al cual se le ha adherido un sistema de referencia <span class="math notranslate nohighlight">\( \{1\} \)</span>, además, <span class="math notranslate nohighlight">\( \{1\} \)</span> está rotado un ángulo <span class="math notranslate nohighlight">\(\theta\)</span> alrededor de <span class="math notranslate nohighlight">\(z\)</span> con respecto a un sistema base <span class="math notranslate nohighlight">\( \{0\} \)</span>. Asumiendo que las dimensiones del prisma son <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(c\)</span> en las direcciones de <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(y_1\)</span> y <span class="math notranslate nohighlight">\(z_1\)</span>, respectivamente, entonces las coordenadas del vertice <span class="math notranslate nohighlight">\(P\)</span> descritas en el sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> están dadas por:</p>
 <div class="math notranslate nohighlight">
 \[ \vec{r}_P^1 = \colvec{a}{b}{c} = a \vec{x}_1 + b \vec{y}_1 + c \vec{z}_1 \]</div>
 <figure class="align-center" id="trans-rot-3d">
 <a class="reference internal image-reference" href="_images/trans_rot_3d.svg"><img alt="_images/trans_rot_3d.svg" src="_images/trans_rot_3d.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Transformaciones de rotación</span><a class="headerlink" href="#trans-rot-3d" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Transformaciones de rotación</span><a class="headerlink" href="#trans-rot-3d" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> en el sistema <span class="math notranslate nohighlight">\( \{0\} \)</span> se pueden obtener mediante la proyección de dicho vector en este sistema, es decir:</p>
@@ -700,7 +700,7 @@ a \vec{x}_1 \cdot \vec{z}_0 + b \vec{y}_1 \cdot \vec{z}_0 + c \vec{z}_1 \cdot \v
 \end{split}\]</div>
 <p>Note que la matriz que multiplica al vector <span class="math notranslate nohighlight">\([a,b,c]^T\)</span> es justamente <span class="math notranslate nohighlight">\( R_1^0 \)</span>, entonces:</p>
 <div class="math notranslate nohighlight" id="equation-comp-rot">
-<span class="eqno">(3)<a class="headerlink" href="#equation-comp-rot" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-comp-rot" title="Link to this equation">#</a></span>\[
 \vec{r}_P^0 = R_1^0 \vec{r}_P^1
 \]</div>
 <p>Lo cual implica que la matriz de rotación <span class="math notranslate nohighlight">\( R_1^0 \)</span> además de describir la orientación del sistema <span class="math notranslate nohighlight">\( \{1\} \)</span> con respecto al sistema <span class="math notranslate nohighlight">\( \{0\} \)</span>, sirve también para realizar transformaciones de coordenadas de un sistema a otro.</p>
@@ -710,7 +710,7 @@ a \vec{x}_1 \cdot \vec{z}_0 + b \vec{y}_1 \cdot \vec{z}_0 + c \vec{z}_1 \cdot \v
 <a class="reference internal image-reference" href="_images/trans_rot_ex01.svg"><img alt="_images/trans_rot_ex01.svg" src="_images/trans_rot_ex01.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">.</span><a class="headerlink" href="#trans-rot-ex01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.7 </span><span class="caption-text">.</span><a class="headerlink" href="#trans-rot-ex01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -726,42 +726,42 @@ a \vec{x}_1 \cdot \vec{z}_0 + b \vec{y}_1 \cdot \vec{z}_0 + c \vec{z}_1 \cdot \v
 </div></section>
 </section>
 <section id="transformaciones-de-similitud">
-<h3>Transformaciones de similitud<a class="headerlink" href="#transformaciones-de-similitud" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2. </span>Transformaciones de similitud<a class="headerlink" href="#transformaciones-de-similitud" title="Link to this heading">#</a></h3>
 <p>Un sistema de referencia está definido por un conjunto de vectores base, por ejemplo, vectores unitarios a lo largo de los tres ejes de coordenadas. Esto significa que una matriz de rotación como transformación de coordenadas también puede considerarse como la definición de un cambio de base de un sistema a otro. La representación matricial de una transformación lineal general se transforma de un sistema a otro mediante la denominada transformación de similitud. Por ejemplo, sea <span class="math notranslate nohighlight">\(A\)</span> la matriz que representa una transformación lineal en el sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, y sea <span class="math notranslate nohighlight">\(B\)</span> la representación matricial de la misma transformación lineal pero en el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span>, entonces <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> están relacionadas de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[ A = R_1^0 B \rbr{R_1^0}^{-1} \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(R_1^0\)</span> es una matriz de transformación de coordenadas entre los sistemas <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{0\}\)</span>. En particular, si <span class="math notranslate nohighlight">\(B\)</span> es una rotación, entonces también lo es <span class="math notranslate nohighlight">\(A\)</span> y, por lo tanto, el uso de transformaciones de similitud nos permite expresar la misma rotación fácilmente con respecto a diferentes sistemas de referencia.</p>
 </section>
 <section id="composicion-de-las-rotaciones">
-<h3>Composición de las rotaciones<a class="headerlink" href="#composicion-de-las-rotaciones" title="Link to this heading">#</a></h3>
-<p>Consideremos que se tienen tres sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span>, <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{2\}\)</span> (ver Figura <a class="reference internal" href="#composition-of-rotations"><span class="std std-numref">Fig. 15</span></a>), y sabiendo que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> ha sido obtenido mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> a partir del sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, y que <span class="math notranslate nohighlight">\(\{2\}\)</span> ha sido obtenido mediante una rotación <span class="math notranslate nohighlight">\(\phi\)</span> a partir de <span class="math notranslate nohighlight">\(\{1\}\)</span>.</p>
+<h3><span class="section-number">2.2.3. </span>Composición de las rotaciones<a class="headerlink" href="#composicion-de-las-rotaciones" title="Link to this heading">#</a></h3>
+<p>Consideremos que se tienen tres sistemas de referencia <span class="math notranslate nohighlight">\(\{0\}\)</span>, <span class="math notranslate nohighlight">\(\{1\}\)</span> y <span class="math notranslate nohighlight">\(\{2\}\)</span> (ver Figura <a class="reference internal" href="#composition-of-rotations"><span class="std std-numref">Fig. 2.8</span></a>), y sabiendo que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> ha sido obtenido mediante una rotación <span class="math notranslate nohighlight">\(\theta\)</span> a partir del sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, y que <span class="math notranslate nohighlight">\(\{2\}\)</span> ha sido obtenido mediante una rotación <span class="math notranslate nohighlight">\(\phi\)</span> a partir de <span class="math notranslate nohighlight">\(\{1\}\)</span>.</p>
 <figure class="align-center" id="composition-of-rotations">
 <a class="reference internal image-reference" href="_images/composition_of_rotations.svg"><img alt="_images/composition_of_rotations.svg" src="_images/composition_of_rotations.svg" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#composition-of-rotations" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#composition-of-rotations" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>De acuerdo con lo que sabemos de transformaciones de coordenadas, se pueden escribir las siguientes expresiones para la posición del punto <span class="math notranslate nohighlight">\(P\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-comp-rot-1">
-<span class="eqno">(4)<a class="headerlink" href="#equation-comp-rot-1" title="Link to this equation">#</a></span>\[ \vec{r}_P^0 = R_1^0 \vec{r}_P^1 \]</div>
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-comp-rot-1" title="Link to this equation">#</a></span>\[ \vec{r}_P^0 = R_1^0 \vec{r}_P^1 \]</div>
 <div class="math notranslate nohighlight" id="equation-comp-rot-2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-comp-rot-2" title="Link to this equation">#</a></span>\[ \vec{r}_P^1 = R_2^1 \vec{r}_P^2 \]</div>
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-comp-rot-2" title="Link to this equation">#</a></span>\[ \vec{r}_P^1 = R_2^1 \vec{r}_P^2 \]</div>
 <div class="math notranslate nohighlight" id="equation-comp-rot-3">
-<span class="eqno">(6)<a class="headerlink" href="#equation-comp-rot-3" title="Link to this equation">#</a></span>\[ \vec{r}_P^0 = R_2^0 \vec{r}_P^2 \]</div>
-<p>Si sustituimos la ecuación <a class="reference internal" href="#equation-comp-rot-2">(5)</a> en <a class="reference internal" href="#equation-comp-rot-1">(4)</a> resulta que:</p>
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-comp-rot-3" title="Link to this equation">#</a></span>\[ \vec{r}_P^0 = R_2^0 \vec{r}_P^2 \]</div>
+<p>Si sustituimos la ecuación <a class="reference internal" href="#equation-comp-rot-2">(2.5)</a> en <a class="reference internal" href="#equation-comp-rot-1">(2.4)</a> resulta que:</p>
 <div class="math notranslate nohighlight" id="equation-comp-rot-4">
-<span class="eqno">(7)<a class="headerlink" href="#equation-comp-rot-4" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-comp-rot-4" title="Link to this equation">#</a></span>\[
 \vec{r}_P^0 = R_1^0 R_2^1 \vec{r}_P^2
 \]</div>
-<p>De las ecuaciones <a class="reference internal" href="#equation-comp-rot-3">(6)</a> y <a class="reference internal" href="#equation-comp-rot-4">(7)</a> es sencillo notar que necesariamente:</p>
+<p>De las ecuaciones <a class="reference internal" href="#equation-comp-rot-3">(2.6)</a> y <a class="reference internal" href="#equation-comp-rot-4">(2.7)</a> es sencillo notar que necesariamente:</p>
 <div class="math notranslate nohighlight" id="equation-comp-rot-5">
-<span class="eqno">(8)<a class="headerlink" href="#equation-comp-rot-5" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-comp-rot-5" title="Link to this equation">#</a></span>\[
 R_2^0 = R_1^0 R_2^1
 \]</div>
-<p>La ecuación <a class="reference internal" href="#equation-comp-rot-5">(8)</a> describe la ley de composición para transformaciones de rotación. Se puede entender de la siguiente manera: si queremos describir las coordenadas del punto <span class="math notranslate nohighlight">\(P\)</span> en el sistema de referencia <span class="math notranslate nohighlight">\(\framei{0}\)</span> a partir de su representación en <span class="math notranslate nohighlight">\(\framei{2}\)</span>, entonces primero podemos describirlo en el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> utilizando la matriz <span class="math notranslate nohighlight">\(R_2^1\)</span> y luego transformarlo al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span> utilizando la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span>.</p>
-<p>Note que la segunda rotación de la Figura <a class="reference internal" href="#composition-of-rotations"><span class="std std-numref">Fig. 15</span></a> ha sido realizada con respecto a un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> previamente obtenido mediante otra rotación a partir de un sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>. Este tipo de transformación se dice que se ha efectuado con respecto a un sistema móvil (o típicamente también se denominan rotaciones con respecto al sistema actual, o rotaciones intrínsecas). Cuando las rotaciones sean efectuadas de esta manera, las matrices de rotación que representan las rotaciones se deben postmultiplicar en el orden en que son realizadas. Si las rotaciones se realizan con respecto a un sistema fijo, el orden de composición descrito anteriormente ya no funciona, ahora el orden debe invertirse, es decir, si las transformaciones de rotación se realizan con respecto a un sistema fijo entonces las matrices de rotación correspondientes deberán premultiplicarse.</p>
-<p>En la Figura <a class="reference internal" href="#current-frame-rotations"><span class="std std-numref">Fig. 16</span></a> se puede observar un sólido en forma cúbica al cual se le ha adherido un sistema de referencia <span class="math notranslate nohighlight">\(\{1\}\)</span> que se mueve junto con este. Inicialmente suponemos que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> coincide con un sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. Como se indica, se realizan dos rotaciones con respecto a los ejes del sistema móvil, es decir, el sistema cuya orientación cambia después de haber efectuado la rotación. Así, la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span> que describe la orientación del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, después de haber efectuado ambas rotaciones está dada por:</p>
+<p>La ecuación <a class="reference internal" href="#equation-comp-rot-5">(2.8)</a> describe la ley de composición para transformaciones de rotación. Se puede entender de la siguiente manera: si queremos describir las coordenadas del punto <span class="math notranslate nohighlight">\(P\)</span> en el sistema de referencia <span class="math notranslate nohighlight">\(\framei{0}\)</span> a partir de su representación en <span class="math notranslate nohighlight">\(\framei{2}\)</span>, entonces primero podemos describirlo en el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> utilizando la matriz <span class="math notranslate nohighlight">\(R_2^1\)</span> y luego transformarlo al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span> utilizando la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span>.</p>
+<p>Note que la segunda rotación de la Figura <a class="reference internal" href="#composition-of-rotations"><span class="std std-numref">Fig. 2.8</span></a> ha sido realizada con respecto a un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> previamente obtenido mediante otra rotación a partir de un sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>. Este tipo de transformación se dice que se ha efectuado con respecto a un sistema móvil (o típicamente también se denominan rotaciones con respecto al sistema actual, o rotaciones intrínsecas). Cuando las rotaciones sean efectuadas de esta manera, las matrices de rotación que representan las rotaciones se deben postmultiplicar en el orden en que son realizadas. Si las rotaciones se realizan con respecto a un sistema fijo, el orden de composición descrito anteriormente ya no funciona, ahora el orden debe invertirse, es decir, si las transformaciones de rotación se realizan con respecto a un sistema fijo entonces las matrices de rotación correspondientes deberán premultiplicarse.</p>
+<p>En la Figura <a class="reference internal" href="#current-frame-rotations"><span class="std std-numref">Fig. 2.9</span></a> se puede observar un sólido en forma cúbica al cual se le ha adherido un sistema de referencia <span class="math notranslate nohighlight">\(\{1\}\)</span> que se mueve junto con este. Inicialmente suponemos que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> coincide con un sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. Como se indica, se realizan dos rotaciones con respecto a los ejes del sistema móvil, es decir, el sistema cuya orientación cambia después de haber efectuado la rotación. Así, la matriz <span class="math notranslate nohighlight">\(R_1^0\)</span> que describe la orientación del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> con respecto al sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, después de haber efectuado ambas rotaciones está dada por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} R_1^0 = R_{z,90°} R_{x,90°} = \begin{bmatrix}
 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0
@@ -771,10 +771,10 @@ R_2^0 = R_1^0 R_2^1
 <a class="reference internal image-reference" href="_images/current_frame_rotations.svg"><img alt="_images/current_frame_rotations.svg" src="_images/current_frame_rotations.svg" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#current-frame-rotations" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#current-frame-rotations" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Ahora, en la Figura <a class="reference internal" href="#fixfrarot"><span class="std std-numref">Fig. 17</span></a> puede observar una situación similar en cuanto a los ejes con respecto a los cuáles se efectúan las rotaciones, salvo que en este caso son con respecto al sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. Aquí, la descripción <span class="math notranslate nohighlight">\(R_1^0\)</span>, después de haber efectuado ambas rotaciones, se calcula premultiplicando las matrices de rotación involucradas, escribiéndolas de derecha a izquierda, es decir:</p>
+<p>Ahora, en la Figura <a class="reference internal" href="#fixfrarot"><span class="std std-numref">Fig. 2.10</span></a> puede observar una situación similar en cuanto a los ejes con respecto a los cuáles se efectúan las rotaciones, salvo que en este caso son con respecto al sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span>. Aquí, la descripción <span class="math notranslate nohighlight">\(R_1^0\)</span>, después de haber efectuado ambas rotaciones, se calcula premultiplicando las matrices de rotación involucradas, escribiéndolas de derecha a izquierda, es decir:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} R_1^0 = R_{x,90°} R_{z,90°} = \begin{bmatrix}
 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; -1 \\ 1 &amp; 0 &amp; 0
@@ -783,7 +783,7 @@ R_2^0 = R_1^0 R_2^1
 <a class="reference internal image-reference" href="_images/fixed_frame_rotations.svg"><img alt="_images/fixed_frame_rotations.svg" src="_images/fixed_frame_rotations.svg" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#fixfrarot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Composición de rotaciones</span><a class="headerlink" href="#fixfrarot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La validez de ambas composiciones se puede verificar en este caso directamente por inspección de los esquemas mostrados.</p>
@@ -844,16 +844,16 @@ R_3^0 = \begin{bmatrix}0.3536 &amp; -0.866 &amp; 0.3536\\0.7071 &amp; 0 &amp; -0
 \end{split}\]</div>
 </div></section>
 <section id="angulos-de-euler">
-<h3>Ángulos de Euler<a class="headerlink" href="#angulos-de-euler" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.2.4. </span>Ángulos de Euler<a class="headerlink" href="#angulos-de-euler" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[ \newcommand{\atantwo}[2]{\text{arctan2} \left( #1,\, #2 \right) } \]</div>
-<p>Las matrices de rotación proporcionan una descripción redundante de la orientación de un sistema de referencia con respecto a otro, puesto que sus nueve elementos no son independientes entre sí, debido a las restricciones de ortogonalidad entre sus columnas y el hecho de que cada columna es un vector unitario. De esto se desprenden seis restricciones dadas por las ecuaciones <a class="reference internal" href="#equation-unit-cond">(9)</a> y <a class="reference internal" href="#equation-ort-cond">(10)</a>.</p>
+<p>Las matrices de rotación proporcionan una descripción redundante de la orientación de un sistema de referencia con respecto a otro, puesto que sus nueve elementos no son independientes entre sí, debido a las restricciones de ortogonalidad entre sus columnas y el hecho de que cada columna es un vector unitario. De esto se desprenden seis restricciones dadas por las ecuaciones <a class="reference internal" href="#equation-unit-cond">(2.9)</a> y <a class="reference internal" href="#equation-ort-cond">(2.10)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-unit-cond">
-<span class="eqno">(9)<a class="headerlink" href="#equation-unit-cond" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-unit-cond" title="Link to this equation">#</a></span>\[
 \sum r_{ij}^2 = 1 \qquad;  \qquad j \in \{1,2,3\}
 \]</div>
 <div class="math notranslate nohighlight" id="equation-ort-cond">
-<span class="eqno">(10)<a class="headerlink" href="#equation-ort-cond" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-ort-cond" title="Link to this equation">#</a></span>\[
 r_{1i} r_{1j} + r_{2i} r_{2j} + r_{3i} r_{3j} = 0  \qquad; \qquad i \neq j
 \]</div>
 <p>Lo anterior implica que se requieren tres parámetros independientes para representar completamente la orientación de un cuerpo rígido en el espacio. Una representación en términos de tres parámetros independientes se dice que es una <em>representación mínima</em>.</p>
@@ -864,7 +864,7 @@ r_{1i} r_{1j} + r_{2i} r_{2j} + r_{3i} r_{3j} = 0  \qquad; \qquad i \neq j
 </ul>
 <p>Las rotaciones intrínsecas son aquellas realizadas con respecto al sistema móvil, y las extrínsecas aquellas realizadas con respecto al sistema fijo. Como se observa, existen varias secuencias de rotaciones que darían una representación conveniente de la orientación, pero aquí se revisarán algunos casos particulares y de uso común dentro de la robótica.</p>
 <section id="angulos-de-euler-zxz">
-<h4>Ángulos de Euler ZXZ<a class="headerlink" href="#angulos-de-euler-zxz" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.2.4.1. </span>Ángulos de Euler ZXZ<a class="headerlink" href="#angulos-de-euler-zxz" title="Link to this heading">#</a></h4>
 <p>En este caso, a partir de un sistema fijo se puede obtener otro sistema de referencia en cualquier orientación mediante tres rotaciones sucesivas alrededor del sistema móvil, a saber:</p>
 <ul class="simple">
 <li><p>Una rotación de un ángulo <span class="math notranslate nohighlight">\(\phi\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span></p></li>
@@ -879,13 +879,13 @@ R_{ZXZ} = \begin{bmatrix}\cos{\left (\phi \right )} &amp; - \sin{\left (\phi \ri
 \begin{bmatrix}\cos{\left (\psi \right )} &amp; - \sin{\left (\psi \right )} &amp; 0 \\\sin{\left (\psi \right )} &amp; \cos{\left (\psi \right )} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} = 
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-zxz">
-<span class="eqno">(11)<a class="headerlink" href="#equation-zxz" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-zxz" title="Link to this equation">#</a></span>\[\begin{split}
 R_{ZXZ} = 
 \begin{bmatrix}- s\phi s\psi c\theta + c\phi c\psi &amp; - s\phi c\psi c\theta - s\psi c\phi &amp; s\phi s\theta \\ s\phi c\psi + s\psi c\phi c\theta &amp; - s\phi s\psi + c\phi c\psi c\theta &amp; - s\theta c\phi \\s\psi s\theta &amp; s\theta c\psi &amp; c\theta \end{bmatrix}
 \end{split}\]</div>
 <p>Evidentemente, calcular la matriz de rotación correspondiente a un conjunto de ángulos de Euler es una tarea que puede realizarse sin problemas, puesto que implica únicamente multiplicaciones matriciales en el orden indicado. Un problema de naturaleza menos trivial es que a partir de una matriz de rotación <span class="math notranslate nohighlight">\(R\)</span> se obtenga el conjunto de ángulos de Euler ZXZ equivalentes, de tal forma que:</p>
 <div class="math notranslate nohighlight" id="equation-r-eq-zxz">
-<span class="eqno">(12)<a class="headerlink" href="#equation-r-eq-zxz" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.12)<a class="headerlink" href="#equation-r-eq-zxz" title="Link to this equation">#</a></span>\[
 R = R_{ZXZ}
 \]</div>
 <p>donde:</p>
@@ -897,17 +897,17 @@ r_{31} &amp; r_{32} &amp; r_{33}
 \end{bmatrix} \end{split}\]</div>
 <p>Siendo <span class="math notranslate nohighlight">\(R\)</span>, naturalmente, una matriz cuyos valores son todos conocidos. Para resolver este problema se considerarán tres casos.</p>
 <p><strong>Caso I</strong></p>
-<p>Si <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero, de acuerdo con <a class="reference internal" href="#equation-r-eq-zxz">(12)</a> implica necesariamente que <span class="math notranslate nohighlight">\(s\theta \neq 0\)</span>, y consecuentemente que <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero. Lo anterior conduce a que <span class="math notranslate nohighlight">\(r_{33} \neq \pm 1 \)</span>, entonces <span class="math notranslate nohighlight">\(c\theta = r_{33}\)</span> y <span class="math notranslate nohighlight">\(s\theta = \pm\sqrt{1-r_{33}^2} \)</span>, lo cual implica dos posibles soluciones para <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<p>Si <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero, de acuerdo con <a class="reference internal" href="#equation-r-eq-zxz">(2.12)</a> implica necesariamente que <span class="math notranslate nohighlight">\(s\theta \neq 0\)</span>, y consecuentemente que <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero. Lo anterior conduce a que <span class="math notranslate nohighlight">\(r_{33} \neq \pm 1 \)</span>, entonces <span class="math notranslate nohighlight">\(c\theta = r_{33}\)</span> y <span class="math notranslate nohighlight">\(s\theta = \pm\sqrt{1-r_{33}^2} \)</span>, lo cual implica dos posibles soluciones para <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-sol1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-sol1" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
+<span class="eqno">(2.13)<a class="headerlink" href="#equation-sol1" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
 <div class="math notranslate nohighlight" id="equation-sol2">
-<span class="eqno">(14)<a class="headerlink" href="#equation-sol2" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(-\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
-<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-sol1">(13)</a>, entonces:</p>
+<span class="eqno">(2.14)<a class="headerlink" href="#equation-sol2" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(-\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
+<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-sol1">(2.13)</a>, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ \phi = \text{arctan2} \left( r_{13}, - r_{23} \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ \psi = \text{arctan2} \left( r_{31}, r_{32} \right) \]</div>
-<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-sol2">(14)</a>, entonces:</p>
+<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-sol2">(2.14)</a>, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ \phi = \text{arctan2} \left( -r_{13}, r_{23} \right) \]</div>
 <div class="math notranslate nohighlight">
@@ -1013,7 +1013,7 @@ R = R_{z,60°} R_{y,135°} =
 \]</div>
 </div> <br></section>
 <section id="angulos-de-euler-zyz">
-<h4>Ángulos de Euler ZYZ<a class="headerlink" href="#angulos-de-euler-zyz" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.2.4.2. </span>Ángulos de Euler ZYZ<a class="headerlink" href="#angulos-de-euler-zyz" title="Link to this heading">#</a></h4>
 <p>Los ángulos de Euler ZYZ nos permiten describir la orientación de un cuerpo rígido mediante tres rotaciones sucesivas alrededor del sistema móvil, en el siguiente orden:</p>
 <ul class="simple">
 <li><p>Una rotación de un ángulo <span class="math notranslate nohighlight">\(\phi\)</span> alrededor del eje <span class="math notranslate nohighlight">\(z\)</span></p></li>
@@ -1028,7 +1028,7 @@ R_{zyz} = \begin{bmatrix}\cos{\left (\phi \right )} &amp; - \sin{\left (\phi \ri
 \begin{bmatrix}\cos{\left (\psi \right )} &amp; - \sin{\left (\psi \right )} &amp; 0 \\\sin{\left (\psi \right )} &amp; \cos{\left (\psi \right )} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-zyz">
-<span class="eqno">(15)<a class="headerlink" href="#equation-zyz" title="Link to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(2.15)<a class="headerlink" href="#equation-zyz" title="Link to this equation">#</a></span>\[\begin{split} 
 R_{zyz} = 
 \begin{bmatrix}
 c\phi c\psi c\theta - s\phi s\psi &amp; - c\phi c\theta s\psi - c\psi s\phi &amp; c\phi s\theta\\
@@ -1038,7 +1038,7 @@ c\phi s\psi + c\psi c\theta s\phi &amp; c\phi c\psi - c\theta s\phi s\psi &amp; 
 \end{split}\]</div>
 <p>Al igual que con la secuencia ZXZ, podemos determinar a partir de una matriz de rotación <span class="math notranslate nohighlight">\(R\)</span> los ángulos de Euler equivalente resolviendo la ecuación matricial:</p>
 <div class="math notranslate nohighlight" id="equation-r-eq-zyz">
-<span class="eqno">(16)<a class="headerlink" href="#equation-r-eq-zyz" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.16)<a class="headerlink" href="#equation-r-eq-zyz" title="Link to this equation">#</a></span>\[
 R = R_{zyz}
 \]</div>
 <p>donde:</p>
@@ -1050,17 +1050,17 @@ r_{31} &amp; r_{32} &amp; r_{33}
 \end{bmatrix} \end{split}\]</div>
 <p>Siendo <span class="math notranslate nohighlight">\(R\)</span>, naturalmente, una matriz cuyos valores son todos conocidos. Para resolver este problema se considerarán tres casos.</p>
 <p><strong>Caso I</strong></p>
-<p>Si <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero, de acuerdo con <a class="reference internal" href="#equation-r-eq-zyz">(16)</a> implica necesariamente que <span class="math notranslate nohighlight">\(s\theta \neq 0\)</span>, y consecuentemente que <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero. Lo anterior conduce a que <span class="math notranslate nohighlight">\(r_{33} \neq \pm 1 \)</span>, entonces <span class="math notranslate nohighlight">\(c\theta = r_{33}\)</span> y <span class="math notranslate nohighlight">\(s\theta = \pm\sqrt{1-r_{33}^2} \)</span>, lo cual implica dos posibles soluciones para <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<p>Si <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero, de acuerdo con <a class="reference internal" href="#equation-r-eq-zyz">(2.16)</a> implica necesariamente que <span class="math notranslate nohighlight">\(s\theta \neq 0\)</span>, y consecuentemente que <span class="math notranslate nohighlight">\(r_{13}\)</span> y <span class="math notranslate nohighlight">\(r_{23}\)</span> no son ambas cero. Lo anterior conduce a que <span class="math notranslate nohighlight">\(r_{33} \neq \pm 1 \)</span>, entonces <span class="math notranslate nohighlight">\(c\theta = r_{33}\)</span> y <span class="math notranslate nohighlight">\(s\theta = \pm\sqrt{1-r_{33}^2} \)</span>, lo cual implica dos posibles soluciones para <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-zyz-sol1">
-<span class="eqno">(17)<a class="headerlink" href="#equation-zyz-sol1" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
+<span class="eqno">(2.17)<a class="headerlink" href="#equation-zyz-sol1" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
 <div class="math notranslate nohighlight" id="equation-zyz-sol2">
-<span class="eqno">(18)<a class="headerlink" href="#equation-zyz-sol2" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(-\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
-<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-zyz-sol1">(17)</a>, entonces:</p>
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-zyz-sol2" title="Link to this equation">#</a></span>\[ \theta = \text{arctan2} \left(-\sqrt{1-r_{33}^2},r_{33}\right) \]</div>
+<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-zyz-sol1">(2.17)</a>, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ \phi = \text{arctan2} \left( r_{23}, r_{13} \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ \psi = \text{arctan2} \left( r_{32}, -r_{31} \right) \]</div>
-<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-zyz-sol2">(18)</a>, entonces:</p>
+<p>Si se toma la solución para <span class="math notranslate nohighlight">\(\theta\)</span> dada por <a class="reference internal" href="#equation-zyz-sol2">(2.18)</a>, entonces:</p>
 <div class="math notranslate nohighlight">
 \[ \phi = \text{arctan2} \left( - r_{23}, - r_{13} \right) \]</div>
 <div class="math notranslate nohighlight">
@@ -1101,33 +1101,33 @@ r_{21} &amp; r_{22} &amp; 0 \\
 \[ \phi = \text{arctan2} \left( -r_{21}, -r_{11} \right) \]</div>
 </section>
 <section id="angulos-roll-pitch-yaw">
-<h4>Ángulos Roll-Pitch-Yaw<a class="headerlink" href="#angulos-roll-pitch-yaw" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.2.4.3. </span>Ángulos Roll-Pitch-Yaw<a class="headerlink" href="#angulos-roll-pitch-yaw" title="Link to this heading">#</a></h4>
 </section>
 </section>
 <section id="representacion-eje-angulo">
-<h3>Representación eje-ángulo<a class="headerlink" href="#representacion-eje-angulo" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.2.5. </span>Representación eje-ángulo<a class="headerlink" href="#representacion-eje-angulo" title="Link to this heading">#</a></h3>
 </section>
 <section id="cuaterniones">
-<h3>Cuaterniones<a class="headerlink" href="#cuaterniones" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.2.6. </span>Cuaterniones<a class="headerlink" href="#cuaterniones" title="Link to this heading">#</a></h3>
 </section>
 </section>
 <section id="matrices-de-transformacion-homogenea">
-<h2>Matrices de transformación homogénea<a class="headerlink" href="#matrices-de-transformacion-homogenea" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Matrices de transformación homogénea<a class="headerlink" href="#matrices-de-transformacion-homogenea" title="Link to this heading">#</a></h2>
 <p>En las secciones anteriores se ha visto cómo representar la posición y orientación, de forma separada; en esta sección conoceremos una herramienta matemática que nos permite representar de manera conjunta la posición y la orientación de un cuerpo rígido.</p>
-<p>En la figura <a class="reference internal" href="#rigid-motion-01"><span class="std std-numref">Fig. 18</span></a> podemos observar un sistema de referencia móvil <span class="math notranslate nohighlight">\(\framei{1}\)</span> adherido a un sólido rígido y un sistema de referencia <span class="math notranslate nohighlight">\(\framei{0}\)</span> fijo, es sencillo identificar que además de la orientación hay también una variación en la posición de los sistemas de referencia. Un punto <span class="math notranslate nohighlight">\(P\)</span> adherido al sólido rígido se puede describir en el sistema de referencia <span class="math notranslate nohighlight">\(\framei{1}\)</span> mediante el vector de posición <span class="math notranslate nohighlight">\( \vec{r}_{P/o_1}^1 \)</span> mostrado, además, la posición del origen del sistema de referencia <span class="math notranslate nohighlight">\( \framei{1} \)</span> se puede describir en <span class="math notranslate nohighlight">\(\framei{0}\)</span> mediante el vector <span class="math notranslate nohighlight">\( \vec{r}_{o_1}^0 \)</span>, si quisiéramos determinar la posición de <span class="math notranslate nohighlight">\(P\)</span> en <span class="math notranslate nohighlight">\(\framei{0}\)</span> entonces podríamos hacerlo de la siguiente manera:</p>
+<p>En la figura <a class="reference internal" href="#rigid-motion-01"><span class="std std-numref">Fig. 2.11</span></a> podemos observar un sistema de referencia móvil <span class="math notranslate nohighlight">\(\framei{1}\)</span> adherido a un sólido rígido y un sistema de referencia <span class="math notranslate nohighlight">\(\framei{0}\)</span> fijo, es sencillo identificar que además de la orientación hay también una variación en la posición de los sistemas de referencia. Un punto <span class="math notranslate nohighlight">\(P\)</span> adherido al sólido rígido se puede describir en el sistema de referencia <span class="math notranslate nohighlight">\(\framei{1}\)</span> mediante el vector de posición <span class="math notranslate nohighlight">\( \vec{r}_{P/o_1}^1 \)</span> mostrado, además, la posición del origen del sistema de referencia <span class="math notranslate nohighlight">\( \framei{1} \)</span> se puede describir en <span class="math notranslate nohighlight">\(\framei{0}\)</span> mediante el vector <span class="math notranslate nohighlight">\( \vec{r}_{o_1}^0 \)</span>, si quisiéramos determinar la posición de <span class="math notranslate nohighlight">\(P\)</span> en <span class="math notranslate nohighlight">\(\framei{0}\)</span> entonces podríamos hacerlo de la siguiente manera:</p>
 <div class="math notranslate nohighlight" id="equation-mth-trans-01">
-<span class="eqno">(19)<a class="headerlink" href="#equation-mth-trans-01" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-mth-trans-01" title="Link to this equation">#</a></span>\[
 \vec{r}_P^0 = R_1^0 \vec{r}_{P/o_1}^1 + \vec{r}_{o_1}^0 
 \]</div>
 <figure class="align-center" id="rigid-motion-01">
 <a class="reference internal image-reference" href="_images/rigid_motion_01.svg"><img alt="_images/rigid_motion_01.svg" src="_images/rigid_motion_01.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Movimiento de sólido rígido</span><a class="headerlink" href="#rigid-motion-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Movimiento de sólido rígido</span><a class="headerlink" href="#rigid-motion-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Lo cual podríamos verlo como una suma de vectores, sin embargo, es importante recordar que no es posible sumar <em>directamente</em> dos vectores  que están definidos con respecto a sistemas de referencia con diferente orientación. De tal modo que se debe expresar primeramente a <span class="math notranslate nohighlight">\(\vec{r}_{P/o_1}^1\)</span> en el sistema <span class="math notranslate nohighlight">\(\{0\}\)</span>, lo cual se logra con la multiplicación correspondiente por la matriz de rotación: <span class="math notranslate nohighlight">\(R_1^0 \vec{r}_{P/o_1}^1\)</span>, para poder sumarlo a <span class="math notranslate nohighlight">\(\vec{r}_{o_1}^0 \)</span>. Aquí, <span class="math notranslate nohighlight">\(R_1^0\)</span> corresponde a la matriz de rotación que describe la orientación del sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> con respecto a <span class="math notranslate nohighlight">\(\framei{0}.\)</span></p>
-<p>La ecuación <a class="reference internal" href="#equation-mth-trans-01">(19)</a> se puede expresar de manera más compacta si introducimos una matriz de transformación que opere directamente sobre un vector y transforme sus coordenadas de un sistema a otro, una matriz de este tipo se denomina <em>matriz de transformación homogénea</em> y tiene la forma que a continuación se muestra:</p>
+<p>La ecuación <a class="reference internal" href="#equation-mth-trans-01">(2.19)</a> se puede expresar de manera más compacta si introducimos una matriz de transformación que opere directamente sobre un vector y transforme sus coordenadas de un sistema a otro, una matriz de este tipo se denomina <em>matriz de transformación homogénea</em> y tiene la forma que a continuación se muestra:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} H = \begin{bmatrix}
 R &amp; \vec{r} \\
@@ -1149,7 +1149,7 @@ R_1^0 &amp; \vec{r}_{o_1}^0 \\
 \vec{0} &amp; 1 \\
 \end{bmatrix}
 \end{split}\]</div>
-<p>Así pues, la ecuación <a class="reference internal" href="#equation-mth-trans-01">(19)</a> se puede escribir de forma matricial de la siguiente manera:</p>
+<p>Así pues, la ecuación <a class="reference internal" href="#equation-mth-trans-01">(2.19)</a> se puede escribir de forma matricial de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \colvec{ \vec{r}_P^0 }{1}{} = \begin{bmatrix}
@@ -1158,16 +1158,16 @@ R_1^0 &amp; \vec{r}_{o_1}^0 \\
 \end{bmatrix} \colvec{\vec{r}_{P/o_1}^1}{1}{}
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-mth-trans-equation-prev">
-<span class="eqno">(20)<a class="headerlink" href="#equation-mth-trans-equation-prev" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-mth-trans-equation-prev" title="Link to this equation">#</a></span>\[ 
 \vec{ \tilde{r} }_P^0 = H_1^0 \vec{ \tilde{r} }_{P/o_1}^1 
 \]</div>
-<p>Es sencillo notar la equivalencia entre ambas ecuaciones. Aquí utilizamos la tilde para distinguir a un vector en coordenadas homogéneas, sin embargo, por cuestiones de legibilidad y comodidad, en lo subsiguiente prescindiremos de ella y denotaremos a los vectores en coordenadas homogéneas de la misma forma que el resto, se asume que el lector podrá distinguir por el contexto si se está trabajando con un vector en coordenadas homogéneas. Además, por comodidad muchas veces se utilizará la notación <span class="math notranslate nohighlight">\(\vec{r}_P^1\)</span> para denotar a <span class="math notranslate nohighlight">\(\vec{r}_{P/o_1}^1\)</span>, en el entendido que en general mediremos la posición de un punto con respecto al origen del sistema de referencia que usamos para describirlo; así pues, una versión simplificada de <a class="reference internal" href="#equation-mth-trans-equation-prev">(20)</a> se escribirá usualmente como:</p>
+<p>Es sencillo notar la equivalencia entre ambas ecuaciones. Aquí utilizamos la tilde para distinguir a un vector en coordenadas homogéneas, sin embargo, por cuestiones de legibilidad y comodidad, en lo subsiguiente prescindiremos de ella y denotaremos a los vectores en coordenadas homogéneas de la misma forma que el resto, se asume que el lector podrá distinguir por el contexto si se está trabajando con un vector en coordenadas homogéneas. Además, por comodidad muchas veces se utilizará la notación <span class="math notranslate nohighlight">\(\vec{r}_P^1\)</span> para denotar a <span class="math notranslate nohighlight">\(\vec{r}_{P/o_1}^1\)</span>, en el entendido que en general mediremos la posición de un punto con respecto al origen del sistema de referencia que usamos para describirlo; así pues, una versión simplificada de <a class="reference internal" href="#equation-mth-trans-equation-prev">(2.20)</a> se escribirá usualmente como:</p>
 <div class="math notranslate nohighlight" id="equation-mth-trans-equation">
-<span class="eqno">(21)<a class="headerlink" href="#equation-mth-trans-equation" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-mth-trans-equation" title="Link to this equation">#</a></span>\[
 \vec{ r }_P^0 = H_1^0 \vec{ r }_{P}^1 
 \]</div>
 <section id="matrices-de-transformacion-homogeneas-basicas">
-<h3>Matrices de transformación homogéneas básicas<a class="headerlink" href="#matrices-de-transformacion-homogeneas-basicas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1. </span>Matrices de transformación homogéneas básicas<a class="headerlink" href="#matrices-de-transformacion-homogeneas-basicas" title="Link to this heading">#</a></h3>
 <p>Como ya sabemos, un cuerpo rígido que se mueve en el espacio experimenta traslación y rotación, por lo cual sus movimientos y su localización se puede definir completamente mediante tres operaciones básicas de traslación y tres de rotación, cada una en la dirección de los ejes de un sistema de referencia.</p>
 <p>Un conjunto de matrices de transformación homogénea que representan movimientos básicos de traslación y rotación alrededor de los ejes <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> está dado por:</p>
 <div class="math notranslate nohighlight">
@@ -1218,31 +1218,31 @@ s\gamma &amp; c\gamma &amp; 0 &amp; 0 \\
 \end{split}\]</div>
 </section>
 <section id="composicion-de-las-matrices-de-transformacion-homogenea">
-<h3>Composición de las matrices de transformación homogénea<a class="headerlink" href="#composicion-de-las-matrices-de-transformacion-homogenea" title="Link to this heading">#</a></h3>
-<p>Supongamos ahora que tenemos tres sistemas de referencia: <span class="math notranslate nohighlight">\(\framei{0}\)</span>, <span class="math notranslate nohighlight">\(\framei{1}\)</span> y <span class="math notranslate nohighlight">\(\framei{2}\)</span>, que difieren por rotaciones y traslaciones. Consideremos, además, que se tiene un punto <span class="math notranslate nohighlight">\(P\)</span> tal como se muestra en la Figura <a class="reference internal" href="#rigid-motion-02"><span class="std std-numref">Fig. 19</span></a>; es sencillo observar que las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> descritas en el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> están dadas por:</p>
+<h3><span class="section-number">2.3.2. </span>Composición de las matrices de transformación homogénea<a class="headerlink" href="#composicion-de-las-matrices-de-transformacion-homogenea" title="Link to this heading">#</a></h3>
+<p>Supongamos ahora que tenemos tres sistemas de referencia: <span class="math notranslate nohighlight">\(\framei{0}\)</span>, <span class="math notranslate nohighlight">\(\framei{1}\)</span> y <span class="math notranslate nohighlight">\(\framei{2}\)</span>, que difieren por rotaciones y traslaciones. Consideremos, además, que se tiene un punto <span class="math notranslate nohighlight">\(P\)</span> tal como se muestra en la Figura <a class="reference internal" href="#rigid-motion-02"><span class="std std-numref">Fig. 2.12</span></a>; es sencillo observar que las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> descritas en el sistema <span class="math notranslate nohighlight">\(\framei{1}\)</span> están dadas por:</p>
 <div class="math notranslate nohighlight" id="equation-rm-01">
-<span class="eqno">(22)<a class="headerlink" href="#equation-rm-01" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-rm-01" title="Link to this equation">#</a></span>\[
 \vec{r}_{P/o_1}^1 = R_2^1 \vec{r}_{P/o_2}^2 + \vec{r}_{o_2/o_1}^1 
 \]</div>
 <figure class="align-center" id="rigid-motion-02">
 <a class="reference internal image-reference" href="_images/rigid_motion_02.svg"><img alt="_images/rigid_motion_02.svg" src="_images/rigid_motion_02.svg" style="width: 65%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Movimiento de sólido rígido</span><a class="headerlink" href="#rigid-motion-02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.12 </span><span class="caption-text">Movimiento de sólido rígido</span><a class="headerlink" href="#rigid-motion-02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>De la Figura <a class="reference internal" href="#rigid-motion-02"><span class="std std-numref">Fig. 19</span></a> podemos observar también que la descripción de las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> en el sistema <span class="math notranslate nohighlight">\( \framei{0} \)</span> está dada por:</p>
+<p>De la Figura <a class="reference internal" href="#rigid-motion-02"><span class="std std-numref">Fig. 2.12</span></a> podemos observar también que la descripción de las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> en el sistema <span class="math notranslate nohighlight">\( \framei{0} \)</span> está dada por:</p>
 <div class="math notranslate nohighlight" id="equation-rm-02">
-<span class="eqno">(23)<a class="headerlink" href="#equation-rm-02" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.23)<a class="headerlink" href="#equation-rm-02" title="Link to this equation">#</a></span>\[
 \vec{r}_P^0 = R_1^0 \vec{r}_{P/o_1}^1 + \vec{r}_{o_1}^0
 \]</div>
-<p>Si sustituimos la ecuación <a class="reference internal" href="#equation-rm-01">(22)</a> en la <a class="reference internal" href="#equation-rm-02">(23)</a> se tiene que:</p>
+<p>Si sustituimos la ecuación <a class="reference internal" href="#equation-rm-01">(2.22)</a> en la <a class="reference internal" href="#equation-rm-02">(2.23)</a> se tiene que:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{r}_P^0 = R_1^0  \left( R_2^1 \vec{r}_{P/o_2}^2 + \vec{r}_{o_2/o_1}^1 \right) + \vec{r}_{o_1}^0
 \]</div>
 <div class="math notranslate nohighlight" id="equation-rm-03">
-<span class="eqno">(24)<a class="headerlink" href="#equation-rm-03" title="Link to this equation">#</a></span>\[ 
+<span class="eqno">(2.24)<a class="headerlink" href="#equation-rm-03" title="Link to this equation">#</a></span>\[ 
 \vec{r}_P^0 = R_1^0 R_2^1 \vec{r}_{P/o_2}^2  + R_1^0 \vec{r}_{o_2/o_1}^1 + \vec{r}_{o_1}^0
 \]</div>
 <p>Observe que esta ecuación transforma las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> del sistema <span class="math notranslate nohighlight">\(\framei{2}\)</span> al sistema <span class="math notranslate nohighlight">\(\framei{0}\)</span>. Esta ecuación se puede escribir también utilizando la forma matricial. De acuerdo con lo visto previamente sabemos que:</p>
@@ -1268,7 +1268,7 @@ R_1^0 R_2^1 &amp; R_1^0 \vec{r}_{o_2/o_1}^1 + \vec{r}_{o_1}^0 \\
 \vec{0} &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>Observe que si multiplicamos esta matriz resultante por el vector <span class="math notranslate nohighlight">\(\vec{r}_P^2\)</span> en coordenadas homogéneas, tendremos a <span class="math notranslate nohighlight">\(\vec{r}_P^0\)</span>, tal como lo describe la ecuación <a class="reference internal" href="#equation-rm-03">(24)</a>:</p>
+<p>Observe que si multiplicamos esta matriz resultante por el vector <span class="math notranslate nohighlight">\(\vec{r}_P^2\)</span> en coordenadas homogéneas, tendremos a <span class="math notranslate nohighlight">\(\vec{r}_P^0\)</span>, tal como lo describe la ecuación <a class="reference internal" href="#equation-rm-03">(2.24)</a>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \colvec{\vec{r}_P^0}{1}{} = 
@@ -1301,11 +1301,11 @@ T_B^A =
 <a class="reference internal image-reference" href="_images/example_mth_trasl.svg"><img alt="_images/example_mth_trasl.svg" src="_images/example_mth_trasl.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-trasl" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.13 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-trasl" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>De la Figura <a class="reference internal" href="#example-mth-trasl"><span class="std std-numref">Fig. 20</span></a> se observa que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> puede ser obtenido a partir de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una traslación de 3 unidades en <span class="math notranslate nohighlight">\(x\)</span> y 5 unidades en <span class="math notranslate nohighlight">\(y\)</span>. Así, la matriz de transformación homogénea que representa la descripción de dicho sistema está dada por:</p>
+<p>De la Figura <a class="reference internal" href="#example-mth-trasl"><span class="std std-numref">Fig. 2.13</span></a> se observa que el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> puede ser obtenido a partir de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una traslación de 3 unidades en <span class="math notranslate nohighlight">\(x\)</span> y 5 unidades en <span class="math notranslate nohighlight">\(y\)</span>. Así, la matriz de transformación homogénea que representa la descripción de dicho sistema está dada por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 H_1^0 = D_{x,3} \, D_{y,5} = 
@@ -1322,11 +1322,11 @@ H_1^0 = \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 5\\0 &
 <a class="reference internal image-reference" href="_images/example_mth_rot.svg"><img alt="_images/example_mth_rot.svg" src="_images/example_mth_rot.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-rot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.14 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-rot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>El esquema de la figura <a class="reference internal" href="#example-mth-rot"><span class="std std-numref">Fig. 21</span></a> muestra un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> obtenido de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 30°. La matriz de transformación homogénea que describe dicha transformación es la de rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span>, sustituyendo, claro está, el valor correspondiente del ángulo, de esa manera:</p>
+<p>El esquema de la figura <a class="reference internal" href="#example-mth-rot"><span class="std std-numref">Fig. 2.14</span></a> muestra un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> obtenido de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 30°. La matriz de transformación homogénea que describe dicha transformación es la de rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span>, sustituyendo, claro está, el valor correspondiente del ángulo, de esa manera:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} H_1^0 = R_{z,30°} = \begin{bmatrix}\frac{\sqrt{3}}{2} &amp; - \frac{1}{2} &amp; 0 &amp; 0\\\frac{1}{2} &amp; \frac{\sqrt{3}}{2} &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \end{split}\]</div>
 </div> <br><div class="example">
@@ -1335,11 +1335,11 @@ H_1^0 = \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 5\\0 &
 <a class="reference internal image-reference" href="_images/example_mth_rot_trasl.svg"><img alt="_images/example_mth_rot_trasl.svg" src="_images/example_mth_rot_trasl.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-rot-trasl" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.15 </span><span class="caption-text">.</span><a class="headerlink" href="#example-mth-rot-trasl" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
-<p>En la figura <a class="reference internal" href="#example-mth-rot-trasl"><span class="std std-numref">Fig. 22</span></a> se observa un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> que puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una serie de traslaciones y rotaciones. De manera específica, utilizando los ejes móviles, se pueden trasladar 4 unidades en <span class="math notranslate nohighlight">\(x\)</span> y en <span class="math notranslate nohighlight">\(y\)</span>, y posteriormente una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 45°, estas transformaciones se pueden expresar en forma de un producto matricial como sigue:</p>
+<p>En la figura <a class="reference internal" href="#example-mth-rot-trasl"><span class="std std-numref">Fig. 2.15</span></a> se observa un sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> que puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una serie de traslaciones y rotaciones. De manera específica, utilizando los ejes móviles, se pueden trasladar 4 unidades en <span class="math notranslate nohighlight">\(x\)</span> y en <span class="math notranslate nohighlight">\(y\)</span>, y posteriormente una rotación alrededor de <span class="math notranslate nohighlight">\(z\)</span> de 45°, estas transformaciones se pueden expresar en forma de un producto matricial como sigue:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} H_1^0 = D_{x,4} D_{y,4} R_{z,45°} = 
 \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 4\\0 &amp; 1 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} 
@@ -1352,12 +1352,12 @@ H_1^0 = \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 5\\0 &
 \therefore H_1^0 = \begin{bmatrix}0.7071 &amp; -0.7071 &amp; 0 &amp; 4.0\\0.7071 &amp; 0.7071 &amp; 0 &amp; 4.0\\0 &amp; 0 &amp; 1.0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1.0\end{bmatrix} 
 \end{split}\]</div>
 </div> <br><div class="example">
-<p><strong>Ejemplo.</strong> En la Figura <a class="reference internal" href="#example-barra-rot"><span class="std std-numref">Fig. 23</span></a> se observa una barra en rotación pura, la cual tiene adherido en su extremo un sistema móvil <span class="math notranslate nohighlight">\(\{1\}\)</span> y un sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span> en su base. El sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está definido de tal manera que el eje <span class="math notranslate nohighlight">\( x_1 \)</span> apunta en la dirección de la línea que va desde el centro de rotación hasta su extremo. Calcule la matriz de transformación homogénea que describe la posición y orientación de <span class="math notranslate nohighlight">\(\framei{1}\)</span> en <span class="math notranslate nohighlight">\( \framei{0} \)</span>.</p>
+<p><strong>Ejemplo.</strong> En la Figura <a class="reference internal" href="#example-barra-rot"><span class="std std-numref">Fig. 2.16</span></a> se observa una barra en rotación pura, la cual tiene adherido en su extremo un sistema móvil <span class="math notranslate nohighlight">\(\{1\}\)</span> y un sistema fijo <span class="math notranslate nohighlight">\(\{0\}\)</span> en su base. El sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está definido de tal manera que el eje <span class="math notranslate nohighlight">\( x_1 \)</span> apunta en la dirección de la línea que va desde el centro de rotación hasta su extremo. Calcule la matriz de transformación homogénea que describe la posición y orientación de <span class="math notranslate nohighlight">\(\framei{1}\)</span> en <span class="math notranslate nohighlight">\( \framei{0} \)</span>.</p>
 <figure class="align-center" id="example-barra-rot">
 <a class="reference internal image-reference" href="_images/example_barra_rot.svg"><img alt="_images/example_barra_rot.svg" src="_images/example_barra_rot.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">.</span><a class="headerlink" href="#example-barra-rot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.16 </span><span class="caption-text">.</span><a class="headerlink" href="#example-barra-rot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
@@ -1400,17 +1400,17 @@ H_1^0 = \begin{bmatrix}\cos{\left (\theta \right )} &amp; - \sin{\left (\theta \
 \end{split}\]</div>
 <p>Lo cual conduce en efecto a la misma descripción obtenida con anterioridad. De igual manera se pueden establecer transformaciones con respecto a los ejes fijos que produzcan el mismo resultado.</p>
 </div> <br><div class="example">
-<p><strong>Ejemplo.</strong> <em>En la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a> se observa una placa plana rectangular de las dimensiones indicadas, en cuyas esquinas se colocan algunos sistemas de referencia. Calcule <span class="math notranslate nohighlight">\(H_1^0\)</span>, <span class="math notranslate nohighlight">\( H_2^1 \)</span>, <span class="math notranslate nohighlight">\( H_2^0 \)</span> y <span class="math notranslate nohighlight">\( H_3^2 \)</span>.</em></p>
+<p><strong>Ejemplo.</strong> <em>En la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a> se observa una placa plana rectangular de las dimensiones indicadas, en cuyas esquinas se colocan algunos sistemas de referencia. Calcule <span class="math notranslate nohighlight">\(H_1^0\)</span>, <span class="math notranslate nohighlight">\( H_2^1 \)</span>, <span class="math notranslate nohighlight">\( H_2^0 \)</span> y <span class="math notranslate nohighlight">\( H_3^2 \)</span>.</em></p>
 <figure class="align-center" id="example-mth-mult-sist">
 <a class="reference internal image-reference" href="_images/example_mth_mult_sist.svg"><img alt="_images/example_mth_mult_sist.svg" src="_images/example_mth_mult_sist.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Una placa plana con múltiples sistemas de referencia</span><a class="headerlink" href="#example-mth-mult-sist" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Una placa plana con múltiples sistemas de referencia</span><a class="headerlink" href="#example-mth-mult-sist" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Solución:</strong></p>
 <p><strong>Descripción de <span class="math notranslate nohighlight">\(\{1\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span></strong></p>
-<p>Como se observa en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a>, el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está trasladado 300 mm en la dirección de <span class="math notranslate nohighlight">\(x\)</span> y 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>. Por lo tanto, el producto matricial que proporciona la matriz de transformación total está dado por:</p>
+<p>Como se observa en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a>, el sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está trasladado 300 mm en la dirección de <span class="math notranslate nohighlight">\(x\)</span> y 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>. Por lo tanto, el producto matricial que proporciona la matriz de transformación total está dado por:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 H_1^0 = D_{x,300} D_{y,160} = 
@@ -1420,7 +1420,7 @@ H_1^0 = D_{x,300} D_{y,160} =
 \end{split}\]</div>
 <p>Observe que la matriz resultante concuerda con lo esquematizado, <span class="math notranslate nohighlight">\( H_1^0 \)</span> indica que el origen de coordenadas del sistema <span class="math notranslate nohighlight">\(\{1\}\)</span> está en las coordenadas (300,160) y en la misma orientación con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span>.</p>
 <p><strong>Descripción de <span class="math notranslate nohighlight">\(\{2\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{1\}\)</span></strong></p>
-<p>De acuerdo a lo mostrado en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a> el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse a partir de <span class="math notranslate nohighlight">\(\{1\}\)</span> mediante una traslación de 300 mm en la dirección negativa de <span class="math notranslate nohighlight">\(x\)</span> y enseguida una rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>. Con lo anterior se tiene:</p>
+<p>De acuerdo a lo mostrado en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a> el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse a partir de <span class="math notranslate nohighlight">\(\{1\}\)</span> mediante una traslación de 300 mm en la dirección negativa de <span class="math notranslate nohighlight">\(x\)</span> y enseguida una rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>. Con lo anterior se tiene:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 H_2^1 = D_{x, -300} \, R_{z, 90°} = 
@@ -1428,9 +1428,9 @@ H_2^1 = D_{x, -300} \, R_{z, 90°} =
 \begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
 = \begin{bmatrix}0 &amp; -1 &amp; 0 &amp; -300\\1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
 \end{split}\]</div>
-<p>Observe que de acuerdo a <span class="math notranslate nohighlight">\( T_2^1 \)</span> el eje <span class="math notranslate nohighlight">\(X_2\)</span> apunta en la dirección positiva del eje <span class="math notranslate nohighlight">\( Y_1 \)</span>, y que el eje <span class="math notranslate nohighlight">\( Y_2 \)</span> apunta en la dirección negativa del eje <span class="math notranslate nohighlight">\( X_1 \)</span>, lo cual concuerda con el esquema de referencia. Es más, la posición del origen de <span class="math notranslate nohighlight">\(\{2\}\)</span> respecto a <span class="math notranslate nohighlight">\(\{1\}\)</span> es (-300,0), misma que puede corroborarse en la Figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a>.</p>
+<p>Observe que de acuerdo a <span class="math notranslate nohighlight">\( T_2^1 \)</span> el eje <span class="math notranslate nohighlight">\(X_2\)</span> apunta en la dirección positiva del eje <span class="math notranslate nohighlight">\( Y_1 \)</span>, y que el eje <span class="math notranslate nohighlight">\( Y_2 \)</span> apunta en la dirección negativa del eje <span class="math notranslate nohighlight">\( X_1 \)</span>, lo cual concuerda con el esquema de referencia. Es más, la posición del origen de <span class="math notranslate nohighlight">\(\{2\}\)</span> respecto a <span class="math notranslate nohighlight">\(\{1\}\)</span> es (-300,0), misma que puede corroborarse en la Figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a>.</p>
 <p><strong>Descripción de <span class="math notranslate nohighlight">\(\{2\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{0\}\)</span></strong></p>
-<p>Como se observa en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a> el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una traslación de 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>, y una posterior rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p>Como se observa en la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a> el sistema <span class="math notranslate nohighlight">\(\{2\}\)</span> puede obtenerse de <span class="math notranslate nohighlight">\(\{0\}\)</span> mediante una traslación de 160 mm en la dirección de <span class="math notranslate nohighlight">\(y\)</span>, y una posterior rotación de 90° alrededor de <span class="math notranslate nohighlight">\(z\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 H_2^0 = D_{y,160} \, R_{z,90} = 
@@ -1447,7 +1447,7 @@ H_2^0 = T_1^0 \, T_2^1 =
 = \begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 0\\1 &amp; 0 &amp; 0 &amp; 160\\0 &amp; 0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
 \end{split}\]</div>
 <p><strong>Descripción de <span class="math notranslate nohighlight">\(\{3\}\)</span> con respecto a <span class="math notranslate nohighlight">\(\{2\}\)</span></strong></p>
-<p>De la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 24</span></a> se puede identificar que <span class="math notranslate nohighlight">\(\{3\}\)</span> se puede obtener de <span class="math notranslate nohighlight">\(\{2\}\)</span> mediante una rotación horaria de un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, seguida de una traslación de <span class="math notranslate nohighlight">\( d_r \)</span> en la dirección negativa de <span class="math notranslate nohighlight">\(y\)</span>, siendo <span class="math notranslate nohighlight">\( d_r \)</span> la longitud de la diagonal del rectángulo, entonces se tiene:</p>
+<p>De la figura <a class="reference internal" href="#example-mth-mult-sist"><span class="std std-numref">Fig. 2.17</span></a> se puede identificar que <span class="math notranslate nohighlight">\(\{3\}\)</span> se puede obtener de <span class="math notranslate nohighlight">\(\{2\}\)</span> mediante una rotación horaria de un ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> en la dirección de <span class="math notranslate nohighlight">\(z\)</span>, seguida de una traslación de <span class="math notranslate nohighlight">\( d_r \)</span> en la dirección negativa de <span class="math notranslate nohighlight">\(y\)</span>, siendo <span class="math notranslate nohighlight">\( d_r \)</span> la longitud de la diagonal del rectángulo, entonces se tiene:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \alpha = \arctan\left(\frac{160}{300}\right) = 28.07°
@@ -1471,13 +1471,13 @@ H_3^2 =
 </div><br></section>
 </section>
 <section id="problemas">
-<h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
-<p>Describe las coordenadas del punto <span class="math notranslate nohighlight">\(Q\)</span> en cada uno de los sistemas de referencia mostrados en la Figura <a class="reference internal" href="#xrep-pos-01-problem"><span class="std std-numref">Fig. 25</span></a>.</p>
+<h2><span class="section-number">2.4. </span>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
+<p>Describe las coordenadas del punto <span class="math notranslate nohighlight">\(Q\)</span> en cada uno de los sistemas de referencia mostrados en la Figura <a class="reference internal" href="#xrep-pos-01-problem"><span class="std std-numref">Fig. 2.18</span></a>.</p>
 <figure class="align-center" id="xrep-pos-01-problem">
 <a class="reference internal image-reference" href="_images/rep_pos_011.svg"><img alt="_images/rep_pos_011.svg" src="_images/rep_pos_011.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">.</span><a class="headerlink" href="#xrep-pos-01-problem" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.18 </span><span class="caption-text">.</span><a class="headerlink" href="#xrep-pos-01-problem" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1491,7 +1491,7 @@ H_3^2 =
 <hr class="docutils" />
 <p>Un vector <span class="math notranslate nohighlight">\( \vec{P} = [0,10,0]^T \)</span> se rota alrededor del eje <span class="math notranslate nohighlight">\(x\)</span> un ángulo de 90° y enseguida se rota alrededor del eje <span class="math notranslate nohighlight">\(y\)</span> un ángulo de 180°, determine las componentes del vector transformado. Esquematice el vector inicial y el transformado.</p>
 <hr class="docutils" />
-<p>En la Figura <a class="reference internal" href="#cube-rot-problem"><span class="std std-numref">Fig. 26</span></a> se muestra un cuerpo rígido con forma de cubo y cuyas aristas miden 200 mm. Al sólido se le adhiere un sistema móvil <span class="math notranslate nohighlight">\( \{1\} \)</span> que inicialmente coincide con el sistema fijo <span class="math notranslate nohighlight">\( \{0\} \)</span> . Calcule lo siguiente:</p>
+<p>En la Figura <a class="reference internal" href="#cube-rot-problem"><span class="std std-numref">Fig. 2.19</span></a> se muestra un cuerpo rígido con forma de cubo y cuyas aristas miden 200 mm. Al sólido se le adhiere un sistema móvil <span class="math notranslate nohighlight">\( \{1\} \)</span> que inicialmente coincide con el sistema fijo <span class="math notranslate nohighlight">\( \{0\} \)</span> . Calcule lo siguiente:</p>
 <ul class="simple">
 <li><p>Las coordenadas del punto <span class="math notranslate nohighlight">\(Q\)</span> después de una rotación de 30° alrededor del eje <span class="math notranslate nohighlight">\(x_0\)</span>, seguida por una rotación de 225° alrededor del eje <span class="math notranslate nohighlight">\(y_1\)</span>.</p></li>
 <li><p>Las coordenadas del punto <span class="math notranslate nohighlight">\(Q\)</span> después de una rotación de 45° alrededor del eje <span class="math notranslate nohighlight">\(y_1\)</span>, seguida por una rotación de 60° alrededor del eje <span class="math notranslate nohighlight">\(z_0\)</span>.</p></li>
@@ -1501,7 +1501,7 @@ H_3^2 =
 <a class="reference internal image-reference" href="_images/cube_rot.svg"><img alt="_images/cube_rot.svg" src="_images/cube_rot.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">.</span><a class="headerlink" href="#cube-rot-problem" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.19 </span><span class="caption-text">.</span><a class="headerlink" href="#cube-rot-problem" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1615,7 +1615,7 @@ R = \displaystyle \left[\begin{matrix}- \frac{1}{2} &amp; - \frac{\sqrt{3}}{2} &
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Una introducción a los manipuladores seriales</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Una introducción a los manipuladores seriales</p>
       </div>
     </a>
     <a class="right-next"
@@ -1623,7 +1623,7 @@ R = \displaystyle \left[\begin{matrix}- \frac{1}{2} &amp; - \frac{\sqrt{3}}{2} &
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cinemática directa</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Cinemática directa</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1643,31 +1643,31 @@ R = \displaystyle \left[\begin{matrix}- \frac{1}{2} &amp; - \frac{\sqrt{3}}{2} &
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">Representación de la posición</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">Representación de la orientación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">Matrices de rotación</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-propiedades-de-la-matrices-de-rotacion">Algunas propiedades de la matrices de rotación</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-rotacion">Transformaciones de rotación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-posicion">2.1. Representación de la posición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-la-orientacion">2.2. Representación de la orientación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-rotacion">2.2.1. Matrices de rotación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-propiedades-de-la-matrices-de-rotacion">2.2.1.1. Algunas propiedades de la matrices de rotación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-rotacion">2.2.1.2. Transformaciones de rotación</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-similitud">Transformaciones de similitud</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-rotaciones">Composición de las rotaciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler">Ángulos de Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zxz">Ángulos de Euler ZXZ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zyz">Ángulos de Euler ZYZ</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-roll-pitch-yaw">Ángulos Roll-Pitch-Yaw</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-de-similitud">2.2.2. Transformaciones de similitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-rotaciones">2.2.3. Composición de las rotaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler">2.2.4. Ángulos de Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zxz">2.2.4.1. Ángulos de Euler ZXZ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-de-euler-zyz">2.2.4.2. Ángulos de Euler ZYZ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#angulos-roll-pitch-yaw">2.2.4.3. Ángulos Roll-Pitch-Yaw</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-eje-angulo">Representación eje-ángulo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuaterniones">Cuaterniones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-eje-angulo">2.2.5. Representación eje-ángulo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuaterniones">2.2.6. Cuaterniones</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogenea">Matrices de transformación homogénea</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogeneas-basicas">Matrices de transformación homogéneas básicas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-matrices-de-transformacion-homogenea">Composición de las matrices de transformación homogénea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogenea">2.3. Matrices de transformación homogénea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-transformacion-homogeneas-basicas">2.3.1. Matrices de transformación homogéneas básicas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-las-matrices-de-transformacion-homogenea">2.3.2. Composición de las matrices de transformación homogénea</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">2.4. Problemas</a></li>
 </ul>
   </nav></div>
 

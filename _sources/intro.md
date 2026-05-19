@@ -15,7 +15,7 @@ $$
 # Introducción
 
 ```{warning}
-Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido que podría estar incompleto e inconexo. **Fecha de última actualización: 12/02/2026**
+Actualmente estos apuntes están en desarrollo, tome sus precauciones con respecto al contenido, ya que podría estar incompleto o inconexo. **Fecha de última actualización: 14/05/2026**
 ```
 
 Estos apuntes se han elaborado con la finalidad de servir como una referencia rápida para los alumnos de los cursos de Cinemática de Robots y Dinámica de Robots de la Universidad Politécnica de Guanajuato, para sumar a su formación conocimientos sólidos en materia del análisis de manipuladores seriales.
@@ -44,18 +44,18 @@ A continuación se listan y describen una serie de convenciones y notación a ut
 
 La siguiente lista describe algunas abreviaturas y notaciones reducidas, sobre todo para funciones trigonométricas que aparecerán de forma muy frecuente en los análisis de cinemática de manipuladores:
 
-* $ c_m = \cos \theta_m = \cos q_m $, sí $m$ es un valor numérico, en caso contrario: $ c_m = \cos m $
-* $ s_m = \sin \theta_m = \sin q_m $, sí $m$ es un valor numérico, en caso contrario: $ s_m = \sin m $
+* $ c_m = \cos \theta_m = \cos q_m $, si $m$ es un valor numérico, en caso contrario: $ c_m = \cos m $
+* $ s_m = \sin \theta_m = \sin q_m $, si $m$ es un valor numérico, en caso contrario: $ s_m = \sin m $
 * $ c\theta_m = \cos\theta_m $ 
 * $ cq_m = \cos q_m $
 * $ c(\theta_m + \theta_n) = \cos\left( \theta_m + \theta_n \right) $
 * $ c(q_m + q_n) = \cos\left( q_m + q_n\right) $
-* $ c_{mn} = \cos(\theta_m + \theta_n) = \cos(q_m + q_n) $, sí $m$ y $n$ son valores numéricos, en caso contrario: $ c_{mn} = \cos(m + n) $
+* $ c_{mn} = \cos(\theta_m + \theta_n) = \cos(q_m + q_n) $, si $m$ y $n$ son valores numéricos, en caso contrario: $ c_{mn} = \cos(m + n) $
 
 * $ s\theta_m = \sin\theta_m $ 
 * $ sq_m = \sin q_m $
 * $ s(\theta_m + \theta_n) = \sin\left( \theta_m + \theta_n \right) $
 * $ s(q_m + q_n) = \sin\left( q_m + q_n\right) $
-* $ s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) $, sí $m$ y $n$ son valores numéricos, en caso contrario: $ s_{mn} = \sin(m + n) $
+* $ s_{mn} = \sin(\theta_m + \theta_n) = \sin(q_m + q_n) $, si $m$ y $n$ son valores numéricos, en caso contrario: $ s_{mn} = \sin(m + n) $
 
 *Pedro Jorge De Los Santos*

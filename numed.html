@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Métodos numéricos para resolver ecuaciones diferenciales &#8212; Cinemática y dinámica de robots</title>
+    <title>10. Métodos numéricos para resolver ecuaciones diferenciales &#8212; Cinemática y dinámica de robots</title>
   
   
   
@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'numed';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Preliminares matemáticos" href="premat.html" />
+    <link rel="prev" title="9. Preliminares matemáticos" href="premat.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,16 +183,16 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introrob.html">Una introducción a los manipuladores seriales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htra.html">Posición, orientación y transformaciones homogéneas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fkin.html">Cinemática directa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ikin.html">Cinemática inversa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introrob.html">1. Una introducción a los manipuladores seriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htra.html">2. Posición, orientación y transformaciones homogéneas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fkin.html">3. Cinemática directa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ikin.html">4. Cinemática inversa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="dkin.html">Cinemática diferencial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dyna.html">Dinámica de Robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gentra.html">Generación de trayectorias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="premat.html">Preliminares matemáticos</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Métodos numéricos para resolver ecuaciones diferenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dkin.html">6. Cinemática diferencial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dyna.html">7. Dinámica de Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gentra.html">8. Generación de trayectorias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="premat.html">9. Preliminares matemáticos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Métodos numéricos para resolver ecuaciones diferenciales</a></li>
 </ul>
 
     </div>
@@ -341,22 +341,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">Método de Euler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-runge-kutta">Métodos de Runge-Kutta</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta-de-cuarto-orden">Método de Runge-Kutta de cuarto orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">10.1. Método de Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-runge-kutta">10.2. Métodos de Runge-Kutta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta-de-cuarto-orden">10.2.1. Método de Runge-Kutta de cuarto orden</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden">Ecuaciones diferenciales ordinarias de segundo orden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Método de Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden">10.3. Ecuaciones diferenciales ordinarias de segundo orden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">10.3.1. Método de Euler</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden">Sistemas de ecuaciones diferenciales de primer orden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Método de Euler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Método de Runge-Kutta de cuarto orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden">10.4. Sistemas de ecuaciones diferenciales de primer orden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.4.1. Método de Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.4.2. Método de Runge-Kutta de cuarto orden</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden">Sistemas de ecuaciones diferenciales de segundo orden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden">10.5. Sistemas de ecuaciones diferenciales de segundo orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">10.6. Problemas</a></li>
 </ul>
             </nav>
         </div>
@@ -369,7 +369,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="metodos-numericos-para-resolver-ecuaciones-diferenciales">
-<h1>Métodos numéricos para resolver ecuaciones diferenciales<a class="headerlink" href="#metodos-numericos-para-resolver-ecuaciones-diferenciales" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Métodos numéricos para resolver ecuaciones diferenciales<a class="headerlink" href="#metodos-numericos-para-resolver-ecuaciones-diferenciales" title="Link to this heading">#</a></h1>
 <p>Las ecuaciones diferenciales se utilizan para modelar problemas en ciencias e ingeniería que implican el cambio de una variable con respecto a otra. La mayoría de estos problemas requieren la solución de un problema de valor inicial, es decir, la solución de una ecuación diferencial que satisface una condición inicial dada.</p>
 <p>En situaciones comunes de la vida real, la ecuación diferencial que modela el problema es demasiado complicada para resolverla exactamente y se adopta uno de dos enfoques para aproximar la solución. El primer enfoque consiste en modificar el problema simplificando la ecuación diferencial a uno que se puede resolver exactamente y luego usar la solución de la ecuación simplificada para aproximar la solución al problema original. El otro enfoque, utiliza métodos para aproximar la solución del problema original. Este es el enfoque que se adopta con mayor frecuencia porque los métodos de aproximación dan resultados más precisos e información de error realista.</p>
 <p>Los métodos que se abordarán en esta sección no producen una aproximación continua a la solución del problema de valor inicial. Más bien, las aproximaciones se encuentran en ciertos puntos específicos y, a menudo, igualmente espaciados. Si se necesitan valores intermedios, se utiliza algún método de interpolación.</p>
@@ -380,28 +380,28 @@ document.write(`
 \newcommand{\abr}[1]{ \langle #1 \rangle }
 \)</span></p>
 <section id="metodo-de-euler">
-<h2>Método de Euler<a class="headerlink" href="#metodo-de-euler" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.1. </span>Método de Euler<a class="headerlink" href="#metodo-de-euler" title="Link to this heading">#</a></h2>
 <p>El método de Euler es la técnica de aproximación más elemental para resolver problemas con valores iniciales. Aunque rara vez se usa en la práctica, la simplicidad de su derivación puede usarse para ilustrar las técnicas involucradas en la construcción de algunas de las técnicas más avanzadas, sin el engorroso álgebra que acompaña a estas construcciones.</p>
 <p>El objetivo del método de Euler es obtener aproximaciones al problema de valor inicial:</p>
 <div class="math notranslate nohighlight" id="equation-ivp">
-<span class="eqno">(86)<a class="headerlink" href="#equation-ivp" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.1)<a class="headerlink" href="#equation-ivp" title="Link to this equation">#</a></span>\[
 \frac{dy}{dt} = f(t,y) \,; \qquad  a\leq t \leq b \, ;
 \qquad y(t_0) = y_0
 \]</div>
-<p>El método de Euler consiste en ir trazando rectas tangentes sucesivas a partir del valor inicial. Comenzamos linealizando la solución desconocida <span class="math notranslate nohighlight">\(y(t)\)</span> de <a class="reference internal" href="#equation-ivp">(86)</a> en <span class="math notranslate nohighlight">\( t=t_0 \)</span>:</p>
+<p>El método de Euler consiste en ir trazando rectas tangentes sucesivas a partir del valor inicial. Comenzamos linealizando la solución desconocida <span class="math notranslate nohighlight">\(y(t)\)</span> de <a class="reference internal" href="#equation-ivp">(10.1)</a> en <span class="math notranslate nohighlight">\( t=t_0 \)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-lin">
-<span class="eqno">(87)<a class="headerlink" href="#equation-lin" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.2)<a class="headerlink" href="#equation-lin" title="Link to this equation">#</a></span>\[
 L(t) = y_0 + f(t_0, y_0) (t - t_0)
 \]</div>
-<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 121</span></a>:</p>
+<p>La gráfica de esta linealización es una línea recta tangente a la gráfica de <span class="math notranslate nohighlight">\(y=y(t)\)</span> en el punto <span class="math notranslate nohighlight">\((t_0, y_0)\)</span> y cuya pendiente está dada por <span class="math notranslate nohighlight">\(f(t_0, y_0)\)</span>, tal como se puede observar en la Figura <a class="reference internal" href="#euler-method"><span class="std std-numref">Fig. 10.1</span></a>:</p>
 <figure class="align-center" id="euler-method">
 <a class="reference internal image-reference" href="_images/euler_method.svg"><img alt="_images/euler_method.svg" src="_images/euler_method.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 121 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Aproximación mediante el método de Euler</span><a class="headerlink" href="#euler-method" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Ahora, considerando un incremento <span class="math notranslate nohighlight">\(h\)</span> positivo en el eje <span class="math notranslate nohighlight">\(t\)</span>, al reemplazar <span class="math notranslate nohighlight">\(t\)</span> por <span class="math notranslate nohighlight">\(t_1 = t_0 + h\)</span> en <a class="reference internal" href="#equation-lin">(87)</a> se tiene:</p>
+<p>Ahora, considerando un incremento <span class="math notranslate nohighlight">\(h\)</span> positivo en el eje <span class="math notranslate nohighlight">\(t\)</span>, al reemplazar <span class="math notranslate nohighlight">\(t\)</span> por <span class="math notranslate nohighlight">\(t_1 = t_0 + h\)</span> en <a class="reference internal" href="#equation-lin">(10.2)</a> se tiene:</p>
 <div class="math notranslate nohighlight">
 \[ 
 L(t_1) = y_0 + f(t_0, y_0)(t_0 + h - t_0)
@@ -417,7 +417,7 @@ y(t_2) = y(t_0 + 2h) = y(t_1 + h) \approx y_2 = y_1 + h f(t_1, y_1)
 \]</div>
 <p>Si continuamos de esta manera, las sucesivas aproximaciones se pueden expresar de manera general como:</p>
 <div class="math notranslate nohighlight" id="equation-euler-method">
-<span class="eqno">(88)<a class="headerlink" href="#equation-euler-method" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.3)<a class="headerlink" href="#equation-euler-method" title="Link to this equation">#</a></span>\[
 y_{i+1} = y_i + h f(t_i, y_i)
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(t_i = t_0 + ih\)</span>, donde <span class="math notranslate nohighlight">\(i=0,1,2,\cdots\)</span>. Observe que cada aproximación se realiza con base en la estimación previa.</p>
@@ -443,17 +443,17 @@ y_{i+1} = y_i + h f(t_i, y_i)
 <p>Así, la aproximación buscada es <span class="math notranslate nohighlight">\( y_{aprox}(0.5) \approx y_5 \approx 6.3 \)</span>. Se puede verificar de forma sencilla que la solución exacta para este problema de valor inicial está dada por:</p>
 <div class="math notranslate nohighlight">
 \[ y(t) = \frac{3}{2} t^2 + 2t + 5 \]</div>
-<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 122</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
+<p>Entonces, el valor real de la función solución en <span class="math notranslate nohighlight">\(t=0.5\)</span> es <span class="math notranslate nohighlight">\( y(0.5) = 6.375 \)</span>. En la Figura <a class="reference internal" href="#euler-numed-example-01"><span class="std std-numref">Fig. 10.2</span></a> se pueden observar la curva solución y la aproximación realizada mediante el método de Euler en el intervalo <span class="math notranslate nohighlight">\( 0 \leq t \leq 0.5 \)</span>. Podemos notar que conforme nos alejamos de la aproximación del valor inicial, la diferencia entre la función solución y la aproximación se hace un poco más evidente.</p>
 <figure class="align-center" id="euler-numed-example-01">
 <a class="reference internal image-reference" href="_images/euler_numed_example_01.svg"><img alt="_images/euler_numed_example_01.svg" src="_images/euler_numed_example_01.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 122 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Ejemplo del método de Euler</span><a class="headerlink" href="#euler-numed-example-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div></section>
 <section id="metodos-de-runge-kutta">
-<h2>Métodos de Runge-Kutta<a class="headerlink" href="#metodos-de-runge-kutta" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Métodos de Runge-Kutta<a class="headerlink" href="#metodos-de-runge-kutta" title="Link to this heading">#</a></h2>
 <p>Los métodos de Runge-Kutta son una familia de métodos numéricos para aproximar soluciones de ecuaciones diferenciales ordinarias. Son métodos iterativos, lo que significa que se basan en aproximaciones sucesivas para obtener la solución. La idea básica detrás del método de Runge-Kutta es aproximar la solución de una EDO mediante una serie de pasos. En cada paso, se calculan varios valores intermedios que se utilizan para mejorar la aproximación.</p>
 <p>Los métodos de Runge-Kutta tienen la forma generalizada:</p>
 <div class="math notranslate nohighlight">
@@ -478,7 +478,7 @@ y_{i+1} = y_{i} + h \, \phi(t_i, y_i, h)
 aparece en la ecuación <span class="math notranslate nohighlight">\(k_2\)</span>, la cual aparece en la ecuación <span class="math notranslate nohighlight">\(k_3\)</span>, etc. Como cada <span class="math notranslate nohighlight">\(k\)</span> es una evaluación
 funcional, esta recurrencia vuelve eficientes a los métodos RK para cálculos en computadora. Es posible tener varios tipos de métodos de Runge-Kutta empleando diferentes números de términos en la función incremento especificada por <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <section id="metodo-de-runge-kutta-de-cuarto-orden">
-<h3>Método de Runge-Kutta de cuarto orden<a class="headerlink" href="#metodo-de-runge-kutta-de-cuarto-orden" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>Método de Runge-Kutta de cuarto orden<a class="headerlink" href="#metodo-de-runge-kutta-de-cuarto-orden" title="Link to this heading">#</a></h3>
 <p>El más popular de los métodos Runge-Kutta es el de cuarto orden. Hay un número infinito de versiones. La siguiente, es la forma comúnmente usada y, por lo tanto, le llamamos método clásico de Runge-Kutta de cuarto orden (o <em>RK4</em> en forma abreviada):</p>
 <div class="math notranslate nohighlight">
 \[
@@ -493,12 +493,12 @@ y_{i+1} = y_{i} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
 \[ k_3 = f\left(t_i + \frac{1}{2}h, y_i + \frac{1}{2}k_2 h \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ k_4 = f\left(t_i + h, y_i + k_3 h \right) \]</div>
-<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 123</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
+<p>Las constantes <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_2\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>, representan una pendiente calculada, tal como se muestra en la Figura <a class="reference internal" href="#rk4-slopes"><span class="std std-numref">Fig. 10.3</span></a>. Cada aproximación es un promedio ponderado de estas pendientes. Observe que <span class="math notranslate nohighlight">\(k_2\)</span> se calcula en el medio paso <span class="math notranslate nohighlight">\( t_i + 0.5 h \)</span> y utilizando el valor previamente estimado mediante <span class="math notranslate nohighlight">\(k_1\)</span>, algo similar ocurre con <span class="math notranslate nohighlight">\(k_3\)</span> y <span class="math notranslate nohighlight">\(k_4\)</span>.</p>
 <figure class="align-center" id="rk4-slopes">
 <a class="reference internal image-reference" href="_images/rk4_slopes.svg"><img alt="_images/rk4_slopes.svg" src="_images/rk4_slopes.svg" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 123 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Pendientes ponderadas del método RK4</span><a class="headerlink" href="#rk4-slopes" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="example">
@@ -600,7 +600,7 @@ y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
 </div></section>
 </section>
 <section id="ecuaciones-diferenciales-ordinarias-de-segundo-orden">
-<span id="edo-second-order"></span><h2>Ecuaciones diferenciales ordinarias de segundo orden<a class="headerlink" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden" title="Link to this heading">#</a></h2>
+<span id="edo-second-order"></span><h2><span class="section-number">10.3. </span>Ecuaciones diferenciales ordinarias de segundo orden<a class="headerlink" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden" title="Link to this heading">#</a></h2>
 <p>El problema de valor inicial de segundo orden se puede escribir de forma general como:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{d^2y}{dt^2} = f(t, y, \dot{y}) \]</div>
@@ -608,21 +608,21 @@ y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
 \[ y(t_0) = y_0  \, ; \quad \dot{y}(t_0) = u_0 \]</div>
 <p>Este problema se puede escribir como un conjunto de dos ecuaciones diferenciales de primer orden, haciendo la sustitución:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-a">
-<span class="eqno">(89)<a class="headerlink" href="#equation-ode-so-system-a" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.4)<a class="headerlink" href="#equation-ode-so-system-a" title="Link to this equation">#</a></span>\[
 \dot{y} = u 
 \]</div>
 <p>Entonces:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-b">
-<span class="eqno">(90)<a class="headerlink" href="#equation-ode-so-system-b" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.5)<a class="headerlink" href="#equation-ode-so-system-b" title="Link to this equation">#</a></span>\[
 \dot{u} = f(t,y,u) 
 \]</div>
-<p>Las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(89)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(90)</a> conforman un sistema de dos ecuaciones diferenciales de primer orden. Ahora el problema se centra en determinar las funciones solución <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sujetas a las condiciones iniciales:</p>
+<p>Las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(10.4)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(10.5)</a> conforman un sistema de dos ecuaciones diferenciales de primer orden. Ahora el problema se centra en determinar las funciones solución <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sujetas a las condiciones iniciales:</p>
 <div class="math notranslate nohighlight">
 \[ y(t_0) = y_0   \, ; \quad u(t_0) = u_0 \]</div>
 <p>Este sistema de ecuaciones diferenciales se puede resolver numéricamente, aplicando algún método en particular a cada una de las ecuaciones.</p>
 <section id="id1">
-<h3>Método de Euler<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Así pues, la aproximación mediante el método de Euler para un sistema de EDO de primer orden como el de las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(89)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(90)</a>, se puede escribir como:</p>
+<h3><span class="section-number">10.3.1. </span>Método de Euler<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Así pues, la aproximación mediante el método de Euler para un sistema de EDO de primer orden como el de las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(10.4)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(10.5)</a>, se puede escribir como:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{matrix}
@@ -711,10 +711,10 @@ u_{i+1} = u_i + h f(t_i, y_i, u_i)
 </div></section>
 </section>
 <section id="sistemas-de-ecuaciones-diferenciales-de-primer-orden">
-<span id="solving-ode-system"></span><h2>Sistemas de ecuaciones diferenciales de primer orden<a class="headerlink" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden" title="Link to this heading">#</a></h2>
+<span id="solving-ode-system"></span><h2><span class="section-number">10.4. </span>Sistemas de ecuaciones diferenciales de primer orden<a class="headerlink" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden" title="Link to this heading">#</a></h2>
 <p>Considerando que se tiene un sistema de <span class="math notranslate nohighlight">\(n\)</span> ecuaciones diferenciales de primer orden de la forma:</p>
 <div class="math notranslate nohighlight" id="equation-ode-system">
-<span class="eqno">(91)<a class="headerlink" href="#equation-ode-system" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(10.6)<a class="headerlink" href="#equation-ode-system" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{matrix}
 \displaystyle
 \frac{dy_1}{dt} = f_1(t, y_1, y_2, \cdots, y_n) \\[2mm]
@@ -730,7 +730,7 @@ u_{i+1} = u_i + h f(t_i, y_i, u_i)
 \[ y_1(t_0)=\alpha_1\,; \quad y_2(t_0) = \alpha_2\,; \quad  \cdots \, ; \quad y_n(t_0) = \alpha_n \]</div>
 <p>El sistema de ecuaciones y las condiciones iniciales se pueden escribir en forma vectorizada como:</p>
 <div class="math notranslate nohighlight" id="equation-ode-system-vectorized">
-<span class="eqno">(92)<a class="headerlink" href="#equation-ode-system-vectorized" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10.7)<a class="headerlink" href="#equation-ode-system-vectorized" title="Link to this equation">#</a></span>\[
 \frac{d\vec{y}}{dt} = \vec{f}(t, \vec{y}) 
 \, ; \qquad
 \vec{y}(t_0) = \vec{y}_0 
@@ -753,10 +753,10 @@ f_n(t, \vec{y})
 \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n
 \end{bmatrix} 
 \end{split}\]</div>
-<p>Observe que la ecuación vectorial <a class="reference internal" href="#equation-ode-system-vectorized">(92)</a> es análoga a la ecuación escalar <a class="reference internal" href="#equation-ivp">(86)</a>. Las expresiones de las secciones previas se pueden utilizar para resolver el sistema de ecuaciones en forma vectorizada, haciendo los ajustes correspondientes en la formulación.</p>
+<p>Observe que la ecuación vectorial <a class="reference internal" href="#equation-ode-system-vectorized">(10.7)</a> es análoga a la ecuación escalar <a class="reference internal" href="#equation-ivp">(10.1)</a>. Las expresiones de las secciones previas se pueden utilizar para resolver el sistema de ecuaciones en forma vectorizada, haciendo los ajustes correspondientes en la formulación.</p>
 <section id="id2">
-<h3>Método de Euler<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Cada aproximación, mediante el método de Euler, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(92)</a> se puede determinar como sigue:</p>
+<h3><span class="section-number">10.4.1. </span>Método de Euler<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Cada aproximación, mediante el método de Euler, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(10.7)</a> se puede determinar como sigue:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{y}_{i+1} = \vec{y}_i + h \, \vec{f}(t_i, \vec{y}_i)
@@ -777,8 +777,8 @@ f_n(t, \vec{y})
 \end{split}\]</div>
 </section>
 <section id="id3">
-<h3>Método de Runge-Kutta de cuarto orden<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Cada aproximación, mediante el método de Runge-Kutta de cuarto orden, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(92)</a> se puede determinar como sigue:</p>
+<h3><span class="section-number">10.4.2. </span>Método de Runge-Kutta de cuarto orden<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Cada aproximación, mediante el método de Runge-Kutta de cuarto orden, del problema de valor de inicial <a class="reference internal" href="#equation-ode-system-vectorized">(10.7)</a> se puede determinar como sigue:</p>
 <div class="math notranslate nohighlight">
 \[
 \vec{y}_{i+1} = \vec{y}_i + \frac{h}{6}\left( \vec{k}_1 + 2\vec{k}_2 + 2\vec{k}_3 + \vec{k}_4 \right)
@@ -796,7 +796,7 @@ f_n(t, \vec{y})
 </section>
 </section>
 <section id="sistemas-de-ecuaciones-diferenciales-de-segundo-orden">
-<h2>Sistemas de ecuaciones diferenciales de segundo orden<a class="headerlink" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5. </span>Sistemas de ecuaciones diferenciales de segundo orden<a class="headerlink" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden" title="Link to this heading">#</a></h2>
 <p>Un sistema de <span class="math notranslate nohighlight">\(n\)</span> ecuaciones diferenciales de segundo orden:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -860,7 +860,7 @@ u_n(t_0) = \alpha_{2n}
 <p>Un problema de valor de inicial como este se puede <em>resolver</em> de la manera que se describe en la sección <a class="reference internal" href="#solving-ode-system"><span class="std std-ref">Sistemas de ecuaciones diferenciales de primer orden</span></a>.</p>
 </section>
 <section id="problemas">
-<h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.6. </span>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Utilice el método de Runge-Kutta de cuarto orden para aproximar la solución del problema de valor inicial de segundo orden. Compare las aproximaciones obtenidas con la solución real.</p>
 <div class="math notranslate nohighlight">
@@ -944,7 +944,7 @@ u_n(t_0) = \alpha_{2n}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Preliminares matemáticos</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Preliminares matemáticos</p>
       </div>
     </a>
 </div>
@@ -963,22 +963,22 @@ u_n(t_0) = \alpha_{2n}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">Método de Euler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-runge-kutta">Métodos de Runge-Kutta</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta-de-cuarto-orden">Método de Runge-Kutta de cuarto orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">10.1. Método de Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-runge-kutta">10.2. Métodos de Runge-Kutta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta-de-cuarto-orden">10.2.1. Método de Runge-Kutta de cuarto orden</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden">Ecuaciones diferenciales ordinarias de segundo orden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Método de Euler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-diferenciales-ordinarias-de-segundo-orden">10.3. Ecuaciones diferenciales ordinarias de segundo orden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">10.3.1. Método de Euler</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden">Sistemas de ecuaciones diferenciales de primer orden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Método de Euler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Método de Runge-Kutta de cuarto orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-primer-orden">10.4. Sistemas de ecuaciones diferenciales de primer orden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.4.1. Método de Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.4.2. Método de Runge-Kutta de cuarto orden</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden">Sistemas de ecuaciones diferenciales de segundo orden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-de-ecuaciones-diferenciales-de-segundo-orden">10.5. Sistemas de ecuaciones diferenciales de segundo orden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">10.6. Problemas</a></li>
 </ul>
   </nav></div>
 

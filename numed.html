@@ -403,16 +403,16 @@ L(t) = y_0 + f(t_0, y_0) (t - t_0)
 </figure>
 <p>Ahora, considerando un incremento <span class="math notranslate nohighlight">\(h\)</span> positivo en el eje <span class="math notranslate nohighlight">\(t\)</span>, al reemplazar <span class="math notranslate nohighlight">\(t\)</span> por <span class="math notranslate nohighlight">\(t_1 = t_0 + h\)</span> en <a class="reference internal" href="#equation-lin">(10.2)</a> se tiene:</p>
 <div class="math notranslate nohighlight">
-\[ 
+\[
 L(t_1) = y_0 + f(t_0, y_0)(t_0 + h - t_0)
 \]</div>
 <div class="math notranslate nohighlight">
-\[ 
+\[
 y_1 = y_0 + h f(t_0, y_0)
 \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(y_1 = L(t_1)\)</span>. En la línea tangente, el punto <span class="math notranslate nohighlight">\((t_1, y_1)\)</span> es una aproximación al punto <span class="math notranslate nohighlight">\((t_1, y(t_1))\)</span> ubicado sobre la curva solución (ver Figura \ref{fig:euler_method}). La exactitud de la aproximación <span class="math notranslate nohighlight">\(y_1 \approx y(t_1)\)</span> depende en gran medida del tamaño del incremento <span class="math notranslate nohighlight">\(h\)</span>. La recomendación es que debemos elegir este tamaño del paso lo razonablemente pequeño. Ahora repetimos el proceso mediante una segunda línea tangente en <span class="math notranslate nohighlight">\((t_1, y_1)\)</span>. Tomando como punto de base a la aproximación anterior (<span class="math notranslate nohighlight">\(t_1, y_1\)</span>) podemos obtener una aproximación <span class="math notranslate nohighlight">\(y_2 \approx y(t_2)\)</span> correspondiente a dos pasos de longitud <span class="math notranslate nohighlight">\(h\)</span> desde <span class="math notranslate nohighlight">\(t_0\)</span>, es decir, <span class="math notranslate nohighlight">\(t_2 = t_1 + h = t_0 + 2h \)</span>, así:</p>
 <div class="math notranslate nohighlight">
-\[ 
+\[
 y(t_2) = y(t_0 + 2h) = y(t_1 + h) \approx y_2 = y_1 + h f(t_1, y_1)
 \]</div>
 <p>Si continuamos de esta manera, las sucesivas aproximaciones se pueden expresar de manera general como:</p>
@@ -511,25 +511,25 @@ y_{i+1} = y_{i} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right)
 <div class="math notranslate nohighlight">
 \[ k_1 = f(t_0, y_0) = 3(0) + 2 = 2 \]</div>
 <div class="math notranslate nohighlight">
-\[ 
-k_2 = f\left(t_0 + \frac{1}{2}h, y_0 + \frac{1}{2}k_1 h \right) = 
+\[
+k_2 = f\left(t_0 + \frac{1}{2}h, y_0 + \frac{1}{2}k_1 h \right) =
 3 \rbr{ 0 + 0.5 \rbr{0.1} } + 2 = 0.15 + 2 = 2.15
 \]</div>
 <div class="math notranslate nohighlight">
-\[ 
-k_3 = f\left(t_0 + \frac{1}{2}h, y_0 + \frac{1}{2}k_2 h \right) = 
+\[
+k_3 = f\left(t_0 + \frac{1}{2}h, y_0 + \frac{1}{2}k_2 h \right) =
 3 \rbr{ 0 + 0.5 \rbr{0.1} } + 2 = 0.15 + 2 = 2.15
 \]</div>
 <div class="math notranslate nohighlight">
-\[ 
-k_4 = f\left(t_0 + h, y_0 + k_3 h \right) = 
+\[
+k_4 = f\left(t_0 + h, y_0 + k_3 h \right) =
 3 \rbr{ 0 + 0.1 } + 2 = 0.3 + 2 = 2.3
 \]</div>
 <p>Entonces, la aproximación <span class="math notranslate nohighlight">\(y_1\)</span> está dada por:</p>
 <div class="math notranslate nohighlight">
 \[
-y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) = 
-5 + \frac{0.1}{6} \rbr{ 2 + 2\rbr{2.15} + 2\rbr{2.15} + 2.3 } = 5.215 
+y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
+5 + \frac{0.1}{6} \rbr{ 2 + 2\rbr{2.15} + 2\rbr{2.15} + 2.3 } = 5.215
 \]</div>
 <p>Para la siguiente aproximación <span class="math notranslate nohighlight">\(y_2\)</span>, con <span class="math notranslate nohighlight">\(t_1 = 0.1\)</span> y <span class="math notranslate nohighlight">\(y_1 = 5.215\)</span>, se tiene que:</p>
 <div class="math notranslate nohighlight">
@@ -609,12 +609,12 @@ y_1 = y_{0} + \frac{h}{6} \left( k_1 + 2k_2 + 2k_3 + k_4 \right) =
 <p>Este problema se puede escribir como un conjunto de dos ecuaciones diferenciales de primer orden, haciendo la sustitución:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-a">
 <span class="eqno">(10.4)<a class="headerlink" href="#equation-ode-so-system-a" title="Link to this equation">#</a></span>\[
-\dot{y} = u 
+\dot{y} = u
 \]</div>
 <p>Entonces:</p>
 <div class="math notranslate nohighlight" id="equation-ode-so-system-b">
 <span class="eqno">(10.5)<a class="headerlink" href="#equation-ode-so-system-b" title="Link to this equation">#</a></span>\[
-\dot{u} = f(t,y,u) 
+\dot{u} = f(t,y,u)
 \]</div>
 <p>Las ecuaciones <a class="reference internal" href="#equation-ode-so-system-a">(10.4)</a> y <a class="reference internal" href="#equation-ode-so-system-b">(10.5)</a> conforman un sistema de dos ecuaciones diferenciales de primer orden. Ahora el problema se centra en determinar las funciones solución <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sujetas a las condiciones iniciales:</p>
 <div class="math notranslate nohighlight">
@@ -731,27 +731,27 @@ u_{i+1} = u_i + h f(t_i, y_i, u_i)
 <p>El sistema de ecuaciones y las condiciones iniciales se pueden escribir en forma vectorizada como:</p>
 <div class="math notranslate nohighlight" id="equation-ode-system-vectorized">
 <span class="eqno">(10.7)<a class="headerlink" href="#equation-ode-system-vectorized" title="Link to this equation">#</a></span>\[
-\frac{d\vec{y}}{dt} = \vec{f}(t, \vec{y}) 
+\frac{d\vec{y}}{dt} = \vec{f}(t, \vec{y})
 \, ; \qquad
-\vec{y}(t_0) = \vec{y}_0 
+\vec{y}(t_0) = \vec{y}_0
 \]</div>
 <p>Donde:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} 
+\[\begin{split}
 \vec{y} = \begin{bmatrix}
 y_1 \\ y_2 \\ \vdots \\ y_n
-\end{bmatrix} 
+\end{bmatrix}
 \, ; \quad
 \vec{f} = \begin{bmatrix}
-f_1(t, \vec{y}) \\ 
+f_1(t, \vec{y}) \\
 f_2(t, \vec{y}) \\
-\vdots \\ 
+\vdots \\
 f_n(t, \vec{y})
 \end{bmatrix}
 \, ; \quad
 \vec{y}_0 = \begin{bmatrix}
 \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n
-\end{bmatrix} 
+\end{bmatrix}
 \end{split}\]</div>
 <p>Observe que la ecuación vectorial <a class="reference internal" href="#equation-ode-system-vectorized">(10.7)</a> es análoga a la ecuación escalar <a class="reference internal" href="#equation-ivp">(10.1)</a>. Las expresiones de las secciones previas se pueden utilizar para resolver el sistema de ecuaciones en forma vectorizada, haciendo los ajustes correspondientes en la formulación.</p>
 <section id="id2">
@@ -769,9 +769,9 @@ y_{1_i} \\ y_{2_i} \\ \vdots \\ y_{n_i}
 \end{bmatrix}
 \quad ; \quad
 \vec{f} = \begin{bmatrix}
-f_1(t, \vec{y}) \\ 
+f_1(t, \vec{y}) \\
 f_2(t, \vec{y}) \\
-\vdots \\ 
+\vdots \\
 f_n(t, \vec{y})
 \end{bmatrix}
 \end{split}\]</div>
@@ -821,7 +821,7 @@ y_2(t_0) = \alpha_3 \\[2mm]
 \dot{y}_2(t_0) = \alpha_4 \\[2mm]
 \vdots \\
 y_n(t_0) = \alpha_{2n-1} \\[2mm]
-\dot{y}_n(t_0) = \alpha_{2n} 
+\dot{y}_n(t_0) = \alpha_{2n}
 \end{matrix}
 \end{split}\]</div>
 <p>Se puede escribir como un sistema de ecuaciones diferenciales de primer orden, haciendo la sustitución descrita en la sección <a class="reference internal" href="#edo-second-order"><span class="std std-ref">Ecuaciones diferenciales ordinarias de segundo orden</span></a> para cada una de las ecuaciones, es decir:</p>
@@ -854,7 +854,7 @@ y_2(t_0) = \alpha_3 \\
 u_2(t_0) = \alpha_4 \\
 \vdots \\
 y_n(t_0) = \alpha_{2n-1} \\
-u_n(t_0) = \alpha_{2n} 
+u_n(t_0) = \alpha_{2n}
 \end{matrix}
 \end{split}\]</div>
 <p>Un problema de valor de inicial como este se puede <em>resolver</em> de la manera que se describe en la sección <a class="reference internal" href="#solving-ode-system"><span class="std std-ref">Sistemas de ecuaciones diferenciales de primer orden</span></a>.</p>

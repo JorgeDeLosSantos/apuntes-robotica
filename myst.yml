@@ -30,3 +30,4 @@ site:
   title: Cinemática y dinámica de robots
   options:
     logo: img/logo.svg
+    style: _static/customized.css

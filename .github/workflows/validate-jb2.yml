@@ -4,15 +4,11 @@ on:
   push:
     branches:
       - feat/jupyter-book-2-migration
-  pull_request:
-    paths:
-      - 'myst.yml'
-      - 'math.yml'
-      - '*.ipynb'
-      - 'img/**'
-      - 'requirements.txt'
-      - '.github/workflows/validate-jb2.yml'
   workflow_dispatch:
+
+concurrency:
+  group: jb2-validation-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -24,9 +20,9 @@ jobs:
     timeout-minutes: 25
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Install Jupyter Book 2
@@ -41,14 +37,14 @@ jobs:
           jupyter book build --html 2>&1 | tee jb2-build.log
       - name: Store build diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: jb2-build-log
           path: jb2-build.log
           if-no-files-found: ignore
       - name: Store generated site for review
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: jb2-html-preview
           path: _build/html/

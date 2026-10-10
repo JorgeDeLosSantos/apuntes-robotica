@@ -1,15 +1,15 @@
 $$
-\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
-\newcommand{\framei}[1]{ \{#1\} }
+
+
 % Paréntesis y llaves
-\newcommand{\rbr}[1]{ \left( #1 \right) }
-\newcommand{\sbr}[1]{ \left[ #1 \right] }
-\newcommand{\cbr}[1]{ \left\{ #1 \right\} }
-\newcommand{\W}{\boldsymbol{\omega}}
+
+
+
+
 % transformaciones
-\newcommand{\Tij}[2]{T_{#1}^{#2}}
-\newcommand{\Rij}[2]{R_{#1}^{#2}}
-\renewcommand{\veci}[2]{\boldsymbol{\mathbf{r}}_{#1}^{#2}}
+
+
+
 $$
 
 # Introducción

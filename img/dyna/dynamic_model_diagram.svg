@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="t d">
+<title id="t">Dependencias principales para construir un modelo dinámico de manipulador</title>
+<desc id="d">Diagrama conceptual: los datos cinemáticos, las propiedades inerciales y la gravedad permiten calcular las energías cinética y potencial. Ambas forman el lagrangiano, que conduce a las ecuaciones de Euler-Lagrange y al modelo dinámico.</desc>
+<defs>
+  <marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#52717b"/></marker>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#203942}
+    .heading{font-size:24px;font-weight:700}
+    .body{font-size:18px}
+    .small{font-size:16px;fill:#47606b}
+    .edge{fill:none;stroke:#52717b;stroke-width:2.4;marker-end:url(#arr)}
+    .card{stroke:#aac1c8;stroke-width:1.8;rx:14}
+  </style>
+</defs>
+<rect width="1200" height="750" fill="#ffffff"/>
+<text x="600" y="34" text-anchor="middle" font-size="19" fill="#58727c">Formulación de Euler-Lagrange · visión de las dependencias principales</text>
+<rect x="350" y="55" width="500" height="77" rx="15" fill="#d4eee6" stroke="#74b6a4" stroke-width="2"/>
+<text x="600" y="87" text-anchor="middle" class="heading">Modelo dinámico</text>
+<text x="600" y="115" text-anchor="middle" class="body">τ = M(q)q̈ + C(q,q̇)q̇ + g(q)</text>
+<rect x="350" y="169" width="500" height="68" rx="14" fill="#e8f1f4" stroke="#a7c3cc" stroke-width="1.8"/>
+<text x="600" y="199" text-anchor="middle" class="heading">Ecuaciones de Euler-Lagrange</text>
+<text x="600" y="222" text-anchor="middle" class="small">Derivadas del lagrangiano respecto a q y q̇</text>
+<rect x="395" y="275" width="410" height="68" rx="14" fill="#eaf1f6" stroke="#a7c3cc" stroke-width="1.8"/>
+<text x="600" y="305" text-anchor="middle" class="heading">Lagrangiano</text>
+<text x="600" y="329" text-anchor="middle" class="body">L = K − P</text>
+<rect class="card" x="90" y="402" width="455" height="104" fill="#eef7f5"/>
+<text x="317" y="440" text-anchor="middle" class="heading">Energía cinética · K</text>
+<text x="317" y="470" text-anchor="middle" class="small">Velocidades lineales y angulares</text>
+<text x="317" y="490" text-anchor="middle" class="small">Masa y tensor de inercia</text>
+<rect class="card" x="655" y="402" width="455" height="104" fill="#f2f6eb"/>
+<text x="883" y="440" text-anchor="middle" class="heading">Energía potencial · P</text>
+<text x="883" y="470" text-anchor="middle" class="small">Posición de los centros de masa</text>
+<text x="883" y="490" text-anchor="middle" class="small">Masa y gravedad</text>
+<rect class="card" x="45" y="584" width="354" height="120" fill="#f3f7f9"/>
+<text x="222" y="616" text-anchor="middle" class="heading">Cinemática</text>
+<text x="222" y="645" text-anchor="middle" class="body">Parámetros DH y tipos de junta</text>
+<text x="222" y="669" text-anchor="middle" class="small">T, R, velocidades ω y v</text>
+<rect class="card" x="422" y="584" width="354" height="120" fill="#f3f7f9"/>
+<text x="599" y="616" text-anchor="middle" class="heading">Propiedades de eslabones</text>
+<text x="599" y="645" text-anchor="middle" class="body">Masas m y tensores I</text>
+<text x="599" y="669" text-anchor="middle" class="small">Posiciones locales de los centros de masa</text>
+<rect class="card" x="799" y="584" width="354" height="120" fill="#f3f7f9"/>
+<text x="976" y="616" text-anchor="middle" class="heading">Condiciones del entorno</text>
+<text x="976" y="650" text-anchor="middle" class="body">Vector de gravedad g</text>
+<path class="edge" d="M600 169 V133"/>
+<path class="edge" d="M600 275 V239"/>
+<path class="edge" d="M317 402 V373 Q317 359 331 359 H580 Q600 359 600 345"/>
+<path class="edge" d="M883 402 V373 Q883 359 869 359 H620 Q600 359 600 345"/>
+<path class="edge" d="M222 584 V535 Q222 522 235 522 H317 V508"/>
+<path class="edge" d="M599 584 V553 Q599 538 585 538 H352 Q317 538 317 509"/>
+<path class="edge" d="M599 584 V553 Q599 538 614 538 H850 Q883 538 883 509"/>
+<path class="edge" d="M976 584 V532 Q976 522 963 522 H883 V508"/>
+<text x="600" y="738" text-anchor="middle" class="small">Esquema conceptual de dependencias; no representa una secuencia única de cálculo.</text>
+</svg>

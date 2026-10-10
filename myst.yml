@@ -1,0 +1,32 @@
+# Jupyter Book 2 / MyST project configuration
+version: 1
+
+extends:
+  - math.yml
+
+project:
+  title: Cinemática y dinámica de robots
+  description: Apuntes de cinemática y dinámica de manipuladores seriales
+  authors:
+    - name: Pedro Jorge De Los Santos
+  copyright: "2026"
+  github: JorgeDeLosSantos/apuntes-robotica
+  bibliography:
+    - references.bib
+  toc:
+    - file: intro.md
+    - file: introrob.ipynb
+    - file: htra.ipynb
+    - file: fkin.ipynb
+    - file: ikin.ipynb
+    - file: dkin.ipynb
+    - file: dyna.ipynb
+    - file: gentra.ipynb
+    - file: premat.ipynb
+    - file: numed.ipynb
+
+site:
+  template: book-theme
+  title: Cinemática y dinámica de robots
+  options:
+    logo: img/logo.svg

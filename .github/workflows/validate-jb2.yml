@@ -37,7 +37,9 @@ jobs:
         run: |
           set -o pipefail
           jupyter book build --html --strict 2>&1 | tee jb2-build.log
-      - name: Validate generated URLs and assets
+      - name: Inject Statcounter into generated HTML
+        run: python scripts/inject_statcounter.py
+      - name: Validate generated URLs, assets and Statcounter
         run: python scripts/check_site.py
       - name: Store build diagnostics
         if: always()

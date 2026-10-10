@@ -38,7 +38,9 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build static HTML (without executing notebooks)
         run: jupyter book build --html --strict
-      - name: Verify production URLs and static files
+      - name: Inject Statcounter into generated HTML
+        run: python scripts/inject_statcounter.py
+      - name: Verify production URLs, assets and Statcounter
         run: python scripts/check_site.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

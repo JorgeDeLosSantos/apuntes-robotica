@@ -17,6 +17,9 @@ La salida se genera en `_build/html/`. Los notebooks **no se ejecutan durante la
 
 ## Validación y publicación
 
+El seguimiento de Statcounter se conserva mediante un paso de posprocesamiento, como en los apuntes de Python. Después de compilar el HTML se ejecuta `python scripts/inject_statcounter.py`, antes de validarlo y subirlo a Pages. El script es idempotente y utiliza el proyecto de seguimiento original de robótica.
+
+
 - Cada pull request hacia `main` genera una vista previa de la publicación y verifica las rutas con `BASE_URL=/apuntes-robotica`; el HTML y los registros quedan disponibles como artifacts de GitHub Actions.
 - La integración en `main` activará `.github/workflows/deploy-pages.yml`, que compilará y publicará en GitHub Pages.
 - **Antes de la primera publicación con Actions**, configurar **Settings → Pages → Build and deployment → Source: GitHub Actions**. Hasta completar ese cambio, el sitio actual puede seguir publicándose desde la rama `gh-pages`.
@@ -26,6 +29,7 @@ El comando de validación de rutas de la publicación también puede ejecutarse 
 
 ```bash
 BASE_URL=/apuntes-robotica jupyter book build --html --strict
+python scripts/inject_statcounter.py
 BASE_URL=/apuntes-robotica python scripts/check_site.py
 ```
 

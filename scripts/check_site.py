@@ -8,6 +8,8 @@ from urllib.parse import urlsplit
 
 SITE = Path("_build/html")
 BASE_URL = os.environ.get("BASE_URL", "/apuntes-robotica").rstrip("/")
+STATCOUNTER_MARKER = "sc_project=13211697"
+STATCOUNTER_SECURITY = 'sc_security="fb36e920"'
 PAGES = (
     "index.html",
     "introrob/index.html",
@@ -47,8 +49,13 @@ def main():
         if not html_path.is_file():
             problems.append(f"Missing HTML page: {html_path}")
             continue
+        content = html_path.read_text(encoding="utf-8")
+        if content.count(STATCOUNTER_MARKER) != 1:
+            problems.append(f"{page}: expected exactly one robotics Statcounter tag")
+        if STATCOUNTER_SECURITY not in content:
+            problems.append(f"{page}: missing robotics Statcounter security code")
         parser = SiteLinks()
-        parser.feed(html_path.read_text(encoding="utf-8"))
+        parser.feed(content)
         for tag, attribute, value in parser.links:
             parsed = urlsplit(value)
             if parsed.scheme or parsed.netloc or not parsed.path.startswith("/"):

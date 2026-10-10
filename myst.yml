@@ -10,6 +10,11 @@ project:
   authors:
     - name: Pedro Jorge De Los Santos
   copyright: "2026"
+  
+  numbering:
+    headings: true
+    title: true
+  
   github: JorgeDeLosSantos/apuntes-robotica
   bibliography:
     - references.bib
@@ -28,6 +33,9 @@ project:
 site:
   template: book-theme
   title: Cinemática y dinámica de robots
+  hide_authors: true
   options:
     logo: img/logo.svg
+    favicon: img/logo.png
+    folders: true
     style: _static/customized.css

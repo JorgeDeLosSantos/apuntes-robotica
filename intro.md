@@ -1,17 +1,6 @@
-$$
-
-
-% Paréntesis y llaves
-
-
-
-
-% transformaciones
-
-
-
-$$
-
+---
+numbering: false
+---
 # Introducción
 
 ```{warning}

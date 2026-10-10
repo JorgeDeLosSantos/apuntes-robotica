@@ -208,3 +208,6 @@ __marimo__/
 
 # Jupyter Book 2 / MyST generated artifacts
 .myst/
+
+# Anaconda projects
+anaconda_projects/

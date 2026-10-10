@@ -1,23 +1,25 @@
-name: Validate Jupyter Book 2 (migration)
+name: Validate Jupyter Book 2
 
 on:
-  push:
-    branches:
-      - feat/jupyter-book-2-migration
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-
-concurrency:
-  group: jb2-validation-${{ github.ref }}
-  cancel-in-progress: true
 
 permissions:
   contents: read
 
+env:
+  BASE_URL: /apuntes-robotica
+
+concurrency:
+  group: jb2-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
-    name: Build JB2 static HTML
+    name: Build and validate HTML
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Checkout source
         uses: actions/checkout@v5
@@ -30,11 +32,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           jupyter book --version
-      - name: Build HTML (no notebook execution)
+      - name: Build HTML for project GitHub Pages URL (without executing notebooks)
         shell: bash
         run: |
           set -o pipefail
-          jupyter book build --html 2>&1 | tee jb2-build.log
+          jupyter book build --html --strict 2>&1 | tee jb2-build.log
+      - name: Validate generated URLs and assets
+        run: python scripts/check_site.py
       - name: Store build diagnostics
         if: always()
         uses: actions/upload-artifact@v5
@@ -48,4 +52,4 @@ jobs:
         with:
           name: jb2-html-preview
           path: _build/html/
-          if-no-files-found: warn
+          if-no-files-found: error

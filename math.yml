@@ -1,6 +1,5 @@
 # Shared LaTeX math notation for the robotics notes.
-# Migrated from latex_config.ipynb; review KaTeX compatibility in Block B.
-# The old notebook and inline declarations remain untouched for now.
+# Consolidated from the original JB1 notebook and checked in the JB2 build.
 version: 1
 project:
   math:

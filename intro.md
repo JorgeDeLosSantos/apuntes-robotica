@@ -1,17 +1,3 @@
-
-
-
-% Paréntesis y llaves
-
-
-
-
-% transformaciones
-
-
-
-
-
 # Introducción
 
 ```{warning}

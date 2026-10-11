@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 392" role="img" aria-labelledby="titulo descripcion">
+<title id="titulo">Esquemas de manipuladores cilíndrico y polar</title>
+<desc id="descripcion">Izquierda: manipulador cilíndrico RPP, con giro de base, desplazamiento vertical y extensión radial. Derecha: manipulador polar RRP, con giro de base, inclinación del brazo y extensión radial.</desc>
+<defs><marker id="p" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6Z" fill="#087e91"/></marker>
+<marker id="r" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#c76b29"/></marker></defs>
+<rect width="1024" height="392" fill="#fff"/>
+<rect x="12" y="10" width="491" height="370" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<rect x="521" y="10" width="491" height="370" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<g font-family="Arial,sans-serif" fill="#24364a" font-size="23" font-weight="bold" text-anchor="middle"><text x="258" y="46">Cilíndrico (RPP)</text><text x="766" y="46">Polar (RRP)</text></g>
+<!-- Cylindrical: vertical axis, height carriage, radial slider -->
+<line x1="179" y1="79" x2="179" y2="299" stroke="#91a4b8" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M111 296h138l15 21H98Z" fill="#cbd5e1" stroke="#52657a" stroke-width="2"/>
+<rect x="149" y="257" width="59" height="40" rx="5" fill="#64748b" stroke="#334155" stroke-width="2"/>
+<rect x="166" y="99" width="26" height="159" rx="5" fill="#b8c7d8" stroke="#52657a" stroke-width="2"/>
+<rect x="147" y="137" width="64" height="48" rx="5" fill="#64748b" stroke="#334155" stroke-width="2"/>
+<rect x="197" y="150" width="187" height="20" rx="7" fill="#a6bed1" stroke="#52657a" stroke-width="2"/>
+<rect x="360" y="135" width="31" height="48" rx="4" fill="#64748b" stroke="#334155" stroke-width="2"/>
+<path d="M219 278A47 17 0 1 1 136 277" fill="none" stroke="#c76b29" stroke-width="3.5" marker-end="url(#r)"/>
+<line x1="112" y1="125" x2="112" y2="216" stroke="#087e91" stroke-width="3" marker-start="url(#p)" marker-end="url(#p)"/>
+<line x1="241" y1="115" x2="343" y2="115" stroke="#087e91" stroke-width="3" marker-start="url(#p)" marker-end="url(#p)"/>
+<g font-family="Arial,sans-serif" font-size="19" font-weight="bold"><text x="97" y="260" fill="#b76223">R1</text><text x="77" y="178" fill="#087e91">P2</text><text x="283" y="94" fill="#087e91">P3</text></g>
+<text x="255" y="352" font-family="Arial,sans-serif" fill="#52657a" font-size="16" text-anchor="middle">Giro · elevación · extensión radial</text>
+<!-- Polar: base azimuth, shoulder pitch, telescopic radial -->
+<line x1="695" y1="80" x2="695" y2="300" stroke="#91a4b8" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M630 296h130l15 21H617Z" fill="#cbd5e1" stroke="#52657a" stroke-width="2"/>
+<rect x="667" y="255" width="56" height="43" rx="5" fill="#64748b" stroke="#334155" stroke-width="2"/>
+<rect x="682" y="176" width="27" height="82" rx="5" fill="#b8c7d8" stroke="#52657a" stroke-width="2"/>
+<line x1="709" y1="182" x2="869" y2="81" stroke="#52657a" stroke-width="32" stroke-linecap="round"/>
+<line x1="709" y1="182" x2="869" y2="81" stroke="#a6bed1" stroke-width="22" stroke-linecap="round"/>
+<circle cx="709" cy="182" r="24" fill="#64748b" stroke="#334155" stroke-width="3"/><circle cx="709" cy="182" r="7" fill="#e2e8f0"/>
+<rect x="849" y="64" width="39" height="41" rx="5" fill="#64748b" stroke="#334155" stroke-width="2" transform="rotate(-32 869 84)"/>
+<path d="M742 277A47 17 0 1 1 656 276" fill="none" stroke="#c76b29" stroke-width="3.5" marker-end="url(#r)"/>
+<path d="M755 186A47 47 0 0 0 741 140" fill="none" stroke="#c76b29" stroke-width="3.5" marker-end="url(#r)"/>
+<line x1="790" y1="125" x2="838" y2="95" stroke="#087e91" stroke-width="3" marker-start="url(#p)" marker-end="url(#p)"/>
+<g font-family="Arial,sans-serif" font-size="19" font-weight="bold"><text x="629" y="260" fill="#b76223">R1</text><text x="762" y="172" fill="#b76223">R2</text><text x="830" y="132" fill="#087e91">P3</text></g>
+<text x="766" y="352" font-family="Arial,sans-serif" fill="#52657a" font-size="16" text-anchor="middle">Giro · inclinación · extensión radial</text>
+</svg>

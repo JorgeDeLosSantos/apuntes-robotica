@@ -31,7 +31,7 @@
 <path d="M 313,560 L 313,358.75" fill="none" stroke="#15803d" stroke-width="3" marker-start="url(#dimensionHead)" marker-end="url(#dimensionHead)"/>
 <text x="260" y="459.38" fill="#166534" font-size="23" font-family="Arial,sans-serif" font-style="italic">dᵢ</text>
 <!-- Length a along x_i -->
-<line x1="340" y1="358.75" x2="333.88" y1="358.75" y2="341.82" stroke="#86a69a" stroke-width="1.5"/>
+<line x1="340" y1="358.75" x2="333.88" y2="341.82" stroke="#86a69a" stroke-width="1.5"/>
 <line x1="521.08" y1="293.31" x2="514.96" y2="276.38" stroke="#86a69a" stroke-width="1.5"/>
 <path d="M 333.88,341.82 L 514.96,276.38" stroke="#15803d" stroke-width="3.2" fill="none" marker-start="url(#dimensionHead)" marker-end="url(#dimensionHead)"/>
 <text x="430.42" y="290.1" fill="#166534" font-size="23" font-family="Arial,sans-serif" font-style="italic">aᵢ</text>

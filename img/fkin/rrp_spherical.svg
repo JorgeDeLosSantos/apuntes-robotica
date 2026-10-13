@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-labelledby="title desc">
+<title id="title">Manipulador esférico RRP</title>
+<desc id="desc">Dos articulaciones revolutas con ejes que se intersecan en O, y una articulación prismática a lo largo de una barra radial inclinada.</desc>
+<defs><marker id="axisArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#697586"/></marker><marker id="redArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#b45309"/></marker><marker id="blueArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#2563eb"/></marker></defs>
+<rect width="760" height="390" fill="#ffffff"/>
+<text x="24" y="32" font-family="Arial,sans-serif" font-weight="bold" font-size="22" fill="#1f2937">Manipulador esférico RRP (esquema conceptual)</text>
+<text x="24" y="59" font-family="Arial,sans-serif" font-size="15" fill="#475569">Dos ejes revolutos concurrentes y desplazamiento radial</text>
+<!-- fixed coordinate system and base -->
+<ellipse cx="284" cy="318" rx="62" ry="16" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<path d="M256 318 L256 345 L312 345 L312 318" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+<line x1="284" y1="317" x2="284" y2="82" stroke="#697586" stroke-width="2.6" stroke-dasharray="7 6" marker-end="url(#axisArrow)"/>
+<text x="296" y="91" font-family="Arial,sans-serif" font-size="17" fill="#475569">z₀ (R₁)</text>
+<line x1="284" y1="285" x2="424" y2="345" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+<text x="418" y="364" font-family="Arial,sans-serif" font-size="17" fill="#475569">x₀</text>
+<line x1="284" y1="285" x2="154" y2="349" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+<text x="127" y="360" font-family="Arial,sans-serif" font-size="17" fill="#475569">y₀</text>
+<!-- central mechanism -->
+<circle cx="284" cy="285" r="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+<circle cx="284" cy="285" r="5" fill="#1d4ed8"/>
+<line x1="238" y1="306" x2="332" y2="263" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+<text x="156" y="258" font-family="Arial,sans-serif" font-size="17" fill="#1d4ed8">z₁ (R₂)</text>
+<line x1="205" y1="259" x2="249" y2="280" stroke="#2563eb" stroke-width="1.4"/>
+<text x="295" y="304" font-family="Arial,sans-serif" font-size="17" fill="#1f2937">O</text>
+<!-- radial guide -->
+<line x1="284" y1="285" x2="438" y2="113" stroke="#475569" stroke-width="17" stroke-linecap="round"/>
+<line x1="291" y1="279" x2="443" y2="111" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round"/>
+<g transform="rotate(-48 397 160)"><rect x="368" y="146" width="58" height="29" rx="5" fill="#fde68a" stroke="#b45309" stroke-width="2.5"/></g>
+<line x1="440" y1="111" x2="501" y2="43" stroke="#b45309" stroke-width="8" stroke-linecap="round"/>
+<circle cx="501" cy="43" r="11" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="520" y="40" font-family="Arial,sans-serif" font-weight="bold" font-size="18" fill="#9a3412">Extremo {3}</text>
+<line x1="467" y1="111" x2="516" y2="56" stroke="#b45309" stroke-width="2.3" marker-end="url(#redArrow)"/>
+<text x="515" y="89" font-family="Arial,sans-serif" font-size="17" fill="#b45309">z₂ · q₃ (P₃)</text>
+<!-- motion arrows -->
+<path d="M216 303 A70 27 0 0 1 351 299" fill="none" stroke="#2563eb" stroke-width="2.6" marker-end="url(#blueArrow)"/>
+<text x="208" y="332" font-family="Arial,sans-serif" font-size="17" fill="#2563eb">q₁</text>
+<path d="M284 207 A78 78 0 0 1 336 227" fill="none" stroke="#2563eb" stroke-width="2.6" marker-end="url(#blueArrow)"/>
+<text x="304" y="196" font-family="Arial,sans-serif" font-size="17" fill="#2563eb">q₂</text>
+<!-- notes -->
+<rect x="548" y="134" width="182" height="177" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="568" y="163" font-family="Arial,sans-serif" font-weight="bold" font-size="16" fill="#334155">Coordenadas</text>
+<text x="568" y="193" font-family="Arial,sans-serif" font-size="16" fill="#334155">q₁ = azimut</text>
+<text x="568" y="222" font-family="Arial,sans-serif" font-size="16" fill="#334155">q₂ = inclinación</text>
+<text x="568" y="251" font-family="Arial,sans-serif" font-size="16" fill="#334155">q₃ = distancia</text>
+<text x="568" y="276" font-family="Arial,sans-serif" font-size="16" fill="#334155">radial</text>
+<text x="23" y="378" font-family="Arial,sans-serif" font-size="13" fill="#64748b">Esquema ilustrativo: no representa una configuración DH única ni está a escala.</text>
+</svg>
